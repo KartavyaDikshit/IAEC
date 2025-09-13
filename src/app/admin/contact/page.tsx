@@ -119,10 +119,13 @@ export default function ContactAdmin() {
               <input
                 type="text"
                 value={contactData?.primary?.mobile || ''}
-                onChange={(e) => setContactData({
-                  ...contactData,
-                  primary: { ...contactData?.primary, mobile: e.target.value }
-                })}
+                onChange={(e) => setContactData((prevData) => ({
+                  ...(prevData || { company: { name: '', tagline: '', established: '' }, primary: { mobile: '', landline: '', email: '' }, branches: {} }),
+                  primary: {
+                    ...(prevData?.primary || { mobile: '', landline: '', email: '' }),
+                    mobile: e.target.value
+                  }
+                }))}
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#08bcb4]"
               />
             </div>
@@ -133,10 +136,13 @@ export default function ContactAdmin() {
               <input
                 type="text"
                 value={contactData?.primary?.landline || ''}
-                onChange={(e) => setContactData({
-                  ...contactData,
-                  primary: { ...contactData?.primary, landline: e.target.value }
-                })}
+                onChange={(e) => setContactData((prevData) => ({
+                  ...(prevData || { company: { name: '', tagline: '', established: '' }, primary: { mobile: '', landline: '', email: '' }, branches: {} }),
+                  primary: {
+                    ...(prevData?.primary || { mobile: '', landline: '', email: '' }),
+                    landline: e.target.value
+                  }
+                }))}
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#08bcb4]"
               />
             </div>
@@ -147,10 +153,13 @@ export default function ContactAdmin() {
               <input
                 type="email"
                 value={contactData?.primary?.email || ''}
-                onChange={(e) => setContactData({
-                  ...contactData,
-                  primary: { ...contactData?.primary, email: e.target.value }
-                })}
+                                onChange={(e) => setContactData((prevData) => ({
+                  ...(prevData || { company: { name: '', tagline: '', established: '' }, primary: { mobile: '', landline: '', email: '' }, branches: {} }),
+                  primary: {
+                    ...(prevData?.primary || { mobile: '', landline: '', email: '' }),
+                    email: e.target.value
+                  }
+                }))}
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#08bcb4]"
               />
             </div>

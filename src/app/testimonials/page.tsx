@@ -57,7 +57,7 @@ const TestimonialsPage = () => {
                 </div>
               )}
               <p className="text-[#4a5568] italic">
-                "{testimonial.content || testimonial.quote}"
+                &quot;{testimonial.content || testimonial.quote}&quot;
               </p>
             </div>
             

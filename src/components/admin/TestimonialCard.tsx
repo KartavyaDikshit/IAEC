@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Testimonial {
   id: string;
@@ -48,7 +49,7 @@ export default function TestimonialCard({ testimonial, onDelete }: TestimonialCa
         <p className="text-gray-600 text-sm mb-4">{testimonial.university} - {testimonial.course} ({testimonial.country})</p>
         <p className="text-gray-800 mb-4">{testimonial.content}</p>
         <div className="flex justify-end space-x-2">
-          <button className="text-sm text-blue-600 hover:underline">Edit</button>
+          <Link href={`/admin/testimonials/${testimonial.id}`} className="text-sm text-blue-600 hover:underline">Edit</Link>
           <button onClick={() => onDelete(testimonial.id)} className="text-sm text-red-600 hover:underline">Delete</button>
         </div>
       </div>

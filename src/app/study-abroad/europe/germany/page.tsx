@@ -78,7 +78,7 @@ const StudyAbroadGermanyPage = () => {
                 Why Choose Germany for Higher Education?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Germany offers the world's most generous higher education system with tuition-free universities, cutting-edge research, and unmatched engineering excellence.
+                Germany offers the world&apos;s most generous higher education system with tuition-free universities, cutting-edge research, and unmatched engineering excellence.
               </p>
             </div>
             
@@ -220,7 +220,7 @@ const StudyAbroadGermanyPage = () => {
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">Technical University of Munich (TUM)</div>
-                      <div className="text-sm text-gray-600">Germany's top-ranked technical university</div>
+                      <div className="text-sm text-gray-600">Germany&apos;s top-ranked technical university</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#26</td>
                     <td className="p-4 text-center">FREE (€135 semester fee)</td>
@@ -238,7 +238,7 @@ const StudyAbroadGermanyPage = () => {
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">Heidelberg University</div>
-                      <div className="text-sm text-gray-600">Germany's oldest university and research leader</div>
+                      <div className="text-sm text-gray-600">Germany&apos;s oldest university and research leader</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#47</td>
                     <td className="p-4 text-center">FREE (€185 semester fee)</td>
@@ -636,7 +636,7 @@ const StudyAbroadGermanyPage = () => {
                 Work Opportunities in Germany
               </h2>
               <p className="text-xl text-gray-600">
-                Europe's largest economy with unmatched career opportunities for international graduates
+                Europe&apos;s largest economy with unmatched career opportunities for international graduates
               </p>
             </div>
 
@@ -829,7 +829,7 @@ const StudyAbroadGermanyPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">Do I need to know German to study in Germany?</h3>
-                <p className="text-gray-600">Not necessarily. Over 500 programs are taught in English, especially at master's level. However, learning German opens more opportunities and helps with daily life.</p>
+                <p className="text-gray-600">Not necessarily. Over 500 programs are taught in English, especially at master&apos;s level. However, learning German opens more opportunities and helps with daily life.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">

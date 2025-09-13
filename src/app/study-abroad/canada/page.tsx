@@ -25,7 +25,7 @@ const StudyAbroadCanadaPage = () => {
               Study in <span className="text-yellow-400">Canada</span> - The True North Strong and Free
             </h1>
             <p className="text-xl mb-8 text-blue-100">
-              Join 1M+ international students in Canada - world's most livable country with pathways to permanent residency and Express Entry
+              Join 1M+ international students in Canada - world&apos;s most livable country with pathways to permanent residency and Express Entry
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🍁 Highest Quality of Life</span>
@@ -85,7 +85,7 @@ const StudyAbroadCanadaPage = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">🍁</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">World's Best Quality of Life</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">World&apos;s Best Quality of Life</h3>
                 <p className="text-gray-600">Canada ranks #1 globally for quality of life. Safe, peaceful, politically stable with excellent healthcare and human rights protection.</p>
               </div>
 

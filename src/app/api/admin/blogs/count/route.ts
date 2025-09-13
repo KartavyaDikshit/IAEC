@@ -25,6 +25,7 @@ export async function GET() {
     const blogs = await readBlogs()
     return NextResponse.json({ count: blogs.length })
   } catch (error) {
+    console.error("Error fetching blog count:", error); // Log the error for debugging
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

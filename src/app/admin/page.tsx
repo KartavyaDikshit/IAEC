@@ -1,5 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { default as Link } from 'next/link'
+import StatsCard from "../../components/admin/StatsCard"; // Corrected import path
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState({
@@ -65,53 +67,27 @@ export default function AdminDashboard() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow">
-          <div className="flex items-center">
-            <div className="text-3xl mr-4">📝</div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">Total Blogs</h3>
-              <p className="text-3xl font-bold text-[#08bcb4]">{stats.totalBlogs}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white p-6 rounded-lg shadow">
-          <div className="flex items-center">
-            <div className="text-3xl mr-4">⭐</div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">Total Testimonials</h3>
-              <p className="text-3xl font-bold text-green-600">{stats.totalTestimonials}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white p-6 rounded-lg shadow">
-          <div className="flex items-center">
-            <div className="text-3xl mr-4">📊</div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">Total Content</h3>
-              <p className="text-3xl font-bold text-purple-600">{stats.recentActivity}</p>
-            </div>
-          </div>
-        </div>
+        <StatsCard title="Total Blogs" value={stats.totalBlogs} icon="📝" color="blue" />
+        <StatsCard title="Total Testimonials" value={stats.totalTestimonials} icon="⭐" color="green" />
+        <StatsCard title="Total Content" value={stats.recentActivity} icon="📊" color="purple" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
           <div className="space-y-3">
-            <a 
+            <Link 
               href="/admin/blogs/new"
               className="block w-full bg-[#08bcb4] text-white p-3 rounded-lg text-center hover:bg-[#069aa2] transition-colors font-medium"
             >
               Create New Blog Post
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/admin/testimonials/new"
               className="block w-full bg-[#08bcb4] text-white p-3 rounded-lg text-center hover:bg-[#069aa2] transition-colors font-medium"
             >
               Add New Testimonial
-            </a>
+            </Link>
           </div>
         </div>
 

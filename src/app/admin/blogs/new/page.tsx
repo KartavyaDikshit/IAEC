@@ -1,31 +1,25 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import BlogEditor from "../../../../components/admin/BlogEditor"; // Corrected import path
 
 export default function CreateBlog() {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
-  const [formData, setFormData] = useState({
-    title: '',
-    content: '',
-    status: 'draft' as 'draft' | 'published'
-  })
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSave = async (blogData: { title: string; content: string; status: 'draft' | 'published' }) => {
     setLoading(true)
     
     try {
       const response = await fetch('/api/admin/blogs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(blogData)
       })
       
       if (response.ok) {
         setSuccess(true)
-        // Show success message for 1 second then redirect
         setTimeout(() => {
           router.push('/admin/blogs')
         }, 1000)
@@ -66,67 +60,7 @@ export default function CreateBlog() {
       </div>
 
       <div className="bg-white rounded-lg shadow">
-        <form onSubmit={handleSubmit} className="p-6 space-y-6">
-          <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
-              Title
-            </label>
-            <input
-              type="text"
-              id="title"
-              value={formData.title}
-              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-2">
-              Content
-            </label>
-            <textarea
-              id="content"
-              rows={15}
-              value={formData.content}
-              onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-2">
-              Status
-            </label>
-            <select
-              id="status"
-              value={formData.status}
-              onChange={(e) => setFormData({ ...formData, status: e.target.value as 'draft' | 'published' })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
-            >
-              <option value="draft">Draft</option>
-              <option value="published">Published</option>
-            </select>
-          </div>
-
-          <div className="flex justify-end space-x-4">
-            <button
-              type="button"
-              onClick={() => router.back()}
-              className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              disabled={loading}
-              className="px-6 py-2 bg-[#08bcb4] text-white rounded-md hover:bg-[#069aa2] disabled:opacity-50 transition-colors"
-            >
-              {loading ? 'Creating...' : 'Create Blog Post'}
-            </button>
-          </div>
-        </form>
+        <BlogEditor onSave={handleSave} loading={loading} />
       </div>
     </div>
   )

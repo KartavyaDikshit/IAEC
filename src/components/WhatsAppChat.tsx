@@ -148,10 +148,10 @@ export default function WhatsAppChat() {
               💡 Using WhatsApp Desktop App?
             </h3>
             <p className="text-gray-600 mb-4">
-              If WhatsApp opened in the desktop app without the message, here's what to do:
+              If WhatsApp opened in the desktop app without the message, here&apos;s what to do:
             </p>
             <div className="space-y-2 text-sm text-gray-700 mb-4">
-              <p>1. 📱 Find "iaec consultants Ahmedabad" in your chat list</p>
+              <p>1. 📱 Find &quot;iaec consultants Ahmedabad&quot; in your chat list</p>
               <p>2. 📝 Copy and paste this message:</p>
               <div className="bg-gray-100 p-3 rounded text-xs font-mono max-h-32 overflow-y-auto">
                 {whatsappData.message.replace(/\\n/g, '\n')}

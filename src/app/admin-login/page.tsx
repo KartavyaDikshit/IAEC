@@ -41,6 +41,7 @@ export default function AdminLogin() {
       }
     } catch (error) {
       setError('An error occurred during sign in.')
+      console.error(error) // Log the error for debugging
     } finally {
       setIsLoading(false)
     }

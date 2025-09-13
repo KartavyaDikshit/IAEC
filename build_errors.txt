@@ -1,0 +1,171 @@
+src/app/admin/contact/page.tsx(124,19): error TS2322: Type '{ mobile: string; landline?: string | undefined; email?: string | undefined; website?: string; }' is not assignable to type '{ mobile: string; landline: string; email: string; website?: string | undefined; }'.
+  Types of property 'landline' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/app/admin/contact/page.tsx(138,19): error TS2322: Type '{ landline: string; mobile?: string | undefined; email?: string | undefined; website?: string; }' is not assignable to type '{ mobile: string; landline: string; email: string; website?: string | undefined; }'.
+  Types of property 'mobile' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/app/admin/contact/page.tsx(152,19): error TS2322: Type '{ email: string; mobile?: string | undefined; landline?: string | undefined; website?: string; }' is not assignable to type '{ mobile: string; landline: string; email: string; website?: string | undefined; }'.
+  Types of property 'mobile' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/app/study-abroad/europe/italy/page.tsx(921,37): error TS2304: Cannot find name 'Page'.
+src/app/study-abroad/europe/latvia/page.tsx(925,1): error TS2304: Cannot find name 'age'.
+
+C:\Users\User\IAEC2\IAEC\fix-build-errors.js
+    1:12  error    A `require()` style import is forbidden                                            @typescript-eslint/no-require-imports
+    2:14  error    A `require()` style import is forbidden                                            @typescript-eslint/no-require-imports
+   42:40  error    'filePath' is defined but never used. Allowed unused args must match /^_/u         @typescript-eslint/no-unused-vars
+   63:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  101:1   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  105:1   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  106:1   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+
+C:\Users\User\IAEC2\IAEC\next sprint\iaec-build-fixer.js
+    3:12  error    A `require()` style import is forbidden                                            @typescript-eslint/no-require-imports
+    4:14  error    A `require()` style import is forbidden                                            @typescript-eslint/no-require-imports
+    6:1   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+   91:11  error    'content' is never reassigned. Use 'const' instead                                 prefer-const
+   96:9   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  100:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  103:5   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  113:11  error    'content' is never reassigned. Use 'const' instead                                 prefer-const
+  118:9   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  122:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  125:5   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  140:11  error    'content' is never reassigned. Use 'const' instead                                 prefer-const
+  145:9   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  149:7   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  154:1   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  155:1   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  156:1   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  157:1   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+  158:1   warning  Unexpected console statement. Only these console methods are allowed: warn, error  no-console
+
+C:\Users\User\IAEC2\IAEC\next-env.d.ts
+  3:1  error  Do not use a triple slash reference for ./.next/types/routes.d.ts, use `import` style instead  @typescript-eslint/triple-slash-reference
+
+C:\Users\User\IAEC2\IAEC\src\app\admin-login\page.tsx
+  42:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\User\IAEC2\IAEC\src\app\api\admin\blogs\count\route.ts
+  27:12  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\User\IAEC2\IAEC\src\app\api\admin\testimonials\count\route.ts
+  27:12  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\User\IAEC2\IAEC\src\app\study-abroad\canada\page.tsx
+  28:64  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  88:75  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\User\IAEC2\IAEC\src\app\study-abroad\europe\france\page.tsx
+   28:28  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  223:68  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  356:71  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  563:76  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  682:51  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  837:57  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\User\IAEC2\IAEC\src\app\study-abroad\europe\germany\page.tsx
+   81:41   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  223:69   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  241:69   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  639:23   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  832:124  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\User\IAEC2\IAEC\src\app\study-abroad\europe\italy\page.tsx
+   28:76   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`        react/no-unescaped-entities
+  100:75   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`        react/no-unescaped-entities
+  101:82   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`        react/no-unescaped-entities
+  223:67   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`        react/no-unescaped-entities
+  383:23   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`        react/no-unescaped-entities
+  659:61   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`        react/no-unescaped-entities
+  849:120  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`        react/no-unescaped-entities
+  921:37   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\User\IAEC2\IAEC\src\app\study-abroad\europe\latvia\page.tsx
+  107:88  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`        react/no-unescaped-entities
+  107:98  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`        react/no-unescaped-entities
+  925:1   warning  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+C:\Users\User\IAEC2\IAEC\src\app\study-abroad\europe\spain\page.tsx
+   28:79   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   81:134  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  101:66   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  142:85   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  149:84   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  223:67   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  259:96   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  290:83   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  332:82   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  340:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  383:23   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  466:86   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  470:84   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  593:50   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  613:50   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  662:44   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  859:75   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  875:212  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\User\IAEC2\IAEC\src\app\study-abroad\uk\page.tsx
+   89:59   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   95:61   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   95:81   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  149:78   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  156:76   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  203:22   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  221:67   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  248:68   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  257:70   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  288:76   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  330:74   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  338:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  565:72   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  567:50   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  577:50   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  674:49   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  674:58   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  934:138  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  934:155  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  954:88   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\User\IAEC2\IAEC\src\app\study-abroad\usa\page.tsx
+   28:78   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   31:96   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   80:54   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  106:87   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  143:123  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  148:78   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  155:76   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  289:76   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  331:74   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  339:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  392:80   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  396:81   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  400:78   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  404:79   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  906:109  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  906:143  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  921:179  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  926:188  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  946:87   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\User\IAEC2\IAEC\src\app\testimonials\page.tsx
+  60:17  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  60:60  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\User\IAEC2\IAEC\src\components\WhatsAppChat.tsx
+  151:78  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  154:29  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  154:56  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\User\IAEC2\IAEC\src\components\WhatsAppInstructions.tsx
+  9:26  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  9:60  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  9:87  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+✖ 119 problems (99 errors, 20 warnings)
+  3 errors and 0 warnings potentially fixable with the `--fix` option.
+

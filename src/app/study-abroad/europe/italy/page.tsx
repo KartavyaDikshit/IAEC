@@ -25,7 +25,7 @@ const StudyAbroadItalyPage = () => {
               Study in <span className="text-yellow-400">Italy</span> - Art, Culture & Innovation
             </h1>
             <p className="text-xl mb-8 text-green-100">
-              Birthplace of Renaissance, fashion capital, and home to world's oldest university. Combine affordable EU education with rich cultural heritage
+              Birthplace of Renaissance, fashion capital, and home to world&apos;s oldest university. Combine affordable EU education with rich cultural heritage
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🎨 Art & Design Capital</span>
@@ -97,8 +97,8 @@ const StudyAbroadItalyPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">🏛️</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">World's Oldest University Heritage</h3>
-                <p className="text-gray-600">University of Bologna (1088) - world's oldest university. Rich academic tradition with modern innovation in education and research.</p>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">World&apos;s Oldest University Heritage</h3>
+                <p className="text-gray-600">University of Bologna (1088) - world&apos;s oldest university. Rich academic tradition with modern innovation in education and research.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -220,7 +220,7 @@ const StudyAbroadItalyPage = () => {
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">University of Bologna</div>
-                      <div className="text-sm text-gray-600">World's oldest university (1088) with global reputation</div>
+                      <div className="text-sm text-gray-600">World&apos;s oldest university (1088) with global reputation</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#146</td>
                     <td className="p-4 text-center">€900 - €4,000</td>
@@ -380,7 +380,7 @@ const StudyAbroadItalyPage = () => {
                 Cost of Studying in Italy 2025
               </h2>
               <p className="text-xl text-gray-600">
-                Europe's most affordable quality education with ISEE income-based fee reduction
+                Europe&apos;s most affordable quality education with ISEE income-based fee reduction
               </p>
             </div>
 
@@ -656,7 +656,7 @@ const StudyAbroadItalyPage = () => {
                 Work Opportunities in Italy
               </h2>
               <p className="text-xl text-gray-600">
-                Study, work, and build your career in Europe's fashion and design capital
+                Study, work, and build your career in Europe&apos;s fashion and design capital
               </p>
             </div>
 
@@ -846,7 +846,7 @@ const StudyAbroadItalyPage = () => {
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">Do I need to know Italian to study in Italy?</h3>
-                <p className="text-gray-600">Not necessarily. Many programs are taught in English, especially at master's level. However, basic Italian helps with daily life and enhances job opportunities.</p>
+                <p className="text-gray-600">Not necessarily. Many programs are taught in English, especially at master&apos;s level. However, basic Italian helps with daily life and enhances job opportunities.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
@@ -918,4 +918,4 @@ const StudyAbroadItalyPage = () => {
   );
 };
 
-export default StudyAbroadItalyPage;Page;
+export default StudyAbroadItalyPage;

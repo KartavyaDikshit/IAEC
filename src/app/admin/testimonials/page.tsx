@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import TestimonialCard from "../../../components/admin/TestimonialCard"; // Corrected import path
 
 interface Testimonial {
   id: string
@@ -74,35 +75,12 @@ export default function TestimonialsManagement() {
             No testimonials found. <Link href="/admin/testimonials/new" className="text-[#08bcb4] hover:underline">Add your first testimonial</Link>
           </div>
         ) : (
-          testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white p-6 rounded-lg shadow">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">{testimonial.name}</h3>
-                <div className="flex space-x-2">
-                  <button
-                    onClick={() => handleDeleteTestimonial(testimonial.id)}
-                    className="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700 transition-colors"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-              
-              <div className="space-y-2 text-sm text-gray-600">
-                <p><strong>University:</strong> {testimonial.university}</p>
-                <p><strong>Course:</strong> {testimonial.course}</p>
-                <p><strong>Country:</strong> {testimonial.country}</p>
-                <p><strong>Rating:</strong> {'★'.repeat(testimonial.rating)}</p>
-              </div>
-              
-              <p className="mt-4 text-sm text-gray-700 line-clamp-3">
-                {testimonial.content}
-              </p>
-              
-              <p className="mt-2 text-xs text-gray-500">
-                Added: {new Date(testimonial.createdAt).toLocaleDateString()}
-              </p>
-            </div>
+                    testimonials.map((testimonial) => (
+            <TestimonialCard 
+              key={testimonial.id}
+              testimonial={testimonial}
+              onDelete={handleDeleteTestimonial}
+            />
           ))
         )}
       </div>

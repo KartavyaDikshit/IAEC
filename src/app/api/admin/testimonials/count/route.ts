@@ -25,6 +25,7 @@ export async function GET() {
     const testimonials = await readTestimonials()
     return NextResponse.json({ count: testimonials.length })
   } catch (error) {
+    console.error("Error fetching testimonial count:", error); // Log the error for debugging
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

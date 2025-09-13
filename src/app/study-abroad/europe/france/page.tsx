@@ -25,7 +25,7 @@ const StudyAbroadFrancePage = () => {
               Study in <span className="text-yellow-400">France</span> - Excellence & Culture
             </h1>
             <p className="text-xl mb-8 text-blue-100">
-              Home to world's finest universities, art, culture, and luxury brands. Gateway to European excellence with affordable education and global recognition
+              Home to world&apos;s finest universities, art, culture, and luxury brands. Gateway to European excellence with affordable education and global recognition
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🎓 Academic Excellence</span>
@@ -220,7 +220,7 @@ const StudyAbroadFrancePage = () => {
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">Paris Sciences et Lettres (PSL)</div>
-                      <div className="text-sm text-gray-600">France's highest-ranked institution</div>
+                      <div className="text-sm text-gray-600">France&apos;s highest-ranked institution</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#24</td>
                     <td className="p-4 text-center">€170 - €2,770</td>
@@ -353,7 +353,7 @@ const StudyAbroadFrancePage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Research Proposal</h4>
-                      <p className="text-gray-600">For research master's - detailed proposal and supervisor contact</p>
+                      <p className="text-gray-600">For research master&apos;s - detailed proposal and supervisor contact</p>
                     </div>
                   </div>
                   
@@ -560,7 +560,7 @@ const StudyAbroadFrancePage = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-yellow-400">
                 <h3 className="text-lg font-bold mb-3">Eiffel Excellence Scholarship</h3>
-                <p className="text-sm text-gray-600 mb-3">French government's flagship program</p>
+                <p className="text-sm text-gray-600 mb-3">French government&apos;s flagship program</p>
                 <div className="text-sm">
                   <p><strong>For:</strong> Master&apos;s and PhD programs</p>
                   <p><strong>Amount:</strong> €1,181-1,700/month + allowances</p>
@@ -679,7 +679,7 @@ const StudyAbroadFrancePage = () => {
                   <div className="border-l-4 border-purple-400 pl-6">
                     <h4 className="font-bold text-lg mb-2">Career Opportunities</h4>
                     <ul className="text-gray-600 space-y-1">
-                      <li>• Luxury brands: LVMH, L'Oréal, Hermès</li>
+                      <li>• Luxury brands: LVMH, L&apos;Oréal, Hermès</li>
                       <li>• Tech companies: Airbus, Dassault, Ubisoft</li>
                       <li>• Finance: BNP Paribas, Société Générale</li>
                       <li>• Consulting: McKinsey, BCG, Capgemini</li>
@@ -834,7 +834,7 @@ const StudyAbroadFrancePage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">Can I stay in France after graduation to work?</h3>
-                <p className="text-gray-600">Yes, master's and PhD graduates can get APS (Autorisation Provisoire de Séjour) visa for 24 months to search for work and gain professional experience.</p>
+                <p className="text-gray-600">Yes, master&apos;s and PhD graduates can get APS (Autorisation Provisoire de Séjour) visa for 24 months to search for work and gain professional experience.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">

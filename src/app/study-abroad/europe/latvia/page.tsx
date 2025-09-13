@@ -104,7 +104,7 @@ const StudyAbroadLatviaPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">🌍</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">English-Taught Programs</h3>
-                <p className="text-gray-600">Extensive range of English-taught bachelor's, master's, and PhD programs across all major academic disciplines.</p>
+                <p className="text-gray-600">Extensive range of English-taught bachelor&apos;s, master&apos;s, and PhD programs across all major academic disciplines.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -922,4 +922,4 @@ const StudyAbroadLatviaPage = () => {
 };
 
 export default StudyAbroadLatviaPage;
-age;
+

@@ -1,0 +1,23 @@
+
+> iaec-website@0.1.0 lint
+> next lint
+
+`next lint` is deprecated and will be removed in Next.js 16.
+For new projects, use create-next-app to choose your preferred linter.
+For existing projects, migrate to the ESLint CLI:
+npx @next/codemod@canary next-lint-to-eslint-cli .
+
+
+./src/app/study-abroad/europe/italy/page.tsx
+921:37  Warning: Expected an assignment or function call and instead saw an expression.  @typescript-eslint/no-unused-expressions
+
+./src/app/study-abroad/europe/latvia/page.tsx
+925:1  Warning: Expected an assignment or function call and instead saw an expression.  @typescript-eslint/no-unused-expressions
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+
+> iaec-website@0.1.0 type-check
+> tsc --noEmit
+
+src/app/study-abroad/europe/italy/page.tsx(921,37): error TS2304: Cannot find name 'Page'.
+src/app/study-abroad/europe/latvia/page.tsx(925,1): error TS2304: Cannot find name 'age'.

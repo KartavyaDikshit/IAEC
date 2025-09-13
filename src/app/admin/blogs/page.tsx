@@ -1,13 +1,14 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import BlogListItem from "../../../components/admin/BlogListItem"; // Corrected import path
 
 interface Blog {
   id: string
   title: string
   content: string
   author: string
-  createdAt: string
+  publishedAt: string // Changed from createdAt
   updatedAt: string
   status: 'draft' | 'published'
 }
@@ -64,6 +65,8 @@ export default function BlogsManagement() {
       }
     } catch (error) {
       console.error('Error updating blog status:', error)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -100,45 +103,12 @@ export default function BlogsManagement() {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {blogs.map((blog) => (
-                  <tr key={blog.id}>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900">{blog.title}</div>
-                      <div className="text-sm text-gray-500">{blog.content.substring(0, 100)}...</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {blog.author}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                        blog.status === 'published' 
-                          ? 'bg-green-100 text-green-800' 
-                          : 'bg-yellow-100 text-yellow-800'
-                      }`}>
-                        {blog.status}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {new Date(blog.createdAt).toLocaleDateString()}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                      <button
-                        onClick={() => handleStatusToggle(blog.id, blog.status)}
-                        className={`${
-                          blog.status === 'published' 
-                            ? 'text-orange-600 hover:text-orange-900' 
-                            : 'text-green-600 hover:text-green-900'
-                        }`}
-                      >
-                        {blog.status === 'published' ? 'Unpublish' : 'Publish'}
-                      </button>
-                      <button
-                        onClick={() => handleDeleteBlog(blog.id)}
-                        className="text-red-600 hover:text-red-900"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
+                  <BlogListItem 
+                    key={blog.id}
+                    blog={blog}
+                    onDelete={handleDeleteBlog}
+                    onToggleStatus={handleStatusToggle}
+                  />
                 ))}
               </tbody>
             </table>
