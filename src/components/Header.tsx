@@ -44,10 +44,9 @@ const Header = () => {
           </nav>
           <div className="hidden md:flex items-center space-x-2">
             <a href="tel:+91-XXXXXXXXXX" className="text-sm text-gray-800">Contact Number</a>
-            <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-800">WhatsApp</a>
             <Link href="/booking" className="px-3 py-1 rounded-md text-sm" style={{ backgroundColor: '#08bcb4', color: 'white' }}>Book Free Counselling</Link>
             <Link href="/mock-test" className="px-3 py-1 rounded-md text-sm" style={{ backgroundColor: '#08bcb4', color: 'white' }}>Free Mock Test</Link>
-            <Link href="/admin-login" className="px-3 py-1 rounded-md text-sm" style={{ backgroundColor: '#08bcb4', color: 'white' }}>Admin Login</Link>
+            
           </div>
           <div className="md:hidden">
             <button>

@@ -139,14 +139,14 @@ const StudyAbroadMaltaPage = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🎓</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor's Degree</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor&apos;s Degree</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">3-4 Years - 180-240 ECTS</div>
                 <p className="text-gray-600 text-sm">Comprehensive undergraduate education with strong practical components.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🏆</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Master's Degree</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Master&apos;s Degree</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">1-2 Years - 90-120 ECTS</div>
                 <p className="text-gray-600 text-sm">Advanced specialization with research or professional focus options.</p>
               </div>
@@ -220,7 +220,7 @@ const StudyAbroadMaltaPage = () => {
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">University of Malta</div>
-                      <div className="text-sm text-gray-600">Malta's largest university with 11,000+ students</div>
+                      <div className="text-sm text-gray-600">Malta&apos;s largest university with 11,000+ students</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#751</td>
                     <td className="p-4 text-center">€2,160 (Non-EU)</td>
@@ -246,7 +246,7 @@ const StudyAbroadMaltaPage = () => {
                   </tr>
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
-                      <div className="font-semibold">St Martin's Institute of Higher Education</div>
+                      <div className="font-semibold">St Martin&apos;s Institute of Higher Education</div>
                       <div className="text-sm text-gray-600">Specialized programs in education and social sciences</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">Unranked</td>
@@ -260,7 +260,7 @@ const StudyAbroadMaltaPage = () => {
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">Unranked</td>
                     <td className="p-4 text-center">€13,500 - €15,000</td>
-                    <td className="p-4 text-center">St Julian's</td>
+                    <td className="p-4 text-center">St Julian&apos;s</td>
                   </tr>
                 </tbody>
               </table>
@@ -283,11 +283,11 @@ const StudyAbroadMaltaPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor's Requirements */}
+              {/* Bachelor&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Bachelor's Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Bachelor&apos;s Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -325,11 +325,11 @@ const StudyAbroadMaltaPage = () => {
                 </div>
               </div>
 
-              {/* Master's Requirements */}
+              {/* Master&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Master's Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Master&apos;s Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -337,7 +337,7 @@ const StudyAbroadMaltaPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree in relevant field with good academic standing</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree in relevant field with good academic standing</p>
                     </div>
                   </div>
                   
@@ -438,7 +438,7 @@ const StudyAbroadMaltaPage = () => {
 
             {/* Cost Advantages */}
             <div className="bg-white p-8 rounded-xl shadow-lg mb-8">
-              <h3 className="text-2xl font-bold text-center mb-6">Malta's Cost Advantages</h3>
+              <h3 className="text-2xl font-bold text-center mb-6">Malta&apos;s Cost Advantages</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                   <h4 className="font-bold text-[#08bcb4] mb-2">EU Citizens</h4>
@@ -807,7 +807,7 @@ const StudyAbroadMaltaPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
-              Ready to Experience Malta's Island Paradise?
+              Ready to Experience Malta&apos;s Island Paradise?
             </h2>
             <p className="text-xl mb-8 text-blue-100">
               Join thousands of successful students who chose Malta and now enjoy EU careers with English education and Mediterranean lifestyle

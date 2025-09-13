@@ -98,7 +98,7 @@ const StudyAbroadIrelandPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">🎓</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">World-Class Universities</h3>
-                <p className="text-gray-600">Trinity College Dublin, UCD, and other prestigious institutions ranked globally. Home to Europe's leading research centers and Nobel laureates.</p>
+                <p className="text-gray-600">Trinity College Dublin, UCD, and other prestigious institutions ranked globally. Home to Europe&apos;s leading research centers and Nobel laureates.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -146,14 +146,14 @@ const StudyAbroadIrelandPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🎓</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor's Degree</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor&apos;s Degree</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">Level 7/8 - 3-4 Years</div>
                 <p className="text-gray-600 text-sm">Comprehensive undergraduate education with honours and ordinary degrees.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🏆</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Master's Degree</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Master&apos;s Degree</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">Level 9 - 1-2 Years</div>
                 <p className="text-gray-600 text-sm">Advanced study and research opportunities in specialized fields.</p>
               </div>
@@ -220,7 +220,7 @@ const StudyAbroadIrelandPage = () => {
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">Trinity College Dublin (TCD)</div>
-                      <div className="text-sm text-gray-600">Ireland's oldest and most prestigious university</div>
+                      <div className="text-sm text-gray-600">Ireland&apos;s oldest and most prestigious university</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#87</td>
                     <td className="p-4 text-center">€14,000 - €55,000</td>
@@ -229,7 +229,7 @@ const StudyAbroadIrelandPage = () => {
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">University College Dublin (UCD)</div>
-                      <div className="text-sm text-gray-600">Ireland's largest university with global reach</div>
+                      <div className="text-sm text-gray-600">Ireland&apos;s largest university with global reach</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#126</td>
                     <td className="p-4 text-center">€20,000 - €60,000</td>
@@ -283,11 +283,11 @@ const StudyAbroadIrelandPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor's Requirements */}
+              {/* Bachelor&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Bachelor's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Bachelor&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -325,11 +325,11 @@ const StudyAbroadIrelandPage = () => {
                 </div>
               </div>
 
-              {/* Master's Requirements */}
+              {/* Master&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Master's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Master&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -337,7 +337,7 @@ const StudyAbroadIrelandPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree with 60%+ (2.1 honours or equivalent)</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree with 60%+ (2.1 honours or equivalent)</p>
                     </div>
                   </div>
                   
@@ -390,11 +390,11 @@ const StudyAbroadIrelandPage = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Annual Tuition Fees (EUR)</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Bachelor's Degree</span>
+                    <span className="font-medium">Bachelor&apos;s Degree</span>
                     <span className="font-bold text-[#08bcb4]">€9,850 - €55,000</span>
                   </div>
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Master's Degree</span>
+                    <span className="font-medium">Master&apos;s Degree</span>
                     <span className="font-bold text-[#08bcb4]">€9,950 - €35,000</span>
                   </div>
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
@@ -441,11 +441,11 @@ const StudyAbroadIrelandPage = () => {
               <h3 className="text-2xl font-bold mb-4">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €22,000 - €67,000</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €22,000 - €47,000</p>
                 </div>
               </div>
@@ -566,7 +566,7 @@ const StudyAbroadIrelandPage = () => {
                 <h3 className="text-lg font-bold mb-3">Government of Ireland Scholarships</h3>
                 <p className="text-sm text-gray-600 mb-3">International postgraduate scholarships</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Master's and PhD programs</p>
+                  <p><strong>For:</strong> Master&apos;s and PhD programs</p>
                   <p><strong>Amount:</strong> €18,500 stipend + fees</p>
                   <p><strong>Duration:</strong> 1-4 years</p>
                 </div>
@@ -635,7 +635,7 @@ const StudyAbroadIrelandPage = () => {
                 Work Opportunities in Ireland
               </h2>
               <p className="text-xl text-gray-600">
-                Study, work, and build your career in Europe's tech hub
+                Study, work, and build your career in Europe&apos;s tech hub
               </p>
             </div>
 
@@ -673,8 +673,8 @@ const StudyAbroadIrelandPage = () => {
                   <div className="border-l-4 border-green-400 pl-6">
                     <h4 className="font-bold text-lg mb-2">Third Level Graduate Scheme</h4>
                     <ul className="text-gray-600 space-y-1">
-                      <li>• 2 years stay back for master's graduates</li>
-                      <li>• 1 year stay back for bachelor's graduates</li>
+                      <li>• 2 years stay back for master&apos;s graduates</li>
+                      <li>• 1 year stay back for bachelor&apos;s graduates</li>
                       <li>• Work in any field</li>
                       <li>• Path to EU Blue Card</li>
                     </ul>
@@ -833,7 +833,7 @@ const StudyAbroadIrelandPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">What is the Third Level Graduate Scheme and how long can I stay?</h3>
-                <p className="text-gray-600">Master's graduates can stay 2 years, bachelor's graduates 1 year to work in Ireland. This provides pathway to Critical Skills Employment Permit and long-term residence.</p>
+                <p className="text-gray-600">Master&apos;s graduates can stay 2 years, bachelor&apos;s graduates 1 year to work in Ireland. This provides pathway to Critical Skills Employment Permit and long-term residence.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">

@@ -1,18 +1,21 @@
+import contactInfo from '../../../data/contact-info.json';
 
 export const metadata = {
-  title: "Contact IAEC Consultants - Overseas Education Counseling | 8+ Offices India & Sri Lanka",
-  description: "Contact IAEC Consultants for overseas education counseling. 8+ offices in Hyderabad, Warangal, Vijayawada, Sri Lanka. Call +91-9966435511 for free consultation.",
+  title: `Contact IAEC Consultants - ${contactInfo.company.tagline}`,
+  description: `Contact IAEC Consultants for overseas education counseling. Contact us at ${contactInfo.primary.mobile} or ${contactInfo.primary.email} for a free consultation.`,
   keywords: "IAEC contact, overseas education consultants Hyderabad, study abroad counseling offices, education consultancy contact details, IAEC branches locations"
 };
 
 const ContactPage = () => {
+  const { primary, branches } = contactInfo;
+
   return (
 <main>
   <section className="bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white py-20">
     <div className="container mx-auto px-4">
       <h1 className="text-5xl font-bold text-center mb-6">Contact Us</h1>
       <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
-        Get expert overseas education counseling from our experienced consultants across 8+ offices
+        Get expert overseas education counseling from our experienced consultants.
       </p>
     </div>
   </section>
@@ -74,38 +77,32 @@ const ContactPage = () => {
           
           <div className="space-y-6">
             <div className="bg-[#e6fffe] p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-[#08bcb4] mb-2">Head Office - Narayanguda</h3>
-              <p className="text-[#4a5568] mb-2">
-                #402, 4th Floor, Gurupartha Estates, Opp. Indian Oil Petrol Pump, 
-                Beside YMCA, Narayanguda, Hyderabad – 500 029
+              <h3 className="text-xl font-semibold text-[#08bcb4] mb-2">{branches.headOffice.name} - {branches.headOffice.city}</h3>
+              <p className="text-[#4a5568] mb-2 whitespace-pre-line">
+                {branches.headOffice.address}
               </p>
               <p className="text-[#4a5568]">
-                📞 +91-9966435511 | ✉️ contact@iaecconsultants.com
+                📞 {primary.mobile} | ✉️ {primary.email}
               </p>
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#08bcb4]">
-              <h3 className="text-lg font-semibold text-[#08bcb4] mb-2">Dilsukhnagar Branch</h3>
-              <p className="text-[#4a5568] text-sm mb-1">
-                2nd floor, Konark Plaza, Beside Rajadhani Theatre, Durganagar, Dilsukhnagar, Hyderabad
+              <h3 className="text-lg font-semibold text-[#08bcb4] mb-2">{branches.ahmedabad.name}</h3>
+              <p className="text-[#4a5568] text-sm mb-1 whitespace-pre-line">
+                {branches.ahmedabad.address}
               </p>
-              <p className="text-[#4a5568] text-sm">📞 +91-40-2404-3444</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#08bcb4]">
-              <h3 className="text-lg font-semibold text-[#08bcb4] mb-2">Kukatpally Branch</h3>
-              <p className="text-[#4a5568] text-sm mb-1">
-                3rd Floor, Near KPHB Kamaan, Road No.1, Kukatpally, Hyderabad
-              </p>
-              <p className="text-[#4a5568] text-sm">📞 +91-40-2315-7773</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#08bcb4]">
-              <h3 className="text-lg font-semibold text-[#08bcb4] mb-2">International Offices</h3>
               <p className="text-[#4a5568] text-sm">
-                <strong>Sri Lanka:</strong> Colombo<br/>
-                <strong>Gujarat:</strong> Ahmedabad<br/>
-                <strong>Karnataka:</strong> Bangalore (Virtual)
+                📞 {branches.ahmedabad.mobile} | Landline: {branches.ahmedabad.landline}
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#08bcb4]">
+              <h3 className="text-lg font-semibold text-[#08bcb4] mb-2">{branches.kukatpally.name}</h3>
+              <p className="text-[#4a5568] text-sm mb-1 whitespace-pre-line">
+                {branches.kukatpally.address}
+              </p>
+              <p className="text-[#4a5568] text-sm">
+                📞 {branches.kukatpally.mobile} | ✉️ {branches.kukatpally.email}
               </p>
             </div>
           </div>

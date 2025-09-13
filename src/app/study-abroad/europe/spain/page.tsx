@@ -504,7 +504,7 @@ const StudyAbroadSpainPage = () => {
                   <div className="w-12 h-12 bg-[#08bcb4] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto">2</div>
                 </div>
                 <h3 className="text-lg font-bold text-center mb-3">Choose Visa Type</h3>
-                <p className="text-gray-600 text-center">Type C (90-180 days) or Type D (>180 days) based on study duration</p>
+                <p className="text-gray-600 text-center">Type C (90-180 days) or Type D (&gt;180 days) based on study duration</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">

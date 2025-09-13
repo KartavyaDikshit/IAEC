@@ -19,7 +19,12 @@ async function readTestimonials() {
   }
 }
 
-async function writeTestimonials(testimonials: any[]) {
+interface Testimonial {
+  id: string;
+  [key: string]: any; // Allow other properties
+}
+
+async function writeTestimonials(testimonials: Testimonial[]) {
   await fs.writeFile(TESTIMONIALS_FILE, JSON.stringify(testimonials, null, 2))
 }
 
@@ -34,7 +39,7 @@ export async function DELETE(request: NextRequest, context: RouteParams) {
     const testimonials = await readTestimonials()
     
     // Fix: Convert both to strings for comparison
-    const filteredTestimonials = testimonials.filter((t: any) => String(t.id) !== String(id))
+    const filteredTestimonials = testimonials.filter((t: Testimonial) => String(t.id) !== String(id))
     
     if (filteredTestimonials.length === testimonials.length) {
       return NextResponse.json({ error: 'Testimonial not found' }, { status: 404 })

@@ -92,7 +92,7 @@ const StudyAbroadAustraliaPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">🌈</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Multicultural Society</h3>
-                <p className="text-gray-600">Nearly 25% of Australians are from overseas - UK, China, Vietnam, North Africa, and Middle East, creating one of the world's most multicultural nations.</p>
+                <p className="text-gray-600">Nearly 25% of Australians are from overseas - UK, China, Vietnam, North Africa, and Middle East, creating one of the world&apos;s most multicultural nations.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -104,7 +104,7 @@ const StudyAbroadAustraliaPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">☀️</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Sunny Climate & Lifestyle</h3>
-                <p className="text-gray-600">Australia's vast open areas with sunny climate make it highly livable. Perfect work-life balance with outdoor activities year-round.</p>
+                <p className="text-gray-600">Australia&apos;s vast open areas with sunny climate make it highly livable. Perfect work-life balance with outdoor activities year-round.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -141,19 +141,19 @@ const StudyAbroadAustraliaPage = () => {
                 <div className="text-3xl mb-4">📜</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Diploma</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">Level 5 - 1-2 Years</div>
-                <p className="text-gray-600 text-sm">Practical skills training and pathway to bachelor's degree programs.</p>
+                <p className="text-gray-600 text-sm">Practical skills training and pathway to bachelor&apos;s degree programs.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🎓</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor's</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor&apos;s</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">Level 7 - 3-4 Years</div>
                 <p className="text-gray-600 text-sm">144 credit points required. Comprehensive undergraduate education with specialization.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🏆</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Master's</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Master&apos;s</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">Level 9 - 1-2 Years</div>
                 <p className="text-gray-600 text-sm">96 credit points required. Advanced study and research opportunities.</p>
               </div>
@@ -174,7 +174,7 @@ const StudyAbroadAustraliaPage = () => {
                   <ul className="space-y-2 text-gray-600">
                     <li>• <strong>Public Universities:</strong> Government-funded, research-focused</li>
                     <li>• <strong>Private Universities:</strong> Specialized courses, smaller classes</li>
-                    <li>• Offer bachelor's, master's, and doctoral programs</li>
+                    <li>• Offer bachelor&apos;s, master&apos;s, and doctoral programs</li>
                     <li>• Strong industry connections and research facilities</li>
                   </ul>
                 </div>
@@ -182,7 +182,7 @@ const StudyAbroadAustraliaPage = () => {
                   <h4 className="font-bold text-lg mb-3 text-[#08bcb4]">Other Institutions</h4>
                   <ul className="space-y-2 text-gray-600">
                     <li>• <strong>TAFE:</strong> Technical and Further Education (vocational)</li>
-                    <li>• <strong>Private Colleges:</strong> Focused bachelor's and master's</li>
+                    <li>• <strong>Private Colleges:</strong> Focused bachelor&apos;s and master&apos;s</li>
                     <li>• Industry-specific training and apprenticeships</li>
                     <li>• Pathways to university programs</li>
                   </ul>
@@ -220,7 +220,7 @@ const StudyAbroadAustraliaPage = () => {
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">University of Melbourne</div>
-                      <div className="text-sm text-gray-600">Australia's #1 ranked university</div>
+                      <div className="text-sm text-gray-600">Australia&apos;s #1 ranked university</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#13</td>
                     <td className="p-4 text-center">$45,000 - $50,000</td>
@@ -287,7 +287,7 @@ const StudyAbroadAustraliaPage = () => {
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Bachelor's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Bachelor&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -329,7 +329,7 @@ const StudyAbroadAustraliaPage = () => {
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Master's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Master&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -337,7 +337,7 @@ const StudyAbroadAustraliaPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree with good academic standing (60%+ or equivalent)</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree with good academic standing (60%+ or equivalent)</p>
                     </div>
                   </div>
                   
@@ -390,11 +390,11 @@ const StudyAbroadAustraliaPage = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Annual Tuition Fees (AUD)</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Bachelor's Degree</span>
+                    <span className="font-medium">Bachelor&apos;s Degree</span>
                     <span className="font-bold text-[#08bcb4]">$30,000 - $50,000</span>
                   </div>
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Master's Degree</span>
+                    <span className="font-medium">Master&apos;s Degree</span>
                     <span className="font-bold text-[#08bcb4]">$32,000 - $53,000</span>
                   </div>
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
@@ -441,11 +441,11 @@ const StudyAbroadAustraliaPage = () => {
               <h3 className="text-2xl font-bold mb-4">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor&apos;s Programs</h4>
                   <p className="text-3xl font-bold">AUD $53,000 - $75,000</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master&apos;s Programs</h4>
                   <p className="text-3xl font-bold">AUD $55,000 - $78,000</p>
                 </div>
               </div>
@@ -959,7 +959,7 @@ const StudyAbroadAustraliaPage = () => {
               Ready to Start Your Australian Adventure?
             </h2>
             <p className="text-xl mb-8 text-blue-100">
-              Join thousands of successful students who achieved their dreams with IAEC's expert guidance
+              Join thousands of successful students who achieved their dreams with IAEC&apos;s expert guidance
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a href="/contact" className="bg-white text-[#08bcb4] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">

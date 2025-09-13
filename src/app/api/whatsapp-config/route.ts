@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
 
 const configPath = join(process.cwd(), 'data/whatsapp-config.json');
@@ -22,7 +22,7 @@ export async function GET() {
       // Create data directory if it doesn't exist
       const dataDir = join(process.cwd(), 'data');
       if (!existsSync(dataDir)) {
-        require('fs').mkdirSync(dataDir, { recursive: true });
+        mkdirSync(dataDir, { recursive: true });
       }
       writeFileSync(configPath, JSON.stringify(defaultConfig, null, 2));
       return NextResponse.json(defaultConfig);

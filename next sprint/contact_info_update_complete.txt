@@ -1,5 +1,4 @@
-# Create comprehensive contact information update for the IAEC website
-contact_update_implementation = """
+
 # IAEC Contact Information Update - Complete Implementation
 
 ## 1. Contact Information Data File
@@ -38,7 +37,7 @@ contact_update_implementation = """
       "name": "Ahmedabad Branch",
       "city": "Ahmedabad",
       "state": "Gujarat",
-      "address": "IAEC Consultants Pvt. Ltd.\\nA-202, 2nd Floor, Karmayog Heights,\\nHL College Road, Above Kotak Mahindra Bank,\\nSardar Patel Nagar, Navrangpura,\\nAhmedabad -380009, Gujarat, INDIA.",
+      "address": "IAEC Consultants Pvt. Ltd.\nA-202, 2nd Floor, Karmayog Heights,\nHL College Road, Above Kotak Mahindra Bank,\nSardar Patel Nagar, Navrangpura,\nAhmedabad -380009, Gujarat, INDIA.",
       "landline": "+91(0)79 4938 6834",
       "mobile": "+91 863 970 6102",
       "email": "ravinder@iaecconsultants.com",
@@ -52,7 +51,7 @@ contact_update_implementation = """
       "name": "Kukatpally Branch",
       "city": "Kukatpally",
       "state": "Telangana",
-      "address": "K P H B Phase 1, Kukatpally,\\nHyderabad, Telangana 500072",
+      "address": "K P H B Phase 1, Kukatpally,\nHyderabad, Telangana 500072",
       "mobile": "+91 7729997891",
       "email": "kripal@iaecconsultants.com",
       "coordinates": {
@@ -92,7 +91,7 @@ export async function GET() {
     if (!existsSync(contactPath)) {
       return NextResponse.json({ error: 'Contact info not found' }, { status: 404 });
     }
-    
+
     const contactInfo = JSON.parse(readFileSync(contactPath, 'utf8'));
     return NextResponse.json(contactInfo);
   } catch (error) {
@@ -108,7 +107,7 @@ export async function POST(request: Request) {
       ...body,
       updatedAt: new Date().toISOString()
     };
-    
+
     writeFileSync(contactPath, JSON.stringify(updatedContact, null, 2));
     return NextResponse.json(updatedContact);
   } catch (error) {
@@ -278,13 +277,13 @@ export default function ContactInfo() {
                   <div className="text-2xl">⭐</div>
                 )}
               </div>
-              
+
               {/* City Name */}
               <h3 className="text-2xl font-bold text-[#08bcb4] mb-2">
                 {branch.city}
               </h3>
               <p className="text-gray-500 font-medium mb-4">{branch.state}</p>
-              
+
               {/* Address */}
               <div className="mb-6">
                 <h4 className="font-semibold text-gray-700 mb-2 flex items-center">
@@ -294,7 +293,7 @@ export default function ContactInfo() {
                   {branch.address}
                 </p>
               </div>
-              
+
               {/* Contact Details */}
               <div className="space-y-3 mb-6">
                 <h4 className="font-semibold text-gray-700 flex items-center">
@@ -712,7 +711,7 @@ export default function ContactPage() {
                   />
                 </div>
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Email Address *
@@ -785,7 +784,7 @@ export default function ContactAdmin() {
     if (status === 'unauthenticated') {
       redirect('/admin/login');
     }
-    
+
     if (status === 'authenticated') {
       fetchContactData();
     }
@@ -806,7 +805,7 @@ export default function ContactAdmin() {
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
-    
+
     try {
       const response = await fetch('/api/contact-info', {
         method: 'POST',
@@ -815,7 +814,7 @@ export default function ContactAdmin() {
         },
         body: JSON.stringify(contactData),
       });
-      
+
       if (response.ok) {
         alert('Contact information updated successfully!');
       } else {
@@ -834,7 +833,7 @@ export default function ContactAdmin() {
   return (
     <div className="max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold mb-6">Contact Information Management</h1>
-      
+
       <form onSubmit={handleSave} className="space-y-8">
         {/* Primary Contact */}
         <div className="bg-white rounded-lg shadow p-6">
@@ -982,30 +981,3 @@ export default function ContactAdmin() {
   );
 }
 ```
-"""
-
-# Save the complete contact update implementation
-with open("contact_info_update_complete.txt", "w", encoding='utf-8') as f:
-    f.write(contact_update_implementation)
-
-print("✅ COMPLETE CONTACT INFORMATION UPDATE READY")
-print("\n📍 Updated Contact Details:")
-print("• Mobile: +91 863 970 6102")
-print("• Landline: +91(0)79 4938 6834") 
-print("• Email: ravinder@iaecconsultants.com")
-print("\n🏢 Branch Locations:")
-print("• HEAD OFFICE: Hyderabad (clearly marked)")
-print("• BRANCH: Ahmedabad - Full address with contact details")
-print("• BRANCH: Kukatpally - Full address with contact details")
-print("\n🔧 Implementation Features:")
-print("• Centralized contact data management")
-print("• API endpoints for contact information")
-print("• Updated Header with contact bar")
-print("• Enhanced Footer with all details")
-print("• Beautiful Contact page with branch cards")
-print("• Admin panel for contact management")
-print("• Google Maps integration")
-print("• WhatsApp links for each branch")
-print("• Business hours display")
-print("• Social media links")
-print("\n📋 Implementation saved to: contact_info_update_complete.txt")

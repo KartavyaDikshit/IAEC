@@ -10,7 +10,12 @@ export async function GET() {
     const blogs = JSON.parse(fileContents);
     
     // Only return published blogs for public display
-    const publishedBlogs = blogs.filter((blog: any) => blog.status === 'published');
+    interface Blog {
+  status: string;
+  [key: string]: any; // Allow other properties
+}
+
+    const publishedBlogs = blogs.filter((blog: Blog) => blog.status === 'published');
     
     return NextResponse.json({ blogs: publishedBlogs });
   } catch (error) {
