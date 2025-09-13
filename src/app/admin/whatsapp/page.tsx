@@ -15,7 +15,7 @@ interface WhatsAppConfig {
 }
 
 export default function WhatsAppAdmin() {
-  const { data: session, status } = useSession();
+  const { status } = useSession(); // Removed 'data: session'
   const [config, setConfig] = useState<WhatsAppConfig>({
     number: '',
     message: '',
@@ -31,7 +31,7 @@ export default function WhatsAppAdmin() {
 
   useEffect(() => {
     if (status === 'unauthenticated') {
-      redirect('/admin/login');
+      redirect('/admin-login');
     }
 
     if (status === 'authenticated') {
@@ -137,7 +137,7 @@ export default function WhatsAppAdmin() {
               type="time"
               value={config.businessHours.start}
               onChange={(e) => setConfig({
-                ...config, 
+                ...config,
                 businessHours: {...config.businessHours, start: e.target.value}
               })}
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#08bcb4]"
@@ -151,7 +151,7 @@ export default function WhatsAppAdmin() {
               type="time"
               value={config.businessHours.end}
               onChange={(e) => setConfig({
-                ...config, 
+                ...config,
                 businessHours: {...config.businessHours, end: e.target.value}
               })}
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#08bcb4]"
@@ -175,7 +175,7 @@ export default function WhatsAppAdmin() {
           <p className="text-sm text-gray-600 mb-2">WhatsApp message preview:</p>
           <div className="bg-green-50 border-l-4 border-green-400 p-3 rounded">
             <pre className="text-sm text-gray-800 whitespace-pre-wrap">
-              {config.message.replace(/\n/g, '\n')}
+              {config.message.replace(/\\n/g, '\n')}
             </pre>
           </div>
         </div>

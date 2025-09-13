@@ -283,11 +283,11 @@ const StudyAbroadGermanyPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor's Requirements */}
+              {/* Bachelor&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Bachelor's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Bachelor&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -325,11 +325,11 @@ const StudyAbroadGermanyPage = () => {
                 </div>
               </div>
 
-              {/* Master's Requirements */}
+              {/* Master&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Master's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Master&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -337,7 +337,7 @@ const StudyAbroadGermanyPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree with 60%+ (or equivalent German grade 2.5)</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree with 60%+ (or equivalent German grade 2.5)</p>
                     </div>
                   </div>
                   
@@ -380,7 +380,7 @@ const StudyAbroadGermanyPage = () => {
                 Cost of Studying in Germany 2025
               </h2>
               <p className="text-xl text-gray-600">
-                World's most affordable quality education with free tuition at public universities
+                World&apos;s most affordable quality education with free tuition at public universities
               </p>
             </div>
 
@@ -567,7 +567,7 @@ const StudyAbroadGermanyPage = () => {
                 <h3 className="text-lg font-bold mb-3">DAAD Scholarships</h3>
                 <p className="text-sm text-gray-600 mb-3">German Academic Exchange Service</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Master's, PhD, research programs</p>
+                  <p><strong>For:</strong> Master&apos;s, PhD, research programs</p>
                   <p><strong>Amount:</strong> €850-1,200/month + benefits</p>
                   <p><strong>Coverage:</strong> Living costs, travel, insurance</p>
                 </div>
@@ -597,7 +597,7 @@ const StudyAbroadGermanyPage = () => {
                 <h3 className="text-lg font-bold mb-3">Heinrich Böll Foundation</h3>
                 <p className="text-sm text-gray-600 mb-3">Green Party foundation scholarships</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Bachelor's, Master's, PhD</p>
+                  <p><strong>For:</strong> Bachelor&apos;s, Master&apos;s, PhD</p>
                   <p><strong>Amount:</strong> €649-1,148/month</p>
                   <p><strong>Focus:</strong> Social justice, sustainability</p>
                 </div>

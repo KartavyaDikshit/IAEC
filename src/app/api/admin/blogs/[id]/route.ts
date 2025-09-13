@@ -21,7 +21,10 @@ async function readBlogs() {
 
 interface Blog {
   id: string;
-  [key: string]: any; // Allow other properties
+  title: string;
+  content: string;
+  status: string;
+  updatedAt?: string;
 }
 
 async function writeBlogs(blogs: Blog[]) {
@@ -36,20 +39,20 @@ export async function PUT(request: NextRequest, context: RouteParams) {
 
   try {
     const { id } = await context.params
-    const updateData = await request.json()
-    const blogs = await readBlogs()
-    
+    const updateData: Partial<Blog> = await request.json()
+    const blogs: Blog[] = await readBlogs()
+
     const blogIndex = blogs.findIndex((b: Blog) => b.id === id)
     if (blogIndex === -1) {
       return NextResponse.json({ error: 'Blog not found' }, { status: 404 })
     }
-    
+
     blogs[blogIndex] = {
       ...blogs[blogIndex],
       ...updateData,
       updatedAt: new Date().toISOString()
     }
-    
+
     await writeBlogs(blogs)
     return NextResponse.json({ blog: blogs[blogIndex] })
   } catch (error) {
@@ -66,13 +69,13 @@ export async function DELETE(request: NextRequest, context: RouteParams) {
 
   try {
     const { id } = await context.params
-    const blogs = await readBlogs()
-    
+    const blogs: Blog[] = await readBlogs()
+
     const filteredBlogs = blogs.filter((b: Blog) => b.id !== id)
     if (filteredBlogs.length === blogs.length) {
       return NextResponse.json({ error: 'Blog not found' }, { status: 404 })
     }
-    
+
     await writeBlogs(filteredBlogs)
     return NextResponse.json({ message: 'Blog deleted successfully' })
   } catch (error) {

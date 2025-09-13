@@ -1,62 +1,131 @@
-
+'use client';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useSession, signOut } from 'next-auth/react';
 
-const Header = () => {
+interface ContactInfo {
+  primary: {
+    mobile: string;
+    email: string;
+  };
+}
+
+export default function Header() {
+  const { data: session } = useSession();
+  const [contactInfo, setContactInfo] = useState<ContactInfo | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    fetch('/api/contact-info')
+      .then(res => res.json())
+      .then(data => setContactInfo(data))
+      .catch(err => console.error('Failed to load contact info:', err));
+  }, []);
+
   return (
-    <header className="sticky top-0 bg-white shadow-md z-50">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-2">
-          <div>
-            <Link href="/" className="text-2xl font-bold" style={{ color: '#08bcb4' }}>
-              IAEC
-            </Link>
+    <header className="bg-white shadow-lg sticky top-0 z-40">
+      {/* Top Contact Bar */}
+      <div className="bg-[#08bcb4] text-white py-2">
+        <div className="container mx-auto px-4 flex justify-between items-center text-sm">
+          <div className="flex items-center space-x-6">
+            {contactInfo && (
+              <>
+                <a href={`tel:${contactInfo.primary.mobile}`} className="flex items-center hover:underline">
+                  📞 {contactInfo.primary.mobile}
+                </a>
+                <a href={`mailto:${contactInfo.primary.email}`} className="flex items-center hover:underline">
+                  ✉️ {contactInfo.primary.email}
+                </a>
+              </>
+            )}
           </div>
-          <nav className="hidden md:flex items-center space-x-4">
-            <Link href="/" className="text-gray-800 hover:text-gray-900">Home</Link>
-            <Link href="/about" className="text-gray-800 hover:text-gray-900">About Us</Link>
-            <div className="relative group">
-              <button className="text-[#08bcb4] hover:text-[#069aa2] flex items-center font-medium transition-colors">
-    Study Abroad <span className="ml-1">▾</span>
-  </button>
-              <div className="absolute hidden group-hover:block bg-white shadow-lg">
-                <Link href="/study-abroad/uk" className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Study in UK</Link>
-                <Link href="/study-abroad/usa" className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Study in USA</Link>
-                <Link href="/study-abroad/australia" className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Study in Australia</Link>
-                <Link href="/study-abroad/canada" className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Study in Canada</Link>
-                <Link href="/study-abroad/ireland" className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Study in Ireland</Link>
-                <Link href="/study-abroad/new-zealand" className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Study in New Zealand</Link>
-                <Link href="/study-abroad/europe" className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Study in Europe</Link>
+          <div className="flex items-center space-x-4">
+            {session ? (
+              <div className="flex items-center space-x-4">
+                <Link href="/admin" className="hover:underline">
+                  👤 Admin Panel
+                </Link>
+                <button 
+                  onClick={() => signOut()} 
+                  className="hover:underline"
+                >
+                  Logout
+                </button>
               </div>
-            </div>
-            <div className="relative group">
-              <button className="text-[#08bcb4] hover:text-[#069aa2] flex items-center font-medium transition-colors">
-    Services <span className="ml-1">▾</span>
-  </button>
-              <div className="absolute hidden group-hover:block bg-white shadow-lg">
-                <Link href="/services/coaching" className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Coaching Services</Link>
-                <Link href="/services/visa" className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Visa Services</Link>
-                <Link href="/services/travel-forex" className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100">Travel & Forex</Link>
-              </div>
-            </div>
-            <Link href="/blog" className="text-gray-800 hover:text-gray-900">Blog</Link>
-            <Link href="/testimonials" className="text-gray-800 hover:text-gray-900">Testimonials</Link>
-            <Link href="/contact" className="text-gray-800 hover:text-gray-900">Contact Us</Link>
-          </nav>
-          <div className="hidden md:flex items-center space-x-2">
-            <a href="tel:+91-XXXXXXXXXX" className="text-sm text-gray-800">Contact Number</a>
-            <Link href="/booking" className="px-3 py-1 rounded-md text-sm" style={{ backgroundColor: '#08bcb4', color: 'white' }}>Book Free Counselling</Link>
-            <Link href="/mock-test" className="px-3 py-1 rounded-md text-sm" style={{ backgroundColor: '#08bcb4', color: 'white' }}>Free Mock Test</Link>
-            
-          </div>
-          <div className="md:hidden">
-            <button>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+            ) : (
+              <Link href="/admin-login" className="hover:underline">
+                🔐 Admin Login
+              </Link>
+            )}
           </div>
         </div>
       </div>
+
+      {/* Main Header */}
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <div className="text-2xl font-bold text-[#08bcb4]">IAEC</div>
+            <div className="ml-2 text-gray-600 text-sm">
+              <div>Consultants</div>
+              <div className="text-xs">Since 2000</div>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <Link href="/" className="text-gray-700 hover:text-[#08bcb4] font-medium">
+              Home
+            </Link>
+            <Link href="/about" className="text-gray-700 hover:text-[#08bcb4] font-medium">
+              About
+            </Link>
+            <Link href="/services" className="text-gray-700 hover:text-[#08bcb4] font-medium">
+              Services
+            </Link>
+            <Link href="/study-abroad" className="text-gray-700 hover:text-[#08bcb4] font-medium">
+              Study Abroad
+            </Link>
+            <Link href="/blog" className="text-gray-700 hover:text-[#08bcb4] font-medium">
+              Blog
+            </Link>
+            <Link href="/testimonials" className="text-gray-700 hover:text-[#08bcb4] font-medium">
+              Testimonials
+            </Link>
+            <Link href="/contact" className="text-gray-700 hover:text-[#08bcb4] font-medium">
+              Contact
+            </Link>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <div className="w-6 h-6 flex flex-col justify-center items-center">
+              <span className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${mobileMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
+              <span className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`bg-gray-600 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${mobileMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
+            </div>
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <nav className="md:hidden mt-4 py-4 border-t">
+            <div className="flex flex-col space-y-2">
+              <Link href="/" className="text-gray-700 hover:text-[#08bcb4] py-2">Home</Link>
+              <Link href="/about" className="text-gray-700 hover:text-[#08bcb4] py-2">About</Link>
+              <Link href="/services" className="text-gray-700 hover:text-[#08bcb4] py-2">Services</Link>
+              <Link href="/study-abroad" className="text-gray-700 hover:text-[#08bcb4] py-2">Study Abroad</Link>
+              <Link href="/blog" className="text-gray-700 hover:text-[#08bcb4] py-2">Blog</Link>
+              <Link href="/testimonials" className="text-gray-700 hover:text-[#08bcb4] py-2">Testimonials</Link>
+              <Link href="/contact" className="text-gray-700 hover:text-[#08bcb4] py-2">Contact</Link>
+            </div>
+          </nav>
+        )}
+      </div>
     </header>
   );
-};
-
-export default Header;
+}

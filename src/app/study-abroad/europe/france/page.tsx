@@ -98,7 +98,7 @@ const StudyAbroadFrancePage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">🎨</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Art, Culture & Heritage Capital</h3>
-                <p className="text-gray-600">Birthplace of luxury brands, fashion, culinary arts. Access to Louvre, Eiffel Tower, and Europe's richest cultural heritage.</p>
+                <p className="text-gray-600">Birthplace of luxury brands, fashion, culinary arts. Access to Louvre, Eiffel Tower, and Europe&apos;s richest cultural heritage.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -141,7 +141,7 @@ const StudyAbroadFrancePage = () => {
                 <div className="text-3xl mb-4">📋</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Licence (L1-L3)</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">3 Years - 180 ECTS</div>
-                <p className="text-gray-600 text-sm">Bachelor's degree equivalent with specialization options and broad academic foundation.</p>
+                <p className="text-gray-600 text-sm">Bachelor&apos;s degree equivalent with specialization options and broad academic foundation.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
@@ -283,11 +283,11 @@ const StudyAbroadFrancePage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor's Requirements */}
+              {/* Bachelor&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Licence (Bachelor's) Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Licence (Bachelor&apos;s) Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -325,11 +325,11 @@ const StudyAbroadFrancePage = () => {
                 </div>
               </div>
 
-              {/* Master's Requirements */}
+              {/* Master&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Master's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Master&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -337,7 +337,7 @@ const StudyAbroadFrancePage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree (180 ECTS) with good academic standing</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree (180 ECTS) with good academic standing</p>
                     </div>
                   </div>
                   
@@ -380,7 +380,7 @@ const StudyAbroadFrancePage = () => {
                 Cost of Studying in France 2025
               </h2>
               <p className="text-xl text-gray-600">
-                Europe's most affordable quality education with government subsidies
+                Europe&apos;s most affordable quality education with government subsidies
               </p>
             </div>
 
@@ -441,11 +441,11 @@ const StudyAbroadFrancePage = () => {
               <h3 className="text-2xl font-bold mb-4">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €8,000 - €25,000</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €10,000 - €30,000</p>
                 </div>
               </div>
@@ -562,7 +562,7 @@ const StudyAbroadFrancePage = () => {
                 <h3 className="text-lg font-bold mb-3">Eiffel Excellence Scholarship</h3>
                 <p className="text-sm text-gray-600 mb-3">French government's flagship program</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Master's and PhD programs</p>
+                  <p><strong>For:</strong> Master&apos;s and PhD programs</p>
                   <p><strong>Amount:</strong> €1,181-1,700/month + allowances</p>
                   <p><strong>Duration:</strong> 12-36 months</p>
                 </div>
@@ -572,7 +572,7 @@ const StudyAbroadFrancePage = () => {
                 <h3 className="text-lg font-bold mb-3">Charpak Scholarship Program</h3>
                 <p className="text-sm text-gray-600 mb-3">Specifically for Indian students</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Master's programs in France</p>
+                  <p><strong>For:</strong> Master&apos;s programs in France</p>
                   <p><strong>Coverage:</strong> Partial tuition + living costs</p>
                   <p><strong>Value:</strong> €8,000 per year</p>
                 </div>
@@ -631,7 +631,7 @@ const StudyAbroadFrancePage = () => {
                 Work Opportunities in France
               </h2>
               <p className="text-xl text-gray-600">
-                Study, work, and build your career in Europe's cultural and economic heart
+                Study, work, and build your career in Europe&apos;s cultural and economic heart
               </p>
             </div>
 
@@ -669,7 +669,7 @@ const StudyAbroadFrancePage = () => {
                   <div className="border-l-4 border-green-400 pl-6">
                     <h4 className="font-bold text-lg mb-2">Graduate Work Visa</h4>
                     <ul className="text-gray-600 space-y-1">
-                      <li>• APS visa: 24 months for Master's/PhD</li>
+                      <li>• APS visa: 24 months for Master&apos;s/PhD</li>
                       <li>• Job search and work authorization</li>
                       <li>• Path to EU Blue Card</li>
                       <li>• Residence permit pathways</li>
@@ -819,7 +819,7 @@ const StudyAbroadFrancePage = () => {
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">Do I need to know French to study in France?</h3>
-                <p className="text-gray-600">Not necessarily. Many programs are taught in English, especially at master's level. However, basic French helps with daily life and career opportunities.</p>
+                <p className="text-gray-600">Not necessarily. Many programs are taught in English, especially at master&apos;s level. However, basic French helps with daily life and career opportunities.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
@@ -829,7 +829,7 @@ const StudyAbroadFrancePage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">What is Campus France and is it mandatory?</h3>
-                <p className="text-gray-600">Campus France (Études en France) is mandatory for students from select countries including India. It's the official platform for university applications and visa processing.</p>
+                <p className="text-gray-600">Campus France (Études en France) is mandatory for students from select countries including India. It&apos;s the official platform for university applications and visa processing.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">

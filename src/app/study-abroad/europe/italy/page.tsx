@@ -141,14 +141,14 @@ const StudyAbroadItalyPage = () => {
                 <div className="text-3xl mb-4">🎓</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Laurea Triennale</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">3 Years - 180 ECTS</div>
-                <p className="text-gray-600 text-sm">Bachelor's degree with comprehensive foundation in chosen field of study.</p>
+                <p className="text-gray-600 text-sm">Bachelor&apos;s degree with comprehensive foundation in chosen field of study.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🏆</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Laurea Magistrale</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">2 Years - 120 ECTS</div>
-                <p className="text-gray-600 text-sm">Master's degree with advanced specialization and research components.</p>
+                <p className="text-gray-600 text-sm">Master&apos;s degree with advanced specialization and research components.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
@@ -283,11 +283,11 @@ const StudyAbroadItalyPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor's Requirements */}
+              {/* Bachelor&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Laurea Triennale (Bachelor's) Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Laurea Triennale (Bachelor&apos;s) Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -325,11 +325,11 @@ const StudyAbroadItalyPage = () => {
                 </div>
               </div>
 
-              {/* Master's Requirements */}
+              {/* Master&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Laurea Magistrale (Master's) Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Laurea Magistrale (Master&apos;s) Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -337,7 +337,7 @@ const StudyAbroadItalyPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree (180 ECTS) in relevant field with good academic record</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree (180 ECTS) in relevant field with good academic record</p>
                     </div>
                   </div>
                   
@@ -461,11 +461,11 @@ const StudyAbroadItalyPage = () => {
               <h3 className="text-2xl font-bold mb-4">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-[#08bcb4]">Bachelor's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-[#08bcb4]">Bachelor&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €9,000 - €18,000</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-[#08bcb4]">Master's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-[#08bcb4]">Master&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €10,000 - €20,000</p>
                 </div>
               </div>
@@ -587,7 +587,7 @@ const StudyAbroadItalyPage = () => {
                 <h3 className="text-lg font-bold mb-3">Italian Government Scholarship</h3>
                 <p className="text-sm text-gray-600 mb-3">Ministry of Foreign Affairs scholarship</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Master's, PhD, research programs</p>
+                  <p><strong>For:</strong> Master&apos;s, PhD, research programs</p>
                   <p><strong>Amount:</strong> €900/month + tuition coverage</p>
                   <p><strong>Duration:</strong> 6-9 months</p>
                 </div>
@@ -607,7 +607,7 @@ const StudyAbroadItalyPage = () => {
                 <h3 className="text-lg font-bold mb-3">Invest Your Talent</h3>
                 <p className="text-sm text-gray-600 mb-3">Italian companies partnership</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Master's in specific fields</p>
+                  <p><strong>For:</strong> Master&apos;s in specific fields</p>
                   <p><strong>Benefits:</strong> Internships + job opportunities</p>
                   <p><strong>Companies:</strong> ENI, Leonardo, Pirelli</p>
                 </div>
@@ -866,7 +866,7 @@ const StudyAbroadItalyPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">What is Universitaly portal and is it mandatory?</h3>
-                <p className="text-gray-600">Universitaly is the official portal for university pre-enrollment in Italy. It's mandatory for non-EU students to complete pre-enrollment for visa application.</p>
+                <p className="text-gray-600">Universitaly is the official portal for university pre-enrollment in Italy. It&apos;s mandatory for non-EU students to complete pre-enrollment for visa application.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
@@ -918,4 +918,4 @@ const StudyAbroadItalyPage = () => {
   );
 };
 
-export default StudyAbroadItalyPage;
+export default StudyAbroadItalyPage;Page;

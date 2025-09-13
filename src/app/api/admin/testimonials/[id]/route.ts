@@ -21,7 +21,11 @@ async function readTestimonials() {
 
 interface Testimonial {
   id: string;
-  [key: string]: any; // Allow other properties
+  name: string;
+  quote: string;
+  rating: number;
+  approved: boolean;
+  updatedAt?: string;
 }
 
 async function writeTestimonials(testimonials: Testimonial[]) {
@@ -36,15 +40,15 @@ export async function DELETE(request: NextRequest, context: RouteParams) {
 
   try {
     const { id } = await context.params
-    const testimonials = await readTestimonials()
-    
+    const testimonials: Testimonial[] = await readTestimonials()
+
     // Fix: Convert both to strings for comparison
     const filteredTestimonials = testimonials.filter((t: Testimonial) => String(t.id) !== String(id))
-    
+
     if (filteredTestimonials.length === testimonials.length) {
       return NextResponse.json({ error: 'Testimonial not found' }, { status: 404 })
     }
-    
+
     await writeTestimonials(filteredTestimonials)
     return NextResponse.json({ message: 'Testimonial deleted successfully' })
   } catch (error) {

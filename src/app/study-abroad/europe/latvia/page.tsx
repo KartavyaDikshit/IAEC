@@ -78,7 +78,7 @@ const StudyAbroadLatviaPage = () => {
                 Why Choose Latvia for Higher Education?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Latvia offers exceptional value with some of Europe's most affordable education costs, quality universities, and a unique Baltic cultural experience within the EU.
+                Latvia offers exceptional value with some of Europe&apos;s most affordable education costs, quality universities, and a unique Baltic cultural experience within the EU.
               </p>
             </div>
             
@@ -86,7 +86,7 @@ const StudyAbroadLatviaPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">💰</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Ultra-Affordable EU Education</h3>
-                <p className="text-gray-600">Among Europe's most affordable tuition fees (€3,000-€5,000/year) with extremely low living costs and high quality of life.</p>
+                <p className="text-gray-600">Among Europe&apos;s most affordable tuition fees (€3,000-€5,000/year) with extremely low living costs and high quality of life.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -139,14 +139,14 @@ const StudyAbroadLatviaPage = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🎓</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor's Degree</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor&apos;s Degree</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">3-4 Years - 180-240 ECTS</div>
                 <p className="text-gray-600 text-sm">Comprehensive undergraduate education with practical experience.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🏆</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Master's Degree</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Master&apos;s Degree</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">1.5-2 Years - 90-120 ECTS</div>
                 <p className="text-gray-600 text-sm">Advanced specialization with research or professional focus.</p>
               </div>
@@ -283,11 +283,11 @@ const StudyAbroadLatviaPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor's Requirements */}
+              {/* Bachelor&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Bachelor's Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Bachelor&apos;s Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -325,11 +325,11 @@ const StudyAbroadLatviaPage = () => {
                 </div>
               </div>
 
-              {/* Master's Requirements */}
+              {/* Master&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Master's Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Master&apos;s Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -337,7 +337,7 @@ const StudyAbroadLatviaPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree in relevant field with satisfactory grades</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree in relevant field with satisfactory grades</p>
                     </div>
                   </div>
                   
@@ -345,7 +345,7 @@ const StudyAbroadLatviaPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">English Language Requirements</h4>
-                      <p className="text-gray-600">IELTS 7.0+, TOEFL 90+, or PTE 67+ for most master's programs</p>
+                      <p className="text-gray-600">IELTS 7.0+, TOEFL 90+, or PTE 67+ for most master&apos;s programs</p>
                     </div>
                   </div>
                   
@@ -380,7 +380,7 @@ const StudyAbroadLatviaPage = () => {
                 Cost of Studying in Latvia 2025
               </h2>
               <p className="text-xl text-gray-600">
-                One of Europe's most affordable destinations for quality higher education
+                One of Europe&apos;s most affordable destinations for quality higher education
               </p>
             </div>
 
@@ -390,11 +390,11 @@ const StudyAbroadLatviaPage = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Annual Tuition Fees (EUR)</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Bachelor's Programs</span>
+                    <span className="font-medium">Bachelor&apos;s Programs</span>
                     <span className="font-bold text-[#08bcb4]">€3,000 - €5,000</span>
                   </div>
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Master's Programs</span>
+                    <span className="font-medium">Master&apos;s Programs</span>
                     <span className="font-bold text-[#08bcb4]">€3,700 - €6,000</span>
                   </div>
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
@@ -463,12 +463,12 @@ const StudyAbroadLatviaPage = () => {
               <h3 className="text-2xl font-bold mb-4">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €7,200 - €13,800</p>
                   <p className="text-sm text-gray-300">Including tuition and living</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €7,900 - €14,800</p>
                   <p className="text-sm text-gray-300">Including tuition and living</p>
                 </div>
@@ -592,7 +592,7 @@ const StudyAbroadLatviaPage = () => {
                 <h3 className="text-lg font-bold mb-3">Latvian Government Scholarships</h3>
                 <p className="text-sm text-gray-600 mb-3">Ministry of Education and Science funding</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Bachelor's, Master's, and PhD programs</p>
+                  <p><strong>For:</strong> Bachelor&apos;s, Master&apos;s, and PhD programs</p>
                   <p><strong>Coverage:</strong> Full or partial tuition support</p>
                   <p><strong>Duration:</strong> Program length</p>
                 </div>
@@ -859,7 +859,7 @@ const StudyAbroadLatviaPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">Are there English-taught programs in Latvia?</h3>
-                <p className="text-gray-600">Yes, Latvian universities offer extensive English-taught programs at all levels, from bachelor's to PhD across various disciplines.</p>
+                <p className="text-gray-600">Yes, Latvian universities offer extensive English-taught programs at all levels, from bachelor&apos;s to PhD across various disciplines.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
@@ -922,3 +922,4 @@ const StudyAbroadLatviaPage = () => {
 };
 
 export default StudyAbroadLatviaPage;
+age;

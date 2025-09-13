@@ -9,7 +9,7 @@ export async function GET() {
     if (!existsSync(contactPath)) {
       return NextResponse.json({ error: 'Contact info not found' }, { status: 404 });
     }
-    
+
     const contactInfo = JSON.parse(readFileSync(contactPath, 'utf8'));
     return NextResponse.json(contactInfo);
   } catch (error) {
@@ -21,8 +21,13 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    writeFileSync(contactPath, JSON.stringify(body, null, 2));
-    return NextResponse.json(body);
+    const updatedContact = {
+      ...body,
+      updatedAt: new Date().toISOString()
+    };
+
+    writeFileSync(contactPath, JSON.stringify(updatedContact, null, 2));
+    return NextResponse.json(updatedContact);
   } catch (error) {
     console.error('Failed to update contact info:', error);
     return NextResponse.json({ error: 'Failed to update contact info' }, { status: 500 });
