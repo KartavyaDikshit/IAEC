@@ -1,0 +1,48 @@
+{
+  "company": {
+    "name": "IAEC Consultants Pvt. Ltd.",
+    "tagline": "Your Global Study Partner",
+    "established": "2000"
+  },
+  "primary": {
+    "mobile": "+91 863 970 6102",
+    "landline": "+91(0)79 4938 6834",
+    "email": "ravinder@iaecconsultants.com",
+    "website": "www.iaecconsultants.com"
+  },
+  "branches": {
+    "headOffice": {
+      "type": "head",
+      "name": "Head Office",
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "address": "#402, 4th Floor, Gurupartha Estates, Opp. Indian Oil Petrol Pump, Beside YMCA & Andhra Bank, Narayanguda, Hyderabad – 500 029",
+      "mobile": "+91 863 970 6102",
+      "email": "ravinder@iaecconsultants.com"
+    },
+    "ahmedabad": {
+      "type": "branch",
+      "name": "Ahmedabad Branch",
+      "city": "Ahmedabad",
+      "state": "Gujarat",
+      "address": "IAEC Consultants Pvt. Ltd.\nA-202, 2nd Floor, Karmayog Heights,\nHL College Road, Above Kotak Mahindra Bank,\nSardar Patel Nagar, Navrangpura,\nAhmedabad -380009, Gujarat, INDIA.",
+      "landline": "+91(0)79 4938 6834",
+      "mobile": "+91 863 970 6102"
+    },
+    "kukatpally": {
+      "type": "branch",
+      "name": "Kukatpally Branch",
+      "city": "Kukatpally",
+      "state": "Telangana",
+      "address": "K P H B Phase 1, Kukatpally,\nHyderabad, Telangana 500072",
+      "mobile": "+91 7729997891",
+      "email": "kripal@iaecconsultants.com"
+    }
+  },
+  "businessHours": {
+    "weekdays": "9:00 AM - 6:00 PM",
+    "saturday": "9:00 AM - 4:00 PM",
+    "sunday": "Closed",
+    "timezone": "Asia/Kolkata"
+  }
+}
