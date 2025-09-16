@@ -1,3 +1,5 @@
+import CountryRibbon from '@/components/home/CountryRibbon';
+
 export default function Home() {
   return (
     <main>
@@ -39,6 +41,7 @@ export default function Home() {
     </div>
   </div>
 </section>
+      <CountryRibbon />
 <section className="py-16 bg-[#f7fafc]">
   <div className="container mx-auto px-4">
     <div className="text-center mb-12">
