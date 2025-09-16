@@ -11,5 +11,5 @@ export const studyAbroadCountries = [
   { name: 'Italy', path: '/study-abroad/europe/italy', image: '/placeholders/italy.png' },
   { name: 'Latvia', path: '/study-abroad/europe/latvia', image: '/placeholders/latvia.png' },
   { name: 'Malta', path: '/study-abroad/europe/malta', image: '/placeholders/malta.png' },
-  { name: 'Spain', path: '/study-abroad/europe/spain', image: '/placeholders/spain.png' },
+  { name: 'Spain', path: '/study-abroad/europe/spain', image: '/placeholders/default-country.png' },
 ];
