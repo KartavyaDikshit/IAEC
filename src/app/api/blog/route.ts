@@ -11,8 +11,18 @@ export async function GET() {
     
     // Only return published blogs for public display
     interface Blog {
-  status: string;
-  [key: string]: any; // Allow other properties
+  id: string;
+  title: string;
+  slug: string;
+  date: string;
+  author: string;
+  image: string;
+  category: string;
+  tags: string[];
+  excerpt: string;
+  content: string;
+  isFeatured: boolean;
+  status: string; // Keep status as it's used for filtering
 }
 
     const publishedBlogs = blogs.filter((blog: Blog) => blog.status === 'published');
