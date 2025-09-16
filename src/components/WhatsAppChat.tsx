@@ -18,7 +18,8 @@ interface PlatformInfo {
 export default function WhatsAppChat() {
   const [whatsappData, setWhatsappData] = useState<WhatsAppData | null>(null);
   const [platform, setPlatform] = useState<PlatformInfo | null>(null);
-  const [showInstructions, setShowInstructions] = useState(false);
+  
+  
 
   useEffect(() => {
     // Detect platform
@@ -56,25 +57,38 @@ export default function WhatsAppChat() {
     let whatsappUrl: string;
 
     if (platform.isMobile) {
-      // Mobile: Use app link with message
+      // Mobile: Try to open app first, with a fallback to wa.me
       whatsappUrl = `whatsapp://send?phone=${cleanNumber}&text=${message}`;
+      window.location.href = whatsappUrl;
 
-      // Fallback to wa.me if app not installed
+      // Fallback to wa.me if app doesn't open after a short delay
       setTimeout(() => {
         window.open(`https://wa.me/${cleanNumber}?text=${message}`, '_blank');
       }, 1000);
+    } else { // Desktop
+      const desktopAppUrl = `whatsapp://send?phone=${cleanNumber}&text=${message}`;
+      const webWhatsAppUrl = `https://web.whatsapp.com/send?phone=${cleanNumber}&text=${message}`;
 
-      window.location.href = whatsappUrl;
-    } else {
-      // Desktop: Always use WhatsApp Web for better message support
-      whatsappUrl = `https://web.whatsapp.com/send?phone=${cleanNumber}&text=${message}`;
-      window.open(whatsappUrl, '_blank');
+      // Attempt to open the desktop app using a temporary anchor tag
+      const a = document.createElement('a');
+      a.href = desktopAppUrl;
+      a.style.display = 'none'; // Hide the anchor tag
+      document.body.appendChild(a);
+      a.click(); // Programmatically click the anchor tag
+      document.body.removeChild(a); // Clean up the anchor tag
 
-      // Show instructions for desktop app users
-      if (platform.isWindows) {
-        setShowInstructions(true);
-        setTimeout(() => setShowInstructions(false), 8000);
-      }
+      // Fallback to WhatsApp Web if the desktop app doesn't launch
+      // Increase timeout to give user more time to respond to "open in app?" prompt
+      setTimeout(() => {
+        window.open(webWhatsAppUrl, '_blank');
+      }, 3000); // Give 3 seconds for the desktop app to potentially launch and for user interaction
+      
+      // Show instructions for desktop app users if on Windows
+      // (This block is now empty as showInstructions state and modal were removed)
+      // if (platform.isWindows) {
+      //   setShowInstructions(true);
+      //   setTimeout(() => setShowInstructions(false), 8000);
+      // }
     }
   };
 
@@ -117,40 +131,7 @@ export default function WhatsAppChat() {
         )}
       </div>
 
-      {/* Instructions Modal for Desktop App Users */}
-      {showInstructions && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-60 p-4">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full">
-            <h3 className="text-lg font-semibold mb-4 text-gray-800">
-              💡 Using WhatsApp Desktop App?
-            </h3>
-            <p className="text-gray-600 mb-4">
-              If WhatsApp opened in the desktop app without the message, here's what to do:
-            </p>
-            <div className="space-y-2 text-sm text-gray-700 mb-4">
-              <p>1. 📱 Find "iaec consultants Ahmedabad" in your chat list</p>
-              <p>2. 📝 Copy and paste this message:</p>
-              <div className="bg-gray-100 p-3 rounded text-xs font-mono">
-                {whatsappData.message.replace(/\n/g, '\n')}
-              </div>
-            </div>
-            <div className="flex space-x-3">
-              <button
-                onClick={copyMessage}
-                className="flex-1 bg-[#25D366] text-white py-2 px-4 rounded hover:bg-[#128C7E] transition-colors"
-              >
-                Copy Message
-              </button>
-              <button
-                onClick={() => setShowInstructions(false)}
-                className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded hover:bg-[#06a599] transition-colors"
-              >
-                Got it!
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      
     </>
   );
 }
