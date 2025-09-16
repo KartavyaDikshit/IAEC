@@ -1,3 +1,6 @@
+import CountryRibbon from '@/components/home/CountryRibbon';
+import AccreditationRibbon from '@/components/home/AccreditationRibbon'; // Import the new component
+
 export default function Home() {
   return (
     <main>
@@ -39,6 +42,10 @@ export default function Home() {
     </div>
   </div>
 </section>
+      <CountryRibbon scrollSpeed={0.75} />
+      <AccreditationRibbon
+        scrollSpeed={0.75}
+      />
 <section className="py-16 bg-[#f7fafc]">
   <div className="container mx-auto px-4">
     <div className="text-center mb-12">
