@@ -134,49 +134,31 @@ export const certificationLogos = [
   {
     id: 1,
     name: 'ICEF Certified',
-    image: '/images/certifications/icef.jpg',
+    image: '/images/certifications/cert1.jpg',
     alt: 'ICEF - International Consultants for Education and Fairs'
   },
   {
     id: 2,
     name: 'British Council',
-    image: '/images/certifications/british-council.jpg',
+    image: '/images/certifications/cert2.jpg',
     alt: 'British Council Certified Education Agent'
   },
   {
     id: 3,
     name: 'IDP Education',
-    image: '/images/certifications/idp.jpg',
+    image: '/images/certifications/cert3.jpg',
     alt: 'IDP Education Certified Partner'
   },
   {
     id: 4,
     name: 'IELTS',
-    image: '/images/certifications/ielts.jpg',
+    image: '/images/certifications/cert4.jpg',
     alt: 'IELTS Official Test Center'
   },
   {
     id: 5,
     name: 'NAFSA',
-    image: '/images/certifications/nafsa.jpg',
+    image: '/images/certifications/cert5.jpg',
     alt: 'NAFSA - Association of International Educators'
-  },
-  {
-    id: 6,
-    name: 'Education USA',
-    image: '/images/certifications/education-usa.jpg',
-    alt: 'Education USA Advising Center'
-  },
-  {
-    id: 7,
-    name: 'PIER',
-    image: '/images/certifications/pier.jpg',
-    alt: 'PIER - Pathway International Education Resources'
-  },
-  {
-    id: 8,
-    name: 'AIRC',
-    image: '/images/certifications/airc.jpg',
-    alt: 'AIRC - American International Recruitment Council'
   }
 ];

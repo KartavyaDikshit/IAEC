@@ -111,7 +111,7 @@ export default function BlogsManagement() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                         blog.status === 'published' 
-                          ? 'bg-green-100 text-green-800' 
+                          ? 'bg-[#08bcb4] bg-opacity-20 text-[#08bcb4]' 
                           : 'bg-yellow-100 text-yellow-800'
                       }`}>
                         {blog.status}
@@ -125,8 +125,8 @@ export default function BlogsManagement() {
                         onClick={() => handleStatusToggle(blog.id, blog.status)}
                         className={`${
                           blog.status === 'published' 
-                            ? 'text-orange-600 hover:text-orange-900' 
-                            : 'text-green-600 hover:text-green-900'
+                            ? 'text-yellow-600 hover:text-yellow-900' 
+                            : 'text-[#08bcb4] hover:text-opacity-90'
                         }`}
                       >
                         {blog.status === 'published' ? 'Unpublish' : 'Publish'}

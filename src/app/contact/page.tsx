@@ -1,4 +1,5 @@
 import contactInfo from '../../../data/contact-info.json';
+import ContactForm from '@/components/ContactForm';
 
 export const metadata = {
   title: `Contact IAEC Consultants - ${contactInfo.company.tagline}`,
@@ -26,50 +27,7 @@ const ContactPage = () => {
         
         <div>
           <h2 className="text-3xl font-bold text-[#1a202c] mb-6">Get In Touch</h2>
-          <form className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-4">
-              <input 
-                type="text" 
-                placeholder="Full Name*" 
-                className="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-[#08bcb4] focus:outline-none"
-                required
-              />
-              <input 
-                type="email" 
-                placeholder="Email Address*" 
-                className="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-[#08bcb4] focus:outline-none"
-                required
-              />
-            </div>
-            <div className="grid md:grid-cols-2 gap-4">
-              <input 
-                type="tel" 
-                placeholder="Phone Number*" 
-                className="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-[#08bcb4] focus:outline-none"
-                required
-              />
-              <select className="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-[#08bcb4] focus:outline-none">
-                <option>Preferred Destination*</option>
-                <option>USA</option>
-                <option>UK</option>
-                <option>Australia</option>
-                <option>Canada</option>
-                <option>Ireland</option>
-                <option>Germany</option>
-              </select>
-            </div>
-            <textarea 
-              placeholder="Your Message..."
-              rows={5}
-              className="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-[#08bcb4] focus:outline-none"
-            ></textarea>
-            <button 
-              type="submit"
-              className="bg-[#08bcb4] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#069aa2] transition-all"
-            >
-              Send Message
-            </button>
-          </form>
+          <ContactForm />
         </div>
 
         <div>

@@ -1,15 +1,14 @@
-'use client';
+'use client'
 
-import { usePathname } from 'next/navigation';
-import WhatsAppChat from './WhatsAppChat';
+import { usePathname } from 'next/navigation'
+import WhatsAppChat from '@/components/WhatsAppChat'
 
 export default function WhatsAppConditionalRenderer() {
-  const pathname = usePathname();
-  const isAdminPage = pathname.startsWith('/admin');
+  const pathname = usePathname()
 
-  if (isAdminPage) {
-    return null;
+  if (pathname.startsWith('/admin')) {
+    return null
   }
 
-  return <WhatsAppChat />;
+  return <WhatsAppChat />
 }

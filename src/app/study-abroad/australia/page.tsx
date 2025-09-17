@@ -1,3 +1,5 @@
+import studyAbroadData from '../../../../data/study-abroad.json';
+
 export const metadata = {
   title: "Study in Australia 2025 - Top Universities, Student Visa & Scholarships | IAEC Consultants",
   description: "Study in Australia with IAEC expert guidance. 2.5M+ global graduates, world-class universities. Get Student Visa Subclass 500, work opportunities & post-study migration. 95% visa success rate.",
@@ -15,17 +17,17 @@ export const metadata = {
 };
 
 const StudyAbroadAustraliaPage = () => {
+  const pageData = studyAbroadData.australia;
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-orange-900 via-yellow-800 to-red-800 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6 leading-tight">
-              Study in <span className="text-yellow-400">Australia</span> - Land Down Under
-            </h1>
+            <h1 className="text-5xl font-bold mb-6 leading-tight" dangerouslySetInnerHTML={{ __html: pageData.hero.title }}></h1>
             <p className="text-xl mb-8 text-blue-100">
-              Join an entire continent of opportunities - 2.5 million global graduates, world-class universities, and pathways to permanent residency
+              {pageData.hero.description}
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🏖️ Lifestyle & Climate</span>
@@ -49,22 +51,12 @@ const StudyAbroadAustraliaPage = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#08bcb4] mb-2">2.5M+</div>
-              <p className="text-gray-600">Global Graduates</p>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#08bcb4] mb-2">43</div>
-              <p className="text-gray-600">Universities</p>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#08bcb4] mb-2">3</div>
-              <p className="text-gray-600">Major Intakes</p>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#08bcb4] mb-2">95%</div>
-              <p className="text-gray-600">IAEC Visa Success</p>
-            </div>
+            {pageData.quickStats.map((stat, index) => (
+              <div className="text-center" key={index}>
+                <div className="text-3xl font-bold text-[#08bcb4] mb-2">{stat.stat}</div>
+                <p className="text-gray-600">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -75,49 +67,21 @@ const StudyAbroadAustraliaPage = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Why Choose Australia for Higher Education?
+                {pageData.whyStudy.title}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Australia offers world-class education, stunning natural beauty, and unmatched quality of life, making it one of the most livable countries globally.
+                {pageData.whyStudy.description}
               </p>
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
-                <div className="text-4xl mb-4">🌏</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Entire Continent Country</h3>
-                <p className="text-gray-600">Australia spans an entire continent with diverse landscapes, climates, and opportunities. Most livable cities are located in pleasant coastal areas.</p>
-              </div>
-
-              <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
-                <div className="text-4xl mb-4">🌈</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Multicultural Society</h3>
-                <p className="text-gray-600">Nearly 25% of Australians are from overseas - UK, China, Vietnam, North Africa, and Middle East, creating one of the world&apos;s most multicultural nations.</p>
-              </div>
-
-              <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
-                <div className="text-4xl mb-4">🏫</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">World-Class Universities</h3>
-                <p className="text-gray-600">Australia has produced over 2.5 million global graduates with spectacular campuses equipped with all amenities and industry connections.</p>
-              </div>
-
-              <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
-                <div className="text-4xl mb-4">☀️</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Sunny Climate & Lifestyle</h3>
-                <p className="text-gray-600">Australia&apos;s vast open areas with sunny climate make it highly livable. Perfect work-life balance with outdoor activities year-round.</p>
-              </div>
-
-              <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
-                <div className="text-4xl mb-4">💼</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Work Opportunities</h3>
-                <p className="text-gray-600">Students can work 48 hours per fortnight during studies. Post-study work visas and pathways to permanent residency available.</p>
-              </div>
-
-              <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
-                <div className="text-4xl mb-4">🏡</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Migration Opportunities</h3>
-                <p className="text-gray-600">Strong pathways to permanent residency through skilled migration programs. Australia actively seeks skilled professionals in various fields.</p>
-              </div>
+              {pageData.whyStudy.points.map((point, index) => (
+                <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]" key={index}>
+                  <div className="text-4xl mb-4">{point.icon}</div>
+                  <h3 className="text-xl font-bold mb-3 text-gray-900">{point.title}</h3>
+                  <p className="text-gray-600">{point.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

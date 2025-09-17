@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Kartavya Dikshit",
+    "email": "kartavya.dikshit@gmail.com",
+    "phone": "9765530235",
+    "destination": "Germany",
+    "message": "I wanna go help me.",
+    "formType": "contact"
+  },
+  {
+    "name": "Kartavya Dikshit",
+    "email": "kartavya.dikshit@gmail.com",
+    "phone": "9765530235",
+    "destination": "USA",
+    "message": "I wanna go help me.",
+    "formType": "booking"
+  },
+  {
+    "name": "Kartavya Dikshit",
+    "email": "kartavya.dikshit@gmail.com",
+    "phone": "9765530235",
+    "test": "IELTS",
+    "formType": "mock-test"
+  }
+]
