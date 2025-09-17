@@ -21,7 +21,10 @@ async function readTestimonials() {
 
 interface Testimonial {
   id: string;
-  [key: string]: any; // Allow other properties
+  author: string;
+  text: string;
+  rating: number;
+  // Add other known properties of a testimonial here
 }
 
 async function writeTestimonials(testimonials: Testimonial[]) {

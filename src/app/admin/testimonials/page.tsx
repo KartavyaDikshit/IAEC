@@ -81,7 +81,7 @@ export default function TestimonialsManagement() {
                 <div className="flex space-x-2">
                   <button
                     onClick={() => handleDeleteTestimonial(testimonial.id)}
-                    className="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700 transition-colors"
+                    className="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 transition-colors"
                   >
                     Delete
                   </button>

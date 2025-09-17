@@ -25,7 +25,7 @@ const StudyAbroadFrancePage = () => {
               Study in <span className="text-yellow-400">France</span> - Excellence & Culture
             </h1>
             <p className="text-xl mb-8 text-blue-100">
-              Home to world's finest universities, art, culture, and luxury brands. Gateway to European excellence with affordable education and global recognition
+              Home to world&apos;s finest universities, art, culture, and luxury brands. Gateway to European excellence with affordable education and global recognition
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🎓 Academic Excellence</span>
@@ -141,7 +141,7 @@ const StudyAbroadFrancePage = () => {
                 <div className="text-3xl mb-4">📋</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Licence (L1-L3)</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">3 Years - 180 ECTS</div>
-                <p className="text-gray-600 text-sm">Bachelor's degree equivalent with specialization options and broad academic foundation.</p>
+                <p className="text-gray-600 text-sm">Bachelor&apos;s degree equivalent with specialization options and broad academic foundation.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
@@ -220,7 +220,7 @@ const StudyAbroadFrancePage = () => {
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">Paris Sciences et Lettres (PSL)</div>
-                      <div className="text-sm text-gray-600">France's highest-ranked institution</div>
+                      <div className="text-sm text-gray-600">France&apos;s highest-ranked institution</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#24</td>
                     <td className="p-4 text-center">€170 - €2,770</td>
@@ -287,7 +287,7 @@ const StudyAbroadFrancePage = () => {
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Licence (Bachelor's) Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Licence (Bachelor&apos;s) Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -329,7 +329,7 @@ const StudyAbroadFrancePage = () => {
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Master's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Master&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -337,7 +337,7 @@ const StudyAbroadFrancePage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree (180 ECTS) with good academic standing</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree (180 ECTS) with good academic standing</p>
                     </div>
                   </div>
                   
@@ -441,11 +441,11 @@ const StudyAbroadFrancePage = () => {
               <h3 className="text-2xl font-bold mb-4">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €8,000 - €25,000</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €10,000 - €30,000</p>
                 </div>
               </div>
@@ -560,9 +560,9 @@ const StudyAbroadFrancePage = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-yellow-400">
                 <h3 className="text-lg font-bold mb-3">Eiffel Excellence Scholarship</h3>
-                <p className="text-sm text-gray-600 mb-3">French government's flagship program</p>
+                <p className="text-sm text-gray-600 mb-3">French government&apos;s flagship program</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Master's and PhD programs</p>
+                  <p><strong>For:</strong> Master&apos;s and PhD programs</p>
                   <p><strong>Amount:</strong> €1,181-1,700/month + allowances</p>
                   <p><strong>Duration:</strong> 12-36 months</p>
                 </div>
@@ -572,7 +572,7 @@ const StudyAbroadFrancePage = () => {
                 <h3 className="text-lg font-bold mb-3">Charpak Scholarship Program</h3>
                 <p className="text-sm text-gray-600 mb-3">Specifically for Indian students</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Master's programs in France</p>
+                  <p><strong>For:</strong> Master&apos;s programs in France</p>
                   <p><strong>Coverage:</strong> Partial tuition + living costs</p>
                   <p><strong>Value:</strong> €8,000 per year</p>
                 </div>
@@ -669,7 +669,7 @@ const StudyAbroadFrancePage = () => {
                   <div className="border-l-4 border-green-400 pl-6">
                     <h4 className="font-bold text-lg mb-2">Graduate Work Visa</h4>
                     <ul className="text-gray-600 space-y-1">
-                      <li>• APS visa: 24 months for Master's/PhD</li>
+                      <li>• APS visa: 24 months for Master&apos;s/PhD</li>
                       <li>• Job search and work authorization</li>
                       <li>• Path to EU Blue Card</li>
                       <li>• Residence permit pathways</li>
@@ -679,7 +679,7 @@ const StudyAbroadFrancePage = () => {
                   <div className="border-l-4 border-purple-400 pl-6">
                     <h4 className="font-bold text-lg mb-2">Career Opportunities</h4>
                     <ul className="text-gray-600 space-y-1">
-                      <li>• Luxury brands: LVMH, L'Oréal, Hermès</li>
+                      <li>• Luxury brands: LVMH, L&apos;Oréal, Hermès</li>
                       <li>• Tech companies: Airbus, Dassault, Ubisoft</li>
                       <li>• Finance: BNP Paribas, Société Générale</li>
                       <li>• Consulting: McKinsey, BCG, Capgemini</li>
@@ -819,7 +819,7 @@ const StudyAbroadFrancePage = () => {
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">Do I need to know French to study in France?</h3>
-                <p className="text-gray-600">Not necessarily. Many programs are taught in English, especially at master's level. However, basic French helps with daily life and career opportunities.</p>
+                <p className="text-gray-600">Not necessarily. Many programs are taught in English, especially at master&apos;s level. However, basic French helps with daily life and career opportunities.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">

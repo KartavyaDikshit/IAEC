@@ -21,7 +21,17 @@ async function readBlogs() {
 
 interface Blog {
   id: string;
-  [key: string]: any; // Allow other properties
+  title: string;
+  slug: string;
+  date: string;
+  author: string;
+  image: string;
+  category: string;
+  tags: string[];
+  excerpt: string;
+  content: string;
+  isFeatured: boolean;
+  updatedAt?: string;
 }
 
 async function writeBlogs(blogs: Blog[]) {

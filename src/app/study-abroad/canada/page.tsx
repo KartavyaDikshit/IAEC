@@ -25,7 +25,7 @@ const StudyAbroadCanadaPage = () => {
               Study in <span className="text-yellow-400">Canada</span> - The True North Strong and Free
             </h1>
             <p className="text-xl mb-8 text-blue-100">
-              Join 1M+ international students in Canada - world's most livable country with pathways to permanent residency and Express Entry
+              Join 1M+ international students in Canada - world&apos;s most livable country with pathways to permanent residency and Express Entry
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🍁 Highest Quality of Life</span>
@@ -85,7 +85,7 @@ const StudyAbroadCanadaPage = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">🍁</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">World's Best Quality of Life</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">World&apos;s Best Quality of Life</h3>
                 <p className="text-gray-600">Canada ranks #1 globally for quality of life. Safe, peaceful, politically stable with excellent healthcare and human rights protection.</p>
               </div>
 
@@ -153,14 +153,14 @@ const StudyAbroadCanadaPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🎓</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor's</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor&apos;s</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">4 Years</div>
                 <p className="text-gray-600 text-sm">90-120 credit hours. Comprehensive undergraduate education with co-op options.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🏆</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Master's</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Master&apos;s</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">1-2 Years</div>
                 <p className="text-gray-600 text-sm">30+ credit hours. Research or coursework-based advanced study programs.</p>
               </div>
@@ -218,7 +218,7 @@ const StudyAbroadCanadaPage = () => {
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">University of Toronto</div>
-                      <div className="text-sm text-gray-600">Canada's highest-ranked institution</div>
+                      <div className="text-sm text-gray-600">Canada&apos;s highest-ranked institution</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#21</td>
                     <td className="p-4 text-center">$30,000 - $58,000</td>
@@ -285,7 +285,7 @@ const StudyAbroadCanadaPage = () => {
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Bachelor's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Bachelor&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -327,7 +327,7 @@ const StudyAbroadCanadaPage = () => {
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Master's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Master&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -439,7 +439,7 @@ const StudyAbroadCanadaPage = () => {
               <h3 className="text-2xl font-bold mb-4">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor&apos;s Programs</h4>
                   <p className="text-3xl font-bold">CAD $35,000 - $75,000</p>
                 </div>
                 <div>
@@ -829,7 +829,7 @@ const StudyAbroadCanadaPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">What is PGWP and how long can I work after graduation?</h3>
-                <p className="text-gray-600">Post-Graduation Work Permit allows you to work up to 3 years after graduation, depending on program length. It's your pathway to Express Entry and PR.</p>
+                <p className="text-gray-600">Post-Graduation Work Permit allows you to work up to 3 years after graduation, depending on program length. It&apos;s your pathway to Express Entry and PR.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
@@ -859,7 +859,7 @@ const StudyAbroadCanadaPage = () => {
               Ready to Begin Your Canadian Dream?
             </h2>
             <p className="text-xl mb-8 text-blue-100">
-              Join thousands of successful students who achieved their dreams with IAEC's expert guidance and now call Canada home
+              Join thousands of successful students who achieved their dreams with IAEC&apos;s expert guidance and now call Canada home
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a href="/contact" className="bg-white text-[#08bcb4] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">

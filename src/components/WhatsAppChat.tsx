@@ -18,6 +18,7 @@ interface PlatformInfo {
 export default function WhatsAppChat() {
   const [whatsappData, setWhatsappData] = useState<WhatsAppData | null>(null);
   const [platform, setPlatform] = useState<PlatformInfo | null>(null);
+  const [showDesktopFallback, setShowDesktopFallback] = useState(false);
   
   
 
@@ -60,11 +61,6 @@ export default function WhatsAppChat() {
       // Mobile: Try to open app first, with a fallback to wa.me
       whatsappUrl = `whatsapp://send?phone=${cleanNumber}&text=${message}`;
       window.location.href = whatsappUrl;
-
-      // Fallback to wa.me if app doesn't open after a short delay
-      setTimeout(() => {
-        window.open(`https://wa.me/${cleanNumber}?text=${message}`, '_blank');
-      }, 1000);
     } else { // Desktop
       const desktopAppUrl = `whatsapp://send?phone=${cleanNumber}&text=${message}`;
       const webWhatsAppUrl = `https://web.whatsapp.com/send?phone=${cleanNumber}&text=${message}`;
@@ -77,19 +73,16 @@ export default function WhatsAppChat() {
       a.click(); // Programmatically click the anchor tag
       document.body.removeChild(a); // Clean up the anchor tag
 
-      // Fallback to WhatsApp Web if the desktop app doesn't launch
-      // Increase timeout to give user more time to respond to "open in app?" prompt
-      setTimeout(() => {
-        window.open(webWhatsAppUrl, '_blank');
-      }, 3000); // Give 3 seconds for the desktop app to potentially launch and for user interaction
-      
-      // Show instructions for desktop app users if on Windows
-      // (This block is now empty as showInstructions state and modal were removed)
-      // if (platform.isWindows) {
-      //   setShowInstructions(true);
-      //   setTimeout(() => setShowInstructions(false), 8000);
-      // }
+      // Immediately show the fallback message. The user will click the "Open WhatsApp Web" button if the desktop app didn't launch.
+      setShowDesktopFallback(true);
     }
+  };
+
+  const openWebWhatsApp = () => {
+    const cleanNumber = whatsappData.number.replace(/[^0-9]/g, '');
+    const message = encodeURIComponent(whatsappData.message);
+    window.open(`https://web.whatsapp.com/send?phone=${cleanNumber}&text=${message}`, '_blank');
+    setShowDesktopFallback(false); // Hide fallback message after opening web WhatsApp
   };
 
   const copyMessage = () => {
@@ -132,6 +125,23 @@ export default function WhatsAppChat() {
       </div>
 
       
+    {showDesktopFallback && platform?.isDesktop && (
+        <div className="fixed bottom-24 right-6 z-50 bg-yellow-200 text-yellow-800 p-3 rounded-lg shadow-lg flex items-center space-x-2">
+          <span>WhatsApp Desktop didn't open?</span>
+          <button
+            onClick={openWebWhatsApp}
+            className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-md text-sm font-medium"
+          >
+            Open WhatsApp Web
+          </button>
+          <button
+            onClick={() => setShowDesktopFallback(false)}
+            className="text-yellow-800 hover:text-yellow-900"
+          >
+            &times;
+          </button>
+        </div>
+      )}
     </>
   );
 }

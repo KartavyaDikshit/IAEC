@@ -1,0 +1,50 @@
+{
+  "australia": {
+    "hero": {
+      "title": "Study in <span class=\"text-yellow-400\">Australia</span> - Land Down Under",
+      "description": "Join an entire continent of opportunities - 2.5 million global graduates, world-class universities, and pathways to permanent residency"
+    },
+    "quickStats": [
+      { "stat": "2.5M+", "label": "Global Graduates" },
+      { "stat": "43", "label": "Universities" },
+      { "stat": "3", "label": "Major Intakes" },
+      { "stat": "95%", "label": "IAEC Visa Success" }
+    ],
+    "whyStudy": {
+      "title": "Why Choose Australia for Higher Education?",
+      "description": "Australia offers world-class education, stunning natural beauty, and unmatched quality of life, making it one of the most livable countries globally.",
+      "points": [
+        {
+          "icon": "🌏",
+          "title": "Entire Continent Country",
+          "description": "Australia spans an entire continent with diverse landscapes, climates, and opportunities. Most livable cities are located in pleasant coastal areas."
+        },
+        {
+          "icon": "🌈",
+          "title": "Multicultural Society",
+          "description": "Nearly 25% of Australians are from overseas - UK, China, Vietnam, North Africa, and Middle East, creating one of the world's most multicultural nations."
+        },
+        {
+          "icon": "🏫",
+          "title": "World-Class Universities",
+          "description": "Australia has produced over 2.5 million global graduates with spectacular campuses equipped with all amenities and industry connections."
+        },
+        {
+          "icon": "☀️",
+          "title": "Sunny Climate & Lifestyle",
+          "description": "Australia's vast open areas with sunny climate make it highly livable. Perfect work-life balance with outdoor activities year-round."
+        },
+        {
+          "icon": "💼",
+          "title": "Work Opportunities",
+          "description": "Students can work 48 hours per fortnight during studies. Post-study work visas and pathways to permanent residency available."
+        },
+        {
+          "icon": "🏡",
+          "title": "Migration Opportunities",
+          "description": "Strong pathways to permanent residency through skilled migration programs. Australia actively seeks skilled professionals in various fields."
+        }
+      ]
+    }
+  }
+}

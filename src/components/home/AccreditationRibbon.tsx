@@ -1,193 +1,98 @@
 'use client';
 
 import Image from 'next/image';
+import { certificationLogos } from '@/lib/countries';
 import { useRef, useEffect, useState, useCallback } from 'react';
 
 interface AccreditationRibbonProps {
-  scrollSpeed?: number; // Optional: pixels per frame
+  autoScrollSpeed?: number;
+  pauseOnHover?: boolean;
 }
 
-const accreditationLogos = [
-  '/images/cert1.jpg',
-  '/images/cert2.jpg',
-  '/images/cert3.jpg',
-  '/images/cert4.jpg',
-];
-
 export default function AccreditationRibbon({
-  scrollSpeed = 1, // Changed to 1 for potentially smoother auto-scroll
+  autoScrollSpeed = 0.8,
+  pauseOnHover = true
 }: AccreditationRibbonProps) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isManuallyScrolling, setIsManuallyScrolling] = useState(false);
-  const manualScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const animationRef = useRef<number>();
 
-  const [singleSetScrollWidth, setSingleSetScrollWidth] = useState(0);
+  const autoScroll = useCallback(() => {
+    if (isPaused) return;
+    
+    const container = scrollContainerRef.current;
+    if (!container) return;
 
-  // Debug state
-  const [debugInfo, setDebugInfo] = useState('');
-
-  const measureSingleSetWidth = useCallback(() => {
-    const tempContainer = document.createElement('div');
-    tempContainer.style.visibility = 'hidden';
-    tempContainer.style.position = 'absolute';
-    tempContainer.style.display = 'flex';
-    tempContainer.style.gap = '32px'; // Match gap-x-8 from the actual ribbon
-    tempContainer.style.whiteSpace = 'nowrap';
-
-    let imagesLoadedCount = 0;
-    const totalImages = accreditationLogos.length;
-
-    accreditationLogos.forEach(logoSrc => {
-      const itemDiv = document.createElement('div');
-      itemDiv.style.flexShrink = '0';
-      itemDiv.style.width = '128px'; // w-32
-      itemDiv.style.height = '128px'; // h-32
-      itemDiv.style.display = 'flex';
-      itemDiv.style.alignItems = 'center';
-      itemDiv.style.justifyContent = 'center';
-
-      const tempImage = document.createElement('img');
-      tempImage.src = logoSrc;
-      tempImage.alt = 'Certification Logo';
-      tempImage.width = 1200;
-      tempImage.height = 1200;
-      tempImage.style.objectFit = 'contain';
-
-      tempImage.onload = () => { // Wait for image to load
-        imagesLoadedCount++;
-        if (imagesLoadedCount === totalImages) {
-          // All images loaded, now measure
-          document.body.appendChild(tempContainer);
-          const measuredWidth = tempContainer.scrollWidth;
-          setSingleSetScrollWidth(measuredWidth);
-          document.body.removeChild(tempContainer);
-        }
-      };
-      tempImage.onerror = () => {
-        // Handle error, maybe set a default width or log
-        imagesLoadedCount++; // Still count to avoid infinite wait
-        if (imagesLoadedCount === totalImages) {
-          document.body.appendChild(tempContainer);
-          const measuredWidth = tempContainer.scrollWidth;
-          setSingleSetScrollWidth(measuredWidth);
-          document.body.removeChild(tempContainer);
-        }
-      };
-
-      itemDiv.appendChild(tempImage);
-      tempContainer.appendChild(itemDiv);
-    });
-
-    // If no images, or images fail to load, ensure a fallback measurement
-    if (totalImages === 0) {
-      document.body.appendChild(tempContainer);
-      const measuredWidth = tempContainer.scrollWidth;
-      setSingleSetScrollWidth(measuredWidth);
-      document.body.removeChild(tempContainer);
+    container.scrollLeft += autoScrollSpeed;
+    
+    // Reset to beginning when reaching halfway point for infinite effect
+    if (container.scrollLeft >= container.scrollWidth / 3) {
+      container.scrollLeft = 0;
     }
 
-  }, []);
-
-  const handleScroll = useCallback(() => {
-    const scrollElement = scrollRef.current;
-    if (!scrollElement) return;
-
-    setIsManuallyScrolling(true);
-    if (manualScrollTimeoutRef.current) {
-      clearTimeout(manualScrollTimeoutRef.current);
-    }
-    manualScrollTimeoutRef.current = setTimeout(() => {
-      setIsManuallyScrolling(false);
-    }, 200);
-
-    if (scrollElement.scrollLeft >= singleSetScrollWidth * 2) {
-      scrollElement.scrollLeft -= singleSetScrollWidth; // Jump back one set
-    } else if (scrollElement.scrollLeft < 1 && singleSetScrollWidth > 0) {
-      scrollElement.scrollLeft += singleSetScrollWidth; // Jump forward one set
-    }
-  }, [singleSetScrollWidth]);
+    animationRef.current = requestAnimationFrame(autoScroll);
+  }, [isPaused, autoScrollSpeed]);
 
   useEffect(() => {
-    const scrollElement = scrollRef.current;
-    if (!scrollElement) return;
-
-    let animationFrameId: number;
-
-    measureSingleSetWidth();
-
-    const handleResize = () => {
-      measureSingleSetWidth();
-      // Adjust scroll position on resize to maintain visual continuity
-      // This will be handled by the separate useEffect below
-    };
-    window.addEventListener('resize', handleResize);
-
-    scrollElement.addEventListener('scroll', handleScroll);
-
-    const scroll = () => {
-      // Update debug info
-      setDebugInfo(`Hovered: ${isHovered}, Manual: ${isManuallyScrolling}, Width: ${singleSetScrollWidth}, ScrollLeft: ${scrollElement.scrollLeft}`);
-
-      if (!isHovered && !isManuallyScrolling && singleSetScrollWidth > 0) {
-        scrollElement.scrollLeft += scrollSpeed;
-
-        if (scrollElement.scrollLeft >= singleSetScrollWidth * 2) {
-          scrollElement.scrollLeft -= singleSetScrollWidth;
-        } else if (scrollElement.scrollLeft < 1) {
-          scrollElement.scrollLeft += singleSetScrollWidth;
-        }
-      }
-      animationFrameId = requestAnimationFrame(scroll);
-    };
-
-    animationFrameId = requestAnimationFrame(scroll);
+    animationRef.current = requestAnimationFrame(autoScroll);
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', handleResize);
-      scrollElement.removeEventListener('scroll', handleScroll);
-      if (manualScrollTimeoutRef.current) {
-        clearTimeout(manualScrollTimeoutRef.current);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isHovered, isManuallyScrolling, scrollSpeed, handleScroll, measureSingleSetWidth, singleSetScrollWidth]);
+  }, [autoScroll]);
 
-  useEffect(() => {
-    const scrollElement = scrollRef.current;
-    if (!scrollElement) return;
-
-    if (singleSetScrollWidth > 0 && scrollElement.scrollLeft === 0) {
-      scrollElement.scrollLeft = singleSetScrollWidth;
-    }
-  }, [singleSetScrollWidth]);
+  // Triple the logos for seamless infinite scroll
+  const tripleLogos = [...certificationLogos, ...certificationLogos, ...certificationLogos];
 
   return (
-    <section className="w-full py-8 bg-gray-100">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Accreditations & Certifications</h2>
-        {/* Debug Info */}
-        <div className="text-center text-xs text-gray-500 mb-2">{debugInfo}</div>
-        <div className="relative w-full overflow-hidden py-4">
-          <div
-            ref={scrollRef}
-            className="flex gap-x-8 hide-scrollbar overflow-x-auto whitespace-nowrap"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            {/* Duplicate the list three times for seamless infinite scrolling */}
-            {[...accreditationLogos, ...accreditationLogos, ...accreditationLogos].map((logoSrc, index) => (
-              <div key={index} className="flex-shrink-0 w-32 h-32 flex items-center justify-center">
+    <section className="py-12 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Accreditations & Certifications
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Trusted by leading educational organizations worldwide. 
+            Our certifications ensure the highest standards of service.
+          </p>
+        </div>
+
+        <div
+          ref={scrollContainerRef}
+          className="overflow-x-hidden"
+          onMouseEnter={() => pauseOnHover && setIsPaused(true)}
+          onMouseLeave={() => pauseOnHover && setIsPaused(false)}
+        >
+          <div className="flex gap-8 items-center">
+            {tripleLogos.map((logo, index) => (
+              <div
+                key={`${logo.id}-${index}`}
+                className="flex-shrink-0 w-32 h-24 flex items-center justify-center 
+                  bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300
+                  p-4 group"
+              >
                 <Image
-                  src={logoSrc}
-                  alt={`Certification Logo ${index}`}
-                  width={1200}
-                  height={1200}
-                  className="object-contain"
+                  src={logo.image}
+                  alt={logo.alt}
+                  width={120}
+                  height={80}
+                  className="max-w-full max-h-full object-contain filter grayscale 
+                    group-hover:grayscale-0 transition-all duration-300"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyztP8AGMo+lBNvWMsGhdF/9k="
                 />
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="text-center mt-6">
+          <p className="text-sm text-gray-500">
+            Hover to pause • Trusted certifications since 2000
+          </p>
         </div>
       </div>
     </section>
