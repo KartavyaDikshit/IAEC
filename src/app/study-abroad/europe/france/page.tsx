@@ -1,3 +1,5 @@
+import contactInfo from '../../../../../data/contact-info.json';
+
 export const metadata = {
   title: "Study in France 2025 - Top Universities, Student Visa & Excellence | IAEC Consultants",
   description: "Study in France with IAEC expert guidance. World-class education, affordable fees, art & culture. Get French student visa, campus France, EU residence. 95% visa success rate.",
@@ -18,8 +20,9 @@ const StudyAbroadFrancePage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 via-white-600 to-red-700 text-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/countries/france.jpg')" }}>
+        <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6 leading-tight">
               Study in <span className="text-yellow-400">France</span> - Excellence & Culture
@@ -34,7 +37,7 @@ const StudyAbroadFrancePage = () => {
               <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🌍 EU Gateway</span>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="bg-[#08bcb4] hover:bg-[#069aa2] px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                 Start Your France Journey
               </a>
               <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
@@ -438,14 +441,14 @@ const StudyAbroadFrancePage = () => {
 
             {/* Total Cost Estimation */}
             <div className="bg-gray-900 text-white p-8 rounded-xl text-center">
-              <h3 className="text-2xl font-bold mb-4">Estimated Total Annual Cost</h3>
+              <h3 className="text-2xl font-bold mb-4 !text-white">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor&apos;s Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-white">Bachelor&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €8,000 - €25,000</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master&apos;s Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-white">Master&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €10,000 - €30,000</p>
                 </div>
               </div>
@@ -862,10 +865,10 @@ const StudyAbroadFrancePage = () => {
               Join thousands of successful students who chose France and now enjoy EU careers and global recognition
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="bg-white text-[#08bcb4] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>
@@ -873,11 +876,11 @@ const StudyAbroadFrancePage = () => {
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>+91-XXXXXXXXXX</p>
+                <p>{contactInfo.primary.mobile}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>info@iaecconsultants.com</p>
+                <p>{contactInfo.primary.email}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>

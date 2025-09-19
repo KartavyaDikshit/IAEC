@@ -31,9 +31,9 @@ const StudyAbroadEuropePage = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           <Link href="/study-abroad/europe/germany" className="group">
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-[#08bcb4] group-hover:transform group-hover:-translate-y-2">
+            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-[#08bcb4] group-hover:transform group-hover:-translate-y-2 h-full flex flex-col">
               <h3 className="text-2xl font-bold text-[#08bcb4] mb-3">Study in Germany</h3>
-              <p className="text-[#4a5568] mb-4">Low tuition fees, excellent engineering programs, and strong economy. Home to world-class research institutions.</p>
+              <p className="text-[#4a5568] mb-4 flex-grow">Low tuition fees, excellent engineering programs, and strong economy. Home to world-class research institutions.</p>
               <ul className="text-sm text-[#4a5568] space-y-1">
                 <li>• No tuition fees at public universities</li>
                 <li>• 350,000+ international students</li>
@@ -43,9 +43,9 @@ const StudyAbroadEuropePage = () => {
           </Link>
 
           <Link href="/study-abroad/europe/france" className="group">
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-[#08bcb4] group-hover:transform group-hover:-translate-y-2">
+            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-[#08bcb4] group-hover:transform group-hover:-translate-y-2 h-full flex flex-col">
               <h3 className="text-2xl font-bold text-[#08bcb4] mb-3">Study in France</h3>
-              <p className="text-[#4a5568] mb-4">Rich culture, diverse programs, and excellent research opportunities. Gateway to European business and culture.</p>
+              <p className="text-[#4a5568] mb-4 flex-grow">Rich culture, diverse programs, and excellent research opportunities. Gateway to European business and culture.</p>
               <ul className="text-sm text-[#4a5568] space-y-1">
                 <li>• 370,000+ international students</li>
                 <li>• Excellence in arts, business, engineering</li>
@@ -55,9 +55,9 @@ const StudyAbroadEuropePage = () => {
           </Link>
 
           <Link href="/study-abroad/europe/italy" className="group">
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-[#08bcb4] group-hover:transform group-hover:-translate-y-2">
+            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-[#08bcb4] group-hover:transform group-hover:-translate-y-2 h-full flex flex-col">
               <h3 className="text-2xl font-bold text-[#08bcb4] mb-3">Study in Italy</h3>
-              <p className="text-[#4a5568] mb-4">Historic universities, art and design excellence, and affordable education in beautiful Mediterranean setting.</p>
+              <p className="text-[#4a5568] mb-4 flex-grow">Historic universities, art and design excellence, and affordable education in beautiful Mediterranean setting.</p>
               <ul className="text-sm text-[#4a5568] space-y-1">
                 <li>• Low tuition fees (€1,000-4,000)</li>
                 <li>• Rich cultural heritage</li>
@@ -67,9 +67,9 @@ const StudyAbroadEuropePage = () => {
           </Link>
 
           <Link href="/study-abroad/europe/spain" className="group">
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-[#08bcb4] group-hover:transform group-hover:-translate-y-2">
+            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-[#08bcb4] group-hover:transform group-hover:-translate-y-2 h-full flex flex-col">
               <h3 className="text-2xl font-bold text-[#08bcb4] mb-3">Study in Spain</h3>
-              <p className="text-[#4a5568] mb-4">Vibrant culture, growing economy, and excellent universities with Spanish and English programs.</p>
+              <p className="text-[#4a5568] mb-4 flex-grow">Vibrant culture, growing economy, and excellent universities with Spanish and English programs.</p>
               <ul className="text-sm text-[#4a5568] space-y-1">
                 <li>• 76 universities across Spain</li>
                 <li>• Affordable living costs</li>
@@ -79,9 +79,9 @@ const StudyAbroadEuropePage = () => {
           </Link>
 
           <Link href="/study-abroad/europe/malta" className="group">
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-[#08bcb4] group-hover:transform group-hover:-translate-y-2">
+            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-[#08bcb4] group-hover:transform group-hover:-translate-y-2 h-full flex flex-col">
               <h3 className="text-2xl font-bold text-[#08bcb4] mb-3">Study in Malta</h3>
-              <p className="text-[#4a5568] mb-4">English-speaking EU country, beautiful Mediterranean climate, and growing education sector.</p>
+              <p className="text-[#4a5568] mb-4 flex-grow">English-speaking EU country, beautiful Mediterranean climate, and growing education sector.</p>
               <ul className="text-sm text-[#4a5568] space-y-1">
                 <li>• English is official language</li>
                 <li>• EU membership benefits</li>
@@ -91,9 +91,9 @@ const StudyAbroadEuropePage = () => {
           </Link>
 
           <Link href="/study-abroad/europe/latvia" className="group">
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-[#08bcb4] group-hover:transform group-hover:-translate-y-2">
+            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-[#08bcb4] group-hover:transform group-hover:-translate-y-2 h-full flex flex-col">
               <h3 className="text-2xl font-bold text-[#08bcb4] mb-3">Study in Latvia</h3>
-              <p className="text-[#4a5568] mb-4">Affordable education, green environment, and growing reputation in business and technology programs.</p>
+              <p className="text-[#4a5568] mb-4 flex-grow">Affordable education, green environment, and growing reputation in business and technology programs.</p>
               <ul className="text-sm text-[#4a5568] space-y-1">
                 <li>• Very affordable tuition</li>
                 <li>• 44% forest coverage</li>
@@ -139,9 +139,9 @@ const StudyAbroadEuropePage = () => {
       </div>
 
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-[#1a202c] mb-4">Ready to Explore Europe?</h2>
+        <h2 className="text-3xl font-bold text-white mb-4">Ready to Explore Europe?</h2>
         <p className="text-lg text-[#4a5568] mb-8">Contact IAEC consultants for personalized guidance on European education opportunities</p>
-        <Link href="/contact" className="bg-[#08bcb4] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#069aa2] transition-all inline-block">
+        <Link href="/contact" className="bg-[#08bcb4] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#069aa2] transition-all inline-block !text-white">
           Get Expert Counseling
         </Link>
       </div>

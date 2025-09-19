@@ -7,8 +7,8 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-2">
           <div>
-            <Link href="/" className="text-2xl font-bold" style={{ color: '#08bcb4' }}>
-              IAEC
+            <Link href="/" className="inline-block">
+              <img src="/images/iaec-landing-logo.png" alt="IAEC Consultants" width="150" height="50" />
             </Link>
           </div>
           <nav className="hidden md:flex items-center space-x-4">
@@ -43,9 +43,8 @@ const Header = () => {
             <Link href="/contact" className="text-gray-800 hover:text-gray-900">Contact Us</Link>
           </nav>
           <div className="hidden md:flex items-center space-x-2">
-            <a href="tel:+91-XXXXXXXXXX" className="text-sm text-gray-800">Contact Number</a>
-            <Link href="/booking" className="px-3 py-1 rounded-md text-sm" style={{ backgroundColor: '#08bcb4', color: 'white' }}>Book Free Counselling</Link>
-            <Link href="/mock-test" className="px-3 py-1 rounded-md text-sm" style={{ backgroundColor: '#08bcb4', color: 'white' }}>Free Mock Test</Link>
+            <Link href="/booking" className="px-3 py-1 rounded-md text-sm border border-white" style={{ backgroundColor: '#08bcb4', color: 'white' }}>Book Free Counselling</Link>
+            <Link href="/mock-test" className="px-3 py-1 rounded-md text-sm border border-white" style={{ backgroundColor: '#08bcb4', color: 'white' }}>Free Mock Test</Link>
             
           </div>
           <div className="md:hidden">

@@ -1,3 +1,5 @@
+import contactInfo from '../../../../data/contact-info.json';
+
 export const metadata = {
   title: "Study in Ireland 2025 - Top Universities, Student Visa & EU Benefits | IAEC Consultants",
   description: "Study in Ireland with IAEC expert guidance. English-speaking EU country, world-class education. Get Irish student visa, 2-year stay back, EU work rights. 95% visa success rate.",
@@ -18,8 +20,9 @@ const StudyAbroadIrelandPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-green-800 via-orange-600 to-white-500 text-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/countries/ireland.jpg')" }}>
+        <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6 leading-tight">
               Study in <span className="text-green-400">Ireland</span> - The Emerald Isle
@@ -34,7 +37,7 @@ const StudyAbroadIrelandPage = () => {
               <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🌍 2-Year Stay Back</span>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="bg-[#08bcb4] hover:bg-[#069aa2] px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                 Start Your Ireland Journey
               </a>
               <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
@@ -438,14 +441,14 @@ const StudyAbroadIrelandPage = () => {
 
             {/* Total Cost Estimation */}
             <div className="bg-gray-900 text-white p-8 rounded-xl text-center">
-              <h3 className="text-2xl font-bold mb-4">Estimated Total Annual Cost</h3>
+              <h3 className="text-2xl font-bold mb-4 !text-white">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor&apos;s Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 !text-white">Bachelor&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €22,000 - €67,000</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master&apos;s Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 !text-white">Master&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €22,000 - €47,000</p>
                 </div>
               </div>
@@ -866,10 +869,10 @@ const StudyAbroadIrelandPage = () => {
               Join thousands of successful students who chose Ireland and now enjoy EU citizenship and global careers
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="bg-white text-[#08bcb4] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>
@@ -877,11 +880,11 @@ const StudyAbroadIrelandPage = () => {
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>+91-XXXXXXXXXX</p>
+                <p>{contactInfo.primary.mobile}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>info@iaecconsultants.com</p>
+                <p>{contactInfo.primary.email}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>

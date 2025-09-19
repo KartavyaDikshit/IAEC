@@ -7,8 +7,8 @@ export const metadata = {
 const StudyAbroadNewZealandPage = () => {
   return (
 <main>
-  <section className="bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white py-20">
-    <div className="container mx-auto px-4">
+  <section className="relative py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/countries/new-zealand.jpg')" }}>
+    <div className="container mx-auto px-4 relative z-10">
       <h1 className="text-5xl font-bold text-center mb-6">Study in New Zealand</h1>
       <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
         Beautiful landscapes, world-class education, and friendly multicultural environment
