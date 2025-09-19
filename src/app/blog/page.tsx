@@ -33,38 +33,44 @@ export default function BlogPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-[#1a202c] mb-4">Latest Insights & Updates</h1>
-        <p className="text-lg text-[#4a5568]">Stay updated with the latest in overseas education</p>
-      </div>
-
-      {loading ? (
-        <div className="text-center py-12">Loading articles...</div>
-      ) : blogs.length === 0 ? (
-        <div className="text-center py-12 text-gray-500">No articles published yet.</div>
-      ) : (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((blog) => (
-            <article key={blog.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="p-6">
-                <h2 className="text-xl font-bold text-[#1a202c] mb-3 hover:text-[#08bcb4] transition-colors">
-                  <Link href={`/blog/${blog.id}`}>
-                    {blog.title}
-                  </Link>
-                </h2>
-                <p className="text-[#4a5568] mb-4">
-                  {blog.content.substring(0, 150)}...
-                </p>
-                <div className="flex items-center justify-between text-sm text-[#718096]">
-                  <span>By {blog.author}</span>
-                  <span>{new Date(blog.createdAt).toLocaleDateString()}</span>
-                </div>
-              </div>
-            </article>
-          ))}
+    <>
+      <section className="bg-[url('/images/all_images/blog.png')] bg-cover bg-center text-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-white mb-4">Latest Insights & Updates</h1>
+            <p className="text-lg text-white/90">Stay updated with the latest in overseas education</p>
+          </div>
         </div>
-      )}
-    </div>
+      </section>
+
+      <div className="container mx-auto px-4 py-16">
+        {loading ? (
+          <div className="text-center py-12">Loading articles...</div>
+        ) : blogs.length === 0 ? (
+          <div className="text-center py-12 text-gray-500">No articles published yet.</div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogs.map((blog) => (
+              <article key={blog.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="p-6">
+                  <h2 className="text-xl font-bold text-[#1a202c] mb-3 hover:text-[#08bcb4] transition-colors">
+                    <Link href={`/blog/${blog.id}`}>
+                      {blog.title}
+                    </Link>
+                  </h2>
+                  <p className="text-[#4a5568] mb-4">
+                    {blog.content.substring(0, 150)}...
+                  </p>
+                  <div className="flex items-center justify-between text-sm text-[#718096]">
+                    <span>By {blog.author}</span>
+                    <span>{new Date(blog.createdAt).toLocaleDateString()}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   )
 }

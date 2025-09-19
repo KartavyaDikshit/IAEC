@@ -116,7 +116,7 @@ export default function Home() {
             <div className="relative">
               <div className="aspect-w-4 aspect-h-3">
                 <img
-                  src="/images/about-iaec.jpg"
+                  src="/images/all_images/Admissions.png"
                   alt="IAEC Consultants office and team"
                   className="rounded-2xl shadow-2xl object-cover w-full h-full"
                   loading="lazy"

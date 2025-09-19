@@ -1,4 +1,3 @@
-
 export const metadata = {
   title: "About IAEC Consultants - Leading Overseas Education Experts Since 2000 | Study Abroad",
   description: "Learn about IAEC Consultants, India's top overseas education consultancy since 2000. 30,000+ students placed in USA, UK, Australia, Canada. Expert counselors across 8 offices.",
@@ -9,15 +8,15 @@ export const metadata = {
 const AboutPage = () => {
   return (
 <main>
-  <section className="bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white py-20">
+  <section className="bg-[url('/images/all_images/us.jpg')] bg-cover bg-center text-white py-20">
     <div className="container mx-auto px-4">
       <h1 className="text-5xl font-bold text-center mb-6">About IAEC Consultants</h1>
       <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
         Leading overseas education consultancy since 2000 - Your trusted partner for international education dreams
       </p>
-    </div>
-  </section>
-
+            </div>
+          </section>
+    
   <section className="py-16">
     <div className="container mx-auto px-4">
       <div className="max-w-4xl mx-auto">
@@ -72,6 +71,17 @@ const AboutPage = () => {
           <p className="text-[#4a5568]">
             We have resolved that recruitment into any course or university is solely based on student academic priorities and budgetary preferences, with proper explanation of career choices available. Our ethical approach ensures transparent counseling without any misleading information.
           </p>
+        </div>
+
+        <div className="relative">
+          <div className="aspect-w-4 aspect-h-3">
+            <img
+              // src="/images/iaec-landing-logo.png"
+              // alt="IAEC Consultants office and team"
+              className="rounded-2xl shadow-2xl object-cover w-full h-full"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </div>

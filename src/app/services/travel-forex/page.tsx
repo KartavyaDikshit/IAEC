@@ -10,7 +10,7 @@ export const metadata = {
 const TravelForexPage = () => {
   return (
 <main>
-  <section className="bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white py-20">
+  <section className="bg-[url('/images/all_images/travel_forex.jpg')] bg-cover bg-center text-white py-20">
     <div className="container mx-auto px-4">
       <h1 className="text-5xl font-bold text-center mb-6">Travel & Forex Services</h1>
       <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
