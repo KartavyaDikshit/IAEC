@@ -23,28 +23,22 @@ const StudyAbroadItalyPage = () => {
       <section className="relative py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/countries/italy.jpg')" }}>
         <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6 leading-tight">
-              Study in <span className="text-yellow-400">Italy</span> - Art, Culture & Innovation
-            </h1>
-            <p className="text-xl mb-8 text-green-100">
-              Birthplace of Renaissance, fashion capital, and home to world&apos;s oldest university. Combine affordable EU education with rich cultural heritage
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🎨 Art & Design Capital</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">💰 Affordable Education</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🏛️ Renaissance Heritage</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🌍 EU Gateway</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
-                Start Your Italy Journey
-              </a>
-              <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
-                View Top Universities
-              </a>
-            </div>
-          </div>
+      <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
+        <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">
+          Study in Italy
+        </h1>
+        <p className="text-2xl mb-8 text-white/90">
+          Immerse yourself in art, history, and world-class education.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+            Start Your Italy Journey
+          </a>
+          <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+            View Top Universities
+          </a>
+        </div>
+      </div>
         </div>
       </section>
 

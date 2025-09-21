@@ -22,30 +22,22 @@ const StudyAbroadFrancePage = () => {
       {/* Hero Section */}
       <section className="relative py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/countries/france.jpg')" }}>
         <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6 leading-tight">
-              Study in <span className="text-yellow-400">France</span> - Excellence & Culture
-            </h1>
-            <p className="text-xl mb-8 text-blue-100">
-              Home to world&apos;s finest universities, art, culture, and luxury brands. Gateway to European excellence with affordable education and global recognition
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🎓 Academic Excellence</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🎨 Art & Culture Hub</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">💰 Affordable Education</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🌍 EU Gateway</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
-                Start Your France Journey
-              </a>
-              <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
-                View Top Universities
-              </a>
-            </div>
-          </div>
+      <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
+        <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">
+          Study in France
+        </h1>
+        <p className="text-2xl mb-8 text-white/90">
+          Experience the blend of rich culture and academic excellence.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+            Start Your France Journey
+          </a>
+          <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+            View Top Universities
+          </a>
         </div>
+      </div>
       </section>
 
       {/* Quick Stats Section */}

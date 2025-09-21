@@ -1,4 +1,5 @@
 import contactInfo from '../../../../data/contact-info.json';
+import Image from 'next/image';
 
 export const metadata = {
   title: "Study in USA 2025 - Top Universities, F1 Visa Process, Scholarships | IAEC Consultants",
@@ -20,30 +21,33 @@ const StudyAbroadUsaPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/countries/usa.jpg')" }}>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6 leading-tight">
-              Study in <span className="text-yellow-400">USA</span> - Land of Opportunities
-            </h1>
-            <p className="text-xl mb-8 text-blue-100">
-              Join 1.1+ million international students in America - the world's #1 study destination with unlimited career prospects
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🏆 World's Top Universities</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">💰 $45B+ in Scholarships</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🌍 Multicultural Environment</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
-                Start Your USA Journey
-              </a>
-              <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
-                View Top Universities
-              </a>
-            </div>
-          </div>
+      <section className="relative h-screen flex items-center justify-center">
+        <div className="absolute inset-0">
+                  <Image
+                    src="/images/countries/usa.jpg"
+                    alt="Study in the USA"
+                    layout="fill"
+                    objectFit="cover"
+                    className="z-0"
+                    priority
+                  />          <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
+      <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
+        <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">
+          Study in the USA
+        </h1>
+        <p className="text-2xl mb-8 text-white/90">
+          Your American dream starts here.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+            Start Your USA Journey
+          </a>
+          <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+            View Top Universities
+          </a>
+        </div>
+      </div>
       </section>
 
       {/* Quick Stats Section */}

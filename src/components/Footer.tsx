@@ -35,12 +35,20 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h3 className="text-lg font-bold mb-4">Follow Us</h3>
+            <h3 className="text-lg font-bold mb-4 !text-white">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/IAEC.Consultants.Pvt.Ltd" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300"><i className="fab fa-facebook-f"></i></a>
-              <a href="https://x.com/iaec_india" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300"><i className="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com/iaecconsultantspvtltd" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300"><i className="fab fa-instagram"></i></a>
-              <a href="https://www.linkedin.com/company/iaec-consultants-pvt-ltd" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300"><i className="fab fa-linkedin-in"></i></a>
+              <a href="https://www.facebook.com/iaecconsultantspvtltd" target="_blank" rel="noopener noreferrer">
+                <img src="/images/links/facebook.png" alt="Facebook" className="w-6 h-6" />
+              </a>
+              <a href="https://www.instagram.com/iaecconsultantspvtltd" target="_blank" rel="noopener noreferrer">
+                <img src="/images/links/instagram.png" alt="Instagram" className="w-6 h-6" />
+              </a>
+              <a href="https://www.linkedin.com/company/iaecconsultantspvtltd/" target="_blank" rel="noopener noreferrer">
+                <img src="/images/links/linkedin.png" alt="LinkedIn" className="w-6 h-6" />
+              </a>
+              <a href="mailto:ravinder@iaecconsultants.com">
+                <img src="/images/links/email.png" alt="Email" className="w-6 h-6" />
+              </a>
             </div>
           </div>
         </div>

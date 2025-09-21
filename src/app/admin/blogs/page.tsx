@@ -73,7 +73,7 @@ export default function BlogsManagement() {
         <h1 className="text-3xl font-bold text-gray-900">Blog Management</h1>
         <Link 
           href="/admin/blogs/new"
-          className="bg-[#08bcb4] text-white px-6 py-2 rounded-lg hover:bg-[#069aa2] transition-colors"
+          className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg hover:bg-[#069aa2] transition-colors"
         >
           Create New Blog
         </Link>
@@ -111,7 +111,7 @@ export default function BlogsManagement() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                         blog.status === 'published' 
-                          ? 'bg-[#08bcb4] bg-opacity-20 text-[#08bcb4]' 
+                          ? 'bg-[#08bcb4] bg-opacity-20 text-white' 
                           : 'bg-yellow-100 text-yellow-800'
                       }`}>
                         {blog.status}

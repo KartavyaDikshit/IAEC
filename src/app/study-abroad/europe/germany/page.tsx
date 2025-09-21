@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import contactInfo from '../../../../../data/contact-info.json';
 
 export const metadata = {
@@ -20,21 +21,31 @@ const StudyAbroadGermanyPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/countries/germany.jpg')" }}>
-        <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="relative h-screen flex items-center justify-center">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/countries/germany.jpg"
+            alt="Study in Germany"
+            layout="fill"
+            objectFit="cover"
+            className="z-0"
+            priority
+          />
+          <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
+        </div>
+        <div className="container mx-auto px-4 relative z-10 animate-fade-in text-shadow-md">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6 leading-tight">
-              Study in <span className="text-yellow-400">Germany</span> - Innovation & Excellence
+            <h1 className="text-6xl font-extrabold mb-6 leading-tight !text-white">
+              Study in <span className="text-white">Germany</span> - Innovation & Excellence
             </h1>
-            <p className="text-xl mb-8 text-red-100">
+            <p className="text-2xl mb-8 text-white/90">
               FREE tuition education at world-class universities. Engineering powerhouse, Industry 4.0 leader, and gateway to European innovation careers
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🆓 Tuition-Free Education</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🏭 Industry 4.0 Leader</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🔬 Research Excellence</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🌍 EU Blue Card</span>
+              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium text-white">🆓 Tuition-Free Education</span>
+              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium text-white">🏭 Industry 4.0 Leader</span>
+              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium text-white">🔬 Research Excellence</span>
+              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium text-white">🌍 EU Blue Card</span>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
               <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">

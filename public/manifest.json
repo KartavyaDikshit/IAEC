@@ -1,0 +1,25 @@
+{
+  "name": "IAEC Consultants",
+  "short_name": "IAEC",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#08bcb4",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/images/IAEC Logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/IAEC Logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

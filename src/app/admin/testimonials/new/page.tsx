@@ -160,15 +160,23 @@ export default function CreateTestimonial() {
 
             <div>
               <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700 mb-2">
-                Image URL (Optional)
+                Upload Image (Optional)
               </label>
               <input
-                type="url"
+                type="file"
                 id="imageUrl"
-                value={formData.imageUrl}
-                onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
+                accept="image/*"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) {
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                      setFormData({ ...formData, imageUrl: reader.result as string });
+                    };
+                    reader.readAsDataURL(file);
+                  }
+                }}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
-                placeholder="https://example.com/image.jpg"
               />
             </div>
           </div>

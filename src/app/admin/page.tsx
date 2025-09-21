@@ -115,13 +115,13 @@ export default function AdminDashboard() {
         <div className="bg-white p-6 rounded-lg shadow">
           <h3 className="text-lg font-semibold text-black mb-4">Quick Actions</h3>
           <div className="space-y-3">
-            <Link href="/admin/blogs/new" className="block w-full bg-[#08bcb4] text-white p-3 rounded-lg text-center hover:bg-opacity-90 transition-colors font-medium">
+            <Link href="/admin/blogs/new" className="block w-full bg-[#08bcb4] !text-white p-3 rounded-lg text-center hover:bg-opacity-90 transition-colors font-medium">
               Create New Blog Post
             </Link>
-            <Link href="/admin/testimonials/new" className="block w-full bg-[#08bcb4] text-white p-3 rounded-lg text-center hover:bg-opacity-90 transition-colors font-medium">
+            <Link href="/admin/testimonials/new" className="block w-full bg-[#08bcb4] !text-white p-3 rounded-lg text-center hover:bg-opacity-90 transition-colors font-medium">
               Add New Testimonial
             </Link>
-            <Link href="/admin/form-submissions" className="block w-full bg-[#08bcb4] text-white p-3 rounded-lg text-center hover:bg-opacity-90 transition-colors font-medium">
+            <Link href="/admin/form-submissions" className="block w-full bg-[#08bcb4] !text-white p-3 rounded-lg text-center hover:bg-opacity-90 transition-colors font-medium">
               View Form Submissions
             </Link>
           </div>

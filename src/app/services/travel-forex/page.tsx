@@ -1,4 +1,4 @@
-
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -10,12 +10,30 @@ export const metadata = {
 const TravelForexPage = () => {
   return (
 <main>
-  <section className="bg-[url('/images/all_images/travel_forex.jpg')] bg-cover bg-center text-white py-20">
-    <div className="container mx-auto px-4">
-      <h1 className="text-5xl font-bold text-center mb-6">Travel & Forex Services</h1>
-      <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
-        Complete travel solutions for students - flights, forex, insurance, and accommodation at best rates
-      </p>
+  <section className="relative h-screen flex items-center justify-center">
+    <div className="absolute inset-0">
+      <Image
+        src="/images/all_images/travel_forex.jpg"
+        alt="Travel & Forex Services"
+        layout="fill"
+        objectFit="cover"
+        className="z-0"
+        priority
+      />
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+    <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
+      <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">Travel & Forex Services</h1>
+      <p className="text-2xl mb-8 text-white/90">Complete travel solutions for students - flights, forex, insurance, and accommodation at best rates</p>
+      <div className="flex flex-wrap justify-center gap-4">
+        <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          Start Your Travel Journey
+        </a>
+        <a href="#services" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+          View All Services
+        </a>
+      </div>
+    </div>
     </div>
   </section>
 
