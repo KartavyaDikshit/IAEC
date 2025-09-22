@@ -1,5 +1,8 @@
 import contactInfo from '../../../../data/contact-info.json';
 import Image from 'next/image';
+import { studyAbroadCountries } from '../../../lib/countries';
+
+const irelandCountry = studyAbroadCountries.find(country => country.name === 'Ireland');
 
 export const metadata = {
   title: "Study in Ireland 2025 - Top Universities, Student Visa & EU Benefits | IAEC Consultants",
@@ -24,7 +27,7 @@ const StudyAbroadIrelandPage = () => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/countries/ireland.jpg"
+            src={irelandCountry?.heroImage || "/images/countries/ireland.jpg"}
             alt="Study in Ireland"
             layout="fill"
             objectFit="cover"

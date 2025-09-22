@@ -1,5 +1,8 @@
 import contactInfo from '../../../../data/contact-info.json';
 import Image from 'next/image';
+import { studyAbroadCountries } from '../../../lib/countries';
+
+const canadaCountry = studyAbroadCountries.find(country => country.name === 'Canada');
 
 export const metadata = {
   title: "Study in Canada 2025 - Top Universities, Study Permit & Express Entry | IAEC Consultants",
@@ -24,7 +27,7 @@ const StudyAbroadCanadaPage = () => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
                   <Image
-                    src="/images/countries/canada.jpg"
+                    src={canadaCountry?.heroImage || "/images/countries/canada.jpg"}
                     alt="Study in Canada"
                     layout="fill"
                     objectFit="cover"

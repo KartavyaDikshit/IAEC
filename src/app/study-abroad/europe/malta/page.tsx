@@ -1,4 +1,7 @@
 import contactInfo from '../../../../../data/contact-info.json';
+import { studyAbroadCountries } from '../../../../lib/countries';
+
+const maltaCountry = studyAbroadCountries.find(country => country.name === 'Malta');
 
 export const metadata = {
   title: "Study in Malta 2025 - Top Universities, Student Visa & English-Speaking EU | IAEC Consultants",
@@ -20,7 +23,7 @@ const StudyAbroadMaltaPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/countries/malta.jpg')" }}>
+      <section className="relative py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('${maltaCountry?.heroImage || '/images/countries/malta.jpg'}')` }}>
         <div className="container mx-auto px-4 relative z-10">
       <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
         <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">

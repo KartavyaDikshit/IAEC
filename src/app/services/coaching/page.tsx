@@ -34,7 +34,6 @@ const CoachingPage = () => {
         </a>
       </div>
     </div>
-    </div>
   </section>
 
   <section className="py-16">

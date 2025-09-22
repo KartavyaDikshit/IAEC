@@ -1,6 +1,9 @@
 import contactInfo from '../../../../data/contact-info.json';
 import studyAbroadData from '../../../../data/study-abroad.json';
 import Image from 'next/image';
+import { studyAbroadCountries } from '../../../lib/countries';
+
+const australiaCountry = studyAbroadCountries.find(country => country.name === 'Australia');
 
 export const metadata = {
   title: "Study in Australia 2025 - Top Universities, Student Visa & Scholarships | IAEC Consultants",
@@ -27,7 +30,7 @@ const StudyAbroadAustraliaPage = () => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
                   <Image
-                    src="/images/countries/australia.jpg"
+                    src={australiaCountry?.heroImage || "/images/countries/australia.jpg"}
                     alt="Study in Australia"
                     layout="fill"
                     objectFit="cover"

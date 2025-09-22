@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import contactInfo from '../../../../../data/contact-info.json';
+import { studyAbroadCountries } from '../../../../lib/countries';
+
+const germanyCountry = studyAbroadCountries.find(country => country.name === 'Germany');
 
 export const metadata = {
   title: "Study in Germany 2025 - Free Education, Top Universities & Student Visa | IAEC Consultants",
@@ -24,7 +27,7 @@ const StudyAbroadGermanyPage = () => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/countries/germany.jpg"
+            src={germanyCountry?.heroImage || "/images/countries/germany.jpg"}
             alt="Study in Germany"
             layout="fill"
             objectFit="cover"

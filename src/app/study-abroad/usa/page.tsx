@@ -1,5 +1,8 @@
 import contactInfo from '../../../../data/contact-info.json';
 import Image from 'next/image';
+import { studyAbroadCountries } from '../../../lib/countries';
+
+const usaCountry = studyAbroadCountries.find(country => country.name === 'United States');
 
 export const metadata = {
   title: "Study in USA 2025 - Top Universities, F1 Visa Process, Scholarships | IAEC Consultants",
@@ -24,7 +27,7 @@ const StudyAbroadUsaPage = () => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
                   <Image
-                    src="/images/countries/usa.jpg"
+                    src={usaCountry?.heroImage || "/images/countries/usa.jpg"}
                     alt="Study in the USA"
                     layout="fill"
                     objectFit="cover"

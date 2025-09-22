@@ -1,4 +1,7 @@
 import contactInfo from '../../../../../data/contact-info.json';
+import { studyAbroadCountries } from '../../../../lib/countries';
+
+const franceCountry = studyAbroadCountries.find(country => country.name === 'France');
 
 export const metadata = {
   title: "Study in France 2025 - Top Universities, Student Visa & Excellence | IAEC Consultants",
@@ -20,7 +23,7 @@ const StudyAbroadFrancePage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/countries/france.jpg')" }}>
+      <section className="relative py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('${franceCountry?.heroImage || '/images/countries/france.jpg'}')` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
       <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
         <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">

@@ -38,16 +38,16 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4 !text-white">Follow Us</h3>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/iaecconsultantspvtltd" target="_blank" rel="noopener noreferrer">
-                <img src="/images/links/facebook.png" alt="Facebook" className="w-6 h-6" />
+                <img src="/images/links/facebook.jpeg" alt="Facebook" className="w-6 h-6" />
               </a>
               <a href="https://www.instagram.com/iaecconsultantspvtltd" target="_blank" rel="noopener noreferrer">
-                <img src="/images/links/instagram.png" alt="Instagram" className="w-6 h-6" />
+                <img src="/images/links/instagram.jpeg" alt="Instagram" className="w-6 h-6" />
               </a>
               <a href="https://www.linkedin.com/company/iaecconsultantspvtltd/" target="_blank" rel="noopener noreferrer">
-                <img src="/images/links/linkedin.png" alt="LinkedIn" className="w-6 h-6" />
+                <img src="/images/links/linkedin.jpeg" alt="LinkedIn" className="w-6 h-6" />
               </a>
               <a href="mailto:ravinder@iaecconsultants.com">
-                <img src="/images/links/email.png" alt="Email" className="w-6 h-6" />
+                <img src="/images/links/email.jpeg" alt="Email" className="w-6 h-6" />
               </a>
             </div>
           </div>
