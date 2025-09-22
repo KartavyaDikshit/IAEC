@@ -1,4 +1,4 @@
-
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -10,12 +10,29 @@ export const metadata = {
 const CoachingPage = () => {
   return (
 <main>
-  <section className="bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white py-20">
-    <div className="container mx-auto px-4">
-      <h1 className="text-5xl font-bold text-center mb-6">Test Preparation Coaching</h1>
-      <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
-        Expert coaching for IELTS, TOEFL, GRE, GMAT, and other standardized tests with proven success rates
-      </p>
+  <section className="relative h-screen flex items-center justify-center">
+    <div className="absolute inset-0">
+      <Image
+        src="/images/all_images/coaching.jpg"
+        alt="Test Preparation Coaching"
+        layout="fill"
+        objectFit="cover"
+        className="z-0"
+        priority
+      />
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+    <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
+      <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">Test Preparation Coaching</h1>
+      <p className="text-2xl mb-8 text-white/90">Expert coaching for IELTS, TOEFL, GRE, GMAT, and other standardized tests with proven success rates</p>
+      <div className="flex flex-wrap justify-center gap-4">
+        <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          Start Your Coaching Journey
+        </a>
+        <a href="#courses" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+          View All Courses
+        </a>
+      </div>
     </div>
   </section>
 

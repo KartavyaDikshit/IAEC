@@ -1,3 +1,9 @@
+import contactInfo from '../../../../data/contact-info.json';
+import Image from 'next/image';
+import { studyAbroadCountries } from '../../../lib/countries';
+
+const usaCountry = studyAbroadCountries.find(country => country.name === 'United States');
+
 export const metadata = {
   title: "Study in USA 2025 - Top Universities, F1 Visa Process, Scholarships | IAEC Consultants",
   description: "Study in USA with IAEC expert guidance. 1.1M+ international students choose USA. Get F1 student visa, apply to top US universities, scholarships & OPT work opportunities. 95% visa success rate.",
@@ -18,30 +24,33 @@ const StudyAbroadUsaPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6 leading-tight">
-              Study in <span className="text-yellow-400">USA</span> - Land of Opportunities
-            </h1>
-            <p className="text-xl mb-8 text-blue-100">
-              Join 1.1+ million international students in America - the world's #1 study destination with unlimited career prospects
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🏆 World's Top Universities</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">💰 $45B+ in Scholarships</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🌍 Multicultural Environment</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="bg-[#08bcb4] hover:bg-[#069aa2] px-8 py-3 rounded-lg font-semibold transition-colors">
-                Start Your USA Journey
-              </a>
-              <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
-                View Top Universities
-              </a>
-            </div>
-          </div>
+      <section className="relative h-screen flex items-center justify-center">
+        <div className="absolute inset-0">
+                  <Image
+                    src={usaCountry?.heroImage || "/images/countries/usa.jpg"}
+                    alt="Study in the USA"
+                    layout="fill"
+                    objectFit="cover"
+                    className="z-0"
+                    priority
+                  />          <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
+      <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
+        <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">
+          Study in the USA
+        </h1>
+        <p className="text-2xl mb-8 text-white/90">
+          Your American dream starts here.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+            Start Your USA Journey
+          </a>
+          <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+            View Top Universities
+          </a>
+        </div>
+      </div>
       </section>
 
       {/* Quick Stats Section */}
@@ -437,14 +446,14 @@ const StudyAbroadUsaPage = () => {
 
             {/* Total Cost Estimation */}
             <div className="bg-gray-900 text-white p-8 rounded-xl text-center">
-              <h3 className="text-2xl font-bold mb-4">Estimated Total Annual Cost</h3>
+              <h3 className="text-2xl font-bold mb-4 !text-white">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Public Universities</h4>
+                  <h4 className="text-lg font-semibold mb-2 !text-white">Public Universities</h4>
                   <p className="text-3xl font-bold">$30,000 - $50,000</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Private Universities</h4>
+                  <h4 className="text-lg font-semibold mb-2 !text-white">Private Universities</h4>
                   <p className="text-3xl font-bold">$50,000 - $80,000</p>
                 </div>
               </div>
@@ -946,10 +955,10 @@ const StudyAbroadUsaPage = () => {
               Join thousands of successful students who achieved their goals with IAEC's expert guidance
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="bg-white text-[#08bcb4] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>
@@ -957,11 +966,11 @@ const StudyAbroadUsaPage = () => {
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>+91-XXXXXXXXXX</p>
+                <p>{contactInfo.primary.mobile}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>info@iaecconsultants.com</p>
+                <p>{contactInfo.primary.email}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>

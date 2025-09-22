@@ -1,4 +1,4 @@
-
+import Image from 'next/image';
 export const metadata = {
   title: "About IAEC Consultants - Leading Overseas Education Experts Since 2000 | Study Abroad",
   description: "Learn about IAEC Consultants, India's top overseas education consultancy since 2000. 30,000+ students placed in USA, UK, Australia, Canada. Expert counselors across 8 offices.",
@@ -9,15 +9,34 @@ export const metadata = {
 const AboutPage = () => {
   return (
 <main>
-  <section className="bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white py-20">
-    <div className="container mx-auto px-4">
-      <h1 className="text-5xl font-bold text-center mb-6">About IAEC Consultants</h1>
-      <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
+  <section className="relative h-screen flex items-center justify-center">
+    <div className="absolute inset-0">
+      <Image
+        src="/images/all_images/us.jpg"
+        alt="About IAEC Consultants"
+        layout="fill"
+        objectFit="cover"
+        className="z-0"
+        priority
+      />
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+    <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
+      <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">About IAEC Consultants</h1>
+      <p className="text-2xl mb-8 text-white/90">
         Leading overseas education consultancy since 2000 - Your trusted partner for international education dreams
       </p>
+      <div className="flex flex-wrap justify-center gap-4">
+        <a href="#our-story" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          Learn More About Us
+        </a>
+        <a href="/contact" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+          Contact Our Experts
+        </a>
+      </div>
     </div>
   </section>
-
+    
   <section className="py-16">
     <div className="container mx-auto px-4">
       <div className="max-w-4xl mx-auto">
@@ -72,6 +91,17 @@ const AboutPage = () => {
           <p className="text-[#4a5568]">
             We have resolved that recruitment into any course or university is solely based on student academic priorities and budgetary preferences, with proper explanation of career choices available. Our ethical approach ensures transparent counseling without any misleading information.
           </p>
+        </div>
+
+        <div className="relative">
+          <div className="aspect-w-4 aspect-h-3">
+            <img
+              // src="/images/iaec-landing-logo.png"
+              // alt="IAEC Consultants office and team"
+              className="rounded-2xl shadow-2xl object-cover w-full h-full"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </div>

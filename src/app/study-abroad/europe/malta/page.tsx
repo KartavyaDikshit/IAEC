@@ -1,3 +1,8 @@
+import contactInfo from '../../../../../data/contact-info.json';
+import { studyAbroadCountries } from '../../../../lib/countries';
+
+const maltaCountry = studyAbroadCountries.find(country => country.name === 'Malta');
+
 export const metadata = {
   title: "Study in Malta 2025 - Top Universities, Student Visa & English-Speaking EU | IAEC Consultants",
   description: "Study in Malta with IAEC expert guidance. English-speaking EU country, affordable education, Mediterranean lifestyle. Get Maltese student visa, work rights, residence pathways. 95% visa success rate.",
@@ -18,30 +23,24 @@ const StudyAbroadMaltaPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 via-white to-red-600 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6 leading-tight">
-              Study in <span className="text-yellow-400">Malta</span> - English-Speaking EU Paradise
-            </h1>
-            <p className="text-xl mb-8 text-blue-100">
-              Mediterranean island lifestyle with English education and EU benefits. Small class sizes, affordable tuition, and pathways to European opportunities
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🇬🇧 English-Speaking EU</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🏝️ Mediterranean Island</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">💰 Affordable Tuition</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🌊 Island Lifestyle</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="bg-[#08bcb4] hover:bg-[#069aa2] px-8 py-3 rounded-lg font-semibold transition-colors">
-                Start Your Malta Journey
-              </a>
-              <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
-                View Top Universities
-              </a>
-            </div>
-          </div>
+      <section className="relative py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('${maltaCountry?.heroImage || '/images/countries/malta.jpg'}')` }}>
+        <div className="container mx-auto px-4 relative z-10">
+      <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
+        <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">
+          Study in Malta
+        </h1>
+        <p className="text-2xl mb-8 text-white/90">
+          Your Mediterranean gateway to European education.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+            Start Your Malta Journey
+          </a>
+          <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+            View Top Universities
+          </a>
+        </div>
+      </div>
         </div>
       </section>
 
@@ -460,15 +459,15 @@ const StudyAbroadMaltaPage = () => {
 
             {/* Total Annual Cost */}
             <div className="bg-gray-900 text-white p-8 rounded-xl text-center">
-              <h3 className="text-2xl font-bold mb-4">Estimated Total Annual Cost</h3>
+              <h3 className="text-2xl font-bold mb-4 !text-white">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">EU Citizens</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-white">EU Citizens</h4>
                   <p className="text-3xl font-bold">EUR €7,200 - €14,400</p>
                   <p className="text-sm text-gray-300">Living expenses only</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Non-EU Students</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-white">Non-EU Students</h4>
                   <p className="text-3xl font-bold">EUR €9,360 - €16,560</p>
                   <p className="text-sm text-gray-300">Including tuition and living</p>
                 </div>
@@ -813,10 +812,10 @@ const StudyAbroadMaltaPage = () => {
               Join thousands of successful students who chose Malta and now enjoy EU careers with English education and Mediterranean lifestyle
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="bg-white text-[#08bcb4] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors text-white">
                 Take Free Mock Test
               </a>
             </div>
@@ -824,11 +823,11 @@ const StudyAbroadMaltaPage = () => {
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>+91-XXXXXXXXXX</p>
+                <p>{contactInfo.primary.mobile}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>info@iaecconsultants.com</p>
+                <p>{contactInfo.primary.email}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>

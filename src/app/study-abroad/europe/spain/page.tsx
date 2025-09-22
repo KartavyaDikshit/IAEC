@@ -1,3 +1,8 @@
+import contactInfo from '../../../../../data/contact-info.json';
+import { studyAbroadCountries } from '../../../../lib/countries';
+
+const spainCountry = studyAbroadCountries.find(country => country.name === 'Spain');
+
 export const metadata = {
   title: "Study in Spain 2025 - Top Universities, Student Visa & Affordable EU Education | IAEC Consultants",
   description: "Study in Spain with IAEC expert guidance. Affordable education, vibrant culture, Mediterranean lifestyle. Get Spanish student visa, work rights, EU benefits. 95% visa success rate.",
@@ -18,30 +23,25 @@ const StudyAbroadSpainPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-red-600 via-yellow-400 to-red-600 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6 leading-tight">
-              Study in <span className="text-white">Spain</span> - Vivid Culture & Excellence
-            </h1>
-            <p className="text-xl mb-8 text-red-100">
-              Mediterranean lifestyle, world-renowned universities, and Europe's most affordable education. Experience vibrant Spanish culture with EU benefits
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">☀️ Mediterranean Lifestyle</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">💰 Most Affordable EU</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🎭 Rich Cultural Heritage</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🌍 EU Gateway</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="bg-[#08bcb4] hover:bg-[#069aa2] px-8 py-3 rounded-lg font-semibold transition-colors">
-                Start Your Spain Journey
-              </a>
-              <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
-                View Top Universities
-              </a>
-            </div>
-          </div>
+      <section className="relative py-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('${spainCountry?.heroImage || '/images/countries/spain.jpg'}')` }}>
+        <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
+        <div className="container mx-auto px-4 relative z-10">
+      <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
+        <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">
+          Study in Spain
+        </h1>
+        <p className="text-2xl mb-8 text-white/90">
+          Vibrant culture, diverse programs, and a warm welcome.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+            Start Your Spain Journey
+          </a>
+          <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+            View Top Universities
+          </a>
+        </div>
+      </div>
         </div>
       </section>
 
@@ -460,14 +460,14 @@ const StudyAbroadSpainPage = () => {
 
             {/* Total Annual Cost */}
             <div className="bg-gray-900 text-white p-8 rounded-xl text-center">
-              <h3 className="text-2xl font-bold mb-4">Estimated Total Annual Cost</h3>
+              <h3 className="text-2xl font-bold mb-4 !text-white">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor's Programs (Public)</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-white">Bachelor's Programs (Public)</h4>
                   <p className="text-3xl font-bold">EUR €7,000 - €16,000</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master's Programs (Public)</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-white">Master's Programs (Public)</h4>
                   <p className="text-3xl font-bold">EUR €8,500 - €18,500</p>
                 </div>
               </div>
@@ -890,10 +890,10 @@ const StudyAbroadSpainPage = () => {
               Join thousands of successful students who chose Spain and now enjoy EU careers with Mediterranean lifestyle and vibrant culture
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="bg-white text-[#08bcb4] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>
@@ -901,11 +901,11 @@ const StudyAbroadSpainPage = () => {
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>+91-XXXXXXXXXX</p>
+                <p>{contactInfo.primary.mobile}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>info@iaecconsultants.com</p>
+                <p>{contactInfo.primary.email}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>

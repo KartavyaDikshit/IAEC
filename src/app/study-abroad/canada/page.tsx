@@ -1,3 +1,9 @@
+import contactInfo from '../../../../data/contact-info.json';
+import Image from 'next/image';
+import { studyAbroadCountries } from '../../../lib/countries';
+
+const canadaCountry = studyAbroadCountries.find(country => country.name === 'Canada');
+
 export const metadata = {
   title: "Study in Canada 2025 - Top Universities, Study Permit & Express Entry | IAEC Consultants",
   description: "Study in Canada with IAEC expert guidance. 1M+ international students, world-class education. Get Study Permit, PGWP, Express Entry pathway to PR. 95% visa success rate.",
@@ -18,31 +24,35 @@ const StudyAbroadCanadaPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-red-900 via-white-600 to-red-700 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6 leading-tight">
-              Study in <span className="text-yellow-400">Canada</span> - The True North Strong and Free
-            </h1>
-            <p className="text-xl mb-8 text-blue-100">
-              Join 1M+ international students in Canada - world&apos;s most livable country with pathways to permanent residency and Express Entry
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🍁 Highest Quality of Life</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🎓 World-Class Education</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🌍 Multicultural Society</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🏡 Express Entry to PR</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="bg-[#08bcb4] hover:bg-[#069aa2] px-8 py-3 rounded-lg font-semibold transition-colors">
-                Start Your Canada Journey
-              </a>
-              <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
-                View Top Universities
-              </a>
-            </div>
-          </div>
+      <section className="relative h-screen flex items-center justify-center">
+        <div className="absolute inset-0">
+                  <Image
+                    src={canadaCountry?.heroImage || "/images/countries/canada.jpg"}
+                    alt="Study in Canada"
+                    layout="fill"
+                    objectFit="cover"
+                    className="z-0"
+                    priority
+                  />         
+          <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
+      <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
+        <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">
+          Study in Canada
+        </h1>
+        <p className="text-2xl mb-8 text-white/90">
+          Your future in a land of opportunities.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+            Start Your Canada Journey
+          </a>
+          <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+            View Top Universities
+          </a>
+        </div>
+      </div>
+      
       </section>
 
       {/* Quick Stats Section */}
@@ -436,14 +446,14 @@ const StudyAbroadCanadaPage = () => {
 
             {/* Total Cost Estimation */}
             <div className="bg-gray-900 text-white p-8 rounded-xl text-center">
-              <h3 className="text-2xl font-bold mb-4">Estimated Total Annual Cost</h3>
+              <h3 className="text-2xl font-bold mb-4 !text-white">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Bachelor&apos;s Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 !text-white">Bachelor&apos;s Programs</h4>
                   <p className="text-3xl font-bold">CAD $35,000 - $75,000</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Master's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 !text-white">Master&apos;s Programs</h4>
                   <p className="text-3xl font-bold">CAD $33,000 - $70,000</p>
                 </div>
               </div>
@@ -862,10 +872,10 @@ const StudyAbroadCanadaPage = () => {
               Join thousands of successful students who achieved their dreams with IAEC&apos;s expert guidance and now call Canada home
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="bg-white text-[#08bcb4] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>
@@ -873,11 +883,11 @@ const StudyAbroadCanadaPage = () => {
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>+91-XXXXXXXXXX</p>
+                <p>{contactInfo.primary.mobile}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>info@iaecconsultants.com</p>
+                <p>{contactInfo.primary.email}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>

@@ -1,6 +1,7 @@
 import CountryRibbon from '@/components/home/CountryRibbon';
 import AccreditationRibbon from '@/components/home/AccreditationRibbon';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'IAEC Consultants - Your Global Study Partner',
@@ -19,7 +20,7 @@ export default function Home() {
       <section className="relative bg-gradient-to-br from-primary-light via-white to-blue-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               Your Global Study Partner –{' '}
               <span className="text-primary">Explore the World</span>{' '}
               with IAEC
@@ -29,12 +30,12 @@ export default function Home() {
               Australia, Canada. Transform your dreams into reality with 30,000+ success stories.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+              <Link href="/contact" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-white">
                 Start Your Journey
-              </button>
-              <button className="btn-secondary text-lg px-8 py-4 rounded-lg hover:shadow-lg transition-all duration-300">
+              </Link>
+              <Link href="/contact" className="btn-secondary text-lg px-8 py-4 rounded-lg hover:shadow-lg transition-all duration-300 text-white">
                 Book Free Consultation
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -48,15 +49,15 @@ export default function Home() {
                 <div className="text-gray-600 font-medium">Satisfied Students</div>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="text-4xl font-bold text-green-600 mb-2">15+</div>
+                <div className="text-4xl font-bold text-primary mb-2">15+</div>
                 <div className="text-gray-600 font-medium">Countries</div>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="text-4xl font-bold text-blue-600 mb-2">24+</div>
+                <div className="text-4xl font-bold text-primary mb-2">24+</div>
                 <div className="text-gray-600 font-medium">Years Experience</div>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="text-4xl font-bold text-purple-600 mb-2">95%</div>
+                <div className="text-4xl font-bold text-primary mb-2">95%</div>
                 <div className="text-gray-600 font-medium">Visa Success Rate</div>
               </div>
             </div>
@@ -115,7 +116,7 @@ export default function Home() {
             <div className="relative">
               <div className="aspect-w-4 aspect-h-3">
                 <img
-                  src="/images/about-iaec.jpg"
+                  src="/images/all_images/Admissions.png"
                   alt="IAEC Consultants office and team"
                   className="rounded-2xl shadow-2xl object-cover w-full h-full"
                   loading="lazy"

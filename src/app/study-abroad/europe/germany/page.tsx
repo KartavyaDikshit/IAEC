@@ -1,3 +1,9 @@
+import Image from 'next/image';
+import contactInfo from '../../../../../data/contact-info.json';
+import { studyAbroadCountries } from '../../../../lib/countries';
+
+const germanyCountry = studyAbroadCountries.find(country => country.name === 'Germany');
+
 export const metadata = {
   title: "Study in Germany 2025 - Free Education, Top Universities & Student Visa | IAEC Consultants",
   description: "Study in Germany with IAEC expert guidance. Tuition-free education, world-class universities, Industry 4.0 leader. Get German student visa, blocked account, EU residence. 95% visa success rate.",
@@ -18,23 +24,34 @@ const StudyAbroadGermanyPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-black via-red-700 to-yellow-500 text-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative h-screen flex items-center justify-center">
+        <div className="absolute inset-0">
+          <Image
+            src={germanyCountry?.heroImage || "/images/countries/germany.jpg"}
+            alt="Study in Germany"
+            layout="fill"
+            objectFit="cover"
+            className="z-0"
+            priority
+          />
+          <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
+        </div>
+        <div className="container mx-auto px-4 relative z-10 animate-fade-in text-shadow-md">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6 leading-tight">
-              Study in <span className="text-yellow-400">Germany</span> - Innovation & Excellence
+            <h1 className="text-6xl font-extrabold mb-6 leading-tight !text-white">
+              Study in <span className="text-white">Germany</span> - Innovation & Excellence
             </h1>
-            <p className="text-xl mb-8 text-red-100">
+            <p className="text-2xl mb-8 text-white/90">
               FREE tuition education at world-class universities. Engineering powerhouse, Industry 4.0 leader, and gateway to European innovation careers
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🆓 Tuition-Free Education</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🏭 Industry 4.0 Leader</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🔬 Research Excellence</span>
-              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium">🌍 EU Blue Card</span>
+              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium text-white">🆓 Tuition-Free Education</span>
+              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium text-white">🏭 Industry 4.0 Leader</span>
+              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium text-white">🔬 Research Excellence</span>
+              <span className="bg-white/20 px-4 py-2 rounded-full text-sm font-medium text-white">🌍 EU Blue Card</span>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="bg-[#08bcb4] hover:bg-[#069aa2] px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                 Start Your Germany Journey
               </a>
               <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
@@ -438,14 +455,14 @@ const StudyAbroadGermanyPage = () => {
 
             {/* Total Cost & Blocked Account */}
             <div className="bg-gray-900 text-white p-8 rounded-xl text-center">
-              <h3 className="text-2xl font-bold mb-4">Annual Cost & Blocked Account Requirement</h3>
+              <h3 className="text-2xl font-bold mb-4 !text-white">Annual Cost & Blocked Account Requirement</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Total Annual Living Cost</h4>
+                  <h4 className="text-lg font-semibold mb-2 !text-white">Total Annual Living Cost</h4>
                   <p className="text-3xl font-bold">EUR €8,500 - €12,000</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-yellow-400">Blocked Account Minimum</h4>
+                  <h4 className="text-lg font-semibold mb-2 !text-white">Blocked Account Minimum</h4>
                   <p className="text-3xl font-bold">EUR €11,904</p>
                 </div>
               </div>
@@ -867,10 +884,10 @@ const StudyAbroadGermanyPage = () => {
               Join thousands of successful students who chose Germany and now enjoy EU careers without education debt
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="bg-white text-[#08bcb4] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>
@@ -878,11 +895,11 @@ const StudyAbroadGermanyPage = () => {
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>+91-XXXXXXXXXX</p>
+                <p>{contactInfo.primary.mobile}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>info@iaecconsultants.com</p>
+                <p>{contactInfo.primary.email}</p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>

@@ -4,7 +4,8 @@ import "./globals.css";
 import SessionProviderWrapper from '@/components/SessionProviderWrapper';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import WhatsAppConditionalRenderer from "@/components/WhatsAppConditionalRenderer";
+import WhatsAppConditionalRenderer from '@/components/WhatsAppConditionalRenderer';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -135,16 +136,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* -- Google tag (gtag.js) -- */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWFB0NQ4T8"></script>
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-FWFB0NQ4T8');
-          `}
-        </script>
+        <GoogleTagManager gtmId="G-FWFB0NQ4T8" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />

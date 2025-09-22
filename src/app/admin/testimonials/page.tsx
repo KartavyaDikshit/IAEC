@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
@@ -60,7 +61,7 @@ export default function TestimonialsManagement() {
         <h1 className="text-3xl font-bold text-gray-900">Testimonials Management</h1>
         <Link 
           href="/admin/testimonials/new"
-          className="bg-[#08bcb4] text-white px-6 py-2 rounded-lg hover:bg-[#069aa2] transition-colors font-medium"
+          className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg hover:bg-[#069aa2] transition-colors font-medium"
         >
           Add New Testimonial
         </Link>
@@ -87,6 +88,18 @@ export default function TestimonialsManagement() {
                   </button>
                 </div>
               </div>
+              
+              {testimonial.imageUrl && (
+                <div className="mb-4">
+                  <Image
+                    src={testimonial.imageUrl}
+                    alt={`Image for ${testimonial.name}`}
+                    width={100}
+                    height={100}
+                    className="rounded-full object-cover mx-auto"
+                  />
+                </div>
+              )}
               
               <div className="space-y-2 text-sm text-gray-600">
                 <p><strong>University:</strong> {testimonial.university}</p>
