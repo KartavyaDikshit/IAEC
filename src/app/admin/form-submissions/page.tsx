@@ -2,8 +2,18 @@
 
 import { useState, useEffect } from 'react'
 
+interface Submission {
+  name: string;
+  email: string;
+  phone: string;
+  formType: string;
+  destination?: string;
+  test?: string;
+  message: string;
+}
+
 export default function FormSubmissionsPage() {
-  const [submissions, setSubmissions] = useState([])
+  const [submissions, setSubmissions] = useState<Submission[]>([])
 
   useEffect(() => {
     const fetchSubmissions = async () => {

@@ -12,9 +12,9 @@ export default function EditStudyAbroadPage() {
   const [heroDescription, setHeroDescription] = useState('')
 
   useEffect(() => {
-    if (country && studyAbroadData[country]) {
-      setHeroTitle(studyAbroadData[country].hero.title)
-      setHeroDescription(studyAbroadData[country].hero.description)
+    if (country && (studyAbroadData as any)[country]) {
+      setHeroTitle((studyAbroadData as any)[country].hero.title)
+      setHeroDescription((studyAbroadData as any)[country].hero.description)
     }
   }, [country])
 

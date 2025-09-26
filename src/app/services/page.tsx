@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export const metadata = {
   title: "Overseas Education Services - University Selection, Visa Assistance | IAEC Consultants",
   description: "Complete overseas education services: university selection, visa assistance, test preparation, scholarship guidance. 95% visa success rate. Expert counselors for USA, UK, Australia, Canada.",
@@ -13,9 +15,8 @@ const ServicesPage = () => {
       <Image
         src="/images/all_images/contactus.png"
         alt="Our Services"
-        layout="fill"
-        objectFit="cover"
-        className="z-0"
+        fill
+        className="z-0 object-cover"
         priority
       />
       <div className="absolute inset-0 bg-black opacity-50"></div>

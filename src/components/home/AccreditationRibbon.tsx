@@ -15,7 +15,7 @@ export default function AccreditationRibbon({
 }: AccreditationRibbonProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | null>(null);
 
   const autoScroll = useCallback(() => {
     if (isPaused) return;
