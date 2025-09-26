@@ -1,8 +1,8 @@
-import contactInfo from '../../../../data/contact-info.json';
-import Image from 'next/image';
-import { studyAbroadCountries } from '../../../lib/countries';
+import contactInfo from &apos;../../../../data/contact-info.json&apos;;
+import Image from &apos;next/image&apos;;
+import { studyAbroadCountries } from &apos;../../../lib/countries&apos;;
 
-const ukCountry = studyAbroadCountries.find(country => country.name === 'United Kingdom');
+const ukCountry = studyAbroadCountries.find(country => country.name === &apos;United Kingdom&apos;);
 
 export const metadata = {
   title: "Study in UK 2025 - Top Universities, Student Visa & Scholarships | IAEC Consultants",
@@ -11,10 +11,10 @@ export const metadata = {
   openGraph: {
     title: "Study in UK 2025 - Top Universities & Student Visa Guide | IAEC",
     description: "Complete guide to studying in UK. Expert counseling for top UK universities, student visa process, scholarships, and post-study work opportunities.",
-    images: ['/images/study-uk-hero.jpg'],
+    images: [&apos;/images/study-uk-hero.jpg&apos;],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: &apos;summary_large_image&apos;,
     title: "Study in UK 2025 - Top Universities & Student Visa Guide | IAEC",
     description: "Complete guide to studying in UK. Expert counseling for top UK universities, student visa process, scholarships, and post-study work opportunities.",
   }
@@ -44,10 +44,10 @@ const StudyAbroadUkPage = () => {
           Your gateway to global success.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          <a href="#apply-now&quot;className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
             Start Your UK Journey
           </a>
-          <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+          <a href="#universities&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
             View Top Universities
           </a>
         </div>
@@ -95,13 +95,13 @@ const StudyAbroadUkPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">🏰</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Historic Excellence</h3>
-                <p className="text-gray-600">Home to world's oldest English-speaking universities including Oxford (1096) and Cambridge (1209) with centuries of academic tradition.</p>
+                <p className="text-gray-600">Home to world&apos;s oldest English-speaking universities including Oxford (1096) and Cambridge (1209) with centuries of academic tradition.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">⏱️</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Shorter Duration</h3>
-                <p className="text-gray-600">3-year bachelor's and 1-year master's programs save time and money compared to other countries. Graduate faster with the same quality.</p>
+                <p className="text-gray-600">3-year bachelor&apos;s and 1-year master&apos;s programs save time and money compared to other countries. Graduate faster with the same quality.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -155,14 +155,14 @@ const StudyAbroadUkPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🎓</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor's Degree</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor&apos;s Degree</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">3-4 Years</div>
                 <p className="text-gray-600 text-sm">Ordinary (3 years) or Honours (4 years). Comprehensive undergraduate education with specialization.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🏆</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Master's Degree</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Master&apos;s Degree</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">1-2 Years</div>
                 <p className="text-gray-600 text-sm">Taught or research-based programs. Intensive advanced study with global career prospects.</p>
               </div>
@@ -201,7 +201,7 @@ const StudyAbroadUkPage = () => {
       </section>
 
       {/* Top Universities Section */}
-      <section id="universities" className="py-20">
+      <section id="universities&quot;className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -209,7 +209,7 @@ const StudyAbroadUkPage = () => {
                 Top UK Universities for International Students 2025
               </h2>
               <p className="text-xl text-gray-600">
-                World's most prestigious institutions offering exceptional education and research opportunities
+                World&apos;s most prestigious institutions offering exceptional education and research opportunities
               </p>
             </div>
 
@@ -227,7 +227,7 @@ const StudyAbroadUkPage = () => {
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">University of Oxford</div>
-                      <div className="text-sm text-gray-600">World's oldest English-speaking university</div>
+                      <div className="text-sm text-gray-600">World&apos;s oldest English-speaking university</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#3</td>
                     <td className="p-4 text-center">£27,000 - £39,000</td>
@@ -254,7 +254,7 @@ const StudyAbroadUkPage = () => {
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">University College London (UCL)</div>
-                      <div className="text-sm text-gray-600">London's leading multidisciplinary university</div>
+                      <div className="text-sm text-gray-600">London&apos;s leading multidisciplinary university</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#22</td>
                     <td className="p-4 text-center">£21,000 - £46,000</td>
@@ -263,7 +263,7 @@ const StudyAbroadUkPage = () => {
                   <tr className="hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">University of Edinburgh</div>
-                      <div className="text-sm text-gray-600">Scotland's premier research university</div>
+                      <div className="text-sm text-gray-600">Scotland&apos;s premier research university</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#29</td>
                     <td className="p-4 text-center">£24,000 - £34,000</td>
@@ -290,11 +290,11 @@ const StudyAbroadUkPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor's Requirements */}
+              {/* Bachelor&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Bachelor's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Bachelor&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -332,11 +332,11 @@ const StudyAbroadUkPage = () => {
                 </div>
               </div>
 
-              {/* Master's Requirements */}
+              {/* Master&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Master's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Master&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -344,7 +344,7 @@ const StudyAbroadUkPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree with minimum 2:2 classification (55%+ equivalent)</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree with minimum 2:2 classification (55%+ equivalent)</p>
                     </div>
                   </div>
                   
@@ -571,9 +571,9 @@ const StudyAbroadUkPage = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-yellow-400">
                 <h3 className="text-lg font-bold mb-3">Chevening Scholarships</h3>
-                <p className="text-sm text-gray-600 mb-3">UK government's global scholarship programme</p>
+                <p className="text-sm text-gray-600 mb-3">UK government&apos;s global scholarship programme</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Master's degree students</p>
+                  <p><strong>For:</strong> Master&apos;s degree students</p>
                   <p><strong>Coverage:</strong> Full tuition, living costs, flights</p>
                   <p><strong>Duration:</strong> One year</p>
                 </div>
@@ -583,7 +583,7 @@ const StudyAbroadUkPage = () => {
                 <h3 className="text-lg font-bold mb-3">Commonwealth Scholarships</h3>
                 <p className="text-sm text-gray-600 mb-3">For students from Commonwealth countries</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Master's and PhD</p>
+                  <p><strong>For:</strong> Master&apos;s and PhD</p>
                   <p><strong>Coverage:</strong> Full funding including flights</p>
                   <p><strong>Focus:</strong> Development-related subjects</p>
                 </div>
@@ -680,7 +680,7 @@ const StudyAbroadUkPage = () => {
                   <div className="border-l-4 border-green-400 pl-6">
                     <h4 className="font-bold text-lg mb-2">Graduate Route Visa</h4>
                     <ul className="text-gray-600 space-y-1">
-                      <li>• 2 years for Bachelor's/Master's graduates</li>
+                      <li>• 2 years for Bachelor&apos;s/Master&apos;s graduates</li>
                       <li>• 3 years for PhD graduates</li>
                       <li>• Work in any job at any skill level</li>
                       <li>• Switch to Skilled Worker visa later</li>
@@ -940,7 +940,7 @@ const StudyAbroadUkPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">Is UK education expensive for international students?</h3>
-                <p className="text-gray-600">UK education costs £25,000-58,000 per year total. However, shorter duration (3-year bachelor's, 1-year master's) reduces overall costs compared to other countries.</p>
+                <p className="text-gray-600">UK education costs £25,000-58,000 per year total. However, shorter duration (3-year bachelor&apos;s, 1-year master&apos;s) reduces overall costs compared to other countries.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
@@ -953,20 +953,20 @@ const StudyAbroadUkPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="apply-now" className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
+      <section id="apply-now&quot;className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
               Ready to Begin Your UK Education Journey?
             </h2>
             <p className="text-xl mb-8 text-blue-100">
-              Join thousands of successful students who achieved their dreams with IAEC's expert guidance
+              Join thousands of successful students who achieved their dreams with IAEC&apos;s expert guidance
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
+              <a href="/contact&quot;className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
+              <a href="/mock-test&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>

@@ -24,7 +24,7 @@ export async function GET() {
   try {
     const testimonials = await readTestimonials()
     return NextResponse.json({ count: testimonials.length })
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

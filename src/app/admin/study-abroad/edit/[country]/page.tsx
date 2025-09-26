@@ -4,6 +4,15 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import studyAbroadData from '../../../../../../data/study-abroad.json'
 
+interface StudyAbroadData {
+  [country: string]: {
+    hero: {
+      title: string;
+      description: string;
+    };
+  };
+}
+
 export default function EditStudyAbroadPage() {
   const params = useParams()
   const country = params.country as string
@@ -12,9 +21,9 @@ export default function EditStudyAbroadPage() {
   const [heroDescription, setHeroDescription] = useState('')
 
   useEffect(() => {
-    if (country && (studyAbroadData as any)[country]) {
-      setHeroTitle((studyAbroadData as any)[country].hero.title)
-      setHeroDescription((studyAbroadData as any)[country].hero.description)
+    if (country && (studyAbroadData as StudyAbroadData)[country]) {
+      setHeroTitle((studyAbroadData as StudyAbroadData)[country].hero.title)
+      setHeroDescription((studyAbroadData as StudyAbroadData)[country].hero.description)
     }
   }, [country])
 

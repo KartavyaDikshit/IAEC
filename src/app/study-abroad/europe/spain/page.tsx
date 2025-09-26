@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import contactInfo from '../../../../../data/contact-info.json';
-import { studyAbroadCountries } from '../../../../lib/countries';
+import Image from &apos;next/image&apos;;
+import contactInfo from &apos;../../../../../data/contact-info.json&apos;;
+import { studyAbroadCountries } from &apos;../../../../lib/countries&apos;;
 
-const spainCountry = studyAbroadCountries.find(country => country.name === 'Spain');
+const spainCountry = studyAbroadCountries.find(country => country.name === &apos;Spain&apos;);
 
 export const metadata = {
   title: "Study in Spain 2025 - Top Universities, Student Visa & Affordable EU Education | IAEC Consultants",
@@ -11,10 +11,10 @@ export const metadata = {
   openGraph: {
     title: "Study in Spain 2025 - Top Universities & Student Visa Guide | IAEC",
     description: "Complete guide to studying in Spain. Expert counseling for top Spanish universities, student visa process, Mediterranean lifestyle, and EU opportunities.",
-    images: ['/images/study-spain-hero.jpg'],
+    images: [&apos;/images/study-spain-hero.jpg&apos;],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: &apos;summary_large_image&apos;,
     title: "Study in Spain 2025 - Top Universities & Student Visa Guide | IAEC",
     description: "Complete guide to studying in Spain. Expert counseling for top Spanish universities, student visa process, Mediterranean lifestyle, and EU opportunities.",
   }
@@ -45,10 +45,10 @@ const StudyAbroadSpainPage = () => {
               Vibrant culture, diverse programs, and a warm welcome.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+              <a href="#apply-now&quot;className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                 Start Your Spain Journey
               </a>
-              <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+              <a href="#universities&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
                 View Top Universities
               </a>
             </div>
@@ -89,7 +89,7 @@ const StudyAbroadSpainPage = () => {
                 Why Choose Spain for Higher Education?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Spain offers an unbeatable combination of world-class education, Mediterranean lifestyle, vibrant culture, and Europe's most affordable tuition fees.
+                Spain offers an unbeatable combination of world-class education, Mediterranean lifestyle, vibrant culture, and Europe&apos;s most affordable tuition fees.
               </p>
             </div>
             
@@ -109,7 +109,7 @@ const StudyAbroadSpainPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">🌍</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Global Language Opportunity</h3>
-                <p className="text-gray-600">Spanish is the world's 2nd most spoken language (500M speakers). Massive career advantage in global markets and Latin America.</p>
+                <p className="text-gray-600">Spanish is the world&apos;s 2nd most spoken language (500M speakers). Massive career advantage in global markets and Latin America.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -150,14 +150,14 @@ const StudyAbroadSpainPage = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🎓</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Grado (Bachelor's)</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Grado (Bachelor&apos;s)</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">4 Years - 240 ECTS</div>
                 <p className="text-gray-600 text-sm">Comprehensive undergraduate education with strong theoretical foundation.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🏆</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Máster (Master's)</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Máster (Master&apos;s)</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">1-2 Years - 60-120 ECTS</div>
                 <p className="text-gray-600 text-sm">Advanced specialization with research or professional focus options.</p>
               </div>
@@ -205,7 +205,7 @@ const StudyAbroadSpainPage = () => {
       </section>
 
       {/* Top Universities Section */}
-      <section id="universities" className="py-20">
+      <section id="universities&quot;className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -231,7 +231,7 @@ const StudyAbroadSpainPage = () => {
                   <tr className="border-b hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">University of Barcelona</div>
-                      <div className="text-sm text-gray-600">Spain's largest university with 63,000+ students</div>
+                      <div className="text-sm text-gray-600">Spain&apos;s largest university with 63,000+ students</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#149</td>
                     <td className="p-4 text-center">€1,500 - €3,500</td>
@@ -267,7 +267,7 @@ const StudyAbroadSpainPage = () => {
                   <tr className="hover:bg-gray-50">
                     <td className="p-4">
                       <div className="font-semibold">Autonomous University of Madrid</div>
-                      <div className="text-sm text-gray-600">Leading public university in Spain's capital</div>
+                      <div className="text-sm text-gray-600">Leading public university in Spain&apos;s capital</div>
                     </td>
                     <td className="p-4 text-center font-bold text-[#08bcb4]">#351-400</td>
                     <td className="p-4 text-center">€2,000 - €6,840</td>
@@ -294,11 +294,11 @@ const StudyAbroadSpainPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor's Requirements */}
+              {/* Bachelor&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Grado (Bachelor's) Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Grado (Bachelor&apos;s) Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -336,11 +336,11 @@ const StudyAbroadSpainPage = () => {
                 </div>
               </div>
 
-              {/* Master's Requirements */}
+              {/* Master&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Máster (Master's) Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Máster (Master&apos;s) Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -348,7 +348,7 @@ const StudyAbroadSpainPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree (240 ECTS) in relevant field with satisfactory grades</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree (240 ECTS) in relevant field with satisfactory grades</p>
                     </div>
                   </div>
                   
@@ -391,7 +391,7 @@ const StudyAbroadSpainPage = () => {
                 Cost of Studying in Spain 2025
               </h2>
               <p className="text-xl text-gray-600">
-                Europe's most affordable education destination with excellent quality of life
+                Europe&apos;s most affordable education destination with excellent quality of life
               </p>
             </div>
 
@@ -474,11 +474,11 @@ const StudyAbroadSpainPage = () => {
               <h3 className="text-2xl font-bold mb-4 !text-white">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-white">Bachelor's Programs (Public)</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-white">Bachelor&apos;s Programs (Public)</h4>
                   <p className="text-3xl font-bold">EUR €7,000 - €16,000</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-white">Master's Programs (Public)</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-white">Master&apos;s Programs (Public)</h4>
                   <p className="text-3xl font-bold">EUR €8,500 - €18,500</p>
                 </div>
               </div>
@@ -601,7 +601,7 @@ const StudyAbroadSpainPage = () => {
                 <h3 className="text-lg font-bold mb-3">MAEC-AECID Scholarships</h3>
                 <p className="text-sm text-gray-600 mb-3">Spanish government scholarship program</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Master's, PhD, research programs</p>
+                  <p><strong>For:</strong> Master&apos;s, PhD, research programs</p>
                   <p><strong>Coverage:</strong> Full tuition + monthly stipend</p>
                   <p><strong>Duration:</strong> Program length</p>
                 </div>
@@ -621,7 +621,7 @@ const StudyAbroadSpainPage = () => {
                 <h3 className="text-lg font-bold mb-3">Carolina Foundation</h3>
                 <p className="text-sm text-gray-600 mb-3">Postgraduate studies support</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Master's and PhD programs</p>
+                  <p><strong>For:</strong> Master&apos;s and PhD programs</p>
                   <p><strong>Benefits:</strong> Tuition coverage + living allowance</p>
                   <p><strong>Focus:</strong> Latin American and European students</p>
                 </div>
@@ -670,7 +670,7 @@ const StudyAbroadSpainPage = () => {
                 Work Opportunities in Spain
               </h2>
               <p className="text-xl text-gray-600">
-                Build your career in Europe's cultural and economic hub with Mediterranean lifestyle
+                Build your career in Europe&apos;s cultural and economic hub with Mediterranean lifestyle
               </p>
             </div>
 
@@ -867,7 +867,7 @@ const StudyAbroadSpainPage = () => {
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
-                <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">What's the difference between Type C and Type D student visas?</h3>
+                <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">What&apos;s the difference between Type C and Type D student visas?</h3>
                 <p className="text-gray-600">Type C is for studies lasting 90-180 days (no work/TIE rights). Type D is for stays over 180 days (work rights, TIE card required within 30 days).</p>
               </div>
 
@@ -883,7 +883,7 @@ const StudyAbroadSpainPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">What is the PCE exam and do I need it?</h3>
-                <p className="text-gray-600">PCE (Pruebas de Competencias Específicas) are university entrance exams for non-EU students. Requirements vary by university and program - some require it, others don't.</p>
+                <p className="text-gray-600">PCE (Pruebas de Competencias Específicas) are university entrance exams for non-EU students. Requirements vary by university and program - some require it, others don&apos;t.</p>
               </div>
             </div>
           </div>
@@ -891,7 +891,7 @@ const StudyAbroadSpainPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="apply-now" className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
+      <section id="apply-now&quot;className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
@@ -901,10 +901,10 @@ const StudyAbroadSpainPage = () => {
               Join thousands of successful students who chose Spain and now enjoy EU careers with Mediterranean lifestyle and vibrant culture
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
+              <a href="/contact&quot;className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
+              <a href="/mock-test&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>

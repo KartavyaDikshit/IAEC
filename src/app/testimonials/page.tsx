@@ -1,7 +1,7 @@
-'use client';
+&apos;use client&apos;;
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { useState, useEffect } from &apos;react&apos;;
+import Image from &apos;next/image&apos;;
 
 interface Testimonial {
   id: string;
@@ -17,18 +17,18 @@ interface Testimonial {
 
 const TestimonialsPage = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await fetch('/api/testimonials');
+        const res = await fetch(&apos;/api/testimonials&apos;);
         const data = await res.json();
         setTestimonials(data.testimonials || []);
       } catch (error) {
-        console.error('Error fetching testimonials:', error);
+        console.error(&apos;Error fetching testimonials:&apos;, error);
       } finally {
-        setLoading(false);
+        
       }
     };
     fetchTestimonials();
@@ -52,10 +52,10 @@ const TestimonialsPage = () => {
           <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">Student Success Stories</h1>
           <p className="text-2xl mb-8 text-white/90">Hear from our successful students worldwide</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="#share-story" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+            <a href="#share-story&quot;className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
               Share Your Story
             </a>
-            <a href="#testimonials" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+            <a href="#testimonials&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
               View All Testimonials
             </a>
           </div>
@@ -69,7 +69,7 @@ const TestimonialsPage = () => {
               <div className="mb-4">
                 {testimonial.rating && (
                   <div className="text-yellow-500 mb-2">
-                    {'★'.repeat(testimonial.rating)}
+                    {&apos;★&apos;.repeat(testimonial.rating)}
                   </div>
                 )}
                 <p className="text-[#4a5568] italic">
@@ -85,7 +85,7 @@ const TestimonialsPage = () => {
                       alt={`Image of ${testimonial.name}`}
                       width={40}
                       height={40}
-                      className="rounded-full object-cover mr-3" // Added mr-3 for spacing
+                      className="rounded-full object-cover mr-3&quot;// Added mr-3 for spacing
                     />
                   )}
                   <h3 className="font-semibold text-[#1a202c]">{testimonial.name}</h3>

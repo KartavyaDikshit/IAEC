@@ -15,7 +15,7 @@ interface WhatsAppConfig {
 }
 
 export default function WhatsAppAdmin() {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const [config, setConfig] = useState<WhatsAppConfig>({
     number: '',
     message: '',

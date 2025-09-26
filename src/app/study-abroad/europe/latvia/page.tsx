@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import contactInfo from '../../../../../data/contact-info.json';
-import { studyAbroadCountries } from '../../../../lib/countries';
+import Image from &apos;next/image&apos;;
+import contactInfo from &apos;../../../../../data/contact-info.json&apos;;
+import { studyAbroadCountries } from &apos;../../../../lib/countries&apos;;
 
-const latviaCountry = studyAbroadCountries.find(country => country.name === 'Latvia');
+const latviaCountry = studyAbroadCountries.find(country => country.name === &apos;Latvia&apos;);
 
 export const metadata = {
   title: "Study in Latvia 2025 - Top Universities, Student Visa & Affordable EU Education | IAEC Consultants",
@@ -11,10 +11,10 @@ export const metadata = {
   openGraph: {
     title: "Study in Latvia 2025 - Top Universities & Student Visa Guide | IAEC",
     description: "Complete guide to studying in Latvia. Expert counseling for top Latvian universities, student visa process, affordable EU education, and Baltic lifestyle.",
-    images: ['/images/study-latvia-hero.jpg'],
+    images: [&apos;/images/study-latvia-hero.jpg&apos;],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: &apos;summary_large_image&apos;,
     title: "Study in Latvia 2025 - Top Universities & Student Visa Guide | IAEC",
     description: "Complete guide to studying in Latvia. Expert counseling for top Latvian universities, student visa process, affordable EU education, and Baltic lifestyle.",
   }
@@ -45,10 +45,10 @@ const StudyAbroadLatviaPage = () => {
               Affordable European education with a vibrant student life.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+              <a href="#apply-now&quot;className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                 Start Your Latvia Journey
               </a>
-              <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+              <a href="#universities&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
                 View Top Universities
               </a>
             </div>
@@ -89,7 +89,7 @@ const StudyAbroadLatviaPage = () => {
                 Why Choose Latvia for Higher Education?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Latvia offers exceptional value with some of Europe's most affordable education costs, quality universities, and a unique Baltic cultural experience within the EU.
+                Latvia offers exceptional value with some of Europe&apos;s most affordable education costs, quality universities, and a unique Baltic cultural experience within the EU.
               </p>
             </div>
             
@@ -97,7 +97,7 @@ const StudyAbroadLatviaPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">💰</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Ultra-Affordable EU Education</h3>
-                <p className="text-gray-600">Among Europe's most affordable tuition fees (€3,000-€5,000/year) with extremely low living costs and high quality of life.</p>
+                <p className="text-gray-600">Among Europe&apos;s most affordable tuition fees (€3,000-€5,000/year) with extremely low living costs and high quality of life.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -115,7 +115,7 @@ const StudyAbroadLatviaPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">🌍</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">English-Taught Programs</h3>
-                <p className="text-gray-600">Extensive range of English-taught bachelor's, master's, and PhD programs across all major academic disciplines.</p>
+                <p className="text-gray-600">Extensive range of English-taught bachelor&apos;s, master&apos;s, and PhD programs across all major academic disciplines.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -150,14 +150,14 @@ const StudyAbroadLatviaPage = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🎓</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor's Degree</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor&apos;s Degree</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">3-4 Years - 180-240 ECTS</div>
                 <p className="text-gray-600 text-sm">Comprehensive undergraduate education with practical experience.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🏆</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Master's Degree</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Master&apos;s Degree</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">1.5-2 Years - 90-120 ECTS</div>
                 <p className="text-gray-600 text-sm">Advanced specialization with research or professional focus.</p>
               </div>
@@ -205,7 +205,7 @@ const StudyAbroadLatviaPage = () => {
       </section>
 
       {/* Top Universities Section */}
-      <section id="universities" className="py-20">
+      <section id="universities&quot;className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -294,11 +294,11 @@ const StudyAbroadLatviaPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor's Requirements */}
+              {/* Bachelor&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Bachelor's Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Bachelor&apos;s Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -336,11 +336,11 @@ const StudyAbroadLatviaPage = () => {
                 </div>
               </div>
 
-              {/* Master's Requirements */}
+              {/* Master&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Master's Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Master&apos;s Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -348,7 +348,7 @@ const StudyAbroadLatviaPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree in relevant field with satisfactory grades</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree in relevant field with satisfactory grades</p>
                     </div>
                   </div>
                   
@@ -356,7 +356,7 @@ const StudyAbroadLatviaPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">English Language Requirements</h4>
-                      <p className="text-gray-600">IELTS 7.0+, TOEFL 90+, or PTE 67+ for most master's programs</p>
+                      <p className="text-gray-600">IELTS 7.0+, TOEFL 90+, or PTE 67+ for most master&apos;s programs</p>
                     </div>
                   </div>
                   
@@ -391,7 +391,7 @@ const StudyAbroadLatviaPage = () => {
                 Cost of Studying in Latvia 2025
               </h2>
               <p className="text-xl text-gray-600">
-                One of Europe's most affordable destinations for quality higher education
+                One of Europe&apos;s most affordable destinations for quality higher education
               </p>
             </div>
 
@@ -401,11 +401,11 @@ const StudyAbroadLatviaPage = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Annual Tuition Fees (EUR)</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Bachelor's Programs</span>
+                    <span className="font-medium">Bachelor&apos;s Programs</span>
                     <span className="font-bold text-[#08bcb4]">€3,000 - €5,000</span>
                   </div>
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Master's Programs</span>
+                    <span className="font-medium">Master&apos;s Programs</span>
                     <span className="font-bold text-[#08bcb4]">€3,700 - €6,000</span>
                   </div>
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
@@ -474,12 +474,12 @@ const StudyAbroadLatviaPage = () => {
               <h3 className="text-2xl font-bold mb-4 !text-white">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-white">Bachelor's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-white">Bachelor&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €7,200 - €13,800</p>
                   <p className="text-sm text-gray-300">Including tuition and living</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-white">Master's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-white">Master&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €7,900 - €14,800</p>
                   <p className="text-sm text-gray-300">Including tuition and living</p>
                 </div>
@@ -603,7 +603,7 @@ const StudyAbroadLatviaPage = () => {
                 <h3 className="text-lg font-bold mb-3">Latvian Government Scholarships</h3>
                 <p className="text-sm text-gray-600 mb-3">Ministry of Education and Science funding</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Bachelor's, Master's, and PhD programs</p>
+                  <p><strong>For:</strong> Bachelor&apos;s, Master&apos;s, and PhD programs</p>
                   <p><strong>Coverage:</strong> Full or partial tuition support</p>
                   <p><strong>Duration:</strong> Program length</p>
                 </div>
@@ -870,7 +870,7 @@ const StudyAbroadLatviaPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">Are there English-taught programs in Latvia?</h3>
-                <p className="text-gray-600">Yes, Latvian universities offer extensive English-taught programs at all levels, from bachelor's to PhD across various disciplines.</p>
+                <p className="text-gray-600">Yes, Latvian universities offer extensive English-taught programs at all levels, from bachelor&apos;s to PhD across various disciplines.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
@@ -893,7 +893,7 @@ const StudyAbroadLatviaPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="apply-now" className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
+      <section id="apply-now&quot;className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
@@ -903,10 +903,10 @@ const StudyAbroadLatviaPage = () => {
               Join thousands of successful students who chose Latvia and now enjoy EU careers with affordable education and excellent quality of life
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
+              <a href="/contact&quot;className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
+              <a href="/mock-test&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>

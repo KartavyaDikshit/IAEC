@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import contactInfo from '../../../../../data/contact-info.json';
-import { studyAbroadCountries } from '../../../../lib/countries';
+import Image from &apos;next/image&apos;;
+import contactInfo from &apos;../../../../../data/contact-info.json&apos;;
+import { studyAbroadCountries } from &apos;../../../../lib/countries&apos;;
 
-const italyCountry = studyAbroadCountries.find(country => country.name === 'Italy');
+const italyCountry = studyAbroadCountries.find(country => country.name === &apos;Italy&apos;);
 
 export const metadata = {
   title: "Study in Italy 2025 - Top Universities, Student Visa & Art Culture | IAEC Consultants",
@@ -11,10 +11,10 @@ export const metadata = {
   openGraph: {
     title: "Study in Italy 2025 - Top Universities & Student Visa Guide | IAEC",
     description: "Complete guide to studying in Italy. Expert counseling for top Italian universities, student visa process, art & design programs, and EU opportunities.",
-    images: ['/images/study-italy-hero.jpg'],
+    images: [&apos;/images/study-italy-hero.jpg&apos;],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: &apos;summary_large_image&apos;,
     title: "Study in Italy 2025 - Top Universities & Student Visa Guide | IAEC",
     description: "Complete guide to studying in Italy. Expert counseling for top Italian universities, student visa process, art & design programs, and EU opportunities.",
   }
@@ -45,10 +45,10 @@ const StudyAbroadItalyPage = () => {
               Immerse yourself in art, history, and world-class education.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+              <a href="#apply-now&quot;className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                 Start Your Italy Journey
               </a>
-              <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+              <a href="#universities&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
                 View Top Universities
               </a>
             </div>
@@ -109,7 +109,7 @@ const StudyAbroadItalyPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">🏛️</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">World&apos;s Oldest University Heritage</h3>
-                <p className="text-gray-600">University of Bologna (1088) - world's oldest university. Rich academic tradition with modern innovation in education and research.</p>
+                <p className="text-gray-600">University of Bologna (1088) - world&apos;s oldest university. Rich academic tradition with modern innovation in education and research.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -152,14 +152,14 @@ const StudyAbroadItalyPage = () => {
                 <div className="text-3xl mb-4">🎓</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Laurea Triennale</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">3 Years - 180 ECTS</div>
-                <p className="text-gray-600 text-sm">Bachelor's degree with comprehensive foundation in chosen field of study.</p>
+                <p className="text-gray-600 text-sm">Bachelor&apos;s degree with comprehensive foundation in chosen field of study.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🏆</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Laurea Magistrale</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">2 Years - 120 ECTS</div>
-                <p className="text-gray-600 text-sm">Master's degree with advanced specialization and research components.</p>
+                <p className="text-gray-600 text-sm">Master&apos;s degree with advanced specialization and research components.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
@@ -205,7 +205,7 @@ const StudyAbroadItalyPage = () => {
       </section>
 
       {/* Top Universities Section */}
-      <section id="universities" className="py-20">
+      <section id="universities&quot;className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -294,7 +294,7 @@ const StudyAbroadItalyPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor's Requirements */}
+              {/* Bachelor&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
@@ -336,7 +336,7 @@ const StudyAbroadItalyPage = () => {
                 </div>
               </div>
 
-              {/* Master's Requirements */}
+              {/* Master&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
@@ -348,7 +348,7 @@ const StudyAbroadItalyPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree (180 ECTS) in relevant field with good academic record</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree (180 ECTS) in relevant field with good academic record</p>
                     </div>
                   </div>
                   
@@ -472,7 +472,7 @@ const StudyAbroadItalyPage = () => {
               <h3 className="text-2xl font-bold mb-4 !text-white">Estimated Total Annual Cost</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2 text-white">Bachelor's Programs</h4>
+                  <h4 className="text-lg font-semibold mb-2 text-white">Bachelor&apos;s Programs</h4>
                   <p className="text-3xl font-bold">EUR €9,000 - €18,000</p>
                 </div>
                 <div>
@@ -877,7 +877,7 @@ const StudyAbroadItalyPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">What is Universitaly portal and is it mandatory?</h3>
-                <p className="text-gray-600">Universitaly is the official portal for university pre-enrollment in Italy. It's mandatory for non-EU students to complete pre-enrollment for visa application.</p>
+                <p className="text-gray-600">Universitaly is the official portal for university pre-enrollment in Italy. It&apos;s mandatory for non-EU students to complete pre-enrollment for visa application.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
@@ -890,7 +890,7 @@ const StudyAbroadItalyPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="apply-now" className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
+      <section id="apply-now&quot;className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
@@ -900,10 +900,10 @@ const StudyAbroadItalyPage = () => {
               Join thousands of successful students who chose Italy and now enjoy EU careers immersed in art, culture, and innovation
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
+              <a href="/contact&quot;className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
+              <a href="/mock-test&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>

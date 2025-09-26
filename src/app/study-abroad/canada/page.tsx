@@ -1,8 +1,8 @@
-import contactInfo from '../../../../data/contact-info.json';
-import Image from 'next/image';
-import { studyAbroadCountries } from '../../../lib/countries';
+import contactInfo from &apos;../../../../data/contact-info.json&apos;;
+import Image from &apos;next/image&apos;;
+import { studyAbroadCountries } from &apos;../../../lib/countries&apos;;
 
-const canadaCountry = studyAbroadCountries.find(country => country.name === 'Canada');
+const canadaCountry = studyAbroadCountries.find(country => country.name === &apos;Canada&apos;);
 
 export const metadata = {
   title: "Study in Canada 2025 - Top Universities, Study Permit & Express Entry | IAEC Consultants",
@@ -11,10 +11,10 @@ export const metadata = {
   openGraph: {
     title: "Study in Canada 2025 - Top Universities & Study Permit Guide | IAEC",
     description: "Complete guide to studying in Canada. Expert counseling for top Canadian universities, study permit process, PGWP, and Express Entry pathways.",
-    images: ['/images/study-canada-hero.jpg'],
+    images: [&apos;/images/study-canada-hero.jpg&apos;],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: &apos;summary_large_image&apos;,
     title: "Study in Canada 2025 - Top Universities & Study Permit Guide | IAEC",
     description: "Complete guide to studying in Canada. Expert counseling for top Canadian universities, study permit process, PGWP, and Express Entry pathways.",
   }
@@ -44,10 +44,10 @@ const StudyAbroadCanadaPage = () => {
           Your future in a land of opportunities.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          <a href="#apply-now&quot;className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
             Start Your Canada Journey
           </a>
-          <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+          <a href="#universities&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
             View Top Universities
           </a>
         </div>
@@ -108,7 +108,7 @@ const StudyAbroadCanadaPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">🌍</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Multicultural & Bilingual</h3>
-                <p className="text-gray-600">Study in English or French. Experience Canada's welcoming multicultural society with students from 200+ countries creating vibrant diversity.</p>
+                <p className="text-gray-600">Study in English or French. Experience Canada&apos;s welcoming multicultural society with students from 200+ countries creating vibrant diversity.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -202,7 +202,7 @@ const StudyAbroadCanadaPage = () => {
       </section>
 
       {/* Top Universities Section */}
-      <section id="universities" className="py-20">
+      <section id="universities&quot;className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -291,7 +291,7 @@ const StudyAbroadCanadaPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor's Requirements */}
+              {/* Bachelor&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
@@ -333,7 +333,7 @@ const StudyAbroadCanadaPage = () => {
                 </div>
               </div>
 
-              {/* Master's Requirements */}
+              {/* Master&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
@@ -345,7 +345,7 @@ const StudyAbroadCanadaPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree with 70%+ CGPA (3.0/4.0 GPA minimum)</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree with 70%+ CGPA (3.0/4.0 GPA minimum)</p>
                     </div>
                   </div>
                   
@@ -398,11 +398,11 @@ const StudyAbroadCanadaPage = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Annual Tuition Fees (CAD)</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Bachelor's Degree</span>
+                    <span className="font-medium">Bachelor&apos;s Degree</span>
                     <span className="font-bold text-[#08bcb4]">$15,700 - $53,500</span>
                   </div>
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Master's Degree</span>
+                    <span className="font-medium">Master&apos;s Degree</span>
                     <span className="font-bold text-[#08bcb4]">$13,700 - $45,800</span>
                   </div>
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
@@ -572,7 +572,7 @@ const StudyAbroadCanadaPage = () => {
                 <h3 className="text-lg font-bold mb-3">Canadian Commonwealth Scholarship</h3>
                 <p className="text-sm text-gray-600 mb-3">For students from Commonwealth countries</p>
                 <div className="text-sm">
-                  <p><strong>For:</strong> Master's and PhD programs</p>
+                  <p><strong>For:</strong> Master&apos;s and PhD programs</p>
                   <p><strong>Coverage:</strong> Full tuition, living costs, travel</p>
                   <p><strong>Value:</strong> Up to CAD $50,000</p>
                 </div>
@@ -580,7 +580,7 @@ const StudyAbroadCanadaPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-400">
                 <h3 className="text-lg font-bold mb-3">Vanier Canada Graduate Scholarships</h3>
-                <p className="text-sm text-gray-600 mb-3">Canada's premier doctoral scholarship</p>
+                <p className="text-sm text-gray-600 mb-3">Canada&apos;s premier doctoral scholarship</p>
                 <div className="text-sm">
                   <p><strong>For:</strong> PhD students</p>
                   <p><strong>Amount:</strong> CAD $50,000/year</p>
@@ -862,7 +862,7 @@ const StudyAbroadCanadaPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="apply-now" className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
+      <section id="apply-now&quot;className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
@@ -872,10 +872,10 @@ const StudyAbroadCanadaPage = () => {
               Join thousands of successful students who achieved their dreams with IAEC&apos;s expert guidance and now call Canada home
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
+              <a href="/contact&quot;className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
+              <a href="/mock-test&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>

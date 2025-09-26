@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import contactInfo from '../../data/contact-info.json';
 
 const Footer = () => {
@@ -7,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <img src="/images/footer-logo.png" alt="IAEC Consultants" width="150" height="50" className="mb-4" />
+            <Image src="/images/footer-logo.png" alt="IAEC Consultants" width="150" height="50" className="mb-4" />
             <p className="text-white mb-4">
               {contactInfo.company.tagline} - Leading overseas education consultancy since {contactInfo.company.established}.
             </p>
@@ -38,16 +39,16 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4 !text-white">Follow Us</h3>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/iaecconsultantspvtltd" target="_blank" rel="noopener noreferrer">
-                <img src="/images/links/facebook.jpeg" alt="Facebook" className="w-6 h-6" />
+                <Image src="/images/links/facebook.jpeg" alt="Facebook" width={24} height={24} className="w-6 h-6" />
               </a>
               <a href="https://www.instagram.com/iaecconsultantspvtltd" target="_blank" rel="noopener noreferrer">
-                <img src="/images/links/instagram.jpeg" alt="Instagram" className="w-6 h-6" />
+                <Image src="/images/links/instagram.jpeg" alt="Instagram" width={24} height={24} className="w-6 h-6" />
               </a>
               <a href="https://www.linkedin.com/company/iaecconsultantspvtltd/" target="_blank" rel="noopener noreferrer">
-                <img src="/images/links/linkedin.jpeg" alt="LinkedIn" className="w-6 h-6" />
+                <Image src="/images/links/linkedin.jpeg" alt="LinkedIn" width={24} height={24} className="w-6 h-6" />
               </a>
               <a href="mailto:ravinder@iaecconsultants.com">
-                <img src="/images/links/email.jpeg" alt="Email" className="w-6 h-6" />
+                <Image src="/images/links/email.jpeg" alt="Email" width={24} height={24} className="w-6 h-6" />
               </a>
             </div>
           </div>

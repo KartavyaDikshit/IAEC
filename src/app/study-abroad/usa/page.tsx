@@ -1,8 +1,8 @@
-import contactInfo from '../../../../data/contact-info.json';
-import Image from 'next/image';
-import { studyAbroadCountries } from '../../../lib/countries';
+import contactInfo from &apos;../../../../data/contact-info.json&apos;;
+import Image from &apos;next/image&apos;;
+import { studyAbroadCountries } from &apos;../../../lib/countries&apos;;
 
-const usaCountry = studyAbroadCountries.find(country => country.name === 'United States');
+const usaCountry = studyAbroadCountries.find(country => country.name === &apos;United States&apos;);
 
 export const metadata = {
   title: "Study in USA 2025 - Top Universities, F1 Visa Process, Scholarships | IAEC Consultants",
@@ -11,10 +11,10 @@ export const metadata = {
   openGraph: {
     title: "Study in USA 2025 - Top Universities & F1 Visa Process | IAEC",
     description: "Complete guide to studying in USA. Expert counseling for top US universities, F1 visa process, scholarships, and work opportunities.",
-    images: ['/images/study-usa-hero.jpg'],
+    images: [&apos;/images/study-usa-hero.jpg&apos;],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: &apos;summary_large_image&apos;,
     title: "Study in USA 2025 - Top Universities & F1 Visa Process | IAEC",
     description: "Complete guide to studying in USA. Expert counseling for top US universities, F1 visa process, scholarships, and work opportunities.",
   }
@@ -43,10 +43,10 @@ const StudyAbroadUsaPage = () => {
           Your American dream starts here.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          <a href="#apply-now&quot;className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
             Start Your USA Journey
           </a>
-          <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+          <a href="#universities&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
             View Top Universities
           </a>
         </div>
@@ -86,7 +86,7 @@ const StudyAbroadUsaPage = () => {
                 Why Choose USA for Higher Education?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                The United States stands as the world's premier destination for international education, offering unmatched academic excellence and career opportunities.
+                The United States stands as the world&apos;s premier destination for international education, offering unmatched academic excellence and career opportunities.
               </p>
             </div>
             
@@ -112,7 +112,7 @@ const StudyAbroadUsaPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
                 <div className="text-4xl mb-4">🚀</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Innovation Hub</h3>
-                <p className="text-gray-600">Access to Silicon Valley, NASA, and world's leading tech companies. Perfect launchpad for entrepreneurial dreams.</p>
+                <p className="text-gray-600">Access to Silicon Valley, NASA, and world&apos;s leading tech companies. Perfect launchpad for entrepreneurial dreams.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-[#08bcb4]">
@@ -149,19 +149,19 @@ const StudyAbroadUsaPage = () => {
                 <div className="text-3xl mb-4">📚</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Associate Degree</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">2 Years</div>
-                <p className="text-gray-600 text-sm">Foundation program offered by community colleges. Pathway to bachelor's degree.</p>
+                <p className="text-gray-600 text-sm">Foundation program offered by community colleges. Pathway to bachelor&apos;s degree.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🎓</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor's Degree</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Bachelor&apos;s Degree</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">4 Years</div>
                 <p className="text-gray-600 text-sm">120-130 credit hours. Comprehensive undergraduate education with major specialization.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                 <div className="text-3xl mb-4">🏆</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Master's Degree</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Master&apos;s Degree</h3>
                 <div className="text-[#08bcb4] font-semibold text-lg mb-2">1.5-3 Years</div>
                 <p className="text-gray-600 text-sm">30-64 credit hours. Advanced specialization with research or coursework focus.</p>
               </div>
@@ -202,7 +202,7 @@ const StudyAbroadUsaPage = () => {
       </section>
 
       {/* Top Universities Section */}
-      <section id="universities" className="py-20">
+      <section id="universities&quot;className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -291,11 +291,11 @@ const StudyAbroadUsaPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor's Requirements */}
+              {/* Bachelor&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Bachelor's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Bachelor&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -333,11 +333,11 @@ const StudyAbroadUsaPage = () => {
                 </div>
               </div>
 
-              {/* Master's Requirements */}
+              {/* Master&apos;s Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="text-2xl font-bold text-gray-900">Master's Degree Requirements</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Master&apos;s Degree Requirements</h3>
                 </div>
                 
                 <div className="space-y-4">
@@ -345,7 +345,7 @@ const StudyAbroadUsaPage = () => {
                     <div className="w-2 h-2 bg-[#08bcb4] rounded-full mt-3"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Academic Qualifications</h4>
-                      <p className="text-gray-600">Bachelor's degree with minimum CGPA 2.5-3.6</p>
+                      <p className="text-gray-600">Bachelor&apos;s degree with minimum CGPA 2.5-3.6</p>
                     </div>
                   </div>
                   
@@ -398,19 +398,19 @@ const StudyAbroadUsaPage = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Annual Tuition Fees</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Public Universities (Bachelor's)</span>
+                    <span className="font-medium">Public Universities (Bachelor&apos;s)</span>
                     <span className="font-bold text-[#08bcb4]">$8,000 - $25,000</span>
                   </div>
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Private Universities (Bachelor's)</span>
+                    <span className="font-medium">Private Universities (Bachelor&apos;s)</span>
                     <span className="font-bold text-[#08bcb4]">$25,000 - $55,000</span>
                   </div>
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Public Universities (Master's)</span>
+                    <span className="font-medium">Public Universities (Master&apos;s)</span>
                     <span className="font-bold text-[#08bcb4]">$10,000 - $35,000</span>
                   </div>
                   <div className="flex justify-between items-center p-4 bg-white rounded-lg shadow">
-                    <span className="font-medium">Private Universities (Master's)</span>
+                    <span className="font-medium">Private Universities (Master&apos;s)</span>
                     <span className="font-bold text-[#08bcb4]">$30,000 - $60,000</span>
                   </div>
                 </div>
@@ -912,7 +912,7 @@ const StudyAbroadUsaPage = () => {
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">What is the minimum GPA required for US universities?</h3>
-                <p className="text-gray-600">Most universities require a minimum GPA of 2.5-3.0 for bachelor's programs and 3.0-3.5 for master's programs. Top universities may require higher GPAs (3.5+).</p>
+                <p className="text-gray-600">Most universities require a minimum GPA of 2.5-3.0 for bachelor&apos;s programs and 3.0-3.5 for master&apos;s programs. Top universities may require higher GPAs (3.5+).</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
@@ -927,12 +927,12 @@ const StudyAbroadUsaPage = () => {
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">Is IELTS mandatory for USA?</h3>
-                <p className="text-gray-600">English proficiency is mandatory but you can choose between IELTS, TOEFL, or PTE. Some universities may waive this requirement if you've studied in English medium previously.</p>
+                <p className="text-gray-600">English proficiency is mandatory but you can choose between IELTS, TOEFL, or PTE. Some universities may waive this requirement if you&apos;ve studied in English medium previously.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
                 <h3 className="text-lg font-bold mb-3 text-[#08bcb4]">What is the validity of F1 visa?</h3>
-                <p className="text-gray-600">F1 visa validity varies by country but your stay is authorized as long as you maintain student status. You can remain in the US as long as you're enrolled in studies.</p>
+                <p className="text-gray-600">F1 visa validity varies by country but your stay is authorized as long as you maintain student status. You can remain in the US as long as you&apos;re enrolled in studies.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-lg">
@@ -945,20 +945,20 @@ const StudyAbroadUsaPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="apply-now" className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
+      <section id="apply-now&quot;className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
               Ready to Start Your American Dream?
             </h2>
             <p className="text-xl mb-8 text-blue-100">
-              Join thousands of successful students who achieved their goals with IAEC's expert guidance
+              Join thousands of successful students who achieved their goals with IAEC&apos;s expert guidance
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
+              <a href="/contact&quot;className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
+              <a href="/mock-test&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>

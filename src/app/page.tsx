@@ -3,6 +3,8 @@ import AccreditationRibbon from '@/components/home/AccreditationRibbon';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+import Image from 'next/image';
+
 export const metadata: Metadata = {
   title: 'IAEC Consultants - Your Global Study Partner',
   description: 'Leading overseas education consultants since 2000. Expert guidance for USA, UK, Australia, Canada. Transform your dreams into reality with 30,000+ success stories.',
@@ -115,11 +117,12 @@ export default function Home() {
 
             <div className="relative">
               <div className="aspect-w-4 aspect-h-3">
-                <img
+                <Image
                   src="/images/all_images/Admissions.jpeg"
                   alt="IAEC Consultants office and team"
+                  width={500}
+                  height={375}
                   className="rounded-2xl shadow-2xl object-cover w-full h-full"
-                  loading="lazy"
                 />
               </div>
             </div>
