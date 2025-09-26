@@ -137,7 +137,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <GoogleTagManager gtmId="G-FWFB0NQ4T8" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/images/tab_logo.png" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#08bcb4" />
