@@ -1,8 +1,8 @@
-import contactInfo from &apos;../../../../data/contact-info.json&apos;;
-import Image from &apos;next/image&apos;;
-import { studyAbroadCountries } from &apos;../../../lib/countries&apos;;
+import contactInfo from '../../../../data/contact-info.json';
+import Image from 'next/image';
+import { studyAbroadCountries } from '../../../lib/countries';
 
-const canadaCountry = studyAbroadCountries.find(country => country.name === &apos;Canada&apos;);
+const canadaCountry = studyAbroadCountries.find(country => country.name === 'Canada');
 
 export const metadata = {
   title: "Study in Canada 2025 - Top Universities, Study Permit & Express Entry | IAEC Consultants",
@@ -11,10 +11,10 @@ export const metadata = {
   openGraph: {
     title: "Study in Canada 2025 - Top Universities & Study Permit Guide | IAEC",
     description: "Complete guide to studying in Canada. Expert counseling for top Canadian universities, study permit process, PGWP, and Express Entry pathways.",
-    images: [&apos;/images/study-canada-hero.jpg&apos;],
+    images: ['/images/study-canada-hero.jpg'],
   },
   twitter: {
-    card: &apos;summary_large_image&apos;,
+    card: 'summary_large_image',
     title: "Study in Canada 2025 - Top Universities & Study Permit Guide | IAEC",
     description: "Complete guide to studying in Canada. Expert counseling for top Canadian universities, study permit process, PGWP, and Express Entry pathways.",
   }
@@ -44,10 +44,10 @@ const StudyAbroadCanadaPage = () => {
           Your future in a land of opportunities.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#apply-now&quot;className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          <a href="#apply-now"className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
             Start Your Canada Journey
           </a>
-          <a href="#universities&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+          <a href="#universities"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
             View Top Universities
           </a>
         </div>
@@ -202,7 +202,7 @@ const StudyAbroadCanadaPage = () => {
       </section>
 
       {/* Top Universities Section */}
-      <section id="universities&quot;className="py-20">
+      <section id="universities"className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -291,7 +291,7 @@ const StudyAbroadCanadaPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor&apos;s Requirements */}
+              {/* Bachelor's Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
@@ -333,7 +333,7 @@ const StudyAbroadCanadaPage = () => {
                 </div>
               </div>
 
-              {/* Master&apos;s Requirements */}
+              {/* Master's Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
@@ -862,7 +862,7 @@ const StudyAbroadCanadaPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="apply-now&quot;className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
+      <section id="apply-now"className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
@@ -872,10 +872,10 @@ const StudyAbroadCanadaPage = () => {
               Join thousands of successful students who achieved their dreams with IAEC&apos;s expert guidance and now call Canada home
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact&quot;className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
+              <a href="/contact"className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
+              <a href="/mock-test"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>

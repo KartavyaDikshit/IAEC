@@ -6,7 +6,7 @@ export default function WhatsAppInstructions() {
         <li>• <strong>Mobile:</strong> WhatsApp app will open with pre-filled message</li>
         <li>• <strong>Desktop:</strong> WhatsApp Web works best for pre-filled messages</li>
         <li>• <strong>Windows App:</strong> Message may not auto-fill - copy button available</li>
-        <li>• <strong>Can&apos;t see message?</strong> Look for "iaec consultants Ahmedabad&quot;in your chats</li>
+        <li>• <strong>Can&apos;t see message?</strong> Look for &quot;iaec consultants Ahmedabad&quot;in your chats</li>
       </ul>
     </div>
   );

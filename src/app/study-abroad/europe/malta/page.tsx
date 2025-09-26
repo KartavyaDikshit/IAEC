@@ -294,7 +294,7 @@ const StudyAbroadMaltaPage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor&apos;s Requirements */}
+              {/* Bachelor's Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
@@ -336,7 +336,7 @@ const StudyAbroadMaltaPage = () => {
                 </div>
               </div>
 
-              {/* Master&apos;s Requirements */}
+              {/* Master's Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>

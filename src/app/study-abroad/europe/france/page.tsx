@@ -1,8 +1,8 @@
-import Image from &apos;next/image&apos;;
-import contactInfo from &apos;../../../../../data/contact-info.json&apos;;
-import { studyAbroadCountries } from &apos;../../../../lib/countries&apos;;
+import Image from 'next/image';
+import contactInfo from '../../../../../data/contact-info.json';
+import { studyAbroadCountries } from '../../../../lib/countries';
 
-const franceCountry = studyAbroadCountries.find(country => country.name === &apos;France&apos;);
+const franceCountry = studyAbroadCountries.find(country => country.name === 'France');
 
 export const metadata = {
   title: "Study in France 2025 - Top Universities, Student Visa & Excellence | IAEC Consultants",
@@ -11,10 +11,10 @@ export const metadata = {
   openGraph: {
     title: "Study in France 2025 - Top Universities & Student Visa Guide | IAEC",
     description: "Complete guide to studying in France. Expert counseling for top French universities, student visa process, Campus France, and EU opportunities.",
-    images: [&apos;/images/study-france-hero.jpg&apos;],
+    images: ['/images/study-france-hero.jpg'],
   },
   twitter: {
-    card: &apos;summary_large_image&apos;,
+    card: 'summary_large_image',
     title: "Study in France 2025 - Top Universities & Student Visa Guide | IAEC",
     description: "Complete guide to studying in France. Expert counseling for top French universities, student visa process, Campus France, and EU opportunities.",
   }
@@ -45,10 +45,10 @@ const StudyAbroadFrancePage = () => {
               Experience the blend of rich culture and academic excellence.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now&quot;className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+              <a href="#apply-now"className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                 Start Your France Journey
               </a>
-              <a href="#universities&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+              <a href="#universities"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
                 View Top Universities
               </a>
             </div>
@@ -205,7 +205,7 @@ const StudyAbroadFrancePage = () => {
       </section>
 
       {/* Top Universities Section */}
-      <section id="universities&quot;className="py-20">
+      <section id="universities"className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -294,7 +294,7 @@ const StudyAbroadFrancePage = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Bachelor&apos;s Requirements */}
+              {/* Bachelor's Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🎓</div>
@@ -336,7 +336,7 @@ const StudyAbroadFrancePage = () => {
                 </div>
               </div>
 
-              {/* Master&apos;s Requirements */}
+              {/* Master's Requirements */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-4">🏆</div>
@@ -863,7 +863,7 @@ const StudyAbroadFrancePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="apply-now&quot;className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
+      <section id="apply-now"className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
@@ -873,10 +873,10 @@ const StudyAbroadFrancePage = () => {
               Join thousands of successful students who chose France and now enjoy EU careers and global recognition
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/contact&quot;className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
+              <a href="/contact"className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test&quot;className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
+              <a href="/mock-test"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
                 Take Free Mock Test
               </a>
             </div>
