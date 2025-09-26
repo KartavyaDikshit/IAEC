@@ -38,7 +38,7 @@ export default function BlogPage() {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/all_images/blog.png"
+            src="/images/all_images/blog.jpeg"
             alt="Blog"
             layout="fill"
             objectFit="cover"

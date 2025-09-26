@@ -248,7 +248,7 @@ const CoachingPage = () => {
         <h2 className="text-3xl font-bold text-[#1a202c] mb-4">Ready to Start Your Test Preparation?</h2>
         <p className="text-lg text-[#4a5568] mb-8">Join thousands of successful students who achieved their target scores with IAEC coaching</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/contact" className="bg-[#08bcb4] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#069aa2] transition-all">
+          <Link href="/contact" className="bg-[#08bcb4] !text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#069aa2] transition-all">
             Enroll Now
           </Link>
           <Link href="/mock-test" className="border-2 border-[#08bcb4] text-[#08bcb4] px-8 py-4 rounded-lg font-semibold hover:bg-[#08bcb4] hover:text-white transition-all">
