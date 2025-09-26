@@ -1,11 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
-
-interface AccreditationRibbonProps {
-  autoScrollSpeed?: number; // Not directly used in this implementation, but defined to accept the prop
-  pauseOnHover?: boolean; // Not directly used in this implementation, but defined to accept the prop
-}
+import { useRef, useEffect, useState, useCallback } from 'react';
 
 const accreditations = [
   { src: '/images/certifications/cert1.jpg', alt: 'Accreditation 1' },
@@ -17,19 +12,51 @@ const accreditations = [
   // Add more accreditations as needed
 ];
 
-const AccreditationRibbon = ({ autoScrollSpeed, pauseOnHover }: AccreditationRibbonProps) => {
-  const [isMobile, setIsMobile] = useState(false);
+interface AccreditationRibbonProps {
+  autoScrollSpeed?: number;
+  pauseOnHover?: boolean;
+}
+
+const AccreditationRibbon = ({ 
+  autoScrollSpeed = 1,
+  pauseOnHover = true 
+}: AccreditationRibbonProps) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const animationRef = useRef<number | null>(null);
+
+  const autoScroll = useCallback(() => {
+    if (isPaused) return;
+    
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    container.scrollLeft += autoScrollSpeed;
+    
+    // Reset to beginning when reaching the end for infinite effect
+    if (container.scrollLeft >= container.scrollWidth / 2) {
+      container.scrollLeft = 0;
+    }
+
+    animationRef.current = requestAnimationFrame(autoScroll);
+  }, [isPaused, autoScrollSpeed]);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // Tailwind's md breakpoint is 768px
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    // Start auto-scrolling
+    animationRef.current = requestAnimationFrame(autoScroll);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
     };
+  }, [autoScroll]);
 
-    handleResize(); // Set initial value
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  // Duplicate accreditations for seamless infinite scroll
+  const duplicatedAccreditations = [...accreditations, ...accreditations];
 
   return (
     <section className="py-8 bg-gray-50">
@@ -37,18 +64,22 @@ const AccreditationRibbon = ({ autoScrollSpeed, pauseOnHover }: AccreditationRib
         <h2 className="text-3xl font-bold text-gray-800 mb-8">
           Accreditations & Certifications
         </h2>
-        <div className="relative w-full overflow-x-auto py-4 bg-gray-100 rounded-lg shadow-inner">
-          <div className={`flex ${!isMobile ? 'animate-scroll-left' : ''} whitespace-nowrap`}>
-            {/* Duplicate the logos to create a seamless loop */}
-            {[...accreditations, ...accreditations].map((accreditation, index) => (
+        <div 
+          ref={scrollContainerRef}
+          className="relative w-full overflow-x-auto py-4 bg-gray-100 rounded-lg shadow-inner scrollbar-hide"
+          onMouseEnter={() => pauseOnHover && setIsPaused(true)}
+          onMouseLeave={() => pauseOnHover && setIsPaused(false)}
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          <div className="flex whitespace-nowrap">
+            {duplicatedAccreditations.map((accreditation, index) => (
               <div key={index} className="flex-shrink-0 mx-4">
                 <Image
                   src={accreditation.src}
                   alt={accreditation.alt}
                   width={120}
                   height={60}
-                  objectFit="contain"
-                  className="h-16 w-auto"
+                  className="h-16 w-auto object-contain"
                 />
               </div>
             ))}
