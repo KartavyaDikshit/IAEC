@@ -18,7 +18,7 @@ export default function CountryRibbon({
   const [isPaused, setIsPaused] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | null>(null);
 
   const updateScrollButtons = useCallback(() => {
     const container = scrollContainerRef.current;

@@ -8,7 +8,7 @@ const Header = () => {
         <div className="flex justify-between items-center py-2">
           <div>
             <Link href="/" className="inline-block">
-              <Image src="/images/IAEC Logo.png" alt="IAEC Consultants" width="100" height="33" />
+              <Image src="/images/IAECLog.jpeg" alt="IAEC Consultants" width="100" height="33" />
             </Link>
           </div>
           <nav className="hidden md:flex items-center space-x-4">

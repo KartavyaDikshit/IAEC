@@ -8,7 +8,7 @@ const BookingPage = () => {
         <section className="relative h-screen flex items-center justify-center">
           <div className="absolute inset-0">
             <Image
-              src="/images/all_images/Admissions.png"
+              src="/images/all_images/Admissions.jpeg"
               alt="Book a Consultation"
               layout="fill"
               objectFit="cover"

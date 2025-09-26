@@ -14,9 +14,8 @@ const AboutPage = () => {
       <Image
         src="/images/all_images/us.jpg"
         alt="About IAEC Consultants"
-        layout="fill"
-        objectFit="cover"
-        className="z-0"
+        fill
+        className="z-0 object-cover"
         priority
       />
       <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -93,16 +92,7 @@ const AboutPage = () => {
           </p>
         </div>
 
-        <div className="relative">
-          <div className="aspect-w-4 aspect-h-3">
-            <img
-              // src="/images/iaec-landing-logo.png"
-              // alt="IAEC Consultants office and team"
-              className="rounded-2xl shadow-2xl object-cover w-full h-full"
-              loading="lazy"
-            />
-          </div>
-        </div>
+
       </div>
     </div>
   </section>

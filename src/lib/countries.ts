@@ -153,7 +153,7 @@ export const certificationLogos = [
   {
     id: 6,
     name: 'Nafsa',
-    image: '/images/certifications/Nafsa.png',
+    image: '/images/certifications/Nafsa.jpeg',
     alt: 'Nafsa Certification'
   }
 ];
