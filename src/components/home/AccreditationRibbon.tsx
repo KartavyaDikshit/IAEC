@@ -1,100 +1,62 @@
 'use client';
-
 import Image from 'next/image';
-import { certificationLogos } from '@/lib/countries';
-import { useRef, useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 
 interface AccreditationRibbonProps {
-  autoScrollSpeed?: number;
-  pauseOnHover?: boolean;
+  autoScrollSpeed?: number; // Not directly used in this implementation, but defined to accept the prop
+  pauseOnHover?: boolean; // Not directly used in this implementation, but defined to accept the prop
 }
 
-export default function AccreditationRibbon({
-  autoScrollSpeed = 0.8,
-  pauseOnHover = true
-}: AccreditationRibbonProps) {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
-  const animationRef = useRef<number | null>(null);
+const accreditations = [
+  { src: '/images/certifications/cert1.jpg', alt: 'Accreditation 1' },
+  { src: '/images/certifications/cert2.jpg', alt: 'Accreditation 2' },
+  { src: '/images/certifications/cert3.jpg', alt: 'Accreditation 3' },
+  { src: '/images/certifications/cert4.jpg', alt: 'Accreditation 4' },
+  { src: '/images/certifications/cert5.jpg', alt: 'Accreditation 5' },
+  { src: '/images/certifications/Nafsa.jpeg', alt: 'Nafsa Accreditation' },
+  // Add more accreditations as needed
+];
 
-  const autoScroll = useCallback(() => {
-    if (isPaused) return;
-    
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    container.scrollLeft += autoScrollSpeed;
-    
-    // Reset to beginning when reaching halfway point for infinite effect
-    if (container.scrollLeft >= container.scrollWidth / 3) {
-      container.scrollLeft = 0;
-    }
-
-    animationRef.current = requestAnimationFrame(autoScroll);
-  }, [isPaused, autoScrollSpeed]);
+const AccreditationRibbon = ({ autoScrollSpeed, pauseOnHover }: AccreditationRibbonProps) => {
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    animationRef.current = requestAnimationFrame(autoScroll);
-
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Tailwind's md breakpoint is 768px
     };
-  }, [autoScroll]);
 
-  // Triple the logos for seamless infinite scroll
-  const tripleLogos = [...certificationLogos, ...certificationLogos, ...certificationLogos];
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <section className="py-12 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Accreditations & Certifications
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Trusted by leading educational organizations worldwide. 
-            Our certifications ensure the highest standards of service.
-          </p>
-        </div>
-
-        <div
-          ref={scrollContainerRef}
-          className="overflow-x-hidden"
-          onMouseEnter={() => pauseOnHover && setIsPaused(true)}
-          onMouseLeave={() => pauseOnHover && setIsPaused(false)}
-        >
-          <div className="flex gap-8 items-center">
-            {tripleLogos.map((logo, index) => (
-              <div
-                key={`${logo.id}-${index}`}
-                className="flex-shrink-0 w-32 h-24 flex items-center justify-center 
-                  bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300
-                  p-4 group"
-              >
+    <section className="py-8 bg-gray-50">
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-3xl font-bold text-gray-800 mb-8">
+          Accreditations & Certifications
+        </h2>
+        <div className="relative w-full overflow-x-auto py-4 bg-gray-100 rounded-lg shadow-inner">
+          <div className={`flex ${!isMobile ? 'animate-scroll-left' : ''} whitespace-nowrap`}>
+            {/* Duplicate the logos to create a seamless loop */}
+            {[...accreditations, ...accreditations].map((accreditation, index) => (
+              <div key={index} className="flex-shrink-0 mx-4">
                 <Image
-                  src={logo.image}
-                  alt={logo.alt}
+                  src={accreditation.src}
+                  alt={accreditation.alt}
                   width={120}
-                  height={80}
-                  className="max-w-full max-h-full object-contain filter grayscale 
-                    group-hover:grayscale-0 transition-all duration-300"
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyztP8AGMo+lBNvWMsGhdF/9k="
+                  height={60}
+                  objectFit="contain"
+                  className="h-16 w-auto"
                 />
               </div>
             ))}
           </div>
         </div>
-
-        <div className="text-center mt-6">
-          <p className="text-sm text-gray-500">
-            Hover to pause • Trusted certifications since 2000
-          </p>
-        </div>
       </div>
     </section>
   );
-}
+};
+
+export default AccreditationRibbon;
