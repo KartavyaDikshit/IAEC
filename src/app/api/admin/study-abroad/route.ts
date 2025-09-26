@@ -4,10 +4,13 @@ import path from 'path'
 
 const dataFilePath = path.join(process.cwd(), 'data/study-abroad.json')
 
-export async function POST(req: NextRequest, { params }: { params: { country: string } }) {
+export async function POST(req: NextRequest) {
   try {
-    const country = params.country
-    const updatedContent = await req.json()
+    const { country, ...updatedContent } = await req.json() // Extract country from body
+
+    if (!country) {
+      return NextResponse.json({ message: 'Country not specified in request body' }, { status: 400 })
+    }
 
     const fileContent = await fs.readFile(dataFilePath, 'utf-8')
     const data = JSON.parse(fileContent)
