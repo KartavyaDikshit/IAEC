@@ -58,79 +58,28 @@ const CoachingPage = () => {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-        
         <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
-          <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">IELTS Coaching</h3>
+          <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">Duolingo Coaching</h3>
           <p className="text-[#4a5568] mb-4">
-            International English Language Testing System preparation for academic and general training modules.
+            Duolingo English Test preparation for convenient and accessible university admissions.
           </p>
           <div className="mb-4">
             <h4 className="font-semibold text-[#1a202c] mb-2">Course Features:</h4>
             <ul className="text-[#4a5568] space-y-1 text-sm">
-              <li>• Comprehensive all 4 skills training</li>
-              <li>• Speaking practice with native speakers</li>
-              <li>• Writing task correction and feedback</li>
-              <li>• Regular mock tests and progress tracking</li>
-              <li>• Small batch sizes (max 15 students)</li>
+              <li>• Adaptive test strategies</li>
+              <li>• Interactive practice exercises</li>
+              <li>• Vocabulary and grammar enhancement</li>
+              <li>• Speaking and writing feedback</li>
+              <li>• Full-length mock tests</li>
             </ul>
           </div>
           <div className="mb-4">
             <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
-            <p className="text-[#4a5568] text-sm">6.5+ for most universities, 7.0+ for top institutions</p>
+            <p className="text-[#4a5568] text-sm">110+ for most universities</p>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-[#08bcb4] font-semibold">Duration: 6-8 weeks</span>
-            <span className="text-[#08bcb4] font-semibold">Fee: ₹15,000</span>
-          </div>
-        </div>
-
-        <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
-          <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">TOEFL Coaching</h3>
-          <p className="text-[#4a5568] mb-4">
-            Test of English as a Foreign Language preparation for US university admissions.
-          </p>
-          <div className="mb-4">
-            <h4 className="font-semibold text-[#1a202c] mb-2">Course Features:</h4>
-            <ul className="text-[#4a5568] space-y-1 text-sm">
-              <li>• Computer-based test simulation</li>
-              <li>• Academic English focus</li>
-              <li>• Integrated skills practice</li>
-              <li>• Note-taking strategies</li>
-              <li>• Time management techniques</li>
-            </ul>
-          </div>
-          <div className="mb-4">
-            <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
-            <p className="text-[#4a5568] text-sm">80+ for undergraduate, 100+ for graduate programs</p>
-          </div>
-          <div className="flex justify-between items-center">
-            <span className="text-[#08bcb4] font-semibold">Duration: 6-8 weeks</span>
-            <span className="text-[#08bcb4] font-semibold">Fee: ₹16,000</span>
-          </div>
-        </div>
-
-        <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
-          <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">PTE Coaching</h3>
-          <p className="text-[#4a5568] mb-4">
-            Pearson Test of English Academic preparation with computer-based assessment focus.
-          </p>
-          <div className="mb-4">
-            <h4 className="font-semibold text-[#1a202c] mb-2">Course Features:</h4>
-            <ul className="text-[#4a5568] space-y-1 text-sm">
-              <li>• AI-based scoring system practice</li>
-              <li>• Microphone and headset training</li>
-              <li>• Template-based writing approach</li>
-              <li>• Integrated skills assessment</li>
-              <li>• Quick results preparation</li>
-            </ul>
-          </div>
-          <div className="mb-4">
-            <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
-            <p className="text-[#4a5568] text-sm">65+ overall with no band below 58</p>
-          </div>
-          <div className="flex justify-between items-center">
-            <span className="text-[#08bcb4] font-semibold">Duration: 4-6 weeks</span>
-            <span className="text-[#08bcb4] font-semibold">Fee: ₹14,000</span>
+            <span className="text-[#08bcb4] font-semibold">Duration: 3-4 weeks</span>
+            <span className="text-[#08bcb4] font-semibold">Fee: ₹12,000</span>
           </div>
         </div>
 

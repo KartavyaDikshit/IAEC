@@ -16,7 +16,7 @@ const ContactPage = () => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/all_images/contactus.jpeg"
+            src="/images/all_images/shortlisting.jpeg"
             alt="Contact Us"
             layout="fill"
             objectFit="cover"
@@ -49,20 +49,12 @@ const ContactPage = () => {
               <h2 className="text-3xl font-bold text-[#1a202c] mb-6">Our Offices</h2>
 
               <div className="space-y-6">
-                <div className="bg-[#e6fffe] p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-[#08bcb4] mb-2">{branches.headOffice.name} - {branches.headOffice.city}</h3>
-                  <p className="text-[#4a5568] mb-2 whitespace-pre-line">
-                    {branches.headOffice.address}
-                  </p>
-                  <p className="text-[#4a5568]">
-                    📞 {primary.mobile} | ✉️ {primary.email}
-                  </p>
-                </div>
-
                 <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#08bcb4]">
                   <h3 className="text-lg font-semibold text-[#08bcb4] mb-2">{branches.ahmedabad.name}</h3>
                   <p className="text-[#4a5568] text-sm mb-1 whitespace-pre-line">
-                    {branches.ahmedabad.address}
+                    <a href={branches.ahmedabad.mapLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                      {branches.ahmedabad.address}
+                    </a>
                   </p>
                   <p className="text-[#4a5568] text-sm">
                     📞 {branches.ahmedabad.mobile} | Landline: {branches.ahmedabad.landline}
@@ -72,10 +64,24 @@ const ContactPage = () => {
                 <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#08bcb4]">
                   <h3 className="text-lg font-semibold text-[#08bcb4] mb-2">{branches.kukatpally.name}</h3>
                   <p className="text-[#4a5568] text-sm mb-1 whitespace-pre-line">
-                    {branches.kukatpally.address}
+                    <a href={branches.kukatpally.mapLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                      {branches.kukatpally.address}
+                    </a>
                   </p>
                   <p className="text-[#4a5568] text-sm">
                     📞 {branches.kukatpally.mobile} | ✉️ {branches.kukatpally.email}
+                  </p>
+                </div>
+
+                <div className="bg-[#e6fffe] p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-[#08bcb4] mb-2">{branches.headOffice.name} - {branches.headOffice.city}</h3>
+                  <p className="text-[#4a5568] mb-2 whitespace-pre-line">
+                    <a href={branches.headOffice.mapLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                      {branches.headOffice.address}
+                    </a>
+                  </p>
+                  <p className="text-[#4a5568]">
+                    📞 {primary.mobile} | ✉️ {primary.email}
                   </p>
                 </div>
               </div>

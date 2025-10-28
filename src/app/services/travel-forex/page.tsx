@@ -136,7 +136,7 @@ const TravelForexPage = () => {
                 </ul>
               </div>
               <div className="bg-[#e6fffe] p-3 rounded text-center">
-                <span className="text-[#08bcb4] font-semibold">Plans starting from ₹8,000/year</span>
+                <span className="text-[#08bcb4] font-semibold">Plans starting from ₹4,000/year</span>
               </div>
             </div>
 
@@ -221,77 +221,6 @@ const TravelForexPage = () => {
               </div>
               <div className="bg-[#e6fffe] p-3 rounded text-center">
                 <span className="text-[#08bcb4] font-semibold">Complete peace of mind</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-[#f7fafc] p-8 rounded-lg mb-12">
-            <h2 className="text-3xl font-bold text-[#1a202c] mb-6 text-center">Student Travel Packages</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow border-2 border-[#08bcb4]">
-                <h3 className="text-xl font-bold text-[#08bcb4] mb-4 text-center">Basic Package</h3>
-                <div className="text-center mb-4">
-                  <span className="text-3xl font-bold text-[#1a202c]">₹15,000</span>
-                  <p className="text-[#4a5568]">per student</p>
-                </div>
-                <ul className="text-[#4a5568] space-y-2 mb-6">
-                  <li>• Flight booking assistance</li>
-                  <li>• Basic travel insurance</li>
-                  <li>• Forex currency exchange</li>
-                  <li>• Airport pickup coordination</li>
-                  <li>• Pre-departure briefing</li>
-                </ul>
-                <Link href="/contact">
-                  <button className="w-full bg-[#08bcb4] text-white py-2 rounded hover:bg-[#069aa2] transition-colors">
-                    Choose Basic
-                  </button>
-                </Link>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow border-2 border-[#08bcb4] relative">
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#08bcb4] text-white px-4 py-1 rounded-full text-sm">
-                  Most Popular
-                </div>
-                <h3 className="text-xl font-bold text-[#08bcb4] mb-4 text-center">Premium Package</h3>
-                <div className="text-center mb-4">
-                  <span className="text-3xl font-bold text-[#1a202c]">₹25,000</span>
-                  <p className="text-[#4a5568]">per student</p>
-                </div>
-                <ul className="text-[#4a5568] space-y-2 mb-6">
-                  <li>• Everything in Basic Package</li>
-                  <li>• Comprehensive travel insurance</li>
-                  <li>• Forex card with better rates</li>
-                  <li>• Accommodation booking assistance</li>
-                  <li>• International SIM card</li>
-                  <li>• 24/7 emergency support</li>
-                </ul>
-                <Link href="/contact">
-                  <button className="w-full bg-[#08bcb4] text-white py-2 rounded hover:bg-[#069aa2] transition-colors">
-                    Choose Premium
-                  </button>
-                </Link>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow border-2 border-[#08bcb4]">
-                <h3 className="text-xl font-bold text-[#08bcb4] mb-4 text-center">VIP Package</h3>
-                <div className="text-center mb-4">
-                  <span className="text-3xl font-bold text-[#1a202c]">₹35,000</span>
-                  <p className="text-[#4a5568]">per student</p>
-                </div>
-                <ul className="text-[#4a5568] space-y-2 mb-6">
-                  <li>• Everything in Premium Package</li>
-                  <li>• Priority flight booking</li>
-                  <li>• Lounge access passes</li>
-                  <li>• Personal travel coordinator</li>
-                  <li>• Arrival assistance at destination</li>
-                  <li>• Local orientation support</li>
-                  <li>• First week assistance abroad</li>
-                </ul>
-                <Link href="/contact">
-                  <button className="w-full bg-[#08bcb4] text-white py-2 rounded hover:bg-[#069aa2] transition-colors">
-                    Choose VIP
-                  </button>
-                </Link>
               </div>
             </div>
           </div>

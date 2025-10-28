@@ -18,7 +18,8 @@
       "state": "Telangana",
       "address": "#402, 4th Floor, Gurupartha Estates, Opp. Indian Oil Petrol Pump, Beside YMCA & Andhra Bank, Narayanguda, Hyderabad – 500 029",
       "mobile": "+91 863 970 6102",
-      "email": "ravinder@iaecconsultants.com"
+      "email": "ravinder@iaecconsultants.com",
+      "mapLink": "https://maps.app.goo.gl/iJBW3rSbMXwqa4kD8"
     },
     "ahmedabad": {
       "type": "branch",
@@ -27,7 +28,8 @@
       "state": "Gujarat",
       "address": "IAEC Consultants Pvt. Ltd.\nA-202, 2nd Floor, Karmayog Heights,\nHL College Road, Above Kotak Mahindra Bank,\nSardar Patel Nagar, Navrangpura,\nAhmedabad -380009, Gujarat, INDIA.",
       "landline": "+91(0)79 4938 6834",
-      "mobile": "+91 863 970 6102"
+      "mobile": "+91 863 970 6102",
+      "mapLink": "https://maps.app.goo.gl/a9GM1ChKcxLEFxeo8"
     },
     "kukatpally": {
       "type": "branch",
@@ -36,7 +38,8 @@
       "state": "Telangana",
       "address": "K P H B Phase 1, Kukatpally,\nHyderabad, Telangana 500072",
       "mobile": "+91 7729997891",
-      "email": "kripal@iaecconsultants.com"
+      "email": "kripal@iaecconsultants.com",
+      "mapLink": "https://maps.app.goo.gl/C18GTTXjbmPNjFNb9"
     }
   },
   "businessHours": {
