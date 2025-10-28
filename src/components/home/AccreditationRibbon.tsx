@@ -33,7 +33,6 @@ const AccreditationRibbon = ({
 
     container.scrollLeft += autoScrollSpeed;
     
-    // Reset to beginning when reaching the end for infinite effect
     if (container.scrollLeft >= container.scrollWidth / 2) {
       container.scrollLeft = 0;
     }
@@ -45,9 +44,8 @@ const AccreditationRibbon = ({
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    // Start auto-scrolling
     animationRef.current = requestAnimationFrame(autoScroll);
-
+    
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
@@ -55,7 +53,6 @@ const AccreditationRibbon = ({
     };
   }, [autoScroll]);
 
-  // Duplicate accreditations for seamless infinite scroll
   const duplicatedAccreditations = [...accreditations, ...accreditations];
 
   return (
@@ -64,25 +61,27 @@ const AccreditationRibbon = ({
         <h2 className="text-3xl font-bold text-gray-800 mb-8">
           Accreditations & Certifications
         </h2>
-        <div 
-          ref={scrollContainerRef}
-          className="relative w-full overflow-x-auto py-4 bg-gray-100 rounded-lg shadow-inner scrollbar-hide"
-          onMouseEnter={() => pauseOnHover && setIsPaused(true)}
-          onMouseLeave={() => pauseOnHover && setIsPaused(false)}
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          <div className="flex whitespace-nowrap">
-            {duplicatedAccreditations.map((accreditation, index) => (
-              <div key={index} className="flex-shrink-0 mx-4">
-                <Image
-                  src={accreditation.src}
-                  alt={accreditation.alt}
-                  width={120}
-                  height={60}
-                  className="h-16 w-auto object-contain"
-                />
-              </div>
-            ))}
+        <div className="relative">
+          <div 
+            ref={scrollContainerRef}
+            className="overflow-x-auto scrollbar-hide px-12"
+            onMouseEnter={() => pauseOnHover && setIsPaused(true)}
+            onMouseLeave={() => pauseOnHover && setIsPaused(false)}
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            <div className="flex whitespace-nowrap">
+              {duplicatedAccreditations.map((accreditation, index) => (
+                <div key={index} className="flex-shrink-0 mx-4">
+                  <Image
+                    src={accreditation.src}
+                    alt={accreditation.alt}
+                    width={120}
+                    height={60}
+                    className="h-16 w-auto object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

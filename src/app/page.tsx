@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import Image from 'next/image';
+import TestimonialsCarousel from '@/components/home/TestimonialsCarousel';
 
 export const metadata: Metadata = {
   title: 'IAEC Consultants - Your Global Study Partner',
@@ -76,7 +77,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                About IAEC Consultants
+                Why IAEC Consultants
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 IAEC is a leading overseas education consultancy established in 2000 with a passion 
@@ -113,6 +114,9 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+              <Link href="/about" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-white">
+                Know More
+              </Link>
             </div>
 
             <div className="relative">
@@ -129,6 +133,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Carousel */}
+      <TestimonialsCarousel />
 
       {/* Accreditation Ribbon */}
       <AccreditationRibbon autoScrollSpeed={0.8} pauseOnHover={true} />

@@ -30,22 +30,42 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4 !text-white">{contactInfo.branches.headOffice.name} - {contactInfo.branches.headOffice.city}</h4>
-            <div className="text-white text-sm whitespace-pre-line">
-              <p>{contactInfo.branches.headOffice.address}</p>
+            <h4 className="text-lg font-semibold mb-4 !text-white">Our Offices</h4>
+            <div className="space-y-4">
+              <div>
+                <h5 className="font-medium !text-white">{contactInfo.branches.ahmedabad.name}</h5>
+                <p className="text-white text-sm whitespace-pre-line">
+                  <a href={contactInfo.branches.ahmedabad.mapLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    {contactInfo.branches.ahmedabad.address}
+                  </a>
+                </p>
+                <p className="text-white text-sm">📞 {contactInfo.branches.ahmedabad.mobile}</p>
+              </div>
+              <div>
+                <h5 className="font-medium !text-white">{contactInfo.branches.kukatpally.name}</h5>
+                <p className="text-white text-sm whitespace-pre-line">
+                  <a href={contactInfo.branches.kukatpally.mapLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    {contactInfo.branches.kukatpally.address}
+                  </a>
+                </p>
+                <p className="text-white text-sm">📞 {contactInfo.branches.kukatpally.mobile}</p>
+              </div>
             </div>
           </div>
           <div>
             <h3 className="text-lg font-bold mb-4 !text-white">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/iaecconsultantspvtltd" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/IAECconsultantspvtltd.Ahmedabad/" target="_blank" rel="noopener noreferrer">
                 <Image src="/images/links/facebook.jpeg" alt="Facebook" width={24} height={24} className="w-6 h-6" />
               </a>
-              <a href="https://www.instagram.com/iaecconsultantspvtltd" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/iaec_consultants/" target="_blank" rel="noopener noreferrer">
                 <Image src="/images/links/instagram.jpeg" alt="Instagram" width={24} height={24} className="w-6 h-6" />
               </a>
               <a href="https://www.linkedin.com/company/iaecconsultantspvtltd/" target="_blank" rel="noopener noreferrer">
                 <Image src="/images/links/linkedin.jpeg" alt="LinkedIn" width={24} height={24} className="w-6 h-6" />
+              </a>
+              <a href="https://www.youtube.com/@IAEC_Consultants" target="_blank" rel="noopener noreferrer">
+                <Image src="/images/links/youtube.jpeg" alt="YouTube" width={24} height={24} className="w-6 h-6" />
               </a>
               <a href="mailto:ravinder@iaecconsultants.com">
                 <Image src="/images/links/email.jpeg" alt="Email" width={24} height={24} className="w-6 h-6" />

@@ -1,4 +1,7 @@
 import Image from 'next/image';
+import AccreditationRibbon from '@/components/home/AccreditationRibbon';
+import TestimonialsCarousel from '@/components/home/TestimonialsCarousel';
+
 export const metadata = {
   title: "About IAEC Consultants - Leading Overseas Education Experts Since 2000 | Study Abroad",
   description: "Learn about IAEC Consultants, India's top overseas education consultancy since 2000. 30,000+ students placed in USA, UK, Australia, Canada. Expert counselors across 8 offices.",
@@ -50,6 +53,28 @@ const AboutPage = () => {
           We have 8 offices strategically located across Telangana, Andhra Pradesh, and Sri Lanka, with a dedicated team of 160+ education professionals. We take pride in having successfully placed over 30,000 students in top universities worldwide since our inception.
         </p>
 
+        {/* Statistics Section */}
+        <div className="mt-12 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="text-4xl font-bold text-primary mb-2">30,000+</div>
+              <div className="text-gray-600 font-medium">Satisfied Students</div>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="text-4xl font-bold text-primary mb-2">15+</div>
+              <div className="text-gray-600 font-medium">Countries</div>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="text-4xl font-bold text-primary mb-2">25+</div>
+              <div className="text-gray-600 font-medium">Years Experience</div>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="text-4xl font-bold text-primary mb-2">95%</div>
+              <div className="text-gray-600 font-medium">Visa Success Rate</div>
+            </div>
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="bg-[#e6fffe] p-8 rounded-lg">
             <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">Our Mission</h3>
@@ -96,6 +121,8 @@ const AboutPage = () => {
       </div>
     </div>
   </section>
+  <TestimonialsCarousel />
+  <AccreditationRibbon autoScrollSpeed={0.8} pauseOnHover={true} />
 </main>
   );
 };

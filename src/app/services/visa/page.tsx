@@ -175,6 +175,44 @@ const VisaPage = () => {
                   <span className="text-[#08bcb4] font-semibold">Success: 90%</span>
                 </div>
               </div>
+
+              <div className="bg-white p-8 rounded-lg shadow-lg border-l-4 border-[#08bcb4]">
+                <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">Visitor Visa</h3>
+                <p className="text-[#4a5568] mb-4">Assistance for obtaining visitor visas for tourism, family visits, or short-term business trips to various countries.</p>
+                <div className="mb-4">
+                  <h4 className="font-semibold text-[#1a202c] mb-2">Services Include:</h4>
+                  <ul className="text-[#4a5568] space-y-1 text-sm">
+                    <li>• Application form completion</li>
+                    <li>• Invitation letter guidance</li>
+                    <li>• Financial proof documentation</li>
+                    <li>• Travel itinerary planning</li>
+                    <li>• Interview preparation (if required)</li>
+                  </ul>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-[#08bcb4] font-semibold">Processing: Varies by country</span>
+                  <span className="text-[#08bcb4] font-semibold">Success: High</span>
+                </div>
+              </div>
+
+              <div className="bg-white p-8 rounded-lg shadow-lg border-l-4 border-[#08bcb4]">
+                <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">Dependent Visa</h3>
+                <p className="text-[#4a5568] mb-4">Support for students to bring their dependents (spouse, children) to their study destination.</p>
+                <div className="mb-4">
+                  <h4 className="font-semibold text-[#1a202c] mb-2">Services Include:</h4>
+                  <ul className="text-[#4a5568] space-y-1 text-sm">
+                    <li>• Dependent application form assistance</li>
+                    <li>• Relationship proof documentation</li>
+                    <li>• Financial support evidence</li>
+                    <li>• Health and character requirements</li>
+                    <li>• Co-habitation evidence (for spouse)</li>
+                  </ul>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-[#08bcb4] font-semibold">Processing: Varies by country</span>
+                  <span className="text-[#08bcb4] font-semibold">Success: High</span>
+                </div>
+              </div>
             </div>
           </div>
 
