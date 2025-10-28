@@ -32,7 +32,7 @@ export default function ThankYouPage() {
           Our team will review your request and get back to you shortly.
         </p>
         <div className="mt-6">
-          <Link href="/" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[#08bcb4] hover:bg-[#069aa2] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#08bcb4]">
+          <Link href="/" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm bg-[#08bcb4] hover:bg-[#069aa2] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#08bcb4] !text-white">
             Go to Homepage
           </Link>
         </div>
