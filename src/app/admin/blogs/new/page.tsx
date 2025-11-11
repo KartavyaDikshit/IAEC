@@ -9,7 +9,7 @@ export default function CreateBlog() {
   const [formData, setFormData] = useState({
     title: '',
     content: '',
-    status: 'draft' as 'draft' | 'published'
+    author: 'Admin', // Hardcoded for now, can be dynamic later
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -17,10 +17,15 @@ export default function CreateBlog() {
     setLoading(true)
     
     try {
-      const response = await fetch('/api/admin/blogs', {
+      const response = await fetch('/api/blogs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          title: formData.title,
+          content: formData.content,
+          author: formData.author,
+          publishedAt: new Date().toISOString(), // Set publishedAt to now
+        })
       })
       
       if (response.ok) {
@@ -82,6 +87,20 @@ export default function CreateBlog() {
           </div>
 
           <div>
+            <label htmlFor="author" className="block text-sm font-medium text-gray-700 mb-2">
+              Author
+            </label>
+            <input
+              type="text"
+              id="author"
+              value={formData.author}
+              onChange={(e) => setFormData({ ...formData, author: e.target.value })}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
+              required
+            />
+          </div>
+
+          <div>
             <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-2">
               Content
             </label>
@@ -91,23 +110,9 @@ export default function CreateBlog() {
               value={formData.content}
               onChange={(e) => setFormData({ ...formData, content: e.target.value })}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
+              placeholder="Write the blog post content here..."
               required
             />
-          </div>
-
-          <div>
-            <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-2">
-              Status
-            </label>
-            <select
-              id="status"
-              value={formData.status}
-              onChange={(e) => setFormData({ ...formData, status: e.target.value as 'draft' | 'published' })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
-            >
-              <option value="draft">Draft</option>
-              <option value="published">Published</option>
-            </select>
           </div>
 
           <div className="flex justify-end space-x-4">

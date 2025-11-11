@@ -49,6 +49,7 @@ const Header = () => {
                 <Link href="/services/coaching" className="block px-4 py-2 text-base text-gray-800 hover:bg-gray-100">Coaching Services</Link>
                 <Link href="/services/visa" className="block px-4 py-2 text-base text-gray-800 hover:bg-gray-100">Visa Services</Link>
                 <Link href="/services/travel-forex" className="block px-4 py-2 text-base text-gray-800 hover:bg-gray-100">Travel & Forex</Link>
+                <a href="https://elearning.iaecconsultants.com/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-base text-gray-800 hover:bg-gray-100">Online Training</a>
               </div>
             </div>
             <Link href="/blog" className="text-gray-800 hover:text-gray-900 text-lg">Blog</Link>
@@ -57,7 +58,6 @@ const Header = () => {
           </nav>
           <div className="hidden md:flex items-center space-x-2">
             <Link href="/booking" className="px-3 py-1 rounded-md text-base border border-white" style={{ backgroundColor: '#08bcb4', color: 'white' }}>Book Free Counselling</Link>
-            <Link href="/mock-test" className="px-3 py-1 rounded-md text-base border border-white" style={{ backgroundColor: '#08bcb4', color: 'white' }}>Free Mock Test</Link>
           </div>
           {/* Mobile Menu Button */}
           <div className="md:hidden">
@@ -101,6 +101,7 @@ const Header = () => {
                 <Link href="/services/coaching" className="block px-8 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={closeMobileMenu}>Coaching Services</Link>
                 <Link href="/services/visa" className="block px-8 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={closeMobileMenu}>Visa Services</Link>
                 <Link href="/services/travel-forex" className="block px-8 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={closeMobileMenu}>Travel & Forex</Link>
+                <a href="https://elearning.iaecconsultants.com/" target="_blank" rel="noopener noreferrer" className="block px-8 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={closeMobileMenu}>Online Training</a>
               </div>
             )}
           </div>
@@ -109,7 +110,6 @@ const Header = () => {
           <Link href="/contact" className="block px-4 py-2 text-base text-gray-800 hover:bg-gray-100" onClick={closeMobileMenu}>Contact Us</Link>
           <div className="px-4 py-2 space-y-2">
             <Link href="/booking" className="block w-full text-center px-3 py-1 rounded-md text-base border border-white" style={{ backgroundColor: '#08bcb4', color: 'white' }} onClick={closeMobileMenu}>Book Free Counselling</Link>
-            <Link href="/mock-test" className="block w-full text-center px-3 py-1 rounded-md text-base border border-white" style={{ backgroundColor: '#08bcb4', color: 'white' }} onClick={closeMobileMenu}>Free Mock Test</Link>
           </div>
         </div>
       )}

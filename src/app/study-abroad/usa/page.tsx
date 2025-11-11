@@ -1,26 +1,47 @@
+'use client';
+
 import contactInfo from '../../../../data/contact-info.json';
 import Image from 'next/image';
 import { studyAbroadCountries } from '../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const usaCountry = studyAbroadCountries.find(country => country.name === 'United States');
 
-export const metadata = {
-  title: "Study in USA 2025 - Top Universities, F1 Visa Process, Scholarships | IAEC Consultants",
-  description: "Study in USA with IAEC expert guidance. 1.1M+ international students choose USA. Get F1 student visa, apply to top US universities, scholarships & OPT work opportunities. 95% visa success rate.",
-  keywords: "study in USA, US universities for international students, F1 student visa, study abroad America, US education system, IAEC USA counseling, American universities admission, OPT visa, CPT training, US scholarships, Harvard MIT Stanford",
-  openGraph: {
-    title: "Study in USA 2025 - Top Universities & F1 Visa Process | IAEC",
-    description: "Complete guide to studying in USA. Expert counseling for top US universities, F1 visa process, scholarships, and work opportunities.",
-    images: ['/images/study-usa-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in USA 2025 - Top Universities & F1 Visa Process | IAEC",
-    description: "Complete guide to studying in USA. Expert counseling for top US universities, F1 visa process, scholarships, and work opportunities.",
-  }
-};
-
 const StudyAbroadUsaPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -43,10 +64,10 @@ const StudyAbroadUsaPage = () => {
           Your American dream starts here.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#apply-now"className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          <a href="#apply-now" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
             Start Your USA Journey
           </a>
-          <a href="#universities"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+          <a href="#universities" ref={universitiesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
             View Top Universities
           </a>
         </div>
@@ -980,6 +1001,7 @@ const StudyAbroadUsaPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };

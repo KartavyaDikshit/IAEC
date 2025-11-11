@@ -1,26 +1,47 @@
+'use client';
+
 import Image from 'next/image';
 import contactInfo from '../../../../../data/contact-info.json';
 import { studyAbroadCountries } from '../../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const maltaCountry = studyAbroadCountries.find(country => country.name === 'Malta');
 
-export const metadata = {
-  title: "Study in Malta 2025 - Top Universities, Student Visa & English-Speaking EU | IAEC Consultants",
-  description: "Study in Malta with IAEC expert guidance. English-speaking EU country, affordable education, Mediterranean lifestyle. Get Maltese student visa, work rights, residence pathways. 95% visa success rate.",
-  keywords: "study in Malta, Malta universities for international students, Malta student visa, Malta education system, IAEC Malta counseling, University of Malta, English-speaking EU, Mediterranean study abroad, affordable EU education",
-  openGraph: {
-    title: "Study in Malta 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Malta. Expert counseling for top Maltese universities, student visa process, English-speaking EU benefits, and Mediterranean lifestyle.",
-    images: ['/images/study-malta-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in Malta 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Malta. Expert counseling for top Maltese universities, student visa process, English-speaking EU benefits, and Mediterranean lifestyle.",
-  }
-};
-
 const StudyAbroadMaltaPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -45,10 +66,10 @@ const StudyAbroadMaltaPage = () => {
               Your Mediterranean gateway to European education.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+              <a href="#apply-now" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                 Start Your Malta Journey
               </a>
-              <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+              <a href="#universities" ref={universitiesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
                 View Top Universities
               </a>
             </div>
@@ -849,6 +870,7 @@ const StudyAbroadMaltaPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };

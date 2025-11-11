@@ -75,7 +75,16 @@ export default function MockTestForm() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ ...formData, formType: 'mock-test' })
+        body: JSON.stringify({ 
+          formType: 'mock-test',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          data: {
+            test: formData.test,
+            destination: formData.destination
+          }
+        })
       });
 
       if (response.ok) {

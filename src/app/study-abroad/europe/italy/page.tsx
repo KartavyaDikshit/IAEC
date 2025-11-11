@@ -1,26 +1,47 @@
+'use client';
+
 import Image from 'next/image';
 import contactInfo from '../../../../../data/contact-info.json';
 import { studyAbroadCountries } from '../../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const italyCountry = studyAbroadCountries.find(country => country.name === 'Italy');
 
-export const metadata = {
-  title: "Study in Italy 2025 - Top Universities, Student Visa & Art Culture | IAEC Consultants",
-  description: "Study in Italy with IAEC expert guidance. Art, culture, design excellence, affordable education. Get Italian student visa, residence permit, EU benefits. 95% visa success rate.",
-  keywords: "study in Italy, Italy universities for international students, Italy student visa, Italy education system, IAEC Italy counseling, Italian universities admission, Bologna Sapienza Milan, EU study benefits, art design Italy",
-  openGraph: {
-    title: "Study in Italy 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Italy. Expert counseling for top Italian universities, student visa process, art & design programs, and EU opportunities.",
-    images: ['/images/study-italy-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in Italy 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Italy. Expert counseling for top Italian universities, student visa process, art & design programs, and EU opportunities.",
-  }
-};
-
 const StudyAbroadItalyPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -45,10 +66,10 @@ const StudyAbroadItalyPage = () => {
               Immerse yourself in art, history, and world-class education.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now"className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+              <a href="#apply-now" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                 Start Your Italy Journey
               </a>
-              <a href="#universities"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+              <a href="#universities" ref={universitiesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
                 View Top Universities
               </a>
             </div>
@@ -925,6 +946,7 @@ const StudyAbroadItalyPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };

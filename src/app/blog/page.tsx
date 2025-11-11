@@ -1,6 +1,5 @@
-
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -10,22 +9,42 @@ interface Blog {
   content: string
   author: string
   createdAt: string
-  status: string
 }
 
 export default function BlogPage() {
   const [blogs, setBlogs] = useState<Blog[]>([])
   const [loading, setLoading] = useState(true)
+  const articlesRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     fetchPublishedBlogs()
+
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentArticlesRef = articlesRef.current;
+    if (currentArticlesRef) {
+      currentArticlesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentArticlesRef) {
+        currentArticlesRef.removeEventListener('click', handleScroll);
+      }
+    };
   }, [])
 
   const fetchPublishedBlogs = async () => {
     try {
-      const response = await fetch('/api/blog')
+      const response = await fetch('/api/blogs')
       const data = await response.json()
-      setBlogs(data.blogs.filter((blog: Blog) => blog.status === 'published'))
+      setBlogs(data.blogs || [])
     } catch (error) {
       console.error('Error fetching blogs:', error)
     } finally {
@@ -51,17 +70,14 @@ export default function BlogPage() {
           <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">Latest Insights & Updates</h1>
           <p className="text-2xl mb-8 text-white/90">Stay updated with the latest in overseas education</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="#articles" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+            <a href="#articles" ref={articlesRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
               Read Our Blog
-            </a>
-            <a href="#articles" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
-              View All Articles
             </a>
           </div>
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-16">
+      <div id="articles" className="container mx-auto px-4 py-16">
         {loading ? (
           <div className="text-center py-12">Loading articles...</div>
         ) : blogs.length === 0 ? (

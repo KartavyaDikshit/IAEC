@@ -110,8 +110,7 @@ export default function CountryRibbon({
             Explore Study Destinations
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover world-class education opportunities across multiple countries. 
-            From cutting-edge research to cultural immersion, find your perfect study destination.
+            Uncover the best international universities and countries for your academic growth, research excellence, and cultural discovery.
           </p>
         </div>
 

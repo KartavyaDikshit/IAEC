@@ -9,7 +9,6 @@ interface Blog {
   author: string
   createdAt: string
   updatedAt: string
-  status: 'draft' | 'published'
 }
 
 export default function BlogsManagement() {
@@ -22,7 +21,7 @@ export default function BlogsManagement() {
 
   const fetchBlogs = async () => {
     try {
-      const response = await fetch('/api/admin/blogs')
+      const response = await fetch('/api/blogs')
       if (response.ok) {
         const data = await response.json()
         setBlogs(data.blogs || [])
@@ -38,32 +37,16 @@ export default function BlogsManagement() {
     if (!confirm('Are you sure you want to delete this blog post?')) return
     
     try {
-      const response = await fetch(`/api/admin/blogs/${id}`, { method: 'DELETE' })
+      const response = await fetch(`/api/blogs/${id}`, { method: 'DELETE' })
       if (response.ok) {
         setBlogs(blogs.filter(blog => blog.id !== id))
+      } else {
+        const error = await response.json()
+        alert(`Error: ${error.message || 'Failed to delete blog'}`)
       }
     } catch (error) {
       console.error('Error deleting blog:', error)
-    }
-  }
-
-  const handleStatusToggle = async (id: string, currentStatus: string) => {
-    const newStatus = currentStatus === 'published' ? 'draft' : 'published'
-    
-    try {
-      const response = await fetch(`/api/admin/blogs/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status: newStatus })
-      })
-      
-      if (response.ok) {
-        setBlogs(blogs.map(blog => 
-          blog.id === id ? { ...blog, status: newStatus as 'draft' | 'published' } : blog
-        ))
-      }
-    } catch (error) {
-      console.error('Error updating blog status:', error)
+      alert('Error deleting blog')
     }
   }
 
@@ -93,7 +76,6 @@ export default function BlogsManagement() {
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Author</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                 </tr>
@@ -108,29 +90,10 @@ export default function BlogsManagement() {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {blog.author}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                        blog.status === 'published' 
-                          ? 'bg-[#08bcb4] bg-opacity-20 text-white' 
-                          : 'bg-yellow-100 text-yellow-800'
-                      }`}>
-                        {blog.status}
-                      </span>
-                    </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {new Date(blog.createdAt).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                      <button
-                        onClick={() => handleStatusToggle(blog.id, blog.status)}
-                        className={`${
-                          blog.status === 'published' 
-                            ? 'text-yellow-600 hover:text-yellow-900' 
-                            : 'text-[#08bcb4] hover:text-opacity-90'
-                        }`}
-                      >
-                        {blog.status === 'published' ? 'Unpublish' : 'Publish'}
-                      </button>
                       <button
                         onClick={() => handleDeleteBlog(blog.id)}
                         className="text-red-600 hover:text-red-900"

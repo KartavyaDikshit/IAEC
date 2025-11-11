@@ -1,26 +1,49 @@
+'use client';
+
+'use client';
+
 import contactInfo from '../../../../data/contact-info.json';
 import Image from 'next/image';
 import { studyAbroadCountries } from '../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const irelandCountry = studyAbroadCountries.find(country => country.name === 'Ireland');
 
-export const metadata = {
-  title: "Study in Ireland 2025 - Top Universities, Student Visa & EU Benefits | IAEC Consultants",
-  description: "Study in Ireland with IAEC expert guidance. English-speaking EU country, world-class education. Get Irish student visa, 2-year stay back, EU work rights. 95% visa success rate.",
-  keywords: "study in Ireland, Ireland universities for international students, Ireland student visa, Ireland education system, IAEC Ireland counseling, Irish universities admission, Trinity College Dublin, UCD Ireland, EU study benefits",
-  openGraph: {
-    title: "Study in Ireland 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Ireland. Expert counseling for top Irish universities, student visa process, EU benefits, and post-study opportunities.",
-    images: ['/images/study-ireland-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in Ireland 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Ireland. Expert counseling for top Irish universities, student visa process, EU benefits, and post-study opportunities.",
-  }
-};
-
 const StudyAbroadIrelandPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -44,10 +67,10 @@ const StudyAbroadIrelandPage = () => {
                   Your gateway to European innovation and culture.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+                  <a href="#apply-now" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                     Start Your Ireland Journey
                   </a>
-                  <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+                  <a href="#universities" ref={universitiesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
                     View Top Universities
                   </a>
                 </div>
@@ -900,6 +923,7 @@ const StudyAbroadIrelandPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };

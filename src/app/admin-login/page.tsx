@@ -39,7 +39,7 @@ export default function AdminLogin() {
       if (result?.error) {
         setError('Sign in failed. Please make sure you\'re using an authorized email.')
       }
-    } catch (_error) {
+    } catch {
       setError('An error occurred during sign in.')
     } finally {
       setIsLoading(false)

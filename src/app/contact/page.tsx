@@ -1,15 +1,44 @@
+'use client';
+
 import Image from 'next/image';
 import contactInfo from '../../../data/contact-info.json';
 import ContactForm from '@/components/ContactForm';
-
-export const metadata = {
-  title: `Contact IAEC Consultants - ${contactInfo.company.tagline}`,
-  description: `Contact IAEC Consultants for overseas education counseling. Contact us at ${contactInfo.primary.mobile} or ${contactInfo.primary.email} for a free consultation.`,
-  keywords: "IAEC contact, overseas education consultants Hyderabad, study abroad counseling offices, education consultancy contact details, IAEC branches locations"
-};
+import { useEffect, useRef } from 'react';
 
 const ContactPage = () => {
   const { primary, branches } = contactInfo;
+  const contactFormRef = useRef<HTMLAnchorElement>(null);
+  const officesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentContactFormRef = contactFormRef.current;
+    const currentOfficesRef = officesRef.current;
+
+    if (currentContactFormRef) {
+      currentContactFormRef.addEventListener('click', handleScroll);
+    }
+    if (currentOfficesRef) {
+      currentOfficesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentContactFormRef) {
+        currentContactFormRef.removeEventListener('click', handleScroll);
+      }
+      if (currentOfficesRef) {
+        currentOfficesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
 
   return (
     <main>
@@ -28,10 +57,10 @@ const ContactPage = () => {
           <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">Contact Us</h1>
           <p className="text-2xl mb-8 text-white/90">Get in touch with our expert consultants today.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="#contact-form" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+            <a href="#contact-form" ref={contactFormRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
               Get In Touch
             </a>
-            <a href="#offices" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+            <a href="#offices" ref={officesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
               Find Our Offices
             </a>
           </div>
@@ -40,12 +69,12 @@ const ContactPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
 
-            <div>
+            <div id="contact-form">
               <h2 className="text-3xl font-bold text-[#1a202c] mb-6">Get In Touch</h2>
               <ContactForm />
             </div>
 
-            <div>
+            <div id="offices">
               <h2 className="text-3xl font-bold text-[#1a202c] mb-6">Our Offices</h2>
 
               <div className="space-y-6">

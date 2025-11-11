@@ -1,13 +1,45 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from 'react';
 
-export const metadata = {
-  title: "Test Preparation Coaching - IELTS, TOEFL, GRE, GMAT Training | IAEC",
-  description: "Expert coaching for IELTS, TOEFL, PTE, GRE, GMAT, SAT. Experienced trainers, proven methods, high success rates. Prepare for overseas education with IAEC.",
-  keywords: "IELTS coaching, TOEFL training, GRE preparation, GMAT coaching, PTE training, SAT preparation, test coaching Hyderabad, IAEC coaching services"
-};
+
 
 const CoachingPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const coursesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentCoursesRef = coursesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentCoursesRef) {
+      currentCoursesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentCoursesRef) {
+        currentCoursesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
 <main>
   <section className="relative h-screen flex items-center justify-center">
@@ -26,10 +58,10 @@ const CoachingPage = () => {
       <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">Test Preparation Coaching</h1>
       <p className="text-2xl mb-8 text-white/90">Expert coaching for IELTS, TOEFL, GRE, GMAT, and other standardized tests with proven success rates</p>
       <div className="flex flex-wrap justify-center gap-4">
-        <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+        <a href="#test-preparation-section" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
           Start Your Coaching Journey
         </a>
-        <a href="#courses" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+        <a href="#courses-section" ref={coursesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
           View All Courses
         </a>
       </div>
@@ -57,7 +89,69 @@ const CoachingPage = () => {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <div id="courses-section" className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
+          <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">IELTS Coaching</h3>
+          <p className="text-[#4a5568] mb-4">
+            International English Language Testing System preparation for global university admissions.
+          </p>
+          <div className="mb-4">
+            <h4 className="font-semibold text-[#1a202c] mb-2">Course Features:</h4>
+            <ul className="text-[#4a5568] space-y-1 text-sm">
+              <li>• Comprehensive modules for Listening, Reading, Writing, and Speaking</li>
+              <li>• Extensive practice tests and mock exams</li>
+              <li>• Personalized feedback and doubt-clearing sessions</li>
+              <li>• Vocabulary and grammar building exercises</li>
+              <li>• Strategies for achieving target band scores</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
+          <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">TOEFL Coaching</h3>
+          <p className="text-[#4a5568] mb-4">
+            Test of English as a Foreign Language preparation for North American university admissions.
+          </p>
+          <div className="mb-4">
+            <h4 className="font-semibold text-[#1a202c] mb-2">Course Features:</h4>
+            <ul className="text-[#4a5568] space-y-1 text-sm">
+              <li>• Integrated skills approach for Reading, Listening, Speaking, and Writing</li>
+              <li>• Practice with TOEFL-specific question types</li>
+              <li>• Strategies for effective note-taking and summarizing</li>
+              <li>• Simulated test environment practice</li>
+              <li>• Grammar and pronunciation refinement</li>
+            </ul>
+          </div>
+          <div className="mb-4">
+            <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
+            <p className="text-[#4a5568] text-sm">80+ for most universities</p>
+          </div>
+
+        </div>
+
+        <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
+          <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">PTE Coaching</h3>
+          <p className="text-[#4a5568] mb-4">
+            Pearson Test of English preparation for quick and accurate English proficiency assessment.
+          </p>
+          <div className="mb-4">
+            <h4 className="font-semibold text-[#1a202c] mb-2">Course Features:</h4>
+            <ul className="text-[#4a5568] space-y-1 text-sm">
+              <li>• Focus on all 20 item types of PTE Academic</li>
+              <li>• AI-powered scoring and feedback for practice tests</li>
+              <li>• Strategies for speaking, writing, reading, and listening sections</li>
+              <li>• Time management techniques for the exam</li>
+              <li>• Access to official PTE practice materials</li>
+            </ul>
+          </div>
+          <div className="mb-4">
+            <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
+            <p className="text-[#4a5568] text-sm">58+ for most universities</p>
+          </div>
+
+        </div>
+
         <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
           <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">Duolingo Coaching</h3>
           <p className="text-[#4a5568] mb-4">
@@ -77,10 +171,7 @@ const CoachingPage = () => {
             <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
             <p className="text-[#4a5568] text-sm">110+ for most universities</p>
           </div>
-          <div className="flex justify-between items-center">
-            <span className="text-[#08bcb4] font-semibold">Duration: 3-4 weeks</span>
-            <span className="text-[#08bcb4] font-semibold">Fee: ₹12,000</span>
-          </div>
+
         </div>
 
         <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
@@ -98,14 +189,7 @@ const CoachingPage = () => {
               <li>• Adaptive test strategies</li>
             </ul>
           </div>
-          <div className="mb-4">
-            <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
-            <p className="text-[#4a5568] text-sm">320+ for competitive programs</p>
-          </div>
-          <div className="flex justify-between items-center">
-            <span className="text-[#08bcb4] font-semibold">Duration: 8-10 weeks</span>
-            <span className="text-[#08bcb4] font-semibold">Fee: ₹25,000</span>
-          </div>
+
         </div>
 
         <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
@@ -127,10 +211,7 @@ const CoachingPage = () => {
             <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
             <p className="text-[#4a5568] text-sm">700+ for top business schools</p>
           </div>
-          <div className="flex justify-between items-center">
-            <span className="text-[#08bcb4] font-semibold">Duration: 10-12 weeks</span>
-            <span className="text-[#08bcb4] font-semibold">Fee: ₹28,000</span>
-          </div>
+
         </div>
 
         <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
@@ -152,10 +233,7 @@ const CoachingPage = () => {
             <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
             <p className="text-[#4a5568] text-sm">1400+ for competitive colleges</p>
           </div>
-          <div className="flex justify-between items-center">
-            <span className="text-[#08bcb4] font-semibold">Duration: 8-10 weeks</span>
-            <span className="text-[#08bcb4] font-semibold">Fee: ₹22,000</span>
-          </div>
+
         </div>
       </div>
 
@@ -193,7 +271,7 @@ const CoachingPage = () => {
         </div>
       </div>
 
-      <div className="text-center">
+      <div id="test-preparation-section" className="text-center">
         <h2 className="text-3xl font-bold text-[#1a202c] mb-4">Ready to Start Your Test Preparation?</h2>
         <p className="text-lg text-[#4a5568] mb-8">Join thousands of successful students who achieved their target scores with IAEC coaching</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

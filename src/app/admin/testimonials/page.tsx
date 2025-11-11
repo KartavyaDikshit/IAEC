@@ -6,12 +6,12 @@ import Link from 'next/link'
 interface Testimonial {
   id: string
   name: string
-  content: string
-  university: string
-  course: string
-  country: string
-  rating: number
+  testimonial: string
+  rating?: number
   imageUrl?: string
+  university?: string
+  course?: string
+  country?: string
   createdAt: string
 }
 
@@ -25,7 +25,7 @@ export default function TestimonialsManagement() {
 
   const fetchTestimonials = async () => {
     try {
-      const response = await fetch('/api/admin/testimonials')
+      const response = await fetch('/api/testimonials')
       if (response.ok) {
         const data = await response.json()
         setTestimonials(data.testimonials || [])
@@ -41,7 +41,7 @@ export default function TestimonialsManagement() {
     if (!confirm('Are you sure you want to delete this testimonial?')) return
     
     try {
-      const response = await fetch(`/api/admin/testimonials/${id}`, { method: 'DELETE' })
+      const response = await fetch(`/api/testimonials/${id}`, { method: 'DELETE' })
       if (response.ok) {
         setTestimonials(testimonials.filter(t => t.id !== id))
         alert('Testimonial deleted successfully!')
@@ -77,6 +77,16 @@ export default function TestimonialsManagement() {
         ) : (
           testimonials.map((testimonial) => (
             <div key={testimonial.id} className="bg-white p-6 rounded-lg shadow">
+              {testimonial.imageUrl && (
+                <div className="relative h-40 w-full mb-4 rounded-lg overflow-hidden">
+                  <Image
+                    src={testimonial.imageUrl}
+                    alt={testimonial.name}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+              )}
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-gray-900">{testimonial.name}</h3>
                 <div className="flex space-x-2">
@@ -89,28 +99,33 @@ export default function TestimonialsManagement() {
                 </div>
               </div>
               
-              {testimonial.imageUrl && (
-                <div className="mb-4">
-                  <Image
-                    src={testimonial.imageUrl}
-                    alt={`Image for ${testimonial.name}`}
-                    width={100}
-                    height={100}
-                    className="rounded-full object-cover mx-auto"
-                  />
-                </div>
-              )}
-              
-              <div className="space-y-2 text-sm text-gray-600">
-                <p><strong>University:</strong> {testimonial.university}</p>
-                <p><strong>Course:</strong> {testimonial.course}</p>
-                <p><strong>Country:</strong> {testimonial.country}</p>
-                <p><strong>Rating:</strong> {'★'.repeat(testimonial.rating)}</p>
-              </div>
-              
               <p className="mt-4 text-sm text-gray-700 line-clamp-3">
-                {testimonial.content}
+                {testimonial.testimonial}
               </p>
+              
+              {testimonial.rating && (
+                <p className="mt-2 text-sm text-gray-600">
+                  <strong>Rating:</strong> {'★'.repeat(testimonial.rating)}
+                </p>
+              )}
+
+              {testimonial.university && (
+                <p className="mt-2 text-sm text-gray-600">
+                  <strong>University:</strong> {testimonial.university}
+                </p>
+              )}
+
+              {testimonial.course && (
+                <p className="mt-2 text-sm text-gray-600">
+                  <strong>Course:</strong> {testimonial.course}
+                </p>
+              )}
+
+              {testimonial.country && (
+                <p className="mt-2 text-sm text-gray-600">
+                  <strong>Country:</strong> {testimonial.country}
+                </p>
+              )}
               
               <p className="mt-2 text-xs text-gray-500">
                 Added: {new Date(testimonial.createdAt).toLocaleDateString()}

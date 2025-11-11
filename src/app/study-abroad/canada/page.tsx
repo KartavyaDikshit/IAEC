@@ -1,26 +1,47 @@
+'use client';
+
 import contactInfo from '../../../../data/contact-info.json';
 import Image from 'next/image';
 import { studyAbroadCountries } from '../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const canadaCountry = studyAbroadCountries.find(country => country.name === 'Canada');
 
-export const metadata = {
-  title: "Study in Canada 2025 - Top Universities, Study Permit & Express Entry | IAEC Consultants",
-  description: "Study in Canada with IAEC expert guidance. 1M+ international students, world-class education. Get Study Permit, PGWP, Express Entry pathway to PR. 95% visa success rate.",
-  keywords: "study in Canada, Canada universities for international students, study permit Canada, Canada education system, IAEC Canada counseling, Canadian universities admission, PGWP work permit, Express Entry Canada, Toronto McGill UBC universities",
-  openGraph: {
-    title: "Study in Canada 2025 - Top Universities & Study Permit Guide | IAEC",
-    description: "Complete guide to studying in Canada. Expert counseling for top Canadian universities, study permit process, PGWP, and Express Entry pathways.",
-    images: ['/images/study-canada-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in Canada 2025 - Top Universities & Study Permit Guide | IAEC",
-    description: "Complete guide to studying in Canada. Expert counseling for top Canadian universities, study permit process, PGWP, and Express Entry pathways.",
-  }
-};
-
 const StudyAbroadCanadaPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -44,10 +65,10 @@ const StudyAbroadCanadaPage = () => {
           Your future in a land of opportunities.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#apply-now"className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          <a href="#apply-now"ref={applyNowRef}className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
             Start Your Canada Journey
           </a>
-          <a href="#universities"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+          <a href="#universities"ref={universitiesRef}className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
             View Top Universities
           </a>
         </div>
@@ -897,6 +918,7 @@ const StudyAbroadCanadaPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };

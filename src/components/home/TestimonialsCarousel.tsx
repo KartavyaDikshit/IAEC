@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
-import testimonialsData from '../../../data/testimonials.json'; // Adjust path as needed
 
 interface Testimonial {
   id: string;
@@ -22,10 +21,17 @@ const TestimonialsCarousel = () => {
   const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const validTestimonials = testimonialsData.filter(
-      (testimonial) => testimonial.content && testimonial.name
-    );
-    setTestimonials(validTestimonials);
+    const fetchTestimonials = async () => {
+      try {
+        const res = await fetch('/api/testimonials');
+        const data = await res.json();
+        console.log('Fetched testimonials for carousel:', data.testimonials); // Add this line
+        setTestimonials(data.testimonials || []);
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+    };
+    fetchTestimonials();
   }, []);
 
   const autoScroll = useCallback(() => {

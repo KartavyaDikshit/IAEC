@@ -7,9 +7,11 @@ interface Submission {
   email: string;
   phone: string;
   formType: string;
-  destination?: string;
-  test?: string;
-  message: string;
+  data: {
+    destination?: string;
+    test?: string;
+    message?: string;
+  };
 }
 
 export default function FormSubmissionsPage() {
@@ -19,8 +21,12 @@ export default function FormSubmissionsPage() {
     const fetchSubmissions = async () => {
       try {
         const response = await fetch('/api/forms')
-        const data = await response.json()
-        setSubmissions(data)
+        const rawData = await response.json()
+        const parsedSubmissions = rawData.map((submission: Submission) => ({
+          ...submission,
+          data: typeof submission.data === 'string' ? JSON.parse(submission.data) : submission.data,
+        }));
+        setSubmissions(parsedSubmissions);
       } catch (error) {
         console.error(error)
       }
@@ -51,8 +57,8 @@ export default function FormSubmissionsPage() {
                 <td className="p-4">{submission.email}</td>
                 <td className="p-4">{submission.phone}</td>
                 <td className="p-4">{submission.formType}</td>
-                <td className="p-4">{submission.destination || submission.test}</td>
-                <td className="p-4">{submission.message}</td>
+                <td className="p-4">{submission.data?.destination || submission.data?.test}</td>
+                <td className="p-4">{submission.data?.message}</td>
               </tr>
             ))}
           </tbody>
