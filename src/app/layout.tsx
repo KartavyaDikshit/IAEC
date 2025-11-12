@@ -5,7 +5,7 @@ import SessionProviderWrapper from '@/components/SessionProviderWrapper';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppConditionalRenderer from '@/components/WhatsAppConditionalRenderer';
-import { GoogleTagManager } from '@next/third-parties/google';
+import Script from 'next/script';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -136,13 +136,29 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <GoogleTagManager gtmId="G-FWFB0NQ4T8" />
         <link rel="icon" href="/images/tab_logo.png" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#08bcb4" />
       </head>
       <body className={inter.className}>
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WNGPGW6T');
+          `}
+        </Script>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WNGPGW6T"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
         <SessionProviderWrapper>
           <Header />
           <main className="min-h-screen">
