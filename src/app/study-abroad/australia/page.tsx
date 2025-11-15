@@ -1,28 +1,49 @@
+'use client';
+
 import contactInfo from '../../../../data/contact-info.json';
 import studyAbroadData from '../../../../data/study-abroad.json';
 import Image from 'next/image';
 import { studyAbroadCountries } from '../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const australiaCountry = studyAbroadCountries.find(country => country.name === 'Australia');
 
-export const metadata = {
-  title: "Study in Australia 2025 - Top Universities, Student Visa & Scholarships | IAEC Consultants",
-  description: "Study in Australia with IAEC expert guidance. 2.5M+ global graduates, world-class universities. Get Student Visa Subclass 500, work opportunities & post-study migration. 95% visa success rate.",
-  keywords: "study in Australia, Australia universities for international students, student visa subclass 500, study abroad Australia, Australia education system, IAEC Australia counseling, Australian universities admission, post study work visa, Australia migration, Melbourne Sydney universities",
-  openGraph: {
-    title: "Study in Australia 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Australia. Expert counseling for top Australian universities, student visa process, scholarships, and migration opportunities.",
-    images: ['/images/study-australia-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in Australia 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Australia. Expert counseling for top Australian universities, student visa process, scholarships, and migration opportunities.",
-  }
-};
-
 const StudyAbroadAustraliaPage = () => {
   const pageData = studyAbroadData.australia;
+
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -46,10 +67,10 @@ const StudyAbroadAustraliaPage = () => {
           Your journey to world-class education begins here.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          <a href="#apply-now" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
             Start Your Australia Journey
           </a>
-          <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+          <a href="#universities" ref={universitiesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
             View Top Universities
           </a>
         </div>
@@ -938,19 +959,17 @@ const StudyAbroadAustraliaPage = () => {
               <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
-                Take Free Mock Test
-              </a>
+              
             </div>
             
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>{contactInfo.primary.mobile}</p>
+                <p><a href={`tel:${contactInfo.primary.mobile}`}>{contactInfo.primary.mobile}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>{contactInfo.primary.email}</p>
+                <p><a href={`mailto:${contactInfo.primary.email}`}>{contactInfo.primary.email}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>
@@ -960,6 +979,7 @@ const StudyAbroadAustraliaPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };

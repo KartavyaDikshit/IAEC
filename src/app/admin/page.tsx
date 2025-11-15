@@ -13,7 +13,6 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     fetchStats()
-    // Refresh stats every 30 seconds for real-time updates
     const interval = setInterval(fetchStats, 30000)
     return () => clearInterval(interval)
   }, [])
@@ -50,7 +49,8 @@ export default function AdminDashboard() {
       <div className="space-y-6">
         <div className="animate-pulse">
           <div className="h-8 bg-gray-200 rounded w-48 mb-8"></div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-gray-200 h-24 rounded"></div>
             <div className="bg-gray-200 h-24 rounded"></div>
             <div className="bg-gray-200 h-24 rounded"></div>
             <div className="bg-gray-200 h-24 rounded"></div>
@@ -61,51 +61,51 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="space-y-6 p-8">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold text-black">Dashboard</h1>
-        <div className="text-sm text-gray-500">
-          Welcome to IAEC Admin Panel • Last updated: {new Date().toLocaleTimeString()}
+    <div className="space-y-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold text-black mb-2 sm:mb-0">Dashboard</h1>
+        <div className="text-xs sm:text-sm text-gray-500">
+          Welcome to IAEC Admin • Last updated: {new Date().toLocaleTimeString()}
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="bg-white p-4 rounded-lg shadow">
           <div className="flex items-center">
-            <div className="text-3xl mr-4">📝</div>
+            <div className="text-2xl mr-3">📝</div>
             <div>
-              <h3 className="text-lg font-semibold text-black mb-1">Total Blogs</h3>
-              <p className="text-3xl font-bold text-[#08bcb4]">{stats.totalBlogs}</p>
+              <h3 className="text-md font-semibold text-black mb-1">Total Blogs</h3>
+              <p className="text-2xl font-bold text-[#08bcb4]">{stats.totalBlogs}</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-white p-4 rounded-lg shadow">
           <div className="flex items-center">
-            <div className="text-3xl mr-4">⭐</div>
+            <div className="text-2xl mr-3">⭐</div>
             <div>
-              <h3 className="text-lg font-semibold text-black mb-1">Total Testimonials</h3>
-              <p className="text-3xl font-bold text-[#08bcb4]">{stats.totalTestimonials}</p>
+              <h3 className="text-md font-semibold text-black mb-1">Total Testimonials</h3>
+              <p className="text-2xl font-bold text-[#08bcb4]">{stats.totalTestimonials}</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-white p-4 rounded-lg shadow">
           <div className="flex items-center">
-            <div className="text-3xl mr-4">📋</div>
+            <div className="text-2xl mr-3">📋</div>
             <div>
-              <h3 className="text-lg font-semibold text-black mb-1">Form Submissions</h3>
-              <p className="text-3xl font-bold text-[#08bcb4]">{stats.totalForms}</p>
+              <h3 className="text-md font-semibold text-black mb-1">Form Submissions</h3>
+              <p className="text-2xl font-bold text-[#08bcb4]">{stats.totalForms}</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-white p-4 rounded-lg shadow">
           <div className="flex items-center">
-            <div className="text-3xl mr-4">📊</div>
+            <div className="text-2xl mr-3">📊</div>
             <div>
-              <h3 className="text-lg font-semibold text-black mb-1">Total Content</h3>
-              <p className="text-3xl font-bold text-[#08bcb4]">{stats.recentActivity}</p>
+              <h3 className="text-md font-semibold text-black mb-1">Total Content</h3>
+              <p className="text-2xl font-bold text-[#08bcb4]">{stats.recentActivity}</p>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import CountryRibbon from '@/components/home/CountryRibbon';
 
 export const metadata = {
   title: "Study in Europe - European Universities & Education Guide 2025 | IAEC",
@@ -144,7 +145,7 @@ const StudyAbroadEuropePage = () => {
               </div>
             </div>
           </div>
-
+          <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
           <div className="text-center">
             <h2 className="text-3xl font-bold text-white mb-4">Ready to Explore Europe?</h2>
             <p className="text-lg text-[#4a5568] mb-8">Contact IAEC consultants for personalized guidance on European education opportunities</p>

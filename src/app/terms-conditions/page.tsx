@@ -90,7 +90,7 @@ export default function TermsConditions() {
               <p>#402, 4th Floor, Gurupartha Estates</p>
               <p>Narayanguda, Hyderabad - 500029</p>
               <p>Phone: +91 863 970 6102</p>
-              <p>Email: ravinder@iaecconsultants.com</p>
+              <p>Email: <a href="mailto:ravinder@iaecconsultants.com">ravinder@iaecconsultants.com</a></p>
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@ export async function GET() {
   try {
     const blogs = await readBlogs()
     return NextResponse.json({ count: blogs.length })
-  } catch (_error) {
+  } catch {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
