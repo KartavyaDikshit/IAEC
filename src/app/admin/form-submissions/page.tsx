@@ -42,6 +42,21 @@ export default function FormSubmissionsPage() {
     fetchSubmissions()
   }, [])
 
+  const formatFormType = (formType: string) => {
+    switch (formType) {
+      case 'mock-test':
+        return 'Mock Test';
+      case 'study-preparation':
+        return 'Study Preparation';
+      case 'contact':
+        return 'Contact Us';
+      case 'booking':
+        return 'Booking';
+      default:
+        return formType;
+    }
+  }
+
   return (
     <div className="p-4 sm:p-6 md:p-8">
       <h1 className="text-2xl font-bold mb-4">Form Submissions</h1>
@@ -66,7 +81,7 @@ export default function FormSubmissionsPage() {
                   <span className="font-semibold">Phone:</span> {submission.phone}
                 </div>
                 <div className="text-sm text-gray-600 mb-1">
-                  <span className="font-semibold">Form:</span> {submission.formType}
+                  <span className="font-semibold">Form:</span> {formatFormType(submission.formType)}
                 </div>
                 {(submission.data?.destination || submission.data?.test) && (
                   <div className="text-sm text-gray-600 mb-1">
@@ -106,7 +121,7 @@ export default function FormSubmissionsPage() {
                     <td className="p-3 text-sm">{submission.name}</td>
                     <td className="p-3 text-sm">{submission.email}</td>
                     <td className="p-3 text-sm">{submission.phone}</td>
-                    <td className="p-3 text-sm">{submission.formType}</td>
+                    <td className="p-3 text-sm">{formatFormType(submission.formType)}</td>
                     <td className="p-3 text-sm">{submission.data?.destination || submission.data?.test}</td>
                     <td className="p-3 text-sm max-w-xs truncate">{submission.data?.message}</td>
                     <td className="p-3 text-sm">{new Date(submission.createdAt).toLocaleString()}</td>

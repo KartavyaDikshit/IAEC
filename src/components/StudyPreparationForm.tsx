@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { studyAbroadCountries } from '@/lib/countries'
 
-export default function MockTestForm() {
+export default function StudyPreparationForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -76,7 +76,7 @@ export default function MockTestForm() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ 
-          formType: 'mock-test',
+          formType: 'study-preparation',
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -151,6 +151,12 @@ export default function MockTestForm() {
             <option>TOEFL</option>
             <option>PTE</option>
             <option>Duolingo</option>
+            <option>GRE</option>
+            <option>GMAT</option>
+            <option>SAT</option>
+            <option>German Language Coaching</option>
+            <option>French Language Coaching</option>
+            <option>Spoken English Coaching</option>
           </select>
         </div>
         <div>
@@ -173,7 +179,7 @@ export default function MockTestForm() {
           type="submit"
           className="bg-[#08bcb4] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#069aa2] transition-all"
         >
-          Register for Test
+          Submit
         </button>
       </form>
     </div>

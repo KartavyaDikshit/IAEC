@@ -86,7 +86,7 @@ const ContactPage = () => {
                     </a>
                   </p>
                   <p className="text-[#4a5568] text-sm">
-                    📞 {branches.ahmedabad.mobile} | Landline: {branches.ahmedabad.landline}
+                    📞 <a href={`tel:${branches.ahmedabad.mobile}`}>{branches.ahmedabad.mobile}</a> | Landline: <a href={`tel:${branches.ahmedabad.landline}`}>{branches.ahmedabad.landline}</a>
                   </p>
                 </div>
 
@@ -98,7 +98,7 @@ const ContactPage = () => {
                     </a>
                   </p>
                   <p className="text-[#4a5568] text-sm">
-                    📞 {branches.kukatpally.mobile} | ✉️ {branches.kukatpally.email}
+                    📞 <a href={`tel:${branches.kukatpally.mobile}`}>{branches.kukatpally.mobile}</a> | ✉️ <a href={`mailto:${branches.kukatpally.email}`}>{branches.kukatpally.email}</a>
                   </p>
                 </div>
 
@@ -110,7 +110,7 @@ const ContactPage = () => {
                     </a>
                   </p>
                   <p className="text-[#4a5568]">
-                    📞 {primary.mobile} | ✉️ {primary.email}
+                    📞 <a href={`tel:${primary.mobile}`}>{primary.mobile}</a> | ✉️ <a href={`mailto:${primary.email}`}>{primary.email}</a>
                   </p>
                 </div>
               </div>

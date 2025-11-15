@@ -105,7 +105,9 @@ const CoachingPage = () => {
               <li>• Strategies for achieving target band scores</li>
             </ul>
           </div>
-
+            <Link href="/study-preparation" className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#069aa2] transition-all">
+                Enroll Now
+            </Link>
         </div>
 
         <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
@@ -127,7 +129,9 @@ const CoachingPage = () => {
             <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
             <p className="text-[#4a5568] text-sm">80+ for most universities</p>
           </div>
-
+            <Link href="/study-preparation" className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#069aa2] transition-all">
+                Enroll Now
+            </Link>
         </div>
 
         <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
@@ -149,7 +153,9 @@ const CoachingPage = () => {
             <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
             <p className="text-[#4a5568] text-sm">58+ for most universities</p>
           </div>
-
+            <Link href="/study-preparation" className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#069aa2] transition-all">
+                Enroll Now
+            </Link>
         </div>
 
         <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
@@ -171,7 +177,9 @@ const CoachingPage = () => {
             <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
             <p className="text-[#4a5568] text-sm">110+ for most universities</p>
           </div>
-
+            <Link href="/study-preparation" className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#069aa2] transition-all">
+                Enroll Now
+            </Link>
         </div>
 
         <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
@@ -189,7 +197,9 @@ const CoachingPage = () => {
               <li>• Adaptive test strategies</li>
             </ul>
           </div>
-
+            <Link href="/study-preparation" className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#069aa2] transition-all">
+                Enroll Now
+            </Link>
         </div>
 
         <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
@@ -211,7 +221,9 @@ const CoachingPage = () => {
             <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
             <p className="text-[#4a5568] text-sm">700+ for top business schools</p>
           </div>
-
+            <Link href="/study-preparation" className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#069aa2] transition-all">
+                Enroll Now
+            </Link>
         </div>
 
         <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
@@ -233,7 +245,66 @@ const CoachingPage = () => {
             <h4 className="font-semibold text-[#1a202c] mb-2">Target Scores:</h4>
             <p className="text-[#4a5568] text-sm">1400+ for competitive colleges</p>
           </div>
-
+            <Link href="/study-preparation" className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#069aa2] transition-all">
+                Enroll Now
+            </Link>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
+          <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">German Language Coaching</h3>
+          <p className="text-[#4a5568] mb-4">
+            Learn German for study, work, or travel.
+          </p>
+          <div className="mb-4">
+            <h4 className="font-semibold text-[#1a202c] mb-2">Course Features:</h4>
+            <ul className="text-[#4a5568] space-y-1 text-sm">
+              <li>• Beginner to advanced levels</li>
+              <li>• Certified trainers</li>
+              <li>• Interactive sessions</li>
+              <li>• Exam preparation for Goethe-Zertifikat</li>
+              <li>• Cultural immersion</li>
+            </ul>
+          </div>
+            <Link href="/study-preparation" className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#069aa2] transition-all">
+                Enroll Now
+            </Link>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
+          <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">French Language Coaching</h3>
+          <p className="text-[#4a5568] mb-4">
+            Master the French language for academic and professional success.
+          </p>
+          <div className="mb-4">
+            <h4 className="font-semibold text-[#1a202c] mb-2">Course Features:</h4>
+            <ul className="text-[#4a5568] space-y-1 text-sm">
+              <li>• All levels from A1 to C2</li>
+              <li>• Experienced tutors</li>
+              <li>• Small batch sizes</li>
+              <li>• Preparation for DELF & DALF exams</li>
+              <li>• Conversational practice</li>
+            </ul>
+          </div>
+            <Link href="/study-preparation" className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#069aa2] transition-all">
+                Enroll Now
+            </Link>
+        </div>
+        <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#08bcb4]">
+          <h3 className="text-2xl font-bold text-[#08bcb4] mb-4">Spoken English Coaching</h3>
+          <p className="text-[#4a5568] mb-4">
+            Improve your fluency and confidence in spoken English.
+          </p>
+          <div className="mb-4">
+            <h4 className="font-semibold text-[#1a202c] mb-2">Course Features:</h4>
+            <ul className="text-[#4a5568] space-y-1 text-sm">
+              <li>• Public speaking practice</li>
+              <li>• Group discussions and debates</li>
+              <li>• Pronunciation and accent neutralization</li>
+              <li>• Presentation skills</li>
+              <li>• Interview preparation</li>
+            </ul>
+          </div>
+            <Link href="/study-preparation" className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#069aa2] transition-all">
+                Enroll Now
+            </Link>
         </div>
       </div>
 
@@ -278,9 +349,7 @@ const CoachingPage = () => {
           <Link href="/contact" className="bg-[#08bcb4] !text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#069aa2] transition-all">
             Enroll Now
           </Link>
-          <Link href="/mock-test" className="border-2 border-[#08bcb4] text-[#08bcb4] px-8 py-4 rounded-lg font-semibold hover:bg-[#08bcb4] hover:text-white transition-all">
-            Take Free Mock Test
-          </Link>
+          
         </div>
       </div>
     </div>
