@@ -39,7 +39,7 @@ function Editor({ onChange, editorLoaded, value }: EditorProps) {
         <CKEditor
           editor={ClassicEditor as any}
           data={value}
-          onChange={(_event: React.SyntheticEvent, editor: ClassicEditorBuild) => {
+          onChange={(_event: any, editor: any) => {
             const data = editor.getData();
             onChange(data);
           }}
