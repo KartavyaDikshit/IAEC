@@ -37,7 +37,7 @@ function Editor({ onChange, editorLoaded, value }: EditorProps) {
     <div>
       {editorLoaded && CKEditor && ClassicEditor ? (
         <CKEditor
-          editor={ClassicEditor}
+          editor={ClassicEditor as any}
           data={value}
           onChange={(_event: React.SyntheticEvent, editor: ClassicEditorBuild) => {
             const data = editor.getData();
