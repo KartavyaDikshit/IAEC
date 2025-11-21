@@ -25,10 +25,10 @@ importers:
         version: 15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       next-auth:
         specifier: ^4.24.11
-        version: 4.24.13(next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(nodemailer@6.10.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 4.24.13(next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(nodemailer@7.0.7)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       nodemailer:
-        specifier: ^6.9.1
-        version: 6.10.1
+        specifier: ^7.0.7
+        version: 7.0.7
       react:
         specifier: ^19.1.1
         version: 19.2.0
@@ -2153,8 +2153,8 @@ packages:
       sass:
         optional: true
 
-  nodemailer@6.10.1:
-    resolution: {integrity: sha512-Z+iLaBGVaSjbIzQ4pX6XV41HrooLsQ10ZWPUehGmuantvzWoDVBnmsdUcOIDM1t+yPor5pDhVlDESgOMEGxhHA==}
+  nodemailer@7.0.7:
+    resolution: {integrity: sha512-jGOaRznodf62TVzdyhKt/f1Q/c3kYynk8629sgJHpRzGZj01ezbgMMWJSAjHADcwTKxco3B68/R+KHJY2T5BaA==}
     engines: {node: '>=6.0.0'}
 
   nwsapi@2.2.22:
@@ -3458,6 +3458,11 @@ snapshots:
       '@ckeditor/ckeditor5-ui': 41.4.2
       ckeditor5: 41.4.2
       lodash-es: 4.17.21
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - supports-color
+      - utf-8-validate
 
   '@ckeditor/ckeditor5-font@41.4.2':
     dependencies:
@@ -3484,15 +3489,15 @@ snapshots:
   '@ckeditor/ckeditor5-horizontal-line@41.4.2':
     dependencies:
       ckeditor5: 41.4.2
-
-  '@ckeditor/ckeditor5-html-embed@41.4.2':
-    dependencies:
-      ckeditor5: 41.4.2
     transitivePeerDependencies:
       - bufferutil
       - canvas
       - supports-color
       - utf-8-validate
+
+  '@ckeditor/ckeditor5-html-embed@41.4.2':
+    dependencies:
+      ckeditor5: 41.4.2
 
   '@ckeditor/ckeditor5-html-support@41.4.2':
     dependencies:
@@ -5683,7 +5688,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next-auth@4.24.13(next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(nodemailer@6.10.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  next-auth@4.24.13(next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(nodemailer@7.0.7)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
       '@babel/runtime': 7.28.4
       '@panva/hkdf': 1.2.1
@@ -5698,7 +5703,7 @@ snapshots:
       react-dom: 19.2.0(react@19.2.0)
       uuid: 8.3.2
     optionalDependencies:
-      nodemailer: 6.10.1
+      nodemailer: 7.0.7
 
   next@15.5.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
@@ -5723,7 +5728,7 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nodemailer@6.10.1: {}
+  nodemailer@7.0.7: {}
 
   nwsapi@2.2.22: {}
 
