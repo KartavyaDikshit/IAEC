@@ -23,12 +23,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'Blog data is empty' }, { status: 400 });
     }
 
-    const { title, content, author, publishedAt } = newBlog;
+    const { title, content, author, publishedAt, imageUrl } = newBlog;
 
     const result = await sql`
-      INSERT INTO "Blog" (title, content, author, "publishedAt")
-      VALUES (${title}, ${content}, ${author}, ${publishedAt})
-      RETURNING id, title, content, author, "publishedAt", "createdAt", "updatedAt";
+      INSERT INTO "Blog" (title, content, author, "publishedAt", "imageUrl")
+      VALUES (${title}, ${content}, ${author}, ${publishedAt}, ${imageUrl})
+      RETURNING id, title, content, author, "publishedAt", "imageUrl", "createdAt", "updatedAt";
     `;
 
     const createdBlog = result[0];

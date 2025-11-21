@@ -9,6 +9,7 @@ interface Blog {
   content: string
   author: string
   createdAt: string
+  imageUrl: string
 }
 
 export default function BlogPage() {
@@ -52,6 +53,10 @@ export default function BlogPage() {
     }
   }
 
+  const stripHtml = (html: string) => {
+    return html.replace(/<[^>]*>?/gm, '');
+  };
+
   return (
     <>
       <section className="relative h-screen flex items-center justify-center">
@@ -86,6 +91,14 @@ export default function BlogPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
               <article key={blog.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={blog.imageUrl}
+                    alt={blog.title}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
                 <div className="p-6">
                   <h2 className="text-xl font-bold text-[#1a202c] mb-3 hover:text-[#08bcb4] transition-colors">
                     <Link href={`/blog/${blog.id}`}>
@@ -93,7 +106,7 @@ export default function BlogPage() {
                     </Link>
                   </h2>
                   <p className="text-[#4a5568] mb-4">
-                    {blog.content.substring(0, 150)}...
+                    {stripHtml(blog.content).substring(0, 150)}...
                   </p>
                   <div className="flex items-center justify-between text-sm text-[#718096]">
                     <span>By {blog.author}</span>

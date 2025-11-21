@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import * as XLSX from 'xlsx'
 
 interface Submission {
   id: string;
@@ -19,6 +20,7 @@ interface Submission {
 export default function FormSubmissionsPage() {
   const [submissions, setSubmissions] = useState<Submission[]>([])
   const [loading, setLoading] = useState(true)
+  const [exporting, setExporting] = useState(false)
 
   useEffect(() => {
     const fetchSubmissions = async () => {
@@ -42,6 +44,33 @@ export default function FormSubmissionsPage() {
     fetchSubmissions()
   }, [])
 
+  const handleExportToExcel = () => {
+    setExporting(true);
+    try {
+      const formattedData = submissions.map(submission => ({
+        ID: submission.id,
+        Name: submission.name,
+        Email: submission.email,
+        Phone: submission.phone,
+        'Form Type': formatFormType(submission.formType),
+        Destination: submission.data?.destination,
+        'Test Type': submission.data?.test,
+        Message: submission.data?.message,
+        'Submitted On': new Date(submission.createdAt).toLocaleString(),
+      }));
+
+      const worksheet = XLSX.utils.json_to_sheet(formattedData);
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, 'Submissions');
+      XLSX.writeFile(workbook, 'form-submissions.xlsx');
+    } catch (error) {
+      console.error('Error exporting to Excel:', error);
+      alert('Failed to export submissions to Excel.');
+    } finally {
+      setExporting(false);
+    }
+  };
+
   const formatFormType = (formType: string) => {
     switch (formType) {
       case 'mock-test':
@@ -59,7 +88,16 @@ export default function FormSubmissionsPage() {
 
   return (
     <div className="p-4 sm:p-6 md:p-8">
-      <h1 className="text-2xl font-bold mb-4">Form Submissions</h1>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-2xl font-bold">Form Submissions</h1>
+        <button
+          onClick={handleExportToExcel}
+          disabled={exporting}
+          className="px-4 py-2 bg-[#08bcb4] !text-white rounded-md hover:bg-[#069aa2] disabled:opacity-50 transition-colors"
+        >
+          {exporting ? 'Exporting...' : 'Export to Excel'}
+        </button>
+      </div>
       
       {loading ? (
         <div className="text-center">Loading submissions...</div>

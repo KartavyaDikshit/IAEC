@@ -13,10 +13,17 @@ export async function POST(req: NextRequest) {
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
 
+  // Generate a unique filename
   const filename = `${Date.now()}-${file.name}`;
-  const path = join(process.cwd(), 'public/images/testimonials', filename);
-  await writeFile(path, buffer);
-  console.log(`open ${path} to see the uploaded file`);
+  const path = join(process.cwd(), 'public/images/blogs', filename);
 
-  return NextResponse.json({ success: true, path: `/images/testimonials/${filename}` });
+  try {
+    await writeFile(path, buffer);
+    console.log(`File saved to ${path}`);
+    const imageUrl = `/images/blogs/${filename}`;
+    return NextResponse.json({ success: true, imageUrl });
+  } catch (error) {
+    console.error('Error saving file:', error);
+    return NextResponse.json({ success: false, message: 'Error saving file' });
+  }
 }

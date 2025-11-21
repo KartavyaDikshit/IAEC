@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { notFound } from 'next/navigation';
 import { neon } from '@neondatabase/serverless';
+import Image from 'next/image';
 
 const DATABASE_URL = "postgresql://neondb_owner:npg_tme8NEi3CQAa@ep-broad-morning-a1np73uf-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require";
 const sql = neon(DATABASE_URL);
@@ -13,6 +14,7 @@ interface Blog {
   publishedAt: string;
   createdAt: string;
   updatedAt: string;
+  imageUrl?: string;
 }
 
 export default async function BlogPostPage({ params }: any) {
@@ -35,14 +37,23 @@ export default async function BlogPostPage({ params }: any) {
   return (
     <div className="container mx-auto px-4 py-16">
       <article className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        {blog.imageUrl && (
+          <div className="mb-8">
+            <Image
+              src={blog.imageUrl}
+              alt={blog.title}
+              width={800}
+              height={400}
+              className="w-full h-auto rounded-lg object-cover aspect-video"
+            />
+          </div>
+        )}
         <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{blog.title}</h1>
         <div className="flex items-center text-gray-600 text-sm mb-6">
           <p className="mr-4">By {blog.author}</p>
           <p>{new Date(blog.publishedAt).toLocaleDateString()}</p>
         </div>
-        <div className="prose prose-lg max-w-none">
-          <p>{blog.content}</p>
-        </div>
+        <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: blog.content }} />
       </article>
     </div>
   );

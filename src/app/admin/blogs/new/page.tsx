@@ -1,6 +1,7 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Editor from '@/components/admin/RichTextEditor'
 
 export default function CreateBlog() {
   const router = useRouter()
@@ -11,10 +12,49 @@ export default function CreateBlog() {
     content: '',
     author: 'Admin', // Hardcoded for now, can be dynamic later
   })
+  const [file, setFile] = useState<File | null>(null)
+  const [editorLoaded, setEditorLoaded] = useState(false)
+
+  useEffect(() => {
+    setEditorLoaded(true)
+  }, [])
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setFile(e.target.files[0])
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+
+    let imageUrl = ''
+    if (file) {
+      try {
+        const formData = new FormData()
+        formData.append('file', file)
+
+        const uploadResponse = await fetch('/api/upload', {
+          method: 'POST',
+          body: formData,
+        })
+
+        if (uploadResponse.ok) {
+          const { imageUrl: uploadedImageUrl } = await uploadResponse.json()
+          imageUrl = uploadedImageUrl
+        } else {
+          alert('Error uploading image')
+          setLoading(false)
+          return
+        }
+      } catch (error) {
+        console.error('Error uploading image:', error)
+        alert('Error uploading image')
+        setLoading(false)
+        return
+      }
+    }
     
     try {
       const response = await fetch('/api/blogs', {
@@ -24,6 +64,7 @@ export default function CreateBlog() {
           title: formData.title,
           content: formData.content,
           author: formData.author,
+          imageUrl,
           publishedAt: new Date().toISOString(), // Set publishedAt to now
         })
       })
@@ -101,17 +142,27 @@ export default function CreateBlog() {
           </div>
 
           <div>
+            <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-2">
+              Image
+            </label>
+            <input
+              type="file"
+              id="image"
+              onChange={handleFileChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
+            />
+          </div>
+
+          <div>
             <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-2">
               Content
             </label>
-            <textarea
-              id="content"
-              rows={15}
+            <Editor
+              onChange={(data) => {
+                setFormData({ ...formData, content: data });
+              }}
+              editorLoaded={editorLoaded}
               value={formData.content}
-              onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
-              placeholder="Write the blog post content here..."
-              required
             />
           </div>
 
