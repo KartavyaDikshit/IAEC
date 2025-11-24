@@ -44,6 +44,7 @@ export default function CreateBlog() {
           const { imageUrl: uploadedImageUrl } = await uploadResponse.json()
           imageUrl = uploadedImageUrl
         } else {
+          console.error('Upload failed:', uploadResponse.status, uploadResponse.statusText);
           alert('Error uploading image')
           setLoading(false)
           return

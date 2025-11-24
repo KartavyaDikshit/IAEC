@@ -11,8 +11,6 @@ interface Blog {
   content: string;
   author: string;
   publishedAt: string;
-  createdAt: string;
-  updatedAt: string;
   imageUrl?: string;
 }
 
@@ -50,7 +48,6 @@ export default async function BlogPostPage({ params }: any) {
         <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{blog.title}</h1>
         <div className="flex items-center text-gray-600 text-sm mb-6">
           <p className="mr-4">By {blog.author}</p>
-          <p>{new Date(blog.publishedAt).toLocaleDateString()}</p>
         </div>
         <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: blog.content }} />
       </article>

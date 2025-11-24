@@ -39,11 +39,12 @@ export default function CreateTestimonial() {
         })
 
         if (!res.ok) {
+          console.error('Upload failed:', res.status, res.statusText);
           throw new Error(await res.text())
         }
 
-        const { path } = await res.json()
-        imageUrl = path
+        const { imageUrl: uploadedImageUrl } = await res.json()
+        imageUrl = uploadedImageUrl
       } catch (error) {
         console.error('Error uploading image:', error)
         alert('Error uploading image')
