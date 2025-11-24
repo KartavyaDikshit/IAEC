@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
     const result = await sql`
       INSERT INTO "Blog" (title, content, author, "publishedAt", "imageUrl")
       VALUES (${title}, ${content}, ${author}, ${publishedAt}, ${imageUrl})
-      RETURNING id, title, content, author, "publishedAt", "imageUrl";
+      RETURNING id;
     `;
 
     const createdBlog = result[0];

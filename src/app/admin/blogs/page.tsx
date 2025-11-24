@@ -7,8 +7,6 @@ interface Blog {
   title: string
   content: string
   author: string
-  createdAt: string
-  updatedAt: string
 }
 
 export default function BlogsManagement() {
@@ -79,9 +77,6 @@ export default function BlogsManagement() {
                   <div className="text-sm text-gray-600 mb-1">
                     <span className="font-semibold">Author:</span> {blog.author}
                   </div>
-                  <div className="text-sm text-gray-600 mb-2">
-                    <span className="font-semibold">Created:</span> {new Date(blog.createdAt).toLocaleDateString()}
-                  </div>
                   <div className="text-sm text-gray-500 mb-4">
                     {blog.content.substring(0, 150)}...
                   </div>
@@ -104,7 +99,6 @@ export default function BlogsManagement() {
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Author</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                   </tr>
                 </thead>
@@ -117,9 +111,6 @@ export default function BlogsManagement() {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         {blog.author}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {new Date(blog.createdAt).toLocaleDateString()}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                         <button

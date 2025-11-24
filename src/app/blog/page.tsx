@@ -8,7 +8,6 @@ interface Blog {
   title: string
   content: string
   author: string
-  createdAt: string
   imageUrl: string
 }
 
@@ -112,7 +111,6 @@ export default function BlogPage() {
                   </p>
                   <div className="flex items-center justify-between text-sm text-[#718096]">
                     <span>By {blog.author}</span>
-                    <span>{new Date(blog.createdAt).toLocaleDateString()}</span>
                   </div>
                 </div>
               </article>
