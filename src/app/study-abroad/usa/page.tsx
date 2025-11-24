@@ -50,8 +50,8 @@ const StudyAbroadUsaPage = () => {
                   <Image
                     src={usaCountry?.heroImage || "/images/countries/usa.jpg"}
                     alt="Study in the USA"
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    style={{ objectFit: 'cover' }}
                     className="z-0"
                     priority
                   />          <div className="absolute inset-0 bg-black opacity-50"></div>

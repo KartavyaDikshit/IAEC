@@ -63,8 +63,8 @@ const TestimonialsPage = () => {
           <Image
             src="/images/all_images/success.jpg"
             alt="Testimonials"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className="z-0"
             priority
           />

@@ -42,12 +42,13 @@ const VisaPage = () => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/all_images/visa.jpg"
-            alt="Student Visa Services"
-            layout="fill"
-            objectFit="cover"
+            src="/images/all_images/visa2.jpeg"
+            alt="Visa Assistance"
+            fill
+            style={{ objectFit: 'cover' }}
             className="z-0"
-            priority />
+            priority
+          />
           <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
         <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">

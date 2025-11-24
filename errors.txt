@@ -1,0 +1,142 @@
+IAEC Consultants
+Home
+About Us
+Study Abroad
+▾
+Services
+▾
+Blog
+Testimonials
+Contact Us
+Online Training
+Book Free Counselling
+Blog
+Latest Insights & Updates
+Stay updated with the latest in overseas education
+
+Read Our Blog
+Trail
+Trail
+...
+
+By Developer
+22/11/2025
+How to Study Abroad After 12th? A Complete Guide for Indian Students
+How to Study Abroad After 12th? A Complete Guide for Indian Students
+IntroductionFor many Indian students, studying abroad is not just an educational dream, it’s the first step toward building a successful international...
+
+By Admin
+22/11/2025
+IAEC Consultants
+Your Global Study Partner - Leading overseas education consultancy since 2000.
+
+📞 +91 863 970 6102
+
+📠 +91(0)79 4938 6834
+
+✉️ ravinder@iaecconsultants.com
+
+Quick Links
+About Us
+Services
+Blog
+Terms & Conditions
+Privacy Policy
+Our Offices
+Ahmedabad Branch
+IAEC Consultants Pvt. Ltd.
+A-202, 2nd Floor, Karmayog Heights,
+HL College Road, Above Kotak Mahindra Bank,
+Sardar Patel Nagar, Navrangpura,
+Ahmedabad -380009, Gujarat, INDIA.
+
+📞 +91 863 970 6102
+
+Kukatpally Branch
+K P H B Phase 1, Kukatpally,
+Hyderabad, Telangana 500072
+
+📞 +91 7729997891
+
+Follow Us
+Facebook
+Instagram
+LinkedIn
+YouTube
+Email
+© 2025 IAEC Consultants Pvt. Ltd.. All Rights Reserved.
+
+
+1/3
+
+Next.js 15.5.6 (outdated)
+Webpack
+Console Error
+
+
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+src\app\blog\page.tsx (95:19) @ eval
+
+
+  93 |               <article key={blog.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
+  94 |                 <div className="relative h-48 w-full">
+> 95 |                   <Image
+     |                   ^
+  96 |                                       src={blog.imageUrl}
+  97 |                                       alt={blog.title}
+  98 |                                       fill
+Call Stack
+21
+
+Hide 17 ignore-listed frame(s)
+createConsoleError
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\next-devtools\shared\console-error.js (26:1)
+handleConsoleError
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\next-devtools\userspace\app\errors\use-error-handler.js (50:1)
+console.error
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\next-devtools\userspace\app\errors\intercept-console-error.js (55:1)
+setProp
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (17833:1)
+setInitialProperties
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (18385:1)
+completeWork
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (11743:1)
+runWithFiberInDEV
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (871:1)
+completeUnitOfWork
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (15862:1)
+performUnitOfWork
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (15743:1)
+workLoopSync
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (15546:39)
+renderRootSync
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (15526:1)
+performWorkOnRoot
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (14990:1)
+performWorkOnRootViaSchedulerTask
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (16815:1)
+MessagePort.performWorkUntilDeadline
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\scheduler\cjs\scheduler.development.js (45:1)
+img
+<anonymous>
+eval
+..\src\client\image-component.tsx (259:7)
+eval
+..\src\client\image-component.tsx (399:11)
+eval
+src\app\blog\page.tsx (95:19)
+Array.map
+<anonymous>
+BlogPage
+src\app\blog\page.tsx (92:20)
+ClientPageRoot
+..\src\client\components\client-page.tsx (60:12)
+1
+2
+Was this helpful?
+
+
+
+IAEC Consultants - Your Global Study Partner
+Open in WhatsApp Web📋

@@ -48,13 +48,13 @@ const StudyAbroadItalyPage = () => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src={italyCountry?.heroImage || "/images/countries/italy.jpg"}
-            alt="Study in Italy"
-            layout="fill"
-            objectFit="cover"
-            className="z-0"
-            priority
-          />
+          src={italyCountry?.heroImage || "/images/placeholders/default-country.png"}
+          alt="Study in Italy"
+          fill
+          style={{ objectFit: 'cover' }}
+          className="z-0"
+          priority
+        />
           <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
         </div>
         <div className="container mx-auto px-4 relative z-10 animate-fade-in text-shadow-md">

@@ -37,8 +37,8 @@ const BookingPage = () => {
           <Image
             src="/images/all_images/Admissions.jpeg"
             alt="Book a Consultation"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className="z-0"
             priority />
           <div className="absolute inset-0 bg-black opacity-50"></div>

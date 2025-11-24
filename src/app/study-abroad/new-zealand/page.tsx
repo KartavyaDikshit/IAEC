@@ -46,14 +46,14 @@ const StudyAbroadNewZealandPage = () => {
     <main>
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
-          <Image
-            src={newZealandCountry?.heroImage || "/images/countries/newzealand.jpg"}
-            alt="Study in New Zealand"
-            layout="fill"
-            objectFit="cover"
-            className="z-0"
-            priority
-          />
+<Image
+          src={newZealandCountry?.heroImage || "/images/placeholders/default-country.png"}
+          alt="Study in New Zealand"
+          fill
+          style={{ objectFit: 'cover' }}
+          className="z-0"
+          priority
+        />
           <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
               <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">

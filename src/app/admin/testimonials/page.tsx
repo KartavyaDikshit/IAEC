@@ -83,8 +83,8 @@ export default function TestimonialsManagement() {
                     <Image
                       src={testimonial.imageUrl}
                       alt={testimonial.name}
-                      layout="fill"
-                      objectFit="cover"
+                      fill
+                      style={{ objectFit: 'cover' }}
                     />
                   </div>
                 )}

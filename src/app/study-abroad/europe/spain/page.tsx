@@ -48,14 +48,13 @@ const StudyAbroadSpainPage = () => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src={spainCountry?.heroImage || "/images/countries/spain.jpg"}
-            alt="Study in Spain"
-            layout="fill"
-            objectFit="cover"
-            className="z-0"
-            priority
-          />
-          <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
+                    src={spainCountry?.heroImage || "/images/placeholders/default-country.png"}
+                    alt="Study in Spain"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="z-0"
+                    priority
+                  />          <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
         </div>
         <div className="container mx-auto px-4 relative z-10 animate-fade-in text-shadow-md">
           <div className="max-w-4xl mx-auto text-center">

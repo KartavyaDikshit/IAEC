@@ -50,8 +50,8 @@ const StudyAbroadUkPage = () => {
         <Image
           src={ukCountry?.heroImage || "/images/countries/uk.jpg"}
           alt="Study in the UK"
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: 'cover' }}
           className="z-0"
           priority
         />

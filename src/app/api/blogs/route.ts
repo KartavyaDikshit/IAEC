@@ -1,17 +1,30 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { neon } from '@neondatabase/serverless';
 
-const DATABASE_URL = "postgresql://neondb_owner:npg_tme8NEi3CQAa@ep-broad-morning-a1np73uf-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require";
-const sql = neon(DATABASE_URL);
+const NEON_DATABASE_URL = process.env.NEON_DATABASE_URL;
+
+if (!NEON_DATABASE_URL) {
+  throw new Error("NEON_DATABASE_URL environment variable is not set");
+}
+
+const sql = neon(NEON_DATABASE_URL);
 
 export async function GET() {
   try {
     const blogs = await sql`SELECT * FROM "Blog" ORDER BY "publishedAt" DESC`;
     return NextResponse.json({ blogs });
   } catch (error: unknown) {
-    console.error('Error fetching blogs:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    return NextResponse.json({ message: 'Error fetching blogs', details: errorMessage }, { status: 500 });
+    console.error('Error fetching blogs:', {
+      message: (error as Error).message,
+      stack: (error as Error).stack,
+    });
+    return NextResponse.json(
+      { 
+        message: 'Error connecting to the database.',
+        error: (error as Error).message 
+      }, 
+      { status: 500 }
+    );
   }
 }
 
@@ -28,7 +41,7 @@ export async function POST(req: NextRequest) {
     const result = await sql`
       INSERT INTO "Blog" (title, content, author, "publishedAt", "imageUrl")
       VALUES (${title}, ${content}, ${author}, ${publishedAt}, ${imageUrl})
-      RETURNING id, title, content, author, "publishedAt", "imageUrl", "createdAt", "updatedAt";
+      RETURNING id, title, content, author, "publishedAt", "imageUrl";
     `;
 
     const createdBlog = result[0];

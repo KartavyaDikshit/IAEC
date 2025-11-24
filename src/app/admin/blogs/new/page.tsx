@@ -1,7 +1,12 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Editor from '@/components/admin/RichTextEditor'
+import dynamic from 'next/dynamic';
+
+const Editor = dynamic(() => import('@/components/admin/RichTextEditor'), {
+  ssr: false,
+  loading: () => <p>Loading editor...</p>,
+});
 
 export default function CreateBlog() {
   const router = useRouter()
@@ -13,11 +18,6 @@ export default function CreateBlog() {
     author: 'Admin', // Hardcoded for now, can be dynamic later
   })
   const [file, setFile] = useState<File | null>(null)
-  const [editorLoaded, setEditorLoaded] = useState(false)
-
-  useEffect(() => {
-    setEditorLoaded(true)
-  }, [])
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -161,7 +161,6 @@ export default function CreateBlog() {
               onChange={(data) => {
                 setFormData({ ...formData, content: data });
               }}
-              editorLoaded={editorLoaded}
               value={formData.content}
             />
           </div>

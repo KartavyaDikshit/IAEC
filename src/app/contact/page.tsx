@@ -11,12 +11,22 @@ const ContactPage = () => {
   const officesRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
+    const SCROLL_OFFSET = 160; // Adjust this value as needed
+
     const handleScroll = (e: MouseEvent) => {
       e.preventDefault();
       const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
       const element = document.getElementById(targetId || '');
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const header = document.querySelector('.main-header') as HTMLElement;
+        const headerHeight = header ? header.offsetHeight : 0;
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight - SCROLL_OFFSET;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     };
 
@@ -47,8 +57,8 @@ const ContactPage = () => {
           <Image
             src="/images/all_images/shortlisting.jpeg"
             alt="Contact Us"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className="z-0"
             priority />
           <div className="absolute inset-0 bg-black opacity-50"></div>

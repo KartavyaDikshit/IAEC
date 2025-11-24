@@ -10,8 +10,8 @@ const StudyPreparationPage = () => {
           <Image
             src="/images/all_images/coaching.jpg"
             alt="Study Preparation"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className="z-0"
             priority
           />

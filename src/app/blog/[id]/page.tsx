@@ -3,8 +3,7 @@ import { notFound } from 'next/navigation';
 import { neon } from '@neondatabase/serverless';
 import Image from 'next/image';
 
-const DATABASE_URL = "postgresql://neondb_owner:npg_tme8NEi3CQAa@ep-broad-morning-a1np73uf-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require";
-const sql = neon(DATABASE_URL);
+const sql = neon(process.env.NEON_DATABASE_URL!);
 
 interface Blog {
   id: string;

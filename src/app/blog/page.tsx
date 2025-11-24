@@ -62,13 +62,13 @@ export default function BlogPage() {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/all_images/blog.jpeg"
-            alt="Blog"
-            layout="fill"
-            objectFit="cover"
-            className="z-0"
-            priority
-          />
+                      src="/images/all_images/blog.jpeg"
+                      alt="Blog"
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      className="z-0"
+                      priority
+                    />
           <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
         <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
@@ -91,14 +91,16 @@ export default function BlogPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
               <article key={blog.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="relative h-48 w-full">
-                  <Image
-                    src={blog.imageUrl}
-                    alt={blog.title}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </div>
+                {blog.imageUrl && (
+                  <div className="relative h-48 w-full">
+                    <Image
+                      src={blog.imageUrl}
+                      alt={blog.title}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                )}
                 <div className="p-6">
                   <h2 className="text-xl font-bold text-[#1a202c] mb-3 hover:text-[#08bcb4] transition-colors">
                     <Link href={`/blog/${blog.id}`}>

@@ -1,7 +1,5 @@
 'use client';
 
-import Link from "next/link";
-
 const PrivacyPolicyPage = () => {
   return (
     <main>
@@ -9,175 +7,142 @@ const PrivacyPolicyPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 text-center">
-              Privacy Policy
+              Privacy Policy for IAEC Consultants Pvt. Ltd.
             </h1>
             <p className="text-lg text-gray-600 mb-8 text-center">
-              Last Updated: November 15, 2025
+              Last Updated: November 22, 2025
             </p>
 
             <div className="prose lg:prose-xl max-w-none">
               <p>
-                IAEC Consultants (&quot;us&quot;, &quot;we&quot;, or &quot;our&quot;) operates the iaecconsultants.com website (the &quot;Service&quot;).
+                At IAEC Consultants, accessible from <strong>www.iaecconsultants.in</strong>, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that are collected and recorded by IAEC Consultants and how we use it.
               </p>
               <p>
-                This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.
+                If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.
               </p>
               <p>
-                We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.
-              </p>
-
-              <h2>1. Information Collection And Use</h2>
-              <p>
-                We collect several different types of information for various purposes to provide and improve our Service to you.
+                This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collected by IAEC Consultants. This policy is not applicable to any information collected offline or via channels other than this website. Our Privacy Policy was created with the help of the Free Privacy Policy Generator.
               </p>
 
-              <h3>Types of Data Collected</h3>
-              <h4>Personal Data</h4>
+              <h2>Consent</h2>
               <p>
-                While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to ... contact or identify you (&quot;Personal Data&quot;).
+                By using our website, you hereby consent to our Privacy Policy and agree to its terms.
+              </p>
+
+              <h2>Information we collect</h2>
+              <p>
+                The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.
+              </p>
+              <p>
+                If you contact us directly, we may receive additional information about you such as your <strong>name</strong>, <strong>email address</strong>, <strong>phone number</strong>, the contents of the message and/or attachments you may send us, and any other information you may choose to provide.
+              </p>
+              <p>
+                When you register for an Account, we may ask for your contact information, including items such as <strong>name</strong>, <strong>company name</strong>, <strong>address</strong>, <strong>email address</strong>, and <strong>telephone number</strong>.
+              </p>
+
+              <h2>How we use your information</h2>
+              <p>
+                We use the information we collect in various ways, including to:
               </p>
               <ul>
-                <li>Email address</li>
-                <li>First name and last name</li>
-                <li>Phone number</li>
-                <li>Address, State, Province, ZIP/Postal code, City</li>
-                <li>Cookies and Usage Data</li>
+                <li>Provide, operate, and maintain our website</li>
+                <li>Improve, personalize, and expand our website</li>
+                <li>Understand and analyze how you use our website</li>
+                <li>Develop new products, services, features, and functionality</li>
+                <li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</li>
+                <li>Send you emails</li>
+                <li>Find and prevent fraud</li>
               </ul>
 
-              <h4>Usage Data</h4>
+              <h2>Log Files</h2>
               <p>
-                We may also collect information how the Service is accessed and used (&quot;Usage Data&quot;). This Usage Data may include information such as your computer&apos;s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
+                IAEC Consultants follow a standard procedure for using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services analytics. The information collected by log files includes <strong>internet protocol (IP) addresses</strong>, <strong>browser type</strong>, <strong>Internet Service Provider (ISP)</strong>, <strong>date and time stamp</strong>, <strong>referring/exit pages</strong>, and possibly the <strong>number of clicks</strong>. These are not linked to any information that is personally identifiable. The purpose of the information is to analyze trends, administer the site, track users&apos; movements on the website, and gather demographic information.
               </p>
 
-              <h4>Tracking & Cookies Data</h4>
+              <h2>Cookies and Web Beacons</h2>
               <p>
-                We use cookies and similar tracking technologies to track the activity on our Service and hold certain information.
-              </p>
-              <p>
-                Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze our Service.
-              </p>
-              <p>
-                You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.
-              </p>
-              <p>
-                You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.
-              </p>
-              <p>Examples of Cookies we use:</p>
-              <ul>
-                <li>**Session Cookies.** We use Session Cookies to operate our Service.</li>
-                <li>**Preference Cookies.** We use Preference Cookies to remember your preferences and various settings.</li>
-                <li>**Security Cookies.** We use Security Cookies for security purposes.</li>
-              </ul>
-
-              <h2>2. Use of Data</h2>
-              <p>
-                IAEC Consultants uses the collected data for various purposes:
-              </p>
-              <ul>
-                <li>To provide and maintain the Service</li>
-                <li>To notify you about changes to our Service</li>
-                <li>To allow you to participate in interactive features of our Service when you choose to do so</li>
-                <li>To provide customer care and support</li>
-                <li>To provide analysis or valuable information so that we can improve the Service</li>
-                <li>To monitor the usage of the Service</li>
-                <li>To detect, prevent and address technical issues</li>
-                <li>To provide you with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless you have opted not to receive such information</li>
-              </ul>
-
-              <h2>3. Transfer Of Data</h2>
-              <p>
-                Your information, including Personal Data, may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction.
-              </p>
-              <p>
-                If you are located outside India and choose to provide information to us, please note that we transfer the data, including Personal Data, to India and process it there.
-              </p>
-              <p>
-                Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.
-              </p>
-              <p>
-                IAEC Consultants will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information.
+                Like any other website, IAEC Consultants use &apos;cookies&apos;. These cookies are used to store information including visitors&apos; preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users&apos; experience by customizing our web page content based on visitors&apos; browser type and/or other information.
               </p>
 
-              <h2>4. Disclosure Of Data</h2>
-              <h3>Legal Requirements</h3>
+              <h2>Google DoubleClick DART Cookie</h2>
               <p>
-                IAEC Consultants may disclose your Personal Data in the good faith belief that such action is necessary to:
-              </p>
-              <ul>
-                <li>To comply with a legal obligation</li>
-                <li>To protect and defend the rights or property of IAEC Consultants</li>
-                <li>To prevent or investigate possible wrongdoing in connection with the Service</li>
-                <li>To protect the personal safety of users of the Service or the public</li>
-                <li>To protect against legal liability</li>
-              </ul>
-
-              <h2>5. Security Of Data</h2>
-              <p>
-                The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.
+                Google is one of the third-party vendors on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to www.website.com and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads</a>
               </p>
 
-              <h2>6. Service Providers</h2>
+              <h2>Our Advertising Partners</h2>
               <p>
-                We may employ third party companies and individuals to ... facilitate our Service (&quot;Service Providers&quot;), to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used.
-              </p>
-              <p>
-                These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.
-              </p>
-
-              <h3>Analytics</h3>
-              <p>
-                We may use third-party Service Providers to monitor and analyze the use of our Service.
+                Some advertisers on our site may use cookies and web beacons. Our advertising partners are listed below. Each of our advertising partners has their own Privacy Policy for their policies on user data. For easier access, we hyperlinked to their Privacy Policies below.
               </p>
               <ul>
                 <li>
-                  **Google Analytics**
-                  <p>
-                    Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service. This data is shared with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network.
-                  </p>
-                  <p>
-                    You can opt-out of having made your activity on the Service available to Google Analytics by installing the Google Analytics opt-out browser add-on. The add-on prevents the Google Analytics JavaScript (ga.js, analytics.js, and dc.js) from sharing information with Google Analytics about visits activity.
-                  </p>
-                  <p>
-                    For more information on the privacy practices of Google, please visit the Google Privacy & Terms web page: <a href="https://policies.google.com/privacy?hl=en" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy?hl=en</a>
-                  </p>
+                  <strong>Google:</strong> <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads</a>
                 </li>
               </ul>
 
-              <h2>7. Links To Other Sites</h2>
+              <h2>Advertising Partners Privacy Policies</h2>
               <p>
-                Our Service may contain links to other sites that are not operated by us. If you click on a third party&apos;s link, you will be directed to that third party&apos;s site. We strongly advise you to review the Privacy Policy of every site you visit.
+                You may consult on this list to find the Privacy Policy for each of the advertising partners of IAEC Consultants.
               </p>
               <p>
-                We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.
-              </p>
-
-              <h2>8. Children&apos;s Privacy</h2>
-              <p>
-                ... anyone under the age of 18 (&quot;Children&quot;).
+                Third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on IAEC Consultants, which are sent directly to users&apos; browsers. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.
               </p>
               <p>
-                We do not knowingly collect personally identifiable information from anyone under the age of 18. If you are a parent or guardian and you are aware that your Children has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from children without verification of parental consent, we take steps to remove that information from our servers.
+                Note that IAEC Consultants have no access to or control over these cookies that are used by third-party advertisers.
               </p>
 
-              <h2>9. Changes To This Privacy Policy</h2>
+              <h2>Third Party Privacy Policies</h2>
               <p>
-                We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.
+                IAEC Consultants&apos; Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options
               </p>
               <p>
-                We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update the &quot;last updated&quot; date at the top of this Privacy Policy.
-              </p>
-              <p>
-                You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
+                You can choose to disable cookies through your individual browser options. To find more detailed information about cookie management with specific web browsers, it can be found at the browsers&apos; respective websites.
               </p>
 
-              <h2>10. Contact Us</h2>
+              <h2>CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
+              <p>
+                Under the CCPA, among other rights, California consumers have the right to:
+              </p>
+              <ul>
+                <li>Request that a business that collects a consumer&apos;s personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</li>
+                <li>Request that a business delete any personal data about the consumer that a business has collected.</li>
+                <li>Request that a business that sells a consumer&apos;s personal data, not sell the consumer&apos;s personal data.</li>
+              </ul>
+              <p>
+                If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.
+              </p>
+
+              <h2>GDPR Data Protection Rights</h2>
+              <p>
+                We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
+              </p>
+              <ul>
+                <li><strong>The right to access</strong> – You have the right to request copies of your personal data. We may charge you a small fee for this service.</li>
+                <li><strong>The right to rectification</strong> – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</li>
+                <li><strong>The right to erasure</strong> – You have the right to request that we erase your personal data, under certain conditions.</li>
+                <li><strong>The right to restrict processing</strong> – You have the right to request that we restrict the processing of your personal data, under certain conditions.</li>
+                <li><strong>The right to object to processing</strong> – You have the right to object to our processing of your personal data, under certain conditions.</li>
+                <li><strong>The right to data portability</strong> – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
+              </ul>
+              <p>
+                If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.
+              </p>
+
+              <h2>Children&apos;s Information</h2>
+              <p>
+                Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.
+              </p>
+              <p>
+                IAEC Consultants does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will make our best efforts to promptly remove such information from our records.
+              </p>
+
+              <h2>Contact Us</h2>
               <p>
                 If you have any questions about this Privacy Policy, please contact us:
               </p>
               <ul>
-                <li>By email: <a href="mailto:privacy@iaecconsultants.com">privacy@iaecconsultants.com</a></li>
-                <li>By visiting this page on our website: <Link href="/contact">Contact Us</Link></li>
-                <li>By phone number: <a href="tel:+918639706102">+91 863 970 6102</a></li>
+                <li>By email: privacy@iaecconsultants.com</li>
+                <li>By visiting this page on our website: Contact Us</li>
+                <li>By phone number: +91 863 970 6102</li>
               </ul>
             </div>
           </div>
