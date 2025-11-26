@@ -25,32 +25,30 @@ export default function CreateTestimonial() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('handleSubmit called');
     setLoading(true)
 
     let imageUrl = ''
     if (file) {
-      console.log('File detected:', file);
       try {
-        console.log('Uploading file...');
-        const res = await fetch(`/api/upload-vercel?filename=${file.name}`, {
-          method: 'POST',
-          body: file,
-        });
+        const response = await fetch(
+          `/api/admin/testimonials/upload?filename=${encodeURIComponent(file.name)}`,
+          {
+            method: 'POST',
+            body: file,
+          }
+        );
 
-        if (!res.ok) {
-          console.error('Upload failed:', res.status, res.statusText);
-          throw new Error(await res.text());
+        if (!response.ok) {
+          throw new Error('Upload failed');
         }
 
-        const { url } = await res.json();
-        imageUrl = url;
-        console.log('Image uploaded successfully:', imageUrl);
+        const data = await response.json();
+        imageUrl = data.url;
       } catch (error) {
-        console.error('Error uploading image:', error);
-        alert('Error uploading image');
-        setLoading(false);
-        return;
+        console.error('Error uploading image:', error)
+        alert('Error uploading image')
+        setLoading(false)
+        return
       }
     }
     

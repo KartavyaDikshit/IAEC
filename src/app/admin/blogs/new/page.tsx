@@ -27,34 +27,30 @@ export default function CreateBlog() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('handleSubmit called');
     setLoading(true)
 
     let imageUrl = ''
     if (file) {
-      console.log('File detected:', file);
       try {
-        console.log('Uploading file...');
-        const uploadResponse = await fetch(`/api/upload-vercel?filename=${file.name}`, {
-          method: 'POST',
-          body: file,
-        });
+        const response = await fetch(
+          `/api/admin/blogs/upload?filename=${encodeURIComponent(file.name)}`,
+          {
+            method: 'POST',
+            body: file,
+          }
+        );
 
-        if (uploadResponse.ok) {
-          const { url } = await uploadResponse.json();
-          imageUrl = url;
-          console.log('Image uploaded successfully:', imageUrl);
-        } else {
-          console.error('Upload failed:', uploadResponse.status, uploadResponse.statusText);
-          alert('Error uploading image');
-          setLoading(false);
-          return;
+        if (!response.ok) {
+          throw new Error('Upload failed');
         }
+
+        const data = await response.json();
+        imageUrl = data.url;
       } catch (error) {
-        console.error('Error uploading image:', error);
-        alert('Error uploading image');
-        setLoading(false);
-        return;
+        console.error('Error uploading image:', error)
+        alert('Error uploading image')
+        setLoading(false)
+        return
       }
     }
     
