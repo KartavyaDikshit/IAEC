@@ -7,9 +7,6 @@ interface Blog {
   title: string
   content: string
   author: string
-  createdAt: string
-  updatedAt: string
-  status: 'draft' | 'published'
 }
 
 export default function BlogsManagement() {
@@ -22,7 +19,7 @@ export default function BlogsManagement() {
 
   const fetchBlogs = async () => {
     try {
-      const response = await fetch('/api/admin/blogs')
+      const response = await fetch('/api/blogs')
       if (response.ok) {
         const data = await response.json()
         setBlogs(data.blogs || [])
@@ -38,42 +35,26 @@ export default function BlogsManagement() {
     if (!confirm('Are you sure you want to delete this blog post?')) return
     
     try {
-      const response = await fetch(`/api/admin/blogs/${id}`, { method: 'DELETE' })
+      const response = await fetch(`/api/blogs/${id}`, { method: 'DELETE' })
       if (response.ok) {
         setBlogs(blogs.filter(blog => blog.id !== id))
+      } else {
+        const error = await response.json()
+        alert(`Error: ${error.message || 'Failed to delete blog'}`)
       }
     } catch (error) {
       console.error('Error deleting blog:', error)
-    }
-  }
-
-  const handleStatusToggle = async (id: string, currentStatus: string) => {
-    const newStatus = currentStatus === 'published' ? 'draft' : 'published'
-    
-    try {
-      const response = await fetch(`/api/admin/blogs/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status: newStatus })
-      })
-      
-      if (response.ok) {
-        setBlogs(blogs.map(blog => 
-          blog.id === id ? { ...blog, status: newStatus as 'draft' | 'published' } : blog
-        ))
-      }
-    } catch (error) {
-      console.error('Error updating blog status:', error)
+      alert('Error deleting blog')
     }
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold text-gray-900">Blog Management</h1>
+    <div className="p-4 sm:p-6 md:p-8 space-y-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-0">Blog Management</h1>
         <Link 
           href="/admin/blogs/new"
-          className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg hover:bg-[#069aa2] transition-colors"
+          className="bg-[#08bcb4] !text-white px-4 py-2 rounded-lg hover:bg-[#069aa2] transition-colors text-sm sm:text-base"
         >
           Create New Blog
         </Link>
@@ -87,61 +68,63 @@ export default function BlogsManagement() {
             No blogs found. <Link href="/admin/blogs/new" className="text-[#08bcb4]">Create your first blog post</Link>
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Author</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {blogs.map((blog) => (
-                  <tr key={blog.id}>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900">{blog.title}</div>
-                      <div className="text-sm text-gray-500">{blog.content.substring(0, 100)}...</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {blog.author}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                        blog.status === 'published' 
-                          ? 'bg-[#08bcb4] bg-opacity-20 text-white' 
-                          : 'bg-yellow-100 text-yellow-800'
-                      }`}>
-                        {blog.status}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {new Date(blog.createdAt).toLocaleDateString()}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                      <button
-                        onClick={() => handleStatusToggle(blog.id, blog.status)}
-                        className={`${
-                          blog.status === 'published' 
-                            ? 'text-yellow-600 hover:text-yellow-900' 
-                            : 'text-[#08bcb4] hover:text-opacity-90'
-                        }`}
-                      >
-                        {blog.status === 'published' ? 'Unpublish' : 'Publish'}
-                      </button>
-                      <button
-                        onClick={() => handleDeleteBlog(blog.id)}
-                        className="text-red-600 hover:text-red-900"
-                      >
-                        Delete
-                      </button>
-                    </td>
+          <div>
+            {/* Mobile Card View */}
+            <div className="md:hidden">
+              {blogs.map((blog) => (
+                <div key={blog.id} className="border-b p-4">
+                  <div className="font-bold text-lg mb-2">{blog.title}</div>
+                  <div className="text-sm text-gray-600 mb-1">
+                    <span className="font-semibold">Author:</span> {blog.author}
+                  </div>
+                  <div className="text-sm text-gray-500 mb-4">
+                    {blog.content.substring(0, 150)}...
+                  </div>
+                  <div className="flex justify-end space-x-2">
+                    <button
+                      onClick={() => handleDeleteBlog(blog.id)}
+                      className="text-red-600 hover:text-red-900 text-sm"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop Table View */}
+            <div className="hidden md:block overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Author</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {blogs.map((blog) => (
+                    <tr key={blog.id}>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm font-medium text-gray-900">{blog.title}</div>
+                        <div className="text-sm text-gray-500">{blog.content.substring(0, 100)}...</div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {blog.author}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                        <button
+                          onClick={() => handleDeleteBlog(blog.id)}
+                          className="text-red-600 hover:text-red-900"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </div>

@@ -29,8 +29,7 @@ export default function Home() {
               with IAEC
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-              Leading overseas education consultants since 2000. Expert guidance for USA, UK, 
-              Australia, Canada. Transform your dreams into reality with 30,000+ success stories.
+              Trusted study abroad consultants since 2000. Expert guidance for USA, UK, Australia, Canada, Ireland, Germany, France, Italy, Spain, Malta, and Latvia. Join 30,000+ students who achieved global success with IAEC.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/contact" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-white">
@@ -71,6 +70,8 @@ export default function Home() {
       {/* Country Ribbon */}
       <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
 
+
+
       {/* About Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,37 +81,31 @@ export default function Home() {
                 Why IAEC Consultants
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                IAEC is a leading overseas education consultancy established in 2000 with a passion 
-                to build an enterprise of international quality. We specialize in study abroad programs 
-                for USA, UK, Australia, Canada, Ireland, and European countries.
+                Established in 2000, IAEC (International Academic and Educational Consultants) is a leading overseas education consultancy dedicated to helping students achieve their study abroad dreams.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                With 8 offices across Telangana, Andhra Pradesh & Sri Lanka, our dedicated team of 
-                160+ education experts has successfully placed 30,000+ students in top universities 
-                worldwide since 2000.
+                We offer expert guidance for top destinations including the USA, UK, Australia, Canada, Ireland, and Europe. With 8 offices across Telangana, Andhra Pradesh, Ahmedabad, and Sri Lanka, and a team of 160+ professionals, IAEC has successfully placed 30,000+ students in reputed universities worldwide.
               </p>
 
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Mission</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    To empower students to achieve their global education dreams through expert guidance, 
-                    personalized support, and ethical counseling.
+                    To empower students to achieve their global education goals through expert, ethical, and personalized guidance.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Vision</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    To be the most trusted leader in overseas education consultancy, fostering 
-                    successful global citizens.
+                    To be the most trusted name in overseas education, creating globally successful and responsible individuals.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Values</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Knowledge, care for students, problem-solving skills, and timeliness in all our services.
+                    Knowledge • Integrity • Student Focus • Problem-Solving • Timeliness
                   </p>
                 </div>
               </div>

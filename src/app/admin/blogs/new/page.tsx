@@ -1,6 +1,12 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import dynamic from 'next/dynamic';
+
+const Editor = dynamic(() => import('@/components/admin/RichTextEditor'), {
+  ssr: false,
+  loading: () => <p>Loading editor...</p>,
+});
 
 export default function CreateBlog() {
   const router = useRouter()
@@ -9,18 +15,56 @@ export default function CreateBlog() {
   const [formData, setFormData] = useState({
     title: '',
     content: '',
-    status: 'draft' as 'draft' | 'published'
+    author: 'Admin', // Hardcoded for now, can be dynamic later
   })
+  const [file, setFile] = useState<File | null>(null)
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setFile(e.target.files[0])
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+
+    let imageUrl = ''
+    if (file) {
+      try {
+        const response = await fetch(
+          `/api/admin/blogs/upload?filename=${encodeURIComponent(file.name)}`,
+          {
+            method: 'POST',
+            body: file,
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Upload failed');
+        }
+
+        const data = await response.json();
+        imageUrl = data.url;
+      } catch (error) {
+        console.error('Error uploading image:', error)
+        alert('Error uploading image')
+        setLoading(false)
+        return
+      }
+    }
     
     try {
-      const response = await fetch('/api/admin/blogs', {
+      const response = await fetch('/api/blogs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          title: formData.title,
+          content: formData.content,
+          author: formData.author,
+          imageUrl,
+          publishedAt: new Date().toISOString(), // Set publishedAt to now
+        })
       })
       
       if (response.ok) {
@@ -82,32 +126,41 @@ export default function CreateBlog() {
           </div>
 
           <div>
-            <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-2">
-              Content
+            <label htmlFor="author" className="block text-sm font-medium text-gray-700 mb-2">
+              Author
             </label>
-            <textarea
-              id="content"
-              rows={15}
-              value={formData.content}
-              onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+            <input
+              type="text"
+              id="author"
+              value={formData.author}
+              onChange={(e) => setFormData({ ...formData, author: e.target.value })}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-2">
-              Status
+            <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-2">
+              Image
             </label>
-            <select
-              id="status"
-              value={formData.status}
-              onChange={(e) => setFormData({ ...formData, status: e.target.value as 'draft' | 'published' })}
+            <input
+              type="file"
+              id="image"
+              onChange={handleFileChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
-            >
-              <option value="draft">Draft</option>
-              <option value="published">Published</option>
-            </select>
+            />
+          </div>
+
+          <div>
+            <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-2">
+              Content
+            </label>
+            <Editor
+              onChange={(data) => {
+                setFormData({ ...formData, content: data });
+              }}
+              value={formData.content}
+            />
           </div>
 
           <div className="flex justify-end space-x-4">

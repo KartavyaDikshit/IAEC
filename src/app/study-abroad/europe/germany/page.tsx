@@ -1,39 +1,60 @@
+'use client';
+
 import Image from 'next/image';
 import contactInfo from '../../../../../data/contact-info.json';
 import { studyAbroadCountries } from '../../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const germanyCountry = studyAbroadCountries.find(country => country.name === 'Germany');
 
-export const metadata = {
-  title: "Study in Germany 2025 - Free Education, Top Universities & Student Visa | IAEC Consultants",
-  description: "Study in Germany with IAEC expert guidance. Tuition-free education, world-class universities, Industry 4.0 leader. Get German student visa, blocked account, EU residence. 95% visa success rate.",
-  keywords: "study in Germany, Germany universities for international students, Germany student visa, tuition free Germany, IAEC Germany counseling, German universities admission, blocked account, TUM Munich Heidelberg, EU study benefits",
-  openGraph: {
-    title: "Study in Germany 2025 - Free Education & Top Universities Guide | IAEC",
-    description: "Complete guide to studying in Germany. Expert counseling for top German universities, free education, student visa process, and EU opportunities.",
-    images: ['/images/study-germany-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in Germany 2025 - Free Education & Top Universities Guide | IAEC",
-    description: "Complete guide to studying in Germany. Expert counseling for top German universities, free education, student visa process, and EU opportunities.",
-  }
-};
-
 const StudyAbroadGermanyPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
-          <Image
-            src={germanyCountry?.heroImage || "/images/countries/germany.jpg"}
-            alt="Study in Germany"
-            layout="fill"
-            objectFit="cover"
-            className="z-0"
-            priority
-          />
+<Image
+          src={germanyCountry?.heroImage || "/images/placeholders/default-country.png"}
+          alt="Study in Germany"
+          fill
+          style={{ objectFit: 'cover' }}
+          className="z-0"
+          priority
+        />
           <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
         </div>
         <div className="container mx-auto px-4 relative z-10 animate-fade-in text-shadow-md">
@@ -46,10 +67,10 @@ const StudyAbroadGermanyPage = () => {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+              <a href="#apply-now" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                 Start Your Germany Journey
               </a>
-              <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="#universities" ref={universitiesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
                 View Top Universities
               </a>
             </div>
@@ -882,19 +903,17 @@ const StudyAbroadGermanyPage = () => {
               <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
-                Take Free Mock Test
-              </a>
+              
             </div>
             
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>{contactInfo.primary.mobile}</p>
+                <p><a href={`tel:${contactInfo.primary.mobile}`}>{contactInfo.primary.mobile}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>{contactInfo.primary.email}</p>
+                <p><a href={`mailto:${contactInfo.primary.email}`}>{contactInfo.primary.email}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>
@@ -904,6 +923,7 @@ const StudyAbroadGermanyPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };

@@ -39,7 +39,7 @@ export default function AdminLogin() {
       if (result?.error) {
         setError('Sign in failed. Please make sure you\'re using an authorized email.')
       }
-    } catch (_error) {
+    } catch {
       setError('An error occurred during sign in.')
     } finally {
       setIsLoading(false)
@@ -64,7 +64,7 @@ export default function AdminLogin() {
           <button
             onClick={handleGoogleSignIn}
             disabled={isLoading}
-            className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 transition-colors"
+            className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-100 disabled:opacity-50 transition-colors"
           >
             {isLoading ? (
               <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-[#08bcb4]"></div>
