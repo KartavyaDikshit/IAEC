@@ -1,12 +1,52 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { neon } from '@neondatabase/serverless';
 import { transporter, mailOptions } from '@/lib/nodemailer';
+import fs from 'fs/promises';
+import path from 'path';
+import { randomUUID } from 'crypto';
 
-const sql = neon(process.env.NEON_DATABASE_URL!);
+const FORMS_FILE = path.join(process.cwd(), 'data/form-submissions.json');
+
+// Helper to read submissions
+async function getSubmissions() {
+  try {
+    const data = await fs.readFile(FORMS_FILE, 'utf-8');
+    // Handle NDJSON (newline delimited JSON)
+    const lines = data.split('\n').filter(line => line.trim() !== '');
+    return lines.map(line => {
+      try {
+        const parsed = JSON.parse(line);
+        // Ensure createdAt exists
+        if (!parsed.createdAt && parsed.timestamp) {
+          parsed.createdAt = parsed.timestamp;
+        }
+        return parsed;
+      } catch {
+        return null;
+      }
+    }).filter(item => item !== null);
+  } catch {
+    // If file doesn't exist, return empty array
+    return [];
+  }
+}
+
+// Helper to append submission
+async function saveSubmission(submission: any) {
+    // Ensure directory exists
+    await fs.mkdir(path.dirname(FORMS_FILE), { recursive: true });
+    const line = JSON.stringify(submission) + '\n';
+    await fs.appendFile(FORMS_FILE, line);
+}
 
 export async function GET() {
   try {
-    const submissions = await sql`SELECT * FROM "FormSubmission" ORDER BY "createdAt" DESC`;
+    const submissions = await getSubmissions();
+    // Sort by createdAt desc
+    submissions.sort((a: any, b: any) => {
+        const dateA = new Date(a.createdAt || 0).getTime();
+        const dateB = new Date(b.createdAt || 0).getTime();
+        return dateB - dateA;
+    });
     return NextResponse.json(submissions);
   } catch (error: unknown) {
     console.error('Error fetching submissions:', error);
@@ -25,13 +65,17 @@ export async function POST(req: NextRequest) {
 
     const { formType, name, email, phone, data } = newSubmission;
 
-    const result = await sql`
-      INSERT INTO "FormSubmission" ("formType", name, email, phone, data)
-      VALUES (${formType}, ${name}, ${email}, ${phone}, ${JSON.stringify(data)})
-      RETURNING id, "formType", name, email, phone, data, "createdAt";
-    `;
+    const submission = {
+        id: randomUUID(),
+        formType,
+        name,
+        email,
+        phone,
+        data,
+        createdAt: new Date().toISOString()
+    };
 
-    const submission = result[0];
+    await saveSubmission(submission);
 
     try {
       await transporter.sendMail({

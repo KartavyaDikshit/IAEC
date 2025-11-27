@@ -25,18 +25,32 @@ export default function AdminDashboard() {
         fetch('/api/forms')
       ])
       
-      if (blogsRes.ok && testimonialsRes.ok && formsRes.ok) {
+      let blogsCount = 0
+      let testimonialsCount = 0
+      let formsCount = 0
+
+      if (blogsRes.ok) {
         const blogsData = await blogsRes.json()
-        const testimonialsData = await testimonialsRes.json()
-        const formsData = await formsRes.json()
-        
-        setStats({
-          totalBlogs: blogsData.count || 0,
-          totalTestimonials: testimonialsData.count || 0,
-          totalForms: formsData.length || 0,
-          recentActivity: (blogsData.count || 0) + (testimonialsData.count || 0) + (formsData.length || 0)
-        })
+        blogsCount = blogsData.count || 0
       }
+
+      if (testimonialsRes.ok) {
+        const testimonialsData = await testimonialsRes.json()
+        testimonialsCount = testimonialsData.count || 0
+      }
+
+      if (formsRes.ok) {
+        const formsData = await formsRes.json()
+        formsCount = Array.isArray(formsData) ? formsData.length : 0
+      }
+      
+      setStats({
+        totalBlogs: blogsCount,
+        totalTestimonials: testimonialsCount,
+        totalForms: formsCount,
+        recentActivity: blogsCount + testimonialsCount + formsCount
+      })
+
     } catch (error) {
       console.error('Error fetching stats:', error)
     } finally {

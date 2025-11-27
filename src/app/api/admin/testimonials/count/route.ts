@@ -1,19 +1,9 @@
 import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
-import fs from 'fs/promises'
-import path from 'path'
+import { neon } from '@neondatabase/serverless';
 
-const TESTIMONIALS_FILE = path.join(process.cwd(), 'data/testimonials.json')
-
-async function readTestimonials() {
-  try {
-    const data = await fs.readFile(TESTIMONIALS_FILE, 'utf-8')
-    return JSON.parse(data)
-  } catch {
-    return []
-  }
-}
+const sql = neon(process.env.NEON_DATABASE_URL!);
 
 export async function GET() {
   const session = await getServerSession(authOptions)
@@ -22,9 +12,11 @@ export async function GET() {
   }
 
   try {
-    const testimonials = await readTestimonials()
-    return NextResponse.json({ count: testimonials.length })
-  } catch {
+    const result = await sql`SELECT COUNT(*) FROM "Testimonial"`;
+    const count = parseInt(result[0].count);
+    return NextResponse.json({ count })
+  } catch (error) {
+    console.error('Error counting testimonials:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

@@ -53,7 +53,9 @@ export default function BlogPage() {
   }
 
   const stripHtml = (html: string) => {
-    return html.replace(/<[^>]*>?/gm, '');
+    const text = html.replace(/<[^>]*>?/gm, '');
+    // Remove "Introduction" header text if it appears at the start
+    return text.replace(/^Introduction\s*/i, '');
   };
 
   return (
