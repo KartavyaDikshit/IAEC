@@ -1,0 +1,60 @@
+
+
+1/1
+
+Next.js 15.5.6 (outdated)
+Webpack
+Runtime Error
+
+
+Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+
+Check the render method of `SocialShareIcons`.
+
+src\components\SocialShareIcons.tsx (44:9) @ SocialShareIcons
+
+
+  42 |       </button>
+  43 |       <button onClick={shareOnWhatsApp} aria-label="Share on WhatsApp">
+> 44 |         <Whatsapp className={iconClasses} />
+     |         ^
+  45 |       </button>
+  46 |       <button onClick={shareOnLinkedIn} aria-label="Share on LinkedIn">
+  47 |         <Linkedin className={iconClasses} />
+Call Stack
+15
+
+Hide 13 ignore-listed frame(s)
+createFiberFromTypeAndProps
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (4288:1)
+createFiberFromElement
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (4302:1)
+reconcileChildFibersImpl
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (6050:1)
+eval
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (6228:1)
+reconcileChildren
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (8782:1)
+beginWork
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (11128:1)
+runWithFiberInDEV
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (871:1)
+performUnitOfWork
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (15726:1)
+workLoopSync
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (15546:39)
+renderRootSync
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (15526:1)
+performWorkOnRoot
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (15033:1)
+performWorkOnRootViaSchedulerTask
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\react-dom\cjs\react-dom-client.development.js (16815:1)
+MessagePort.performWorkUntilDeadline
+node_modules\.pnpm\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\node_modules\next\dist\compiled\scheduler\cjs\scheduler.development.js (45:1)
+SocialShareIcons
+src\components\SocialShareIcons.tsx (44:9)
+BlogPostPage
+src\app\blog\[id]\page.tsx (56:9)
+1
+2
+Application error: a client-side exception has occurred while loading localhost (see the browser console for more information).

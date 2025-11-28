@@ -2,6 +2,7 @@
 import { notFound } from 'next/navigation';
 import { neon } from '@neondatabase/serverless';
 import Image from 'next/image';
+import SocialShareIcons from '@/components/SocialShareIcons';
 
 const sql = neon(process.env.NEON_DATABASE_URL!);
 
@@ -15,7 +16,7 @@ interface Blog {
 }
 
 export default async function BlogPostPage({ params }: any) {
-  const { id } = params;
+  const { id } = await params;
 
   let blog: Blog | null = null;
   try {
@@ -30,6 +31,8 @@ export default async function BlogPostPage({ params }: any) {
   if (!blog) {
     notFound();
   }
+
+  const blogUrl = `https://iaecconsultants.in/blog/${blog.id}`;
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -50,6 +53,7 @@ export default async function BlogPostPage({ params }: any) {
           <p className="mr-4">By {blog.author}</p>
         </div>
         <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: blog.content }} />
+        <SocialShareIcons title={blog.title} url={blogUrl} />
       </article>
     </div>
   );

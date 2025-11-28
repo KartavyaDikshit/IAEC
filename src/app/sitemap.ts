@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { MetadataRoute } from 'next';
 import fs from 'fs';
 import path from 'path';
 
@@ -9,8 +9,8 @@ interface Blog {
   imageUrl: string;
 }
 
-export async function GET() {
-  const baseUrl = 'https://iaec-consultants.com';
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://iaecconsultants.in';
 
   const staticRoutes = [
     '/',
@@ -60,26 +60,10 @@ export async function GET() {
     lastModified: new Date(),
   }));
 
-  const allUrls = [...staticRoutes, ...studyAbroadRoutes, ...servicesRoutes, ...blogRoutes];
-
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${allUrls
-        .map(
-          (route) => `
-        <url>
-          <loc>${route.url}</loc>
-          <lastmod>${route.lastModified.toISOString()}</lastmod>
-        </url>
-      `
-        )
-        .join('')}
-    </urlset>
-  `;
-
-  return new NextResponse(sitemap, {
-    headers: {
-      'Content-Type': 'application/xml',
-    },
-  });
+  return [
+    ...staticRoutes,
+    ...studyAbroadRoutes,
+    ...servicesRoutes,
+    ...blogRoutes,
+  ];
 }
