@@ -4,7 +4,13 @@ import { neon } from '@neondatabase/serverless';
 import Image from 'next/image';
 import SocialShareIcons from '@/components/SocialShareIcons';
 
-const sql = neon(process.env.NEON_DATABASE_URL!);
+const NEON_DATABASE_URL = process.env.NEON_DATABASE_URL;
+
+if (!NEON_DATABASE_URL) {
+  console.error("NEON_DATABASE_URL environment variable is not set");
+}
+
+const sql = NEON_DATABASE_URL ? neon(NEON_DATABASE_URL) : null;
 
 interface Blog {
   id: string;
@@ -17,10 +23,20 @@ interface Blog {
 
 export default async function BlogPostPage({ params }: any) {
   const { id } = await params;
+  const blogId = parseInt(id);
+
+  if (isNaN(blogId)) {
+    notFound();
+  }
+
+  if (!sql) {
+    console.error("Database connection not initialized");
+    notFound();
+  }
 
   let blog: Blog | null = null;
   try {
-    const result = await sql`SELECT * FROM "Blog" WHERE id = ${parseInt(id)}`;
+    const result = await sql`SELECT * FROM "Blog" WHERE id = ${blogId}`;
     if (result.length > 0) {
       blog = result[0] as Blog;
     }
