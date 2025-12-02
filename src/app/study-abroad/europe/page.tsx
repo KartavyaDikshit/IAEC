@@ -1,5 +1,7 @@
+import contactInfo from '../../../../data/contact-info.json';
 import Link from 'next/link';
 import Image from 'next/image';
+import CountryRibbon from '@/components/home/CountryRibbon';
 
 export const metadata = {
   title: "Study in Europe - European Universities & Education Guide 2025 | IAEC",
@@ -13,12 +15,13 @@ const StudyAbroadEuropePage = () => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/countries/europe.jpg"
-            alt="Study in Europe"
-            layout="fill"
-            objectFit="cover"
-            className="z-0"
-            priority />      <div className="absolute inset-0 bg-black opacity-50"></div>
+                      src="/images/countries/europe.jpg"
+                      alt="Study in Europe"
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      className="z-0"
+                      priority
+                    />      <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
         <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
           <h1 className="text-6xl font-extrabold !text-white">Study in Europe</h1>
@@ -144,16 +147,42 @@ const StudyAbroadEuropePage = () => {
               </div>
             </div>
           </div>
-
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">Ready to Explore Europe?</h2>
-            <p className="text-lg text-[#4a5568] mb-8">Contact IAEC consultants for personalized guidance on European education opportunities</p>
-            <Link href="/contact" className="bg-[#08bcb4] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#069aa2] transition-all inline-block !text-white">
-              Get Expert Counseling
-            </Link>
-          </div>
+          <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
         </div>
     </section>
+    <section id="apply-now"className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6">
+              Ready to Begin Your European Education Journey?
+            </h2>
+            <p className="text-xl mb-8 text-blue-100">
+              Join thousands of successful students who achieved their dreams with IAEC&apos;s expert guidance
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="/contact"className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
+                Book Free Counselling
+              </a>
+              
+            </div>
+            
+            <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
+              <div className="bg-white/10 p-6 rounded-xl">
+                <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
+                <p><a href={`tel:${contactInfo.primary.mobile}`} className="!text-white">{contactInfo.primary.mobile}</a></p>
+              </div>
+              <div className="bg-white/10 p-6 rounded-xl">
+                <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
+                <p><a href={`mailto:${contactInfo.primary.email}`} className="!text-white">{contactInfo.primary.email}</a></p>
+              </div>
+              <div className="bg-white/10 p-6 rounded-xl">
+                <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>
+                <p>Ahmedabad, India</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     </>
   );

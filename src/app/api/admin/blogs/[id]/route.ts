@@ -6,9 +6,7 @@ import path from 'path'
 
 const BLOGS_FILE = path.join(process.cwd(), 'data/blogs.json')
 
-interface RouteParams {
-  params: Promise<{ id: string }>
-}
+
 
 async function readBlogs() {
   try {
@@ -38,7 +36,7 @@ async function writeBlogs(blogs: Blog[]) {
   await fs.writeFile(BLOGS_FILE, JSON.stringify(blogs, null, 2))
 }
 
-export async function PUT(request: NextRequest, context: RouteParams) {
+export async function PUT(request: NextRequest, context: any) {
   const session = await getServerSession(authOptions)
   if (!session) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -68,7 +66,7 @@ export async function PUT(request: NextRequest, context: RouteParams) {
   }
 }
 
-export async function DELETE(request: NextRequest, context: RouteParams) {
+export async function DELETE(request: NextRequest, context: any) {
   const session = await getServerSession(authOptions)
   if (!session) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })

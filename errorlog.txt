@@ -1,0 +1,54 @@
+ GET / 200 in 731ms
+[next-auth][error][JWT_SESSION_ERROR]
+https://next-auth.js.org/errors#jwt_session_error decryption operation failed {
+  message: 'decryption operation failed',
+  stack: 'JWEDecryptionFailed: decryption operation failed\n' +
+    '    at gcmDecrypt (webpack-internal:///(rsc)/./node_modules/.pnpm/jose@4.15.9/node_modules/jose/dist/node/cjs/runtime/decrypt.js:67:15)\n' +
+    '    at decrypt (webpack-internal:///(rsc)/./node_modules/.pnpm/jose@4.15.9/node_modules/jose/dist/node/cjs/runtime/decrypt.js:92:20)\n' +
+    '    at flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/.pnpm/jose@4.15.9/node_modules/jose/dist/node/cjs/jwe/flattened/decrypt.js:143:52)\n' +
+    '    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/.pnpm/jose@4.15.9/node_modules/jose/dist/node/cjs/jwe/compact/decrypt.js:18:23)\n' +
+    '    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/.pnpm/jose@4.15.9/node_modules/jose/dist/node/cjs/jwt/decrypt.js:8:23)\n' +
+    '    at async Object.decode (webpack-internal:///(rsc)/./node_modules/.pnpm/next-auth@4.24.13_next@15.5_97e4dfe12e7dcb7ea1842e221014dea5/node_modules/next-auth/jwt/index.js:56:7)\n' +
+    '    at async Object.session (webpack-internal:///(rsc)/./node_modules/.pnpm/next-auth@4.24.13_next@15.5_97e4dfe12e7dcb7ea1842e221014dea5/node_modules/next-auth/core/routes/session.js:48:28)\n' +
+    '    at async AuthHandler (webpack-internal:///(rsc)/./node_modules/.pnpm/next-auth@4.24.13_next@15.5_97e4dfe12e7dcb7ea1842e221014dea5/node_modules/next-auth/core/index.js:136:27)\n' +
+    '    at async NextAuthRouteHandler (webpack-internal:///(rsc)/./node_modules/.pnpm/next-auth@4.24.13_next@15.5_97e4dfe12e7dcb7ea1842e221014dea5/node_modules/next-auth/next/index.js:57:28)\n' +
+    '    at async NextAuth._args$ (webpack-internal:///(rsc)/./node_modules/.pnpm/next-auth@4.24.13_next@15.5_97e4dfe12e7dcb7ea1842e221014dea5/node_modules/next-auth/next/index.js:89:16)\n' +
+    '    at async AppRouteRouteModule.do (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\compiled\\next-server\\app-route.runtime.dev.js:5:38696)\n' +
+    '    at async AppRouteRouteModule.handle (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\compiled\\next-server\\app-route.runtime.dev.js:5:45978)\n' +
+    '    at async responseGenerator (webpack-internal:///(rsc)/./node_modules/.pnpm/next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=C%3A%5CUsers%5CUser%5CIAEC2%5CIAEC%5CIAEC_Recovery%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5CUsers%5CUser%5CIAEC2%5CIAEC%5CIAEC_Recovery&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:203:38)\n' +
+    '    at async AppRouteRouteModule.handleResponse (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\compiled\\next-server\\app-route.runtime.dev.js:1:187565)\n' +
+    '    at async handleResponse (webpack-internal:///(rsc)/./node_modules/.pnpm/next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=C%3A%5CUsers%5CUser%5CIAEC2%5CIAEC%5CIAEC_Recovery%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5CUsers%5CUser%5CIAEC2%5CIAEC%5CIAEC_Recovery&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:265:32)\n' +
+    '    at async handler (webpack-internal:///(rsc)/./node_modules/.pnpm/next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&page=%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fauth%2F%5B...nextauth%5D%2Froute.ts&appDir=C%3A%5CUsers%5CUser%5CIAEC2%5CIAEC%5CIAEC_Recovery%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5CUsers%5CUser%5CIAEC2%5CIAEC%5CIAEC_Recovery&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:317:13)\n' +
+    '    at async DevServer.renderToResponseWithComponentsImpl (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\server\\base-server.js:1422:9)\n' +
+    '    at async DevServer.renderPageComponent (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\server\\base-server.js:1474:24)\n' +
+    '    at async DevServer.renderToResponseImpl (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\server\\base-server.js:1514:32)\n' +
+    '    at async DevServer.pipeImpl (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\server\\base-server.js:1025:25)\n' +
+    '    at async NextNodeServer.handleCatchallRenderRequest (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\server\\next-server.js:393:17)\n' +
+    '    at async DevServer.handleRequestImpl (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\server\\base-server.js:916:17)\n' +
+    '    at async C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\server\\dev\\next-dev-server.js:399:20\n' +
+    '    at async Span.traceAsyncFn (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\trace\\trace.js:157:20)\n' +
+    '    at async DevServer.handleRequest (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\server\\dev\\next-dev-server.js:395:24)\n' +
+    '    at async invokeRender (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\server\\lib\\router-server.js:240:21)\n' +
+    '    at async handleRequest (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\server\\lib\\router-server.js:437:24)\n' +
+    '    at async requestHandlerImpl (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\server\\lib\\router-server.js:485:13)\n' +
+    '    at async Server.requestListener (C:\\Users\\User\\IAEC2\\IAEC\\IAEC_Recovery\\node_modules\\.pnpm\\next@15.5.6_react-dom@19.2.0_react@19.2.0__react@19.2.0\\node_modules\\next\\dist\\server\\lib\\start-server.js:226:13)',
+  name: 'JWEDecryptionFailed'
+}
+ GET /api/auth/session 200 in 3310ms
+ ○ Compiling /admin ...
+ ✓ Compiled /admin in 756ms (1043 modules)
+ GET /api/testimonials 200 in 4142ms
+ GET /admin 200 in 1238ms
+ GET /api/auth/session 200 in 145ms
+ ○ Compiling /admin-login ...
+ ✓ Compiled /admin-login in 568ms (1050 modules)
+ GET /admin-login 200 in 714ms
+ GET /admin-login 200 in 64ms
+ GET /api/auth/providers 200 in 103ms
+ GET /api/auth/csrf 200 in 46ms
+ POST /api/auth/signin/google 200 in 480ms
+ GET /api/auth/callback/google?state=mWqW2J64vXZ9HgTvJctwVHz0aVoH3tXyxX9o5nYZqbw&code=4%2F0Ab32j918Ob5Ak6pAmSXEFWKi1Ee25J2RQ9LEetdqGdfGVs31RQWpBDbP0Q_ILVChKBdTng&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent 302 in 618ms
+
+
+
+fix this and on the admin dashboard in the form submissions instead of export to email change it to export to excel 
