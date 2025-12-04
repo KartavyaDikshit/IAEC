@@ -20,7 +20,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://iaec.co.in'),
+  metadataBase: new URL('https://iaecconsultants.in'),
   title: {
     default: "IAEC Consultants - Your Global Study Partner",
     template: "%s | IAEC Consultants"
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://iaec.co.in',
+    url: 'https://iaecconsultants.in',
     siteName: 'IAEC Consultants',
     title: 'IAEC Consultants - Your Global Study Partner',
     description: 'Leading overseas education consultancy since 2000. Expert guidance for study abroad programs with 95% visa success rate.',
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     yahoo: 'your-yahoo-verification-code',
   },
   alternates: {
-    canonical: 'https://iaec.co.in',
+    canonical: 'https://iaecconsultants.in',
   },
   category: 'education',
 };
@@ -90,8 +90,8 @@ const jsonLd = {
   '@type': 'EducationalOrganization',
   name: 'IAEC Consultants',
   description: 'Leading overseas education consultancy since 2000. Expert guidance for study abroad programs.',
-  url: 'https://iaec.co.in',
-  logo: 'https://iaec.co.in/images/iaec-logo.png',
+  url: 'https://iaecconsultants.in',
+  logo: 'https://iaecconsultants.in/images/iaec-logo.png',
   foundingDate: '2000',
   address: {
     '@type': 'PostalAddress',

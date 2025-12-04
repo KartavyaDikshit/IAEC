@@ -3,32 +3,29 @@ import { neon } from '@neondatabase/serverless';
 
 const NEON_DATABASE_URL = process.env.NEON_DATABASE_URL;
 
-if (!NEON_DATABASE_URL) {
-  throw new Error("NEON_DATABASE_URL environment variable is not set");
-}
-
-const sql = neon(NEON_DATABASE_URL);
+const sql = NEON_DATABASE_URL ? neon(NEON_DATABASE_URL) : null;
 
 export async function GET() {
-  try {
-    const blogs = await sql`SELECT * FROM "Blog" ORDER BY "publishedAt" DESC`;
-    return NextResponse.json({ blogs });
-  } catch (error: unknown) {
-    console.error('Error fetching blogs:', {
-      message: (error as Error).message,
-      stack: (error as Error).stack,
-    });
-    return NextResponse.json(
-      { 
-        message: 'Error connecting to the database.',
-        error: (error as Error).message 
-      }, 
-      { status: 500 }
-    );
+  let dbBlogs: any[] = [];
+
+  // 1. Try fetching from Database
+  if (sql) {
+    try {
+      dbBlogs = await sql`SELECT * FROM "Blog" ORDER BY "publishedAt" DESC`;
+    } catch (error: unknown) {
+      console.error('Error fetching blogs from DB:', error);
+      // Fallback to empty array if DB fails
+    }
   }
+
+  return NextResponse.json({ blogs: dbBlogs });
 }
 
 export async function POST(req: NextRequest) {
+  if (!sql) {
+     return NextResponse.json({ message: 'Database not configured' }, { status: 500 });
+  }
+
   try {
     const newBlog = await req.json();
 
