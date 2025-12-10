@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**.iaec.co.in',
+        hostname: '**.iaecconsultants.in',
         port: '',
         pathname: '/images/**',
       },
