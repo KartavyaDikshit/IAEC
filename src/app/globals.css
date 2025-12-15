@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   /* IAEC Brand Colors */
@@ -225,3 +226,68 @@ a:focus-visible {
 .animate-fade-in {
   animation: fadeIn 1.5s ease-in-out;
 }
+
+/* Typography for blog content */
+.prose ul, .ck-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose ol, .ck-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose li, .ck-content li {
+  margin-bottom: 0.5rem;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose p {
+  margin-bottom: 1em;
+}
+
+.ck-content h1, .ck-content h2, .ck-content h3, .ck-content h4, .ck-content h5, .ck-content h6 {
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+.ck-content h2 { font-size: 1.5em; }
+.ck-content h3 { font-size: 1.25em; }
+
+/* Table styles for blog posts */
+.prose table, .ck-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.prose th, .ck-content th {
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem;
+  background-color: #f7fafc;
+  font-weight: 600;
+  text-align: left;
+}
+
+.prose td, .ck-content td {
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem;
+}
+
+.prose tr:nth-child(even), .ck-content tr:nth-child(even) {
+  background-color: #f7fafc;
+}
+
+.prose figure.table, .ck-content figure.table {
+  margin: 0;
+  width: 100%;
+}
+
