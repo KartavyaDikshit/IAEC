@@ -8,3 +8,4 @@
 {"name":"kartavya ","email":"kartavya.dikshit@gmail.com","phone":"9765530235","destination":"Germany","message":"help","formType":"contact","timestamp":"2025-11-06T08:38:29.608Z"}
 {"name":"kartavya ","email":"kartavya.dikshit@gmail.com","phone":"9765530235","destination":"Germany","message":"help","formType":"contact","timestamp":"2025-11-06T08:38:38.138Z"}
 {"name":"kartavya ","email":"kartavya.dikshit@gmail.com","phone":"9765530235","destination":"Germany","message":"trail 3","formType":"booking","timestamp":"2025-11-06T08:38:57.789Z"}
+{"id":"d29b4751-e542-414e-8970-3d63fc5f01c5","formType":"contact","name":"Trial","email":"kartavya.dikshit@gmail.com","phone":"1234567890","data":{"destination":"Germany","message":"this is a trial to debug"},"createdAt":"2026-02-11T10:47:11.664Z"}

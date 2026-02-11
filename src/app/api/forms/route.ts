@@ -1,21 +1,45 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { transporter, mailOptions } from '@/lib/nodemailer';
+import { neon } from '@neondatabase/serverless';
 import fs from 'fs/promises';
 import path from 'path';
-import { randomUUID } from 'crypto';
 
 const FORMS_FILE = path.join(process.cwd(), 'data/form-submissions.json');
+const NEON_DATABASE_URL = process.env.NEON_DATABASE_URL;
 
 // Helper to read submissions
 async function getSubmissions() {
+  if (NEON_DATABASE_URL) {
+    try {
+      const sql = neon(NEON_DATABASE_URL);
+      const rows = await sql`SELECT * FROM "FormSubmission" ORDER BY "createdAt" DESC`;
+      
+      // Map database rows to the format expected by the frontend
+      return rows.map(row => ({
+        id: row.id.toString(),
+        name: row.name,
+        email: row.email,
+        phone: row.phone,
+        formType: row.formType,
+        data: {
+          destination: row.destination,
+          message: row.message,
+          test: row.testPreference
+        },
+        createdAt: row.createdAt
+      }));
+    } catch (error) {
+      console.error('Error fetching from Neon:', error);
+      // Fallback to local file if DB fails and we're local
+    }
+  }
+
   try {
     const data = await fs.readFile(FORMS_FILE, 'utf-8');
-    // Handle NDJSON (newline delimited JSON)
     const lines = data.split('\n').filter(line => line.trim() !== '');
     return lines.map(line => {
       try {
         const parsed = JSON.parse(line);
-        // Ensure createdAt exists
         if (!parsed.createdAt && parsed.timestamp) {
           parsed.createdAt = parsed.timestamp;
         }
@@ -25,28 +49,59 @@ async function getSubmissions() {
       }
     }).filter(item => item !== null);
   } catch {
-    // If file doesn't exist, return empty array
     return [];
   }
 }
 
-// Helper to append submission
+// Helper to save submission
 async function saveSubmission(submission: any) {
-    // Ensure directory exists
-    await fs.mkdir(path.dirname(FORMS_FILE), { recursive: true });
-    const line = JSON.stringify(submission) + '\n';
-    await fs.appendFile(FORMS_FILE, line);
+    if (NEON_DATABASE_URL) {
+      try {
+        const sql = neon(NEON_DATABASE_URL);
+        const { name, email, phone, formType, data, createdAt } = submission;
+        const destination = data?.destination || null;
+        const message = data?.message || null;
+        const testPreference = data?.test || data?.testPreference || null;
+
+        const result = await sql`
+          INSERT INTO "FormSubmission" (name, email, phone, destination, message, "formType", "testPreference", "createdAt")
+          VALUES (${name}, ${email}, ${phone}, ${destination}, ${message}, ${formType}, ${testPreference}, ${createdAt})
+          RETURNING id
+        `;
+        return result[0].id;
+      } catch (error) {
+        console.error('Error saving to Neon:', error);
+        if (process.env.NODE_ENV === 'production') {
+          throw error;
+        }
+      }
+    }
+
+    // Fallback for local development
+    try {
+      await fs.mkdir(path.dirname(FORMS_FILE), { recursive: true });
+      const line = JSON.stringify(submission) + '\n';
+      await fs.appendFile(FORMS_FILE, line);
+      return submission.id || 'local-id';
+    } catch (error) {
+      console.error('Error saving to local file:', error);
+      if (process.env.NODE_ENV === 'production') {
+        throw error;
+      }
+      return 'local-id';
+    }
 }
 
 export async function GET() {
   try {
     const submissions = await getSubmissions();
-    // Sort by createdAt desc
-    submissions.sort((a: any, b: any) => {
-        const dateA = new Date(a.createdAt || 0).getTime();
-        const dateB = new Date(b.createdAt || 0).getTime();
-        return dateB - dateA;
-    });
+    if (Array.isArray(submissions)) {
+      submissions.sort((a: any, b: any) => {
+          const dateA = new Date(a.createdAt || 0).getTime();
+          const dateB = new Date(b.createdAt || 0).getTime();
+          return dateB - dateA;
+      });
+    }
     return NextResponse.json(submissions);
   } catch (error: unknown) {
     console.error('Error fetching submissions:', error);
@@ -66,7 +121,6 @@ export async function POST(req: NextRequest) {
     const { formType, name, email, phone, data } = newSubmission;
 
     const submission = {
-        id: randomUUID(),
         formType,
         name,
         email,
@@ -75,7 +129,7 @@ export async function POST(req: NextRequest) {
         createdAt: new Date().toISOString()
     };
 
-    await saveSubmission(submission);
+    const submissionId = await saveSubmission(submission);
 
     try {
       await transporter.sendMail({
@@ -106,10 +160,9 @@ export async function POST(req: NextRequest) {
       });
     } catch (emailError) {
       console.error('Email sending error:', emailError);
-      // Still return a success response to the user even if email fails
     }
 
-    return NextResponse.json({ message: 'Form submitted successfully', submissionId: submission.id });
+    return NextResponse.json({ message: 'Form submitted successfully', submissionId });
   } catch (error: unknown) {
     console.error('Form submission error:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';

@@ -25,7 +25,7 @@ const convertToCSV = (data: any[]) => {
 
 export async function GET(_req: NextRequest) {
   try {
-    const submissions = await sql`SELECT * FROM form_submissions`;
+    const submissions = await sql`SELECT * FROM "FormSubmission" ORDER BY "createdAt" DESC`;
     const csv = convertToCSV(submissions);
 
     return new NextResponse(csv, {
