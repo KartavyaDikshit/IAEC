@@ -7,11 +7,11 @@ interface Testimonial {
   id: string
   name: string
   content: string
-  university: string
-  course: string
-  country: string
-  rating: number
+  rating?: number
   imageUrl?: string
+  university?: string
+  course?: string
+  country?: string
   createdAt: string
 }
 
@@ -25,7 +25,7 @@ export default function TestimonialsManagement() {
 
   const fetchTestimonials = async () => {
     try {
-      const response = await fetch('/api/admin/testimonials')
+      const response = await fetch('/api/testimonials')
       if (response.ok) {
         const data = await response.json()
         setTestimonials(data.testimonials || [])
@@ -41,7 +41,7 @@ export default function TestimonialsManagement() {
     if (!confirm('Are you sure you want to delete this testimonial?')) return
     
     try {
-      const response = await fetch(`/api/admin/testimonials/${id}`, { method: 'DELETE' })
+      const response = await fetch(`/api/testimonials/${id}`, { method: 'DELETE' })
       if (response.ok) {
         setTestimonials(testimonials.filter(t => t.id !== id))
         alert('Testimonial deleted successfully!')
@@ -56,12 +56,12 @@ export default function TestimonialsManagement() {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold text-gray-900">Testimonials Management</h1>
+    <div className="p-4 sm:p-6 md:p-8 space-y-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-0">Testimonials Management</h1>
         <Link 
           href="/admin/testimonials/new"
-          className="bg-[#08bcb4] !text-white px-6 py-2 rounded-lg hover:bg-[#069aa2] transition-colors font-medium"
+          className="bg-[#08bcb4] !text-white px-4 py-2 rounded-lg hover:bg-[#069aa2] transition-colors text-sm sm:text-base font-medium"
         >
           Add New Testimonial
         </Link>
@@ -76,9 +76,44 @@ export default function TestimonialsManagement() {
           </div>
         ) : (
           testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white p-6 rounded-lg shadow">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">{testimonial.name}</h3>
+            <div key={testimonial.id} className="bg-white p-6 rounded-lg shadow flex flex-col">
+              <div className="flex-grow">
+                {testimonial.imageUrl && (
+                  <div className="relative h-40 w-full mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src={testimonial.imageUrl}
+                      alt={testimonial.name}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                )}
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{testimonial.name}</h3>
+                
+                <p className="text-sm text-gray-700 line-clamp-4 mb-4">
+                  {testimonial.content}
+                </p>
+                
+                <div className="space-y-1 text-sm text-gray-600">
+                  {testimonial.rating && (
+                    <p><strong>Rating:</strong> {'★'.repeat(testimonial.rating)}</p>
+                  )}
+                  {testimonial.university && (
+                    <p><strong>University:</strong> {testimonial.university}</p>
+                  )}
+                  {testimonial.course && (
+                    <p><strong>Course:</strong> {testimonial.course}</p>
+                  )}
+                  {testimonial.country && (
+                    <p><strong>Country:</strong> {testimonial.country}</p>
+                  )}
+                </div>
+              </div>
+              
+              <div className="mt-6 flex items-center justify-between">
+                <p className="text-xs text-gray-500">
+                  {new Date(testimonial.createdAt).toLocaleDateString()}
+                </p>
                 <div className="flex space-x-2">
                   <button
                     onClick={() => handleDeleteTestimonial(testimonial.id)}
@@ -88,33 +123,6 @@ export default function TestimonialsManagement() {
                   </button>
                 </div>
               </div>
-              
-              {testimonial.imageUrl && (
-                <div className="mb-4">
-                  <Image
-                    src={testimonial.imageUrl}
-                    alt={`Image for ${testimonial.name}`}
-                    width={100}
-                    height={100}
-                    className="rounded-full object-cover mx-auto"
-                  />
-                </div>
-              )}
-              
-              <div className="space-y-2 text-sm text-gray-600">
-                <p><strong>University:</strong> {testimonial.university}</p>
-                <p><strong>Course:</strong> {testimonial.course}</p>
-                <p><strong>Country:</strong> {testimonial.country}</p>
-                <p><strong>Rating:</strong> {'★'.repeat(testimonial.rating)}</p>
-              </div>
-              
-              <p className="mt-4 text-sm text-gray-700 line-clamp-3">
-                {testimonial.content}
-              </p>
-              
-              <p className="mt-2 text-xs text-gray-500">
-                Added: {new Date(testimonial.createdAt).toLocaleDateString()}
-              </p>
             </div>
           ))
         )}

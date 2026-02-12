@@ -1,40 +1,60 @@
+'use client';
+
 import Image from 'next/image';
 import contactInfo from '../../../../../data/contact-info.json';
 import { studyAbroadCountries } from '../../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const spainCountry = studyAbroadCountries.find(country => country.name === 'Spain');
 
-export const metadata = {
-  title: "Study in Spain 2025 - Top Universities, Student Visa & Affordable EU Education | IAEC Consultants",
-  description: "Study in Spain with IAEC expert guidance. Affordable education, vibrant culture, Mediterranean lifestyle. Get Spanish student visa, work rights, EU benefits. 95% visa success rate.",
-  keywords: "study in Spain, Spain universities for international students, Spain student visa, Spain education system, IAEC Spain counseling, Spanish universities admission, Barcelona Madrid Valencia, EU study benefits, study abroad Spain",
-  openGraph: {
-    title: "Study in Spain 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Spain. Expert counseling for top Spanish universities, student visa process, Mediterranean lifestyle, and EU opportunities.",
-    images: ['/images/study-spain-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in Spain 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Spain. Expert counseling for top Spanish universities, student visa process, Mediterranean lifestyle, and EU opportunities.",
-  }
-};
-
 const StudyAbroadSpainPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src={spainCountry?.heroImage || "/images/countries/spain.jpg"}
-            alt="Study in Spain"
-            layout="fill"
-            objectFit="cover"
-            className="z-0"
-            priority
-          />
-          <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
+                    src={spainCountry?.heroImage || "/images/placeholders/default-country.png"}
+                    alt="Study in Spain"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="z-0"
+                    priority
+                  />          <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
         </div>
         <div className="container mx-auto px-4 relative z-10 animate-fade-in text-shadow-md">
           <div className="max-w-4xl mx-auto text-center">
@@ -45,10 +65,10 @@ const StudyAbroadSpainPage = () => {
               Vibrant culture, diverse programs, and a warm welcome.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now"className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+              <a href="#apply-now" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                 Start Your Spain Journey
               </a>
-              <a href="#universities"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+              <a href="#universities" ref={universitiesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
                 View Top Universities
               </a>
             </div>
@@ -904,19 +924,17 @@ const StudyAbroadSpainPage = () => {
               <a href="/contact"className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
-                Take Free Mock Test
-              </a>
+              
             </div>
             
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>{contactInfo.primary.mobile}</p>
+                <p><a href={`tel:${contactInfo.primary.mobile}`}>{contactInfo.primary.mobile}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>{contactInfo.primary.email}</p>
+                <p><a href={`mailto:${contactInfo.primary.email}`}>{contactInfo.primary.email}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>
@@ -926,6 +944,7 @@ const StudyAbroadSpainPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };

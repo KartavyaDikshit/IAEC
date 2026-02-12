@@ -13,9 +13,9 @@ const Footer = () => {
               {contactInfo.company.tagline} - Leading overseas education consultancy since {contactInfo.company.established}.
             </p>
             <div className="space-y-2 text-sm">
-              <p>📞 {contactInfo.primary.mobile}</p>
-              <p>📠 {contactInfo.primary.landline}</p>  
-              <p>✉️ {contactInfo.primary.email}</p>
+              <p>📞 <a href={`tel:${contactInfo.primary.mobile}`}>{contactInfo.primary.mobile}</a></p>
+              <p>📠 <a href={`tel:${contactInfo.primary.landline}`}>{contactInfo.primary.landline}</a></p>  
+              <p>✉️ <a href={`mailto:${contactInfo.primary.email}`}>{contactInfo.primary.email}</a></p>
             </div>
           </div>
           <div>
@@ -23,7 +23,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link href="/about" className="text-white hover:text-gray-300">About Us</Link></li>
               <li><Link href="/services" className="text-white hover:text-gray-300">Services</Link></li>
-              <li><Link href="/study-abroad" className="text-white hover:text-gray-300">Study Abroad</Link></li>
+
               <li><Link href="/blog" className="text-white hover:text-gray-300">Blog</Link></li>
               <li><Link href="/terms-conditions" className="text-white hover:text-gray-300">Terms & Conditions</Link></li>
               <li><Link href="/privacy-policy" className="text-white hover:text-gray-300">Privacy Policy</Link></li>
@@ -39,7 +39,7 @@ const Footer = () => {
                     {contactInfo.branches.ahmedabad.address}
                   </a>
                 </p>
-                <p className="text-white text-sm">📞 {contactInfo.branches.ahmedabad.mobile}</p>
+                <p className="text-white text-sm">📞 <a href={`tel:${contactInfo.branches.ahmedabad.mobile}`}>{contactInfo.branches.ahmedabad.mobile}</a></p>
               </div>
               <div>
                 <h5 className="font-medium !text-white">{contactInfo.branches.kukatpally.name}</h5>
@@ -48,7 +48,7 @@ const Footer = () => {
                     {contactInfo.branches.kukatpally.address}
                   </a>
                 </p>
-                <p className="text-white text-sm">📞 {contactInfo.branches.kukatpally.mobile}</p>
+                <p className="text-white text-sm">📞 <a href={`tel:${contactInfo.branches.kukatpally.mobile}`}>{contactInfo.branches.kukatpally.mobile}</a></p>
               </div>
             </div>
           </div>

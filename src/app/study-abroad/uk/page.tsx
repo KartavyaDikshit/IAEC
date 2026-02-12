@@ -1,26 +1,47 @@
+'use client';
+
 import contactInfo from '../../../../data/contact-info.json';
 import Image from 'next/image';
 import { studyAbroadCountries } from '../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const ukCountry = studyAbroadCountries.find(country => country.name === 'United Kingdom');
 
-export const metadata = {
-  title: "Study in UK 2025 - Top Universities, Student Visa & Scholarships | IAEC Consultants",
-  description: "Study in UK with IAEC expert guidance. Home to Oxford & Cambridge, 600,000+ international students. Get UK student visa, scholarships & post-study work opportunities. 95% visa success rate.",
-  keywords: "study in UK, UK universities for international students, UK student visa, study abroad Britain, UK education system, IAEC UK counseling, British universities admission, Tier 4 visa, Graduate Route visa, UK scholarships, Chevening scholarship",
-  openGraph: {
-    title: "Study in UK 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in UK. Expert counseling for top UK universities, student visa process, scholarships, and post-study work opportunities.",
-    images: ['/images/study-uk-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in UK 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in UK. Expert counseling for top UK universities, student visa process, scholarships, and post-study work opportunities.",
-  }
-};
-
 const StudyAbroadUkPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -29,8 +50,8 @@ const StudyAbroadUkPage = () => {
         <Image
           src={ukCountry?.heroImage || "/images/countries/uk.jpg"}
           alt="Study in the UK"
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: 'cover' }}
           className="z-0"
           priority
         />
@@ -44,10 +65,10 @@ const StudyAbroadUkPage = () => {
           Your gateway to global success.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#apply-now"className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          <a href="#apply-now" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
             Start Your UK Journey
           </a>
-          <a href="#universities"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+          <a href="#universities" ref={universitiesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
             View Top Universities
           </a>
         </div>
@@ -966,19 +987,17 @@ const StudyAbroadUkPage = () => {
               <a href="/contact"className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
-                Take Free Mock Test
-              </a>
+              
             </div>
             
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>{contactInfo.primary.mobile}</p>
+                <p><a href={`tel:${contactInfo.primary.mobile}`} className="!text-white">{contactInfo.primary.mobile}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>{contactInfo.primary.email}</p>
+                <p><a href={`mailto:${contactInfo.primary.email}`} className="!text-white">{contactInfo.primary.email}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>
@@ -988,6 +1007,7 @@ const StudyAbroadUkPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };
