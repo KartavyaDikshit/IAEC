@@ -41,7 +41,7 @@ function Editor({ onChange, value }: EditorProps) {
       <CKEditor
         editor={ClassicEditor as any}
         data={value}
-        onChange={(_event: EventInfo, editor: CKEditorInstance) => {
+        onChange={(_event: any, editor: any) => {
           const data = editor.getData();
           onChange(data);
         }}
