@@ -123,6 +123,11 @@ const ServicesPage = () => {
           </ul>
         </div>
       </div>
+      <div className="text-center mt-16">
+        <a href="/contact" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          Submit a query
+        </a>
+      </div>
     </div>
   </section>
 </main>

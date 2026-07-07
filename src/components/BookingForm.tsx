@@ -67,7 +67,16 @@ export default function BookingForm() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ ...formData, formType: 'booking' })
+        body: JSON.stringify({ 
+          formType: 'booking',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          data: {
+            destination: formData.destination,
+            message: formData.message
+          }
+        })
       });
 
       if (response.ok) {

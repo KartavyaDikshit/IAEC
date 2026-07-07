@@ -1,39 +1,62 @@
+'use client';
+
+'use client';
+
 import contactInfo from '../../../../data/contact-info.json';
 import Image from 'next/image';
 import { studyAbroadCountries } from '../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const irelandCountry = studyAbroadCountries.find(country => country.name === 'Ireland');
 
-export const metadata = {
-  title: "Study in Ireland 2025 - Top Universities, Student Visa & EU Benefits | IAEC Consultants",
-  description: "Study in Ireland with IAEC expert guidance. English-speaking EU country, world-class education. Get Irish student visa, 2-year stay back, EU work rights. 95% visa success rate.",
-  keywords: "study in Ireland, Ireland universities for international students, Ireland student visa, Ireland education system, IAEC Ireland counseling, Irish universities admission, Trinity College Dublin, UCD Ireland, EU study benefits",
-  openGraph: {
-    title: "Study in Ireland 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Ireland. Expert counseling for top Irish universities, student visa process, EU benefits, and post-study opportunities.",
-    images: ['/images/study-ireland-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in Ireland 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Ireland. Expert counseling for top Irish universities, student visa process, EU benefits, and post-study opportunities.",
-  }
-};
-
 const StudyAbroadIrelandPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src={irelandCountry?.heroImage || "/images/countries/ireland.jpg"}
-            alt="Study in Ireland"
-            layout="fill"
-            objectFit="cover"
-            className="z-0"
-            priority
-          />
+          src={irelandCountry?.heroImage || "/images/placeholders/default-country.png"}
+          alt="Study in Ireland"
+          fill
+          style={{ objectFit: 'cover' }}
+          className="z-0"
+          priority
+        />
           <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
               <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
@@ -44,10 +67,10 @@ const StudyAbroadIrelandPage = () => {
                   Your gateway to European innovation and culture.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+                  <a href="#apply-now" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                     Start Your Ireland Journey
                   </a>
-                  <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+                  <a href="#universities" ref={universitiesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
                     View Top Universities
                   </a>
                 </div>
@@ -817,6 +840,11 @@ const StudyAbroadIrelandPage = () => {
       </section>
 
       {/* FAQ Section */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify([{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the benefits of studying in Ireland as an EU country?","acceptedAnswer":{"@type":"Answer","text":"Ireland offers EU access, English instruction, 2-year post-study work rights, and pathways to EU residence and citizenship. Work anywhere in 27 EU countries after graduation."}},{"@type":"Question","name":"How much can I work while studying in Ireland on student visa?","acceptedAnswer":{"@type":"Answer","text":"International students can work 20 hours per week during term time and 40 hours per week during holidays without requiring a work permit."}},{"@type":"Question","name":"What is the Third Level Graduate Scheme and how long can I stay?","acceptedAnswer":{"@type":"Answer","text":"Master&apos;s graduates can stay 2 years, bachelor&apos;s graduates 1 year to work in Ireland. This provides pathway to Critical Skills Employment Permit and long-term residence."}},{"@type":"Question","name":"Which companies hire international graduates in Ireland?","acceptedAnswer":{"@type":"Answer","text":"1000+ MNCs including Google, Apple, Facebook, Microsoft, IBM, Pfizer, and financial services companies. Ireland is the European HQ for many global firms."}},{"@type":"Question","name":"What is the cost of studying in Ireland compared to other EU countries?","acceptedAnswer":{"@type":"Answer","text":"Ireland offers competitive tuition fees (€10,000-€25,000) with excellent ROI. Lower than UK, similar to Netherlands, higher than Germany but with English instruction."}},{"@type":"Question","name":"How can I get Irish citizenship and EU passport?","acceptedAnswer":{"@type":"Answer","text":"After 5 years of continuous residence in Ireland (including study + work periods), you can apply for Irish citizenship and EU passport, granting full EU rights."}}]}, {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.iaecconsultants.in/"},{"@type":"ListItem","position":2,"name":"Study Abroad","item":"https://www.iaecconsultants.in/study-abroad"},{"@type":"ListItem","position":3,"name":"Ireland","item":"https://www.iaecconsultants.in/study-abroad/ireland"}]}]) }}
+/>
+
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -878,19 +906,17 @@ const StudyAbroadIrelandPage = () => {
               <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
-                Take Free Mock Test
-              </a>
+              
             </div>
             
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>{contactInfo.primary.mobile}</p>
+                <p><a href={`tel:${contactInfo.primary.mobile}`} className="!text-white">{contactInfo.primary.mobile}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>{contactInfo.primary.email}</p>
+                <p><a href={`mailto:${contactInfo.primary.email}`} className="!text-white">{contactInfo.primary.email}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>
@@ -900,6 +926,7 @@ const StudyAbroadIrelandPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };

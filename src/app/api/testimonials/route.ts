@@ -1,72 +1,44 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { neon } from '@neondatabase/serverless';
+import { revalidatePath } from 'next/cache';
 
-import { NextResponse, NextRequest } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-
-const dataFilePath = path.join(process.cwd(), 'data', 'testimonials.json');
-
-interface Testimonial {
-  id: number;
-  name: string;
-  quote: string;
-}
+const sql = neon(process.env.NEON_DATABASE_URL!);
 
 export async function GET() {
   try {
-    const fileContents = fs.readFileSync(dataFilePath, 'utf8');
-    const testimonials: Testimonial[] = JSON.parse(fileContents);
-    return NextResponse.json({ testimonials: testimonials });
-  } catch (error) {
-    console.error('Error reading testimonials data:', error);
-    return NextResponse.json({ message: 'Error reading testimonials data' }, { status: 500 });
+    const testimonials = await sql`SELECT id, name, testimonial as content, rating, "imageUrl", "createdAt", university, course, country FROM "Testimonial" ORDER BY "createdAt" DESC`;
+    return NextResponse.json({ testimonials });
+  } catch (error: unknown) {
+    console.error('Error fetching testimonials:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    return NextResponse.json({ message: 'Error fetching testimonials', details: errorMessage }, { status: 500 });
   }
 }
 
-export async function PUT(request: NextRequest) {
-  const id = request.nextUrl.searchParams.get('id');
-  if (!id) {
-    return NextResponse.json({ message: 'Missing ID parameter' }, { status: 400 });
-  }
+export async function POST(req: NextRequest) {
   try {
-    const updatedTestimonial = await request.json();
-    const fileContents = fs.readFileSync(dataFilePath, 'utf8');
-    const testimonials: Testimonial[] = JSON.parse(fileContents);
-    const testimonialIndex = testimonials.findIndex((t) => t.id === parseInt(id));
+    const newTestimonial = await req.json();
 
-    if (testimonialIndex === -1) {
-      return NextResponse.json({ message: 'Testimonial not found' }, { status: 404 });
+    if (!newTestimonial || Object.keys(newTestimonial).length === 0) {
+      return NextResponse.json({ message: 'Testimonial data is empty' }, { status: 400 });
     }
 
-    testimonials[testimonialIndex] = { ...testimonials[testimonialIndex], ...updatedTestimonial };
-    fs.writeFileSync(dataFilePath, JSON.stringify(testimonials, null, 2));
+    const { name, testimonial, rating, imageUrl, university, course, country } = newTestimonial;
 
-    return NextResponse.json(testimonials[testimonialIndex]);
-  } catch {
-    return NextResponse.json({ message: 'Error updating testimonials data' }, { status: 500 });
-  }
-}
+    const result = await sql`
+      INSERT INTO "Testimonial" (name, testimonial, rating, "imageUrl", university, course, country)
+      VALUES (${name}, ${testimonial}, ${rating}, ${imageUrl}, ${university}, ${course}, ${country})
+      RETURNING id, name, testimonial, rating, "imageUrl", "createdAt", university, course, country;
+    `;
 
-export async function DELETE(request: NextRequest) {
-  const id = request.nextUrl.searchParams.get('id');
+    const createdTestimonial = result[0];
+    revalidatePath('/testimonials');
+    revalidatePath('/'); // Revalidate home page as well
 
-  if (!id) {
-    return NextResponse.json({ message: 'Missing ID parameter' }, { status: 400 });
-  }
-
-  try {
-    const fileContents = fs.readFileSync(dataFilePath, 'utf8');
-    const testimonials: Testimonial[] = JSON.parse(fileContents);
-    const testimonialIndex = testimonials.findIndex((t) => t.id === parseInt(id));
-
-    if (testimonialIndex === -1) {
-      return NextResponse.json({ message: 'Testimonial not found' }, { status: 404 });
-    }
-
-    testimonials.splice(testimonialIndex, 1);
-    fs.writeFileSync(dataFilePath, JSON.stringify(testimonials, null, 2));
-
-    return NextResponse.json({ message: 'Testimonial deleted successfully' });
-  } catch {
-    return NextResponse.json({ message: 'Error deleting testimonials data' }, { status: 500 });
+    return NextResponse.json({ message: 'Testimonial submitted successfully', testimonialId: createdTestimonial.id });
+  } catch (error: unknown) {
+    console.error('Testimonial submission error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    return NextResponse.json({ message: 'Error submitting testimonial', details: errorMessage }, { status: 500 });
   }
 }

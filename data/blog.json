@@ -2,11 +2,13 @@
   {
     "id": 1,
     "title": "First Blog Post",
-    "content": "This is the content of the first blog post."
+    "content": "This is the content of the first blog post.",
+    "imageUrl": "/images/all_images/blog.jpeg"
   },
   {
     "id": 2,
     "title": "Second Blog Post",
-    "content": "This is the content of the second blog post."
+    "content": "This is the content of the second blog post.",
+    "imageUrl": "/images/all_images/blog.jpeg"
   }
 ]

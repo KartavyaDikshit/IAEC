@@ -1,0 +1,526 @@
+IAEC Project: Image Upload Fix Roadmap
+Comprehensive Guide to Resolving Admin Dashboard Image Upload Issues
+Project: IAEC Consultants Website
+Tech Stack: Next.js, Neon Postgres Database, Vercel Deployment
+Issue: Image upload failures for blogs and testimonials in admin dashboard
+Repository: https://github.com/KartavyaDikshit/IAEC
+Live Site: https://www.iaecconsultants.in/
+________________________________________
+Executive Summary
+Your image upload failures stem from a fundamental Vercel deployment limitation: serverless functions cannot persistently write to the file system. When you attempt to save images to the public folder or any local directory, they're lost after the serverless function execution completes. This affects both blog and testimonial image uploads in your admin dashboard.
+Recommended Solution: Implement cloud storage (Vercel Blob, AWS S3, or Cloudinary) for image hosting while storing image URLs in your Neo4j database.
+________________________________________
+Phase 1: Problem Diagnosis & Root Cause Analysis
+Current Architecture Assessment
+What's Happening Now
+1.	Local Development: Image uploads work because files persist in your local file system
+2.	Production (Vercel): Uploads fail because Vercel's serverless environment is ephemeral
+3.	Neon Postgres Database: Likely storing file paths (e.g., /uploads/blogs/image.jpg) instead of accessible URLs
+4.	File Storage Attempt: Code tries to write to public folder or similar directory
+Why It Fails on Vercel
+┌─────────────────────────────────────────┐
+│ User uploads image from dashboard │
+└──────────────┬──────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────┐
+│ Next.js API route receives file │
+│ Attempts: multer.diskStorage() │
+│ Target: public/uploads/blogs/ │
+└──────────────┬──────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────┐
+│ Serverless function writes file │
+│ ✓ File temporarily exists │
+└──────────────┬──────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────┐
+│ Function execution completes │
+│ ✗ Container destroyed │
+│ ✗ File permanently lost │
+└──────────────┬──────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────┐
+│ Frontend tries to display image │
+│ Result: 404 Not Found │
+└─────────────────────────────────────────┘
+Key Issues:
+•	Vercel functions are stateless and ephemeral
+•	The public folder is built at deployment time and cannot be modified at runtime
+•	File system writes don't persist across function invocations
+•	4.5 MB limit on request body size for server-side uploads
+________________________________________
+Phase 2: Solution Architecture Design
+Option A: Vercel Blob Storage (Recommended for Vercel Deployment)
+Pros:
+•	Native Vercel integration
+•	Zero configuration for authentication
+•	Automatic CDN distribution
+•	Simple API
+•	Environment variable auto-configured
+Cons:
+•	Vendor lock-in to Vercel
+•	Pricing based on storage and bandwidth
+•	Limited to Vercel ecosystem
+Cost: Free tier available, then pay-as-you-go
+Implementation Complexity: Low (2-3 hours)
+Phase 3: Recommended Solution - Vercel Blob Implementation
+Step 1: Create Vercel Blob Store
+Time Estimate: 10 minutes
+Actions:
+1.	Go to Vercel Dashboard → Your Project → Storage tab
+2.	Click "Create Database" → Select "Blob"
+3.	Name your store: iaec-images or iaec-media
+4.	Select region: Choose closest to your target users
+5.	Click "Create"
+Result: Environment variable BLOB_READ_WRITE_TOKEN auto-added to project
+Step 2: Pull Environment Variables Locally
+Time Estimate: 5 minutes
+Commands:
+Install Vercel CLI if not already installed
+npm install -g vercel
+Login to Vercel
+vercel login
+Link project (run from project root)
+vercel link
+Pull environment variables
+vercel env pull .env.local
+Verify: Check .env.local contains BLOB_READ_WRITE_TOKEN
+Step 3: Install Required Dependencies
+Time Estimate: 5 minutes
+Commands:
+npm install @vercel/blob
+or
+yarn add @vercel/blob
+Update package.json:
+{
+"dependencies": {
+"@vercel/blob": "^0.20.0"
+}
+}
+Step 4: Modify Next.js Configuration
+Time Estimate: 10 minutes
+File: next.config.js or next.config.mjs
+Add Image Domain Configuration:
+/** @type {import('next').NextConfig} 
+
+
+
+
+
+/const nextConfig = {images: {remotePatterns: [{protocol: 'https',hostname: '.public.blob.vercel-storage.com',
+port: '',
+pathname: '/**',
+},
+],
+},
+// Increase body size limit for larger images
+api: {
+bodyParser: {
+sizeLimit: '10mb',
+},
+},
+}
+module.exports = nextConfig
+For TypeScript users (next.config.ts):
+import type { NextConfig } from 'next'
+const config: NextConfig = {
+images: {
+remotePatterns: [
+new URL('https://*.public.blob.vercel-storage.com/**'),
+],
+},
+}
+export default config
+Step 5: Create Blog Image Upload API Route
+Time Estimate: 30 minutes
+File: app/api/admin/blogs/upload/route.ts (App Router)
+Or: pages/api/admin/blogs/upload.ts (Pages Router)
+App Router Implementation:
+import { put } from '@vercel/blob';
+import { NextResponse } from 'next/server';
+export async function POST(request: Request) {
+try {
+// Get filename from query params
+const { searchParams } = new URL(request.url);
+const filename = searchParams.get('filename');
+if (!filename) {
+  return NextResponse.json(
+    { error: 'Filename is required' },
+    { status: 400 }
+  );
+}
+
+// Validate file type (optional but recommended)
+const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+const contentType = request.headers.get('content-type');
+
+if (contentType && !allowedTypes.includes(contentType)) {
+  return NextResponse.json(
+    { error: 'Invalid file type. Allowed: JPEG, PNG, WebP, GIF' },
+    { status: 400 }
+  );
+}
+
+// Upload to Vercel Blob
+const blob = await put(filename, request.body, {
+  access: 'public',
+  addRandomSuffix: true, // Prevents filename collisions
+});
+
+// Return the blob URL and metadata
+return NextResponse.json({
+  success: true,
+  url: blob.url,
+  downloadUrl: blob.downloadUrl,
+  pathname: blob.pathname,
+  contentType: blob.contentType,
+  size: blob.size,
+});
+
+} catch (error) {
+console.error('Blog image upload error:', error);
+return NextResponse.json(
+{ error: 'Failed to upload image' },
+{ status: 500 }
+);
+}
+}
+// Increase body size limit for this specific route
+export const config = {
+api: {
+bodyParser: false,
+},
+};
+Pages Router Implementation:
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { put } from '@vercel/blob';
+export default async function handler(
+req: NextApiRequest,
+res: NextApiResponse
+) {
+if (req.method !== 'POST') {
+return res.status(405).json({ error: 'Method not allowed' });
+}
+try {
+const { filename } = req.query;
+if (!filename || typeof filename !== 'string') {
+  return res.status(400).json({ error: 'Filename is required' });
+}
+
+const blob = await put(filename, req, {
+  access: 'public',
+  addRandomSuffix: true,
+});
+
+return res.status(200).json({
+  success: true,
+  url: blob.url,
+  downloadUrl: blob.downloadUrl,
+  pathname: blob.pathname,
+});
+
+} catch (error) {
+console.error('Upload error:', error);
+return res.status(500).json({ error: 'Failed to upload image' });
+}
+}
+export const config = {
+api: {
+bodyParser: false,
+},
+};
+Step 6: Create Testimonial Image Upload API Route
+Time Estimate: 15 minutes (copy and modify from blog route)
+File: app/api/admin/testimonials/upload/route.ts
+import { put } from '@vercel/blob';
+import { NextResponse } from 'next/server';
+export async function POST(request: Request) {
+try {
+const { searchParams } = new URL(request.url);
+const filename = searchParams.get('filename');
+if (!filename) {
+  return NextResponse.json(
+    { error: 'Filename is required' },
+    { status: 400 }
+  );
+}
+
+// Upload with testimonials-specific folder prefix
+const blob = await put(`testimonials/${filename}`, request.body, {
+  access: 'public',
+  addRandomSuffix: true,
+});
+
+return NextResponse.json({
+  success: true,
+  url: blob.url,
+  downloadUrl: blob.downloadUrl,
+  pathname: blob.pathname,
+});
+
+} catch (error) {
+console.error('Testimonial image upload error:', error);
+return NextResponse.json(
+{ error: 'Failed to upload image' },
+{ status: 500 }
+);
+}
+}
+export const config = {
+api: {
+bodyParser: false,
+},
+};
+Step 7: Update Frontend Upload Form
+Time Estimate: 45 minutes
+File: components/admin/BlogUploadForm.tsx (or similar)
+React Component with TypeScript:
+'use client';
+import { useState, useRef } from 'react';
+import Image from 'next/image';
+interface UploadResponse {
+success: boolean;
+url: string;
+downloadUrl: string;
+pathname: string;
+}
+export default function BlogImageUpload() {
+const [file, setFile] = useState<File | null>(null);
+const [imageUrl, setImageUrl] = useState<string | null>(null);
+const [uploading, setUploading] = useState(false);
+const [error, setError] = useState<string | null>(null);
+const inputRef = useRef<HTMLInputElement>(null);
+const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const selectedFile = e.target.files?.[0];
+if (selectedFile) {
+// Validate file size (e.g., max 5MB)
+if (selectedFile.size > 5 * 1024 * 1024) {
+setError('File size must be less than 5MB');
+return;
+}
+  // Validate file type
+  const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+  if (!allowedTypes.includes(selectedFile.type)) {
+    setError('Only JPEG, PNG, WebP, and GIF images are allowed');
+    return;
+  }
+
+  setFile(selectedFile);
+  setError(null);
+}
+
+};
+const handleUpload = async (e: React.FormEvent) => {
+e.preventDefault();
+if (!file) {
+  setError('Please select a file');
+  return;
+}
+
+setUploading(true);
+setError(null);
+
+try {
+  // Upload to API route
+  const response = await fetch(
+    `/api/admin/blogs/upload?filename=${encodeURIComponent(file.name)}`,
+    {
+      method: 'POST',
+      body: file,
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error('Upload failed');
+  }
+
+  const data: UploadResponse = await response.json();
+  
+  // Set the image URL for preview
+  setImageUrl(data.url);
+
+  // TODO: Save data.url to Neon Postgres database here
+  // await saveBlogImageToDatabase(data.url);
+
+  // Reset form
+  setFile(null);
+  if (inputRef.current) {
+    inputRef.current.value = '';
+  }
+
+} catch (err) {
+  console.error('Upload error:', err);
+  setError('Failed to upload image. Please try again.');
+} finally {
+  setUploading(false);
+}
+
+};
+return (
+<div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+Upload Blog Image
+  <form onSubmit={handleUpload} className="space-y-4">
+    <div>
+      <label 
+        htmlFor="image-upload" 
+        className="block text-sm font-medium text-gray-700 mb-2"
+      >
+        Choose Image
+      </label>
+      <input
+        ref={inputRef}
+        id="image-upload"
+        type="file"
+        accept="image/jpeg,image/png,image/webp,image/gif"
+        onChange={handleFileChange}
+        className="block w-full text-sm text-gray-500
+          file:mr-4 file:py-2 file:px-4
+          file:rounded-full file:border-0
+          file:text-sm file:font-semibold
+          file:bg-blue-50 file:text-blue-700
+          hover:file:bg-blue-100"
+      />
+      {file && (
+        <p className="mt-2 text-sm text-gray-600">
+          Selected: {file.name} ({(file.size / 1024).toFixed(2)} KB)
+        </p>
+      )}
+    </div>
+
+    {error && (
+      <div className="p-3 bg-red-50 border border-red-200 rounded-md">
+        <p className="text-sm text-red-600">{error}</p>
+      </div>
+    )}
+
+    <button
+      type="submit"
+      disabled={!file || uploading}
+      className="w-full bg-blue-600 text-white py-2 px-4 rounded-md
+        hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed
+        transition-colors duration-200"
+    >
+      {uploading ? 'Uploading...' : 'Upload Image'}
+    </button>
+  </form>
+
+  {imageUrl && (
+    <div className="mt-6">
+      <h3 className="text-lg font-semibold mb-2">Preview:</h3>
+      <div className="relative w-full h-64 bg-gray-100 rounded-md overflow-hidden">
+        <Image
+          src={imageUrl}
+          alt="Uploaded image"
+          fill
+          className="object-contain"
+        />
+      </div>
+      <p className="mt-2 text-xs text-gray-500 break-all">
+        URL: {imageUrl}
+      </p>
+    </div>
+  )}
+</div>
+
+);
+}
+Step 8: Update Neon Postgres Database Schema
+Time Estimate: 20 minutes
+Action 1: Create Tables (if not exists)
+-- Create blogs table
+CREATE TABLE IF NOT EXISTS blogs (
+id SERIAL PRIMARY KEY,
+title VARCHAR(255) NOT NULL,
+content TEXT NOT NULL,
+image_url TEXT,
+author VARCHAR(100) NOT NULL,
+published_at TIMESTAMP,
+created_at TIMESTAMP DEFAULT NOW(),
+updated_at TIMESTAMP DEFAULT NOW()
+);
+-- Create testimonials table
+CREATE TABLE IF NOT EXISTS testimonials (
+id SERIAL PRIMARY KEY,
+name VARCHAR(100) NOT NULL,
+content TEXT NOT NULL,
+image_url TEXT,
+rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+created_at TIMESTAMP DEFAULT NOW(),
+updated_at TIMESTAMP DEFAULT NOW()
+);
+-- Create indexes for better performance
+CREATE INDEX idx_blogs_published_at ON blogs(published_at DESC);
+CREATE INDEX idx_testimonials_created_at ON testimonials(created_at DESC);
+Action 2: Update Existing Records (if any with file paths)
+-- Find all blogs with old-style file paths
+SELECT id, title, image_url
+FROM blogs
+WHERE image_url LIKE '/%' OR image_url LIKE './%';
+-- Update to new URL format (after re-uploading to Vercel Blob)
+UPDATE blogs
+SET image_url = 'https://abc123.public.blob.vercel-storage.com/blogs/image-xyz789.jpg',
+updated_at = NOW()
+WHERE id = 1;
+-- Same for testimonials
+UPDATE testimonials
+SET image_url = 'https://abc123.public.blob.vercel-storage.com/testimonials/person-xyz.jpg',
+updated_at = NOW()
+WHERE id = 1;
+Step 9: Create Image Delete Functionality
+Time Estimate: 30 minutes
+File: app/api/admin/blogs/delete/route.ts
+import { del } from '@vercel/blob';
+import { NextResponse } from 'next/server';
+export async function DELETE(request: Request) {
+try {
+const { searchParams } = new URL(request.url);
+const url = searchParams.get('url');
+if (!url) {
+  return NextResponse.json(
+    { error: 'Image URL is required' },
+    { status: 400 }
+  );
+}
+
+// Delete from Vercel Blob
+await del(url);
+
+// TODO: Also delete from Neon Postgres database
+// await deleteBlogImageFromDatabase(url);
+
+return NextResponse.json({
+  success: true,
+  message: 'Image deleted successfully',
+});
+
+} catch (error) {
+console.error('Delete error:', error);
+return NextResponse.json(
+{ error: 'Failed to delete image' },
+{ status: 500 }
+);
+}
+}
+Step 10: Testing Checklist
+Time Estimate: 30 minutes
+Local Testing:
+•	[ ] Image upload works for blogs
+•	[ ] Image upload works for testimonials
+•	[ ] Uploaded images display correctly
+•	[ ] File size validation works
+•	[ ] File type validation works
+•	[ ] Error messages display properly
+•	[ ] Image URLs saved to Neo4j correctly
+Production Testing on Vercel:
+•	[ ] Deploy to Vercel
+•	[ ] Verify BLOB_READ_WRITE_TOKEN environment variable is set
+•	[ ] Test blog image upload
+•	[ ] Test testimonial image upload
+•	[ ] Verify images persist after refresh
+•	[ ] Check image URLs are accessible
+•	[ ] Test image deletion
+•	[ ] Verify Next.js Image component works with remote URLs

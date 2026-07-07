@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
-import testimonialsData from '../../../data/testimonials.json'; // Adjust path as needed
 
 interface Testimonial {
   id: string;
@@ -17,21 +16,70 @@ interface Testimonial {
 
 const TestimonialsCarousel = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
   const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const validTestimonials = testimonialsData.filter(
-      (testimonial) => testimonial.content && testimonial.name
-    );
-    setTestimonials(validTestimonials);
+    const fetchTestimonials = async () => {
+      try {
+        const res = await fetch('/api/testimonials');
+        const data = await res.json();
+        console.log('Fetched testimonials for carousel:', data.testimonials); // Add this line
+        setTestimonials(data.testimonials || []);
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+    };
+    fetchTestimonials();
   }, []);
+
+  const updateScrollButtons = useCallback(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    setCanScrollLeft(container.scrollLeft > 0);
+    setCanScrollRight(
+      container.scrollLeft < container.scrollWidth - container.clientWidth
+    );
+  }, []);
+
+  const smoothScroll = useCallback((direction: 'left' | 'right', amount: number = 300) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const startScrollLeft = container.scrollLeft;
+    const targetScrollLeft = direction === 'left' 
+      ? Math.max(0, startScrollLeft - amount)
+      : Math.min(container.scrollWidth - container.clientWidth, startScrollLeft + amount);
+    
+    const startTime = performance.now();
+    const duration = 500;
+
+    const animateScroll = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      
+      container.scrollLeft = startScrollLeft + (targetScrollLeft - startScrollLeft) * easeOut;
+      
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      } else {
+        updateScrollButtons();
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  }, [updateScrollButtons]);
 
   const autoScroll = useCallback(() => {
     if (isPaused) return;
     
-    const container = carouselRef.current;
+    const container = scrollContainerRef.current;
     if (!container) return;
 
     container.scrollLeft += 0.5; // Using a fixed speed for auto-scroll
@@ -44,17 +92,24 @@ const TestimonialsCarousel = () => {
   }, [isPaused]);
 
   useEffect(() => {
-    const container = carouselRef.current;
+    const container = scrollContainerRef.current;
     if (!container) return;
 
     animationRef.current = requestAnimationFrame(autoScroll);
+
+    const handleScroll = () => {
+      updateScrollButtons();
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
+      container.removeEventListener('scroll', handleScroll);
     };
-  }, [autoScroll]);
+  }, [autoScroll, updateScrollButtons]);
 
   if (testimonials.length === 0) {
     return null;
@@ -69,11 +124,43 @@ const TestimonialsCarousel = () => {
           What Our Students Say
         </h2>
         <div className="relative">
+          <button
+            onClick={() => smoothScroll('left')}
+            disabled={!canScrollLeft}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full 
+              bg-white shadow-lg flex items-center justify-center transition-all duration-200
+              ${canScrollLeft 
+                ? 'text-primary hover:bg-primary hover:text-white hover:shadow-xl' 
+                : 'text-gray-300 cursor-not-allowed'
+              }`}
+            aria-label="Scroll left"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <button
+            onClick={() => smoothScroll('right')}
+            disabled={!canScrollRight}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full 
+              bg-white shadow-lg flex items-center justify-center transition-all duration-200
+              ${canScrollRight 
+                ? 'text-primary hover:bg-primary hover:text-white hover:shadow-xl' 
+                : 'text-gray-300 cursor-not-allowed'
+              }`}
+            aria-label="Scroll right"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
           <div
-            ref={carouselRef}
+            ref={scrollContainerRef}
             className="overflow-x-auto scrollbar-hide px-12"
-            onMouseEnter={() => isPaused && setIsPaused(true)}
-            onMouseLeave={() => isPaused && setIsPaused(false)}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             <div className="flex gap-6 pb-4">

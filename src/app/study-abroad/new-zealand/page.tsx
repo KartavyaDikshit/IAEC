@@ -1,27 +1,59 @@
+'use client';
+
+import contactInfo from '../../../../data/contact-info.json';
 import Image from 'next/image';
 import { studyAbroadCountries } from '../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const newZealandCountry = studyAbroadCountries.find(country => country.name === 'New Zealand');
 
-export const metadata = {
-  title: "Study in New Zealand - Top Universities, Student Visa Guide 2025 | IAEC",
-  description: "Study in New Zealand with IAEC guidance. Beautiful landscapes, quality education, post-study work opportunities. Safe & welcoming environment for international students.",
-  keywords: "study in New Zealand, New Zealand universities international students, New Zealand student visa, study abroad New Zealand, IAEC New Zealand counseling, Kiwi education"
-};
-
 const StudyAbroadNewZealandPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <main>
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
-          <Image
-            src={newZealandCountry?.heroImage || "/images/countries/newzealand.jpg"}
-            alt="Study in New Zealand"
-            layout="fill"
-            objectFit="cover"
-            className="z-0"
-            priority
-          />
+<Image
+          src={newZealandCountry?.heroImage || "/images/placeholders/default-country.png"}
+          alt="Study in New Zealand"
+          fill
+          style={{ objectFit: 'cover' }}
+          className="z-0"
+          priority
+        />
           <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
               <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
@@ -32,10 +64,10 @@ const StudyAbroadNewZealandPage = () => {
                   Your adventure in world-class education starts here.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+                  <a href="#apply-now-section" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                     Start Your New Zealand Journey
                   </a>
-                  <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+                  <a href="#universities" ref={universitiesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
                     View Top Universities
                   </a>
                 </div>
@@ -103,7 +135,7 @@ const StudyAbroadNewZealandPage = () => {
             </div>
           </div>
 
-          <div className="mb-12">
+          <section id="universities" className="mb-12">
             <h2 className="text-3xl font-bold text-[#1a202c] mb-6">Top New Zealand Universities</h2>
             <div className="overflow-x-auto">
               <table className="w-full bg-white rounded-lg shadow-lg">
@@ -143,7 +175,7 @@ const StudyAbroadNewZealandPage = () => {
                 </tbody>
               </table>
             </div>
-          </div>
+          </section>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg">
@@ -179,6 +211,40 @@ const StudyAbroadNewZealandPage = () => {
           </div>
         </div>
       </section>
+      <section id="apply-now-section" className="py-20 bg-gradient-to-r from-[#08bcb4] to-[#069aa2] text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6">
+              Ready to Start Your New Zealand Adventure?
+            </h2>
+            <p className="text-xl mb-8 text-blue-100">
+              Join thousands of successful students who chose New Zealand and now enjoy global careers and a vibrant lifestyle
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
+                Book Free Counselling
+              </a>
+              
+            </div>
+            
+            <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
+              <div className="bg-white/10 p-6 rounded-xl">
+                <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
+                <p><a href={`tel:${contactInfo.primary.mobile}`} className="!text-white">{contactInfo.primary.mobile}</a></p>
+              </div>
+              <div className="bg-white/10 p-6 rounded-xl">
+                <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
+                <p><a href={`mailto:${contactInfo.primary.email}`} className="!text-white">{contactInfo.primary.email}</a></p>
+              </div>
+              <div className="bg-white/10 p-6 rounded-xl">
+                <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>
+                <p>Ahmedabad, India</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </main>
   );
 };

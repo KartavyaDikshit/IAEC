@@ -1,39 +1,60 @@
+'use client';
+
 import Image from 'next/image';
 import contactInfo from '../../../../../data/contact-info.json';
 import { studyAbroadCountries } from '../../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const latviaCountry = studyAbroadCountries.find(country => country.name === 'Latvia');
 
-export const metadata = {
-  title: "Study in Latvia 2025 - Top Universities, Student Visa & Affordable EU Education | IAEC Consultants",
-  description: "Study in Latvia with IAEC expert guidance. Affordable EU education, quality universities, low living costs. Get Latvian student visa, work rights, residence pathways. 95% visa success rate.",
-  keywords: "study in Latvia, Latvia universities for international students, Latvia student visa, Latvia education system, IAEC Latvia counseling, University of Latvia, affordable EU education, Baltic region study abroad",
-  openGraph: {
-    title: "Study in Latvia 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Latvia. Expert counseling for top Latvian universities, student visa process, affordable EU education, and Baltic lifestyle.",
-    images: ['/images/study-latvia-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in Latvia 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Latvia. Expert counseling for top Latvian universities, student visa process, affordable EU education, and Baltic lifestyle.",
-  }
-};
-
 const StudyAbroadLatviaPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src={latviaCountry?.heroImage || "/images/countries/latvia.jpg"}
-            alt="Study in Latvia"
-            layout="fill"
-            objectFit="cover"
-            className="z-0"
-            priority
-          />
+          src={latviaCountry?.heroImage || "/images/placeholders/default-country.png"}
+          alt="Study in Latvia"
+          fill
+          style={{ objectFit: 'cover' }}
+          className="z-0"
+          priority
+        />
           <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
         </div>
         <div className="container mx-auto px-4 relative z-10 animate-fade-in text-shadow-md">
@@ -45,10 +66,10 @@ const StudyAbroadLatviaPage = () => {
               Affordable European education with a vibrant student life.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now"className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+              <a href="#apply-now" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                 Start Your Latvia Journey
               </a>
-              <a href="#universities"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+              <a href="#universities" ref={universitiesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
                 View Top Universities
               </a>
             </div>
@@ -845,6 +866,11 @@ const StudyAbroadLatviaPage = () => {
       </section>
 
       {/* FAQ Section */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify([{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Latvia a good choice for international students?","acceptedAnswer":{"@type":"Answer","text":"Yes, Latvia offers excellent value with affordable tuition, quality education, EU benefits, and a safe, welcoming environment for international students."}},{"@type":"Question","name":"Can I work while studying in Latvia?","acceptedAnswer":{"@type":"Answer","text":"Yes, international students can work up to 20 hours per week during studies and full-time during breaks without needing a separate work permit."}},{"@type":"Question","name":"Are there English-taught programs in Latvia?","acceptedAnswer":{"@type":"Answer","text":"Yes, Latvian universities offer extensive English-taught programs at all levels, from bachelor&apos;s to PhD across various disciplines."}},{"@type":"Question","name":"What are the living costs like in Latvia?","acceptedAnswer":{"@type":"Answer","text":"Latvia has among the lowest living costs in Europe, with students typically spending €350-850 per month including accommodation, food, and personal expenses."}},{"@type":"Question","name":"Can I stay in Latvia after graduation?","acceptedAnswer":{"@type":"Answer","text":"Yes, graduates can apply for work permits and eventually permanent residence. Latvia offers pathways to long-term settlement and EU citizenship."}},{"@type":"Question","name":"How is the weather and lifestyle in Latvia?","acceptedAnswer":{"@type":"Answer","text":"Latvia has a temperate climate with distinct seasons. The lifestyle balances modern city amenities with beautiful nature, offering excellent work-life balance."}}]}, {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.iaecconsultants.in/"},{"@type":"ListItem","position":2,"name":"Study Abroad","item":"https://www.iaecconsultants.in/study-abroad"},{"@type":"ListItem","position":3,"name":"Latvia","item":"https://www.iaecconsultants.in/study-abroad/latvia"}]}]) }}
+/>
+
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -906,19 +932,17 @@ const StudyAbroadLatviaPage = () => {
               <a href="/contact"className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
-                Take Free Mock Test
-              </a>
+              
             </div>
             
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>{contactInfo.primary.mobile}</p>
+                <p><a href={`tel:${contactInfo.primary.mobile}`}>{contactInfo.primary.mobile}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>{contactInfo.primary.email}</p>
+                <p><a href={`mailto:${contactInfo.primary.email}`}>{contactInfo.primary.email}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>
@@ -928,6 +952,7 @@ const StudyAbroadLatviaPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };

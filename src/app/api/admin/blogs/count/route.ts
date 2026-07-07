@@ -1,19 +1,9 @@
 import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
-import fs from 'fs/promises'
-import path from 'path'
+import { neon } from '@neondatabase/serverless';
 
-const BLOGS_FILE = path.join(process.cwd(), 'data/blogs.json')
-
-async function readBlogs() {
-  try {
-    const data = await fs.readFile(BLOGS_FILE, 'utf-8')
-    return JSON.parse(data)
-  } catch {
-    return []
-  }
-}
+const sql = neon(process.env.NEON_DATABASE_URL!);
 
 export async function GET() {
   const session = await getServerSession(authOptions)
@@ -22,9 +12,11 @@ export async function GET() {
   }
 
   try {
-    const blogs = await readBlogs()
-    return NextResponse.json({ count: blogs.length })
-  } catch (_error) {
+    const result = await sql`SELECT COUNT(*) FROM "Blog"`;
+    const count = parseInt(result[0].count);
+    return NextResponse.json({ count })
+  } catch (error) {
+    console.error('Error counting blogs:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

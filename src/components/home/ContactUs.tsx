@@ -10,7 +10,7 @@ const ContactUs = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4" style={{ color: '#08bcb4' }}>Get in Touch</h3>
             <p className="text-gray-800 mb-2"><strong>Address:</strong> IAEC Consultants Pvt Ltd - Ahmedabad</p>
-            <p className="text-gray-800 mb-2"><strong>Email:</strong> info@iaecconsultants.com</p>
+            <p className="text-gray-800 mb-2"><strong>Email:</strong> <a href="mailto:info@iaecconsultants.com">info@iaecconsultants.com</a></p>
             <p className="text-gray-800 mb-2"><strong>Phone:</strong> +91-XXXXXXXXXX</p>
           </div>
           <div>

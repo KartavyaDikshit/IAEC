@@ -1,39 +1,60 @@
+'use client';
+
 import Image from 'next/image';
 import contactInfo from '../../../../../data/contact-info.json';
 import { studyAbroadCountries } from '../../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const italyCountry = studyAbroadCountries.find(country => country.name === 'Italy');
 
-export const metadata = {
-  title: "Study in Italy 2025 - Top Universities, Student Visa & Art Culture | IAEC Consultants",
-  description: "Study in Italy with IAEC expert guidance. Art, culture, design excellence, affordable education. Get Italian student visa, residence permit, EU benefits. 95% visa success rate.",
-  keywords: "study in Italy, Italy universities for international students, Italy student visa, Italy education system, IAEC Italy counseling, Italian universities admission, Bologna Sapienza Milan, EU study benefits, art design Italy",
-  openGraph: {
-    title: "Study in Italy 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Italy. Expert counseling for top Italian universities, student visa process, art & design programs, and EU opportunities.",
-    images: ['/images/study-italy-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in Italy 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Italy. Expert counseling for top Italian universities, student visa process, art & design programs, and EU opportunities.",
-  }
-};
-
 const StudyAbroadItalyPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src={italyCountry?.heroImage || "/images/countries/italy.jpg"}
-            alt="Study in Italy"
-            layout="fill"
-            objectFit="cover"
-            className="z-0"
-            priority
-          />
+          src={italyCountry?.heroImage || "/images/placeholders/default-country.png"}
+          alt="Study in Italy"
+          fill
+          style={{ objectFit: 'cover' }}
+          className="z-0"
+          priority
+        />
           <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
         </div>
         <div className="container mx-auto px-4 relative z-10 animate-fade-in text-shadow-md">
@@ -45,10 +66,10 @@ const StudyAbroadItalyPage = () => {
               Immerse yourself in art, history, and world-class education.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#apply-now"className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+              <a href="#apply-now" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
                 Start Your Italy Journey
               </a>
-              <a href="#universities"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+              <a href="#universities" ref={universitiesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
                 View Top Universities
               </a>
             </div>
@@ -842,6 +863,11 @@ const StudyAbroadItalyPage = () => {
       </section>
 
       {/* FAQ Section */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify([{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need to know Italian to study in Italy?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. Many programs are taught in English, especially at master&apos;s level. However, basic Italian helps with daily life and enhances job opportunities."}},{"@type":"Question","name":"How much can I work while studying in Italy on student visa?","acceptedAnswer":{"@type":"Answer","text":"International students can work up to 20 hours per week during studies and full-time during academic breaks without requiring a separate work permit."}},{"@type":"Question","name":"What is ISEE and how does it help reduce tuition fees?","acceptedAnswer":{"@type":"Answer","text":"ISEE (Equivalent Economic Situation Indicator) assesses family income to determine tuition fees. Lower income families can pay as little as €900/year at public universities."}},{"@type":"Question","name":"Can I stay in Italy after graduation to work?","acceptedAnswer":{"@type":"Answer","text":"Yes, graduates get a 12-month job search visa. Once employed, you can convert to a work permit and eventually apply for EU residence."}},{"@type":"Question","name":"What is Universitaly portal and is it mandatory?","acceptedAnswer":{"@type":"Answer","text":"Universitaly is the official portal for university pre-enrollment in Italy. It&apos;s mandatory for non-EU students to complete pre-enrollment for visa application."}},{"@type":"Question","name":"Which Italian cities are best for international students?","acceptedAnswer":{"@type":"Answer","text":"Milan (fashion/design), Rome (history/culture), Florence (art), Bologna (oldest university), and Turin (automotive) are top choices with vibrant student communities."}}]}, {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.iaecconsultants.in/"},{"@type":"ListItem","position":2,"name":"Study Abroad","item":"https://www.iaecconsultants.in/study-abroad"},{"@type":"ListItem","position":3,"name":"Italy","item":"https://www.iaecconsultants.in/study-abroad/italy"}]}]) }}
+/>
+
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -903,19 +929,17 @@ const StudyAbroadItalyPage = () => {
               <a href="/contact"className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
-                Take Free Mock Test
-              </a>
+              
             </div>
             
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>{contactInfo.primary.mobile}</p>
+                <p><a href={`tel:${contactInfo.primary.mobile}`}>{contactInfo.primary.mobile}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>{contactInfo.primary.email}</p>
+                <p><a href={`mailto:${contactInfo.primary.email}`}>{contactInfo.primary.email}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>
@@ -925,6 +949,7 @@ const StudyAbroadItalyPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };

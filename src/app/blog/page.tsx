@@ -1,37 +1,50 @@
-
-'use client'
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import fs from 'fs'
+import path from 'path'
 
 interface Blog {
   id: string
   title: string
+  slug?: string
   content: string
   author: string
-  createdAt: string
-  status: string
+  imageUrl: string
 }
 
-export default function BlogPage() {
-  const [blogs, setBlogs] = useState<Blog[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetchPublishedBlogs()
-  }, [])
-
-  const fetchPublishedBlogs = async () => {
-    try {
-      const response = await fetch('/api/blog')
-      const data = await response.json()
-      setBlogs(data.blogs.filter((blog: Blog) => blog.status === 'published'))
-    } catch (error) {
-      console.error('Error fetching blogs:', error)
-    } finally {
-      setLoading(false)
+async function getBlogs(): Promise<Blog[]> {
+  try {
+    const filePath = path.join(process.cwd(), 'data', 'blogs.json')
+    if (!fs.existsSync(filePath)) {
+      return []
     }
+    const fileData = fs.readFileSync(filePath, 'utf8')
+    const parsedData = JSON.parse(fileData)
+    // Map blog id to string if it's not
+    return (parsedData.blogs || parsedData || []).map((blog: any) => ({
+      ...blog,
+      id: String(blog.id)
+    }))
+  } catch (error) {
+    console.error('Error reading blogs:', error)
+    return []
   }
+}
+
+const stripHtml = (html: string) => {
+  if (!html) return '';
+  const text = html.replace(/<[^>]*>?/gm, '');
+  // Remove "Introduction" header text if it appears at the start
+  return text.replace(/^Introduction\s*/i, '');
+};
+
+export const metadata = {
+  title: 'Blog | IAEC Consultants',
+  description: 'Read the latest insights, news, and updates about studying abroad from IAEC Consultants.',
+};
+
+export default async function BlogPage() {
+  const blogs = await getBlogs()
 
   return (
     <>
@@ -40,8 +53,8 @@ export default function BlogPage() {
           <Image
             src="/images/all_images/blog.jpeg"
             alt="Blog"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className="z-0"
             priority
           />
@@ -54,34 +67,38 @@ export default function BlogPage() {
             <a href="#articles" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
               Read Our Blog
             </a>
-            <a href="#articles" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
-              View All Articles
-            </a>
           </div>
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-16">
-        {loading ? (
-          <div className="text-center py-12">Loading articles...</div>
-        ) : blogs.length === 0 ? (
+      <div id="articles" className="container mx-auto px-4 py-16">
+        {blogs.length === 0 ? (
           <div className="text-center py-12 text-gray-500">No articles published yet.</div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
               <article key={blog.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
+                {blog.imageUrl && (
+                  <div className="relative h-48 w-full">
+                    <Image
+                      src={blog.imageUrl}
+                      alt={blog.title}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                )}
                 <div className="p-6">
                   <h2 className="text-xl font-bold text-[#1a202c] mb-3 hover:text-[#08bcb4] transition-colors">
-                    <Link href={`/blog/${blog.id}`}>
+                    <Link href={`/blog/${blog.slug || blog.id}`}>
                       {blog.title}
                     </Link>
                   </h2>
                   <p className="text-[#4a5568] mb-4">
-                    {blog.content.substring(0, 150)}...
+                    {stripHtml(blog.content).substring(0, 150)}...
                   </p>
                   <div className="flex items-center justify-between text-sm text-[#718096]">
                     <span>By {blog.author}</span>
-                    <span>{new Date(blog.createdAt).toLocaleDateString()}</span>
                   </div>
                 </div>
               </article>

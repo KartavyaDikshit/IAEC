@@ -8,23 +8,55 @@ export default function CreateTestimonial() {
   const [success, setSuccess] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
-    content: '',
+    testimonial: '',
+    rating: 5,
+    imageUrl: '',
     university: '',
     course: '',
     country: '',
-    rating: 5,
-    imageUrl: ''
   })
+  const [file, setFile] = useState<File | null>(null)
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setFile(e.target.files[0])
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+
+    let imageUrl = ''
+    if (file) {
+      try {
+        const response = await fetch(
+          `/api/admin/testimonials/upload?filename=${encodeURIComponent(file.name)}`,
+          {
+            method: 'POST',
+            body: file,
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Upload failed');
+        }
+
+        const data = await response.json();
+        imageUrl = data.url;
+      } catch (error) {
+        console.error('Error uploading image:', error)
+        alert('Error uploading image')
+        setLoading(false)
+        return
+      }
+    }
     
     try {
-      const response = await fetch('/api/admin/testimonials', {
+      const response = await fetch('/api/testimonials', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({ ...formData, imageUrl })
       })
       
       if (response.ok) {
@@ -87,60 +119,6 @@ export default function CreateTestimonial() {
             </div>
 
             <div>
-              <label htmlFor="university" className="block text-sm font-medium text-gray-700 mb-2">
-                University
-              </label>
-              <input
-                type="text"
-                id="university"
-                value={formData.university}
-                onChange={(e) => setFormData({ ...formData, university: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
-                required
-              />
-            </div>
-
-            <div>
-              <label htmlFor="course" className="block text-sm font-medium text-gray-700 mb-2">
-                Course
-              </label>
-              <input
-                type="text"
-                id="course"
-                value={formData.course}
-                onChange={(e) => setFormData({ ...formData, course: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
-                required
-              />
-            </div>
-
-            <div>
-              <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
-                Country
-              </label>
-              <select
-                id="country"
-                value={formData.country}
-                onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
-                required
-              >
-                <option value="">Select Country</option>
-                <option value="USA">USA</option>
-                <option value="UK">UK</option>
-                <option value="Australia">Australia</option>
-                <option value="Canada">Canada</option>
-                <option value="Germany">Germany</option>
-                <option value="France">France</option>
-                <option value="Italy">Italy</option>
-                <option value="Ireland">Ireland</option>
-                <option value="Malta">Malta</option>
-                <option value="Latvia">Latvia</option>
-                <option value="New Zealand">New Zealand</option>
-              </select>
-            </div>
-
-            <div>
               <label htmlFor="rating" className="block text-sm font-medium text-gray-700 mb-2">
                 Rating
               </label>
@@ -157,39 +135,68 @@ export default function CreateTestimonial() {
                 <option value={5}>5 Stars</option>
               </select>
             </div>
+          </div>
 
+          <div>
+            <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-2">
+              Image
+            </label>
+            <input
+              type="file"
+              id="image"
+              onChange={handleFileChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700 mb-2">
-                Upload Image (Optional)
+              <label htmlFor="university" className="block text-sm font-medium text-gray-700 mb-2">
+                University
               </label>
               <input
-                type="file"
-                id="imageUrl"
-                accept="image/*"
-                onChange={(e) => {
-                  const file = e.target.files?.[0];
-                  if (file) {
-                    const reader = new FileReader();
-                    reader.onloadend = () => {
-                      setFormData({ ...formData, imageUrl: reader.result as string });
-                    };
-                    reader.readAsDataURL(file);
-                  }
-                }}
+                type="text"
+                id="university"
+                value={formData.university}
+                onChange={(e) => setFormData({ ...formData, university: e.target.value })}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
+              />
+            </div>
+            <div>
+              <label htmlFor="course" className="block text-sm font-medium text-gray-700 mb-2">
+                Course
+              </label>
+              <input
+                type="text"
+                id="course"
+                value={formData.course}
+                onChange={(e) => setFormData({ ...formData, course: e.target.value })}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
+              />
+            </div>
+            <div>
+              <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
+                Country
+              </label>
+              <input
+                type="text"
+                id="country"
+                value={formData.country}
+                onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
               />
             </div>
           </div>
 
           <div>
-            <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="testimonial" className="block text-sm font-medium text-gray-700 mb-2">
               Testimonial Content
             </label>
             <textarea
-              id="content"
+              id="testimonial"
               rows={8}
-              value={formData.content}
-              onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+              value={formData.testimonial}
+              onChange={(e) => setFormData({ ...formData, testimonial: e.target.value })}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
               placeholder="Write the student's testimonial here..."
               required

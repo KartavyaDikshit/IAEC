@@ -1,28 +1,49 @@
+'use client';
+
 import contactInfo from '../../../../data/contact-info.json';
 import studyAbroadData from '../../../../data/study-abroad.json';
 import Image from 'next/image';
 import { studyAbroadCountries } from '../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const australiaCountry = studyAbroadCountries.find(country => country.name === 'Australia');
 
-export const metadata = {
-  title: "Study in Australia 2025 - Top Universities, Student Visa & Scholarships | IAEC Consultants",
-  description: "Study in Australia with IAEC expert guidance. 2.5M+ global graduates, world-class universities. Get Student Visa Subclass 500, work opportunities & post-study migration. 95% visa success rate.",
-  keywords: "study in Australia, Australia universities for international students, student visa subclass 500, study abroad Australia, Australia education system, IAEC Australia counseling, Australian universities admission, post study work visa, Australia migration, Melbourne Sydney universities",
-  openGraph: {
-    title: "Study in Australia 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Australia. Expert counseling for top Australian universities, student visa process, scholarships, and migration opportunities.",
-    images: ['/images/study-australia-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in Australia 2025 - Top Universities & Student Visa Guide | IAEC",
-    description: "Complete guide to studying in Australia. Expert counseling for top Australian universities, student visa process, scholarships, and migration opportunities.",
-  }
-};
-
 const StudyAbroadAustraliaPage = () => {
   const pageData = studyAbroadData.australia;
+
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -30,13 +51,13 @@ const StudyAbroadAustraliaPage = () => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
                   <Image
-                    src={australiaCountry?.heroImage || "/images/countries/australia.jpg"}
-                    alt="Study in Australia"
-                    layout="fill"
-                    objectFit="cover"
-                    className="z-0"
-                    priority
-                  />          <div className="absolute inset-0 bg-black opacity-50"></div>
+          src={australiaCountry?.heroImage || "/images/placeholders/default-country.png"}
+          alt="Study in Australia"
+          fill
+          style={{ objectFit: 'cover' }}
+          className="z-0"
+          priority
+        />          <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
       <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
         <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">
@@ -46,10 +67,10 @@ const StudyAbroadAustraliaPage = () => {
           Your journey to world-class education begins here.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          <a href="#apply-now" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
             Start Your Australia Journey
           </a>
-          <a href="#universities" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+          <a href="#universities" ref={universitiesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
             View Top Universities
           </a>
         </div>
@@ -877,6 +898,11 @@ const StudyAbroadAustraliaPage = () => {
       </section>
 
       {/* FAQ Section */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify([{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the minimum IELTS score required for Australian universities?","acceptedAnswer":{"@type":"Answer","text":"Most Australian universities require IELTS 6.0 for undergraduate and 6.5-7.0 for postgraduate courses. Requirements vary by course and university."}},{"@type":"Question","name":"How much can I work on Student Visa Subclass 500?","acceptedAnswer":{"@type":"Answer","text":"International students can work 48 hours per fortnight during study periods and unlimited hours during scheduled course breaks."}},{"@type":"Question","name":"What is the new Student Visa 500 fee from 2025?","acceptedAnswer":{"@type":"Answer","text":"From July 2025, the Student Visa Subclass 500 application fee increased to AUD $2,000 per application, unless you are exempt from fee increases."}},{"@type":"Question","name":"Can I get permanent residency after studying in Australia?","acceptedAnswer":{"@type":"Answer","text":"Yes, through various skilled migration pathways including Skilled Independent (189), Skilled Nominated (190), and Regional Skilled (491) visas after gaining work experience."}},{"@type":"Question","name":"What is the cost of living in Australia for students?","acceptedAnswer":{"@type":"Answer","text":"Average annual living costs range from AUD $20,000-30,000 including accommodation, food, transport, and personal expenses, varying by city and lifestyle."}},{"@type":"Question","name":"Which Australian cities are best for international students?","acceptedAnswer":{"@type":"Answer","text":"Melbourne, Sydney, Brisbane, Perth, and Adelaide offer excellent universities, job opportunities, and quality of life. Melbourne and Sydney are the most popular choices."}}]}, {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.iaecconsultants.in/"},{"@type":"ListItem","position":2,"name":"Study Abroad","item":"https://www.iaecconsultants.in/study-abroad"},{"@type":"ListItem","position":3,"name":"Australia","item":"https://www.iaecconsultants.in/study-abroad/australia"}]}]) }}
+/>
+
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -938,19 +964,17 @@ const StudyAbroadAustraliaPage = () => {
               <a href="/contact" className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
-                Take Free Mock Test
-              </a>
+              
             </div>
             
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>{contactInfo.primary.mobile}</p>
+                <p><a href={`tel:${contactInfo.primary.mobile}`} className="!text-white">{contactInfo.primary.mobile}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>{contactInfo.primary.email}</p>
+                <p><a href={`mailto:${contactInfo.primary.email}`} className="!text-white">{contactInfo.primary.email}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>
@@ -960,6 +984,7 @@ const StudyAbroadAustraliaPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };

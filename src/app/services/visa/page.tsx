@@ -1,33 +1,64 @@
-import Image from "next/image";
+'use client';
 
-export const metadata = {
-  title: "Student Visa Services - USA, UK, Australia, Canada Visa Assistance | IAEC",
-  description: "Expert student visa services with 95% success rate. F1, Tier 4, Subclass 500, Study Permit assistance. Complete documentation & interview preparation.",
-  keywords: "student visa services, visa assistance, F1 visa, Tier 4 visa, study permit, visa interview preparation, IAEC visa services, student visa consultancy"
-};
+import Image from "next/image";
+import { useEffect, useRef } from 'react';
 
 const VisaPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const servicesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentServicesRef = servicesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentServicesRef) {
+      currentServicesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentServicesRef) {
+        currentServicesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
-    <><main>
+    <main>
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/all_images/visa.jpg"
-            alt="Student Visa Services"
-            layout="fill"
-            objectFit="cover"
+            src="/images/all_images/visa2.jpeg"
+            alt="Visa Assistance"
+            fill
+            style={{ objectFit: 'cover' }}
             className="z-0"
-            priority />
+            priority
+          />
           <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
         <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
           <h1 className="text-6xl font-extrabold !text-white mb-6 leading-tight">Student Visa Services</h1>
           <p className="text-2xl mb-8 text-white/90">Expert visa assistance with 95% success rate for USA, UK, Australia, Canada, and European countries</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="#apply-now" className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+            <a href="#visa-service-section" ref={applyNowRef} className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
               Start Your Visa Journey
             </a>
-            <a href="#services" className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+            <a href="#services-section" ref={servicesRef} className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
               View All Services
             </a>
           </div>
@@ -53,7 +84,7 @@ const VisaPage = () => {
             </div>
           </div>
 
-          <div className="mb-16">
+          <div id="services-section" className="mb-16">
             <h2 className="text-3xl font-bold text-[#1a202c] mb-8 text-center">Country-Specific Visa Services</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -216,7 +247,7 @@ const VisaPage = () => {
             </div>
           </div>
 
-          <div className="bg-[#f7fafc] p-8 rounded-lg mb-12">
+          <div id="visa-service-section" className="bg-[#f7fafc] p-8 rounded-lg mb-12">
             <h2 className="text-3xl font-bold text-[#1a202c] mb-6 text-center">Our Visa Process</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
               <div className="text-center">
@@ -292,9 +323,8 @@ const VisaPage = () => {
           </div>
         </div>
 </section>
-    </main>
-  </>
-  );
-};
+        </main>
+      );
+    };
 
 export default VisaPage;

@@ -1,39 +1,60 @@
+'use client';
+
 import contactInfo from '../../../../data/contact-info.json';
 import Image from 'next/image';
 import { studyAbroadCountries } from '../../../lib/countries';
+import CountryRibbon from '@/components/home/CountryRibbon';
+import { useEffect, useRef } from 'react';
 
 const canadaCountry = studyAbroadCountries.find(country => country.name === 'Canada');
 
-export const metadata = {
-  title: "Study in Canada 2025 - Top Universities, Study Permit & Express Entry | IAEC Consultants",
-  description: "Study in Canada with IAEC expert guidance. 1M+ international students, world-class education. Get Study Permit, PGWP, Express Entry pathway to PR. 95% visa success rate.",
-  keywords: "study in Canada, Canada universities for international students, study permit Canada, Canada education system, IAEC Canada counseling, Canadian universities admission, PGWP work permit, Express Entry Canada, Toronto McGill UBC universities",
-  openGraph: {
-    title: "Study in Canada 2025 - Top Universities & Study Permit Guide | IAEC",
-    description: "Complete guide to studying in Canada. Expert counseling for top Canadian universities, study permit process, PGWP, and Express Entry pathways.",
-    images: ['/images/study-canada-hero.jpg'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "Study in Canada 2025 - Top Universities & Study Permit Guide | IAEC",
-    description: "Complete guide to studying in Canada. Expert counseling for top Canadian universities, study permit process, PGWP, and Express Entry pathways.",
-  }
-};
-
 const StudyAbroadCanadaPage = () => {
+  const applyNowRef = useRef<HTMLAnchorElement>(null);
+  const universitiesRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (e: MouseEvent) => {
+      e.preventDefault();
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href')?.substring(1);
+      const element = document.getElementById(targetId || '');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    const currentApplyNowRef = applyNowRef.current;
+    const currentUniversitiesRef = universitiesRef.current;
+
+    if (currentApplyNowRef) {
+      currentApplyNowRef.addEventListener('click', handleScroll);
+    }
+    if (currentUniversitiesRef) {
+      currentUniversitiesRef.addEventListener('click', handleScroll);
+    }
+
+    return () => {
+      if (currentApplyNowRef) {
+        currentApplyNowRef.removeEventListener('click', handleScroll);
+      }
+      if (currentUniversitiesRef) {
+        currentUniversitiesRef.removeEventListener('click', handleScroll);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
-                  <Image
-                    src={canadaCountry?.heroImage || "/images/countries/canada.jpg"}
-                    alt="Study in Canada"
-                    layout="fill"
-                    objectFit="cover"
-                    className="z-0"
-                    priority
-                  />         
+<Image
+          src={canadaCountry?.heroImage || "/images/placeholders/default-country.png"}
+          alt="Study in Canada"
+          fill
+          style={{ objectFit: 'cover' }}
+          className="z-0"
+          priority
+        />         
           <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
       <div className="relative z-10 text-center text-white p-4 animate-fade-in text-shadow-md">
@@ -44,10 +65,10 @@ const StudyAbroadCanadaPage = () => {
           Your future in a land of opportunities.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="#apply-now"className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
+          <a href="#apply-now"ref={applyNowRef}className="btn-primary text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 bg-[#08bcb4] !text-white">
             Start Your Canada Journey
           </a>
-          <a href="#universities"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
+          <a href="#universities"ref={universitiesRef}className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors !text-white">
             View Top Universities
           </a>
         </div>
@@ -814,6 +835,11 @@ const StudyAbroadCanadaPage = () => {
       </section>
 
       {/* FAQ Section */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify([{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is PAL/TAL and why is it required for Canada study permit 2025?","acceptedAnswer":{"@type":"Answer","text":"Provincial/Territorial Attestation Letter (PAL/TAL) is a new requirement introduced in 2025 due to study permit caps. It confirms provincial capacity to accommodate new students."}},{"@type":"Question","name":"How much can I work while studying in Canada on study permit?","acceptedAnswer":{"@type":"Answer","text":"International students can work 20 hours per week during studies and full-time during scheduled breaks without requiring a separate work permit."}},{"@type":"Question","name":"What is PGWP and how long can I work after graduation?","acceptedAnswer":{"@type":"Answer","text":"Post-Graduation Work Permit allows you to work up to 3 years after graduation, depending on program length. It&apos;s your pathway to Express Entry and PR."}},{"@type":"Question","name":"How does Canadian education help with Express Entry and permanent residency?","acceptedAnswer":{"@type":"Answer","text":"Canadian education gives 15-30 CRS points, work experience adds 40-80 points. Combined with French proficiency, you get significant advantages in Express Entry draws."}},{"@type":"Question","name":"What is the cost of studying in Canada compared to other countries?","acceptedAnswer":{"@type":"Answer","text":"Canada offers affordable quality education with total costs CAD 35,000-75,000/year, significantly lower than USA and competitive with Australia and UK."}},{"@type":"Question","name":"Which Canadian provinces are best for international students?","acceptedAnswer":{"@type":"Answer","text":"Ontario (Toronto), Quebec (Montreal), British Columbia (Vancouver), and Alberta offer excellent universities, job opportunities, and provincial nomination programs for PR."}}]}, {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.iaecconsultants.in/"},{"@type":"ListItem","position":2,"name":"Study Abroad","item":"https://www.iaecconsultants.in/study-abroad"},{"@type":"ListItem","position":3,"name":"Canada","item":"https://www.iaecconsultants.in/study-abroad/canada"}]}]) }}
+/>
+
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -875,19 +901,17 @@ const StudyAbroadCanadaPage = () => {
               <a href="/contact"className="bg-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors border border-white">
                 Book Free Counselling
               </a>
-              <a href="/mock-test"className="border border-white/30 hover:bg-white/10 px-8 py-3 rounded-lg font-semibold !text-white">
-                Take Free Mock Test
-              </a>
+              
             </div>
             
             <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📞 Call Us</h3>
-                <p>{contactInfo.primary.mobile}</p>
+                <p><a href={`tel:${contactInfo.primary.mobile}`} className="!text-white">{contactInfo.primary.mobile}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📧 Email Us</h3>
-                <p>{contactInfo.primary.email}</p>
+                <p><a href={`mailto:${contactInfo.primary.email}`} className="!text-white">{contactInfo.primary.email}</a></p>
               </div>
               <div className="bg-white/10 p-6 rounded-xl">
                 <h3 className="text-lg font-bold mb-2">📍 Visit Us</h3>
@@ -897,6 +921,7 @@ const StudyAbroadCanadaPage = () => {
           </div>
         </div>
       </section>
+      <CountryRibbon autoScrollSpeed={1.2} pauseOnHover={true} />
     </div>
   );
 };
