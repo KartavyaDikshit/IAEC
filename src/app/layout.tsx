@@ -20,7 +20,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://iaecconsultants.in'),
+  metadataBase: new URL('https://www.iaecconsultants.in'),
   title: {
     default: "IAEC Consultants - Your Global Study Partner",
     template: "%s | IAEC Consultants"
@@ -55,7 +55,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://iaecconsultants.in',
     siteName: 'IAEC Consultants',
     title: 'IAEC Consultants - Your Global Study Partner',
     description: 'Leading overseas education consultancy since 2000. Expert guidance for study abroad programs with 95% visa success rate.',
@@ -74,52 +73,40 @@ export const metadata: Metadata = {
     description: 'Leading overseas education consultancy since 2000. Expert guidance for study abroad programs.',
     images: ['/images/twitter-image.jpg'],
   },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-    yahoo: 'your-yahoo-verification-code',
-  },
-  alternates: {
-    canonical: 'https://iaecconsultants.in',
-  },
   category: 'education',
 };
+
+import contactInfo from '../../data/contact-info.json';
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'EducationalOrganization',
-  name: 'IAEC Consultants',
+  name: contactInfo.company.name,
   description: 'Leading overseas education consultancy since 2000. Expert guidance for study abroad programs.',
-  url: 'https://iaecconsultants.in',
-  logo: 'https://iaecconsultants.in/images/iaec-logo.png',
-  foundingDate: '2000',
+  url: 'https://www.iaecconsultants.in',
+  logo: 'https://www.iaecconsultants.in/images/iaec-logo.png',
+  foundingDate: contactInfo.company.established,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Your Street Address',
-    addressLocality: 'Your City',
-    addressRegion: 'Your State',
-    postalCode: 'Your Postal Code',
+    streetAddress: contactInfo.branches.headOffice.address,
+    addressLocality: contactInfo.branches.headOffice.city,
+    addressRegion: contactInfo.branches.headOffice.state,
+    postalCode: '500029',
     addressCountry: 'IN'
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+91-your-phone-number',
+    telephone: contactInfo.primary.mobile,
     contactType: 'customer service',
     availableLanguage: ['English', 'Hindi', 'Telugu']
   },
-  sameAs: [
-    'https://facebook.com/your-page',
-    'https://twitter.com/your-handle',
-    'https://linkedin.com/company/your-company',
-    'https://instagram.com/your-handle'
-  ],
   service: {
     '@type': 'Service',
     name: 'Study Abroad Consultancy',
     description: 'Complete guidance for overseas education including university selection, application process, visa assistance, and pre-departure support.',
     provider: {
       '@type': 'EducationalOrganization',
-      name: 'IAEC Consultants'
+      name: contactInfo.company.name
     }
   }
 };

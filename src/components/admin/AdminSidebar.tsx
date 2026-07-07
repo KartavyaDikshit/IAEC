@@ -28,6 +28,11 @@ export default function AdminSidebar() {
             </Link>
           </li>
           <li>
+            <Link href="/admin/accreditations" className="block p-4 hover:bg-gray-700">
+              Accreditations (Image SEO)
+            </Link>
+          </li>
+          <li>
             <Link href="/admin/form-submissions" className="block p-4 hover:bg-gray-700">
               Form Submissions
             </Link>

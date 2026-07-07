@@ -56,8 +56,39 @@ const TestimonialsPage = () => {
     };
   }, []);
 
+  const generateSchema = () => {
+    if (testimonials.length === 0) return null;
+    
+    const schema = testimonials.map(testimonial => ({
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": testimonial.name
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": testimonial.rating || 5,
+        "bestRating": "5"
+      },
+      "reviewBody": testimonial.content || testimonial.quote,
+      "itemReviewed": {
+        "@type": "EducationalOrganization",
+        "name": "IAEC Consultants"
+      }
+    }));
+
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+    );
+  };
+
   return (
     <>
+      {generateSchema()}
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image

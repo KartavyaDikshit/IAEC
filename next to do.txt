@@ -1,0 +1,33 @@
+Issue 1:
+*Canonical tag points to non-www for every page*
+Fix: Each page must self-canonical to its own www URL. E.g. /study-abroad/australia → canonical: https://www.iaecconsultants.in/study-abroad/australia.
+
+Issue 2:
+Ye sab template codes hata de:
+<meta name="google-site-verification" content="your-google-verification-code"/
+
+Issue 3 :
+Blog page content is JavaScript-rendered only
+Google never see client side rendered pages. Isko static serve karna padega.
+
+Issue 4:
+*OG tags also point to homepage URL on every page*
+Dynamically set og:url to the current page's absolute URL in Next.js
+
+Issue 5:
+*Blog post URLs are numeric IDs (/blog/86, /blog/49)*
+Migrate to slug-based URLs: /blog/cheapest-countries-study-abroad-2026. Set up 301 redirects from old numeric URLs. Do this once — don't keep adding numeric posts.
+
+Issue 6
+*Accreditation images have no alt text (just generic labels)*
+Give us the ability to change the alt text in the admin
+
+Issue 7
+*Highest Priority - No structured data / schema visible in HTML source*
+Add: (1) Organization/LocalBusiness schema in global layout with offices, phone, social links. (2) FAQPage schema on country pages. (3) BreadcrumbList schema for deeper pages.
+
+Issue 8
+*No XML sitemap link verifiable from crawl*
+
+Issue 9
+*No testimonials with structured markup or review schema*

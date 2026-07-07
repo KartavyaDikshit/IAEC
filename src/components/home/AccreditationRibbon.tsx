@@ -2,15 +2,9 @@
 import Image from 'next/image';
 import { useRef, useEffect, useState, useCallback } from 'react';
 
-const accreditations = [
-  { src: '/images/certifications/cert1.jpg', alt: 'Accreditation 1' },
-  { src: '/images/certifications/cert2.jpg', alt: 'Accreditation 2' },
-  { src: '/images/certifications/cert3.jpg', alt: 'Accreditation 3' },
-  { src: '/images/certifications/cert4.jpg', alt: 'Accreditation 4' },
-  { src: '/images/certifications/cert5.jpg', alt: 'Accreditation 5' },
-  { src: '/images/certifications/Nafsa.jpeg', alt: 'Nafsa Accreditation' },
-  // Add more accreditations as needed
-];
+import accreditationsData from '../../../data/accreditations.json';
+
+const accreditations = accreditationsData;
 
 interface AccreditationRibbonProps {
   autoScrollSpeed?: number;

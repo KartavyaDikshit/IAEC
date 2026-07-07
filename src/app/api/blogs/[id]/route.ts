@@ -8,7 +8,13 @@ const sql = neon(process.env.NEON_DATABASE_URL!);
 export async function GET(req: NextRequest, { params }: any) {
   try {
     const { id } = params;
-    const blog = await sql`SELECT * FROM "Blog" WHERE id = ${parseInt(id)}`;
+    let blog;
+    
+    if (!isNaN(parseInt(id)) && /^\d+$/.test(id)) {
+      blog = await sql`SELECT * FROM "Blog" WHERE id = ${parseInt(id)}`;
+    } else {
+      blog = await sql`SELECT * FROM "Blog" WHERE slug = ${id}`;
+    }
 
     if (blog.length === 0) {
       return NextResponse.json({ message: 'Blog not found' }, { status: 404 });
@@ -31,14 +37,24 @@ export async function PUT(req: NextRequest, { params }: any) {
       return NextResponse.json({ message: 'Blog data is empty' }, { status: 400 });
     }
 
-    const { title, content, author, publishedAt } = updatedBlog;
-
-    const result = await sql`
-      UPDATE "Blog"
-      SET title = ${title}, content = ${content}, author = ${author}, "publishedAt" = ${publishedAt}, "updatedAt" = NOW()
-      WHERE id = ${parseInt(id)}
-      RETURNING id, title, content, author, "publishedAt", "createdAt", "updatedAt";
-    `;
+    const { title, content, author, publishedAt, slug } = updatedBlog;
+    
+    let result;
+    if (!isNaN(parseInt(id)) && /^\d+$/.test(id)) {
+      result = await sql`
+        UPDATE "Blog"
+        SET title = ${title}, slug = COALESCE(${slug}, slug), content = ${content}, author = ${author}, "publishedAt" = ${publishedAt}, "updatedAt" = NOW()
+        WHERE id = ${parseInt(id)}
+        RETURNING id, title, slug, content, author, "publishedAt", "createdAt", "updatedAt";
+      `;
+    } else {
+      result = await sql`
+        UPDATE "Blog"
+        SET title = ${title}, slug = COALESCE(${slug}, slug), content = ${content}, author = ${author}, "publishedAt" = ${publishedAt}, "updatedAt" = NOW()
+        WHERE slug = ${id}
+        RETURNING id, title, slug, content, author, "publishedAt", "createdAt", "updatedAt";
+      `;
+    }
 
     if (result.length === 0) {
       return NextResponse.json({ message: 'Blog not found' }, { status: 404 });
@@ -59,11 +75,20 @@ export async function DELETE(req: NextRequest, { params }: any) {
   try {
     const { id } = params;
 
-    const result = await sql`
-      DELETE FROM "Blog"
-      WHERE id = ${parseInt(id)}
-      RETURNING id;
-    `;
+    let result;
+    if (!isNaN(parseInt(id)) && /^\d+$/.test(id)) {
+      result = await sql`
+        DELETE FROM "Blog"
+        WHERE id = ${parseInt(id)}
+        RETURNING id;
+      `;
+    } else {
+      result = await sql`
+        DELETE FROM "Blog"
+        WHERE slug = ${id}
+        RETURNING id;
+      `;
+    }
 
     if (result.length === 0) {
       return NextResponse.json({ message: 'Blog not found' }, { status: 404 });

@@ -33,12 +33,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'Blog data is empty' }, { status: 400 });
     }
 
-    const { title, content, author, publishedAt, imageUrl } = newBlog;
+    const { title, content, author, publishedAt, imageUrl, slug } = newBlog;
+    const finalSlug = slug || title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 
     const result = await sql`
-      INSERT INTO "Blog" (title, content, author, "publishedAt", "imageUrl")
-      VALUES (${title}, ${content}, ${author}, ${publishedAt}, ${imageUrl})
-      RETURNING id, title, content, author, "publishedAt", "imageUrl";
+      INSERT INTO "Blog" (title, slug, content, author, "publishedAt", "imageUrl")
+      VALUES (${title}, ${finalSlug}, ${content}, ${author}, ${publishedAt}, ${imageUrl})
+      RETURNING id, title, slug, content, author, "publishedAt", "imageUrl";
     `;
 
     const createdBlog = result[0];

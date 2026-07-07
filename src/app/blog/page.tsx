@@ -6,6 +6,7 @@ import Image from 'next/image'
 interface Blog {
   id: string
   title: string
+  slug?: string
   content: string
   author: string
   imageUrl: string
@@ -104,7 +105,7 @@ export default function BlogPage() {
                 )}
                 <div className="p-6">
                   <h2 className="text-xl font-bold text-[#1a202c] mb-3 hover:text-[#08bcb4] transition-colors">
-                    <Link href={`/blog/${blog.id}`}>
+                    <Link href={`/blog/${blog.slug || blog.id}`}>
                       {blog.title}
                     </Link>
                   </h2>

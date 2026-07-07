@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { redirect } from 'next/navigation';
+import { redirect, permanentRedirect } from 'next/navigation';
 import { neon } from '@neondatabase/serverless';
 import Image from 'next/image';
 import SocialShareIcons from '@/components/SocialShareIcons';
@@ -11,6 +11,7 @@ const sql = NEON_DATABASE_URL ? neon(NEON_DATABASE_URL) : null;
 interface Blog {
   id: string | number;
   title: string;
+  slug?: string;
   content: string;
   author?: string;
   publishedAt?: string;
@@ -18,21 +19,29 @@ interface Blog {
 }
 
 export default async function BlogPostPage({ params }: any) {
-  const { id } = await params;
-  const blogId = parseInt(id);
-
-  if (isNaN(blogId)) {
-    redirect('/blog');
-  }
+  const { slug } = await params;
 
   let blog: Blog | null = null;
 
   // 1. Try fetching from Database
   if (sql) {
     try {
-      const result = await sql`SELECT * FROM "Blog" WHERE id = ${blogId}`;
+      let result;
+      const isNumeric = !isNaN(parseInt(slug)) && /^\d+$/.test(slug);
+      
+      if (isNumeric) {
+        result = await sql`SELECT * FROM "Blog" WHERE id = ${parseInt(slug)}`;
+      } else {
+        result = await sql`SELECT * FROM "Blog" WHERE slug = ${slug}`;
+      }
+      
       if (result.length > 0) {
         blog = result[0] as Blog;
+        
+        // Permanent 301 redirect for old numeric IDs
+        if (isNumeric && blog.slug) {
+          permanentRedirect(`/blog/${blog.slug}`);
+        }
       }
     } catch (error) {
       console.error('Error fetching blog post from DB:', error);
@@ -43,7 +52,7 @@ export default async function BlogPostPage({ params }: any) {
     redirect('/blog');
   }
 
-  const blogUrl = `https://iaecconsultants.in/blog/${blog.id}`;
+  const blogUrl = `https://iaecconsultants.in/blog/${blog.slug || blog.id}`;
 
   return (
     <div className="container mx-auto px-4 py-16">

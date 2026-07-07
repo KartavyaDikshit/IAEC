@@ -14,6 +14,7 @@ export default function CreateBlog() {
   const [success, setSuccess] = useState(false)
   const [formData, setFormData] = useState({
     title: '',
+    slug: '',
     content: '',
     author: 'Admin', // Hardcoded for now, can be dynamic later
   })
@@ -60,6 +61,7 @@ export default function CreateBlog() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: formData.title,
+          slug: formData.slug || undefined,
           content: formData.content,
           author: formData.author,
           imageUrl,
@@ -123,6 +125,21 @@ export default function CreateBlog() {
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
               required
             />
+          </div>
+
+          <div>
+            <label htmlFor="slug" className="block text-sm font-medium text-gray-700 mb-2">
+              URL Slug (optional)
+            </label>
+            <input
+              type="text"
+              id="slug"
+              value={formData.slug}
+              onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
+              placeholder="e.g. my-awesome-blog-post"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08bcb4] focus:border-[#08bcb4]"
+            />
+            <p className="mt-1 text-sm text-gray-500">Leave empty to auto-generate from title.</p>
           </div>
 
           <div>

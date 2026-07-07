@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /admin-login
-Sitemap: https://iaecconsultants.in/sitemap.xml
+Sitemap: https://www.iaecconsultants.in/sitemap.xml
